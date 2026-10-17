@@ -40,9 +40,9 @@ export default function TopBar() {
 
   return (
     <div className="w-full bg-paper-tint border-b border-border-rule text-on-surface select-none transition-colors">
-      <Container className="h-10 flex items-center justify-between gap-3 text-xs">
+      <Container className="min-h-10 py-1 flex items-center justify-between gap-2 sm:gap-3 text-xs flex-wrap md:flex-nowrap">
         {/* Left: Dynamic Indian Dateline & Live Market Ticker */}
-        <div className="flex items-center gap-3 overflow-hidden">
+        <div className="flex items-center gap-2 sm:gap-3 overflow-hidden min-w-0">
           {/* Dateline */}
           <span className="flex items-center gap-1.5 font-inter text-secondary text-[11px] sm:text-xs truncate">
             <Calendar className="w-3.5 h-3.5 text-secondary shrink-0 hidden xs:inline" />
@@ -52,7 +52,7 @@ export default function TopBar() {
           <span className="hidden lg:inline-block h-3.5 w-px bg-border-rule shrink-0"></span>
 
           {/* Market Ticker */}
-          <div className="hidden sm:flex items-center gap-1.5 bg-paper-subtle px-2.5 py-0.5 border border-border-rule font-inter text-[11px] shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 bg-paper-subtle px-2 py-0.5 border border-border-rule font-inter text-[11px] shrink-0">
             <span className="font-bold text-secondary uppercase text-[10px]">
               {t('market')}:
             </span>
@@ -71,7 +71,7 @@ export default function TopBar() {
         </div>
 
         {/* Right: Language Switcher, E-Paper, About, Contact, Social Icons, Theme Toggle */}
-        <div className="flex items-center gap-2 sm:gap-3.5 font-inter text-xs shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3.5 font-inter text-xs shrink-0 justify-end">
           {/* Theme Toggle Button */}
           <ThemeToggle size="sm" />
 

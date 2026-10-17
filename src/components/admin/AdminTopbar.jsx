@@ -103,7 +103,7 @@ export default function AdminTopbar({ onOpenMobile }) {
       </div>
 
       {/* Middle: Global Admin Quick Search */}
-      <form onSubmit={handleSearchSubmit} className="flex-1 max-w-md hidden md:block">
+      <form onSubmit={handleSearchSubmit} className="flex-1 max-w-xs xl:max-w-md hidden md:block min-w-0 mx-2">
         <div className="relative">
           <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
           <input

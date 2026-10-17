@@ -58,16 +58,13 @@ export default function Header({ onOpenMobileMenu }) {
             </button>
           </div>
 
-          {/* Left / Center: Brand Logo & Tagline */}
+          {/* Left / Center: Brand Logo */}
           <div className="flex flex-col justify-center flex-1 lg:flex-none">
             <BrandLogo variant="full" theme="auto" />
-            <div className="hidden lg:block font-mukta text-xs text-secondary tracking-wide mt-1 pl-1">
-              {t('tagline')}
-            </div>
           </div>
 
           {/* Desktop Center: Prominent Category-Aware Search Bar */}
-          <div className="hidden lg:block flex-1 max-w-[460px]">
+          <div className="hidden lg:block flex-1 max-w-xs xl:max-w-sm 2xl:max-w-[460px] min-w-0">
             <form
               onSubmit={handleSearchSubmit}
               className="flex items-center border border-border-heavy bg-paper-canvas overflow-hidden shadow-xs focus-within:ring-1 focus-within:ring-primary-container"
@@ -76,7 +73,7 @@ export default function Header({ onOpenMobileMenu }) {
                 aria-label={t('all_categories')}
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-paper-tint text-on-surface font-inter text-xs px-2.5 py-2 border-r border-border-rule outline-none cursor-pointer"
+                className="bg-paper-tint text-on-surface font-inter text-xs px-2.5 py-2 border-r border-border-rule outline-none cursor-pointer shrink-0"
               >
                 <option value="all">{t('all_categories')}</option>
                 {categories.slice(0, 8).map((cat) => (
@@ -91,7 +88,7 @@ export default function Header({ onOpenMobileMenu }) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('search_placeholder')}
-                className="w-full px-3 py-2 font-inter text-xs text-on-surface placeholder:text-secondary focus:outline-none bg-transparent"
+                className="w-full px-3 py-2 font-inter text-xs text-on-surface placeholder:text-secondary focus:outline-none bg-transparent min-w-0"
               />
 
               <button
@@ -105,9 +102,9 @@ export default function Header({ onOpenMobileMenu }) {
           </div>
 
           {/* Desktop Right: Trending Topics & Live TV CTA */}
-          <div className="hidden md:flex items-center gap-3 xl:gap-4 shrink-0">
+          <div className="hidden md:flex items-center gap-2.5 xl:gap-3.5 shrink-0">
             {/* Trending tags stack */}
-            <div className="hidden xl:flex flex-col items-end gap-1">
+            <div className="hidden 2xl:flex flex-col items-end gap-1">
               <span className="font-inter text-[10px] uppercase tracking-wider text-secondary flex items-center gap-1 font-bold">
                 <TrendingUp className="w-3 h-3 text-primary-container" />
                 {t('trending_topics')}

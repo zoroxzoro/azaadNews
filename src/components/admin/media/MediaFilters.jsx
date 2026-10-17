@@ -38,9 +38,9 @@ export default function MediaFilters({
   return (
     <div className="bg-paper-canvas border border-border-rule shadow-xs p-4 space-y-3.5">
       {/* Search Input Row */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
+      <div className="flex flex-col xl:flex-row items-stretch xl:items-center gap-3">
         {/* Search Input */}
-        <div className="relative flex-1">
+        <div className="relative flex-1 min-w-0">
           <Search className="w-4 h-4 text-secondary absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="search"

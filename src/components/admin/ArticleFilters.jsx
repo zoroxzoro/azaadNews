@@ -88,7 +88,7 @@ export default function ArticleFilters({
 
       {/* Status Filter Tabs & Clear Filter button */}
       <div className="pt-2 border-t border-border-rule flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+        <div className="flex items-center gap-1.5 flex-wrap py-0.5">
           <button
             type="button"
             onClick={() => onStatusChange('all')}

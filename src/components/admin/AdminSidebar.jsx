@@ -129,9 +129,7 @@ export default function AdminSidebar({
               </div>
             ) : (
               <div className="w-full flex justify-center">
-                <div className="w-8 h-8 rounded bg-primary-container text-white flex items-center justify-center font-mukta font-extrabold text-sm">
-                  आस
-                </div>
+                <BrandLogo variant="symbol" theme="auto" />
               </div>
             )}
 

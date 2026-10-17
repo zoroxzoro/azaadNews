@@ -71,7 +71,7 @@ export default function CategoryNavbar() {
     >
       <Container className="flex items-center justify-between">
         {/* Horizontal Navigation List */}
-        <div className="flex items-center overflow-x-auto no-scrollbar whitespace-nowrap">
+        <div className="flex items-center overflow-x-auto no-scrollbar whitespace-nowrap min-w-0 flex-1">
           {primaryNavItems.map((item) => {
             const active = isCurrentActive(item);
             return (
