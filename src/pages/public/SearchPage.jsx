@@ -1,0 +1,430 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
+import Container from '../../components/common/Container';
+import {
+  SearchResultCard,
+  SearchFilters,
+  Pagination,
+  ArticleSidebar,
+} from '../../components/news';
+import { mockNews, getTrendingNews } from '../../data/mockNews';
+import { categories } from '../../data/categories';
+import { searchNews } from '../../utils/searchNews';
+import { filterNews } from '../../utils/filterNews';
+import { paginateNews } from '../../utils/paginateNews';
+import { Search, X, Sparkles, AlertCircle, TrendingUp, Lightbulb, SlidersHorizontal, Check } from 'lucide-react';
+
+export default function SearchPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Query parameter values
+  const query = searchParams.get('q') || '';
+  const activeCategory = searchParams.get('category') || 'all';
+  const activeLanguage = searchParams.get('language') || 'all';
+  const activeDate = searchParams.get('date') || 'all';
+  const customFrom = searchParams.get('from') || '';
+  const customTo = searchParams.get('to') || '';
+  const contentType = searchParams.get('content') || 'all';
+  const activeSort = searchParams.get('sort') || (query ? 'relevance' : 'newest');
+  const currentPage = parseInt(searchParams.get('page') || '1', 10);
+
+  // Local state for the search input so user can type freely before hitting Enter or clicking Search
+  const [inputValue, setInputValue] = useState(query);
+
+  // Keep input in sync if URL query changes (e.g., browser back/forward or clicking tags)
+  useEffect(() => {
+    setInputValue(query);
+  }, [query]);
+
+  // Suggested trending keywords for quick search
+  const trendingTags = [
+    'सेमीकंडक्टर',
+    'बजट 2025',
+    'उत्तर प्रदेश',
+    'IPL 2025',
+    'संसद',
+    'अर्थव्यवस्था',
+    'तकनीक',
+  ];
+
+  // Helper to update URL search parameters
+  const updateParams = (newParams) => {
+    const current = Object.fromEntries(searchParams.entries());
+    const merged = { ...current, ...newParams };
+
+    // Clean up empty or default values
+    Object.keys(merged).forEach((key) => {
+      if (!merged[key] || merged[key] === 'all' || (key === 'page' && merged[key] === '1')) {
+        if (key !== 'q') {
+          delete merged[key];
+        }
+      }
+    });
+
+    setSearchParams(merged);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e?.preventDefault();
+    const trimmed = inputValue.trim();
+    const newParams = {
+      q: trimmed,
+      page: '1',
+    };
+    if (trimmed) {
+      // Default to relevance sort when searching
+      if (!searchParams.get('sort')) {
+        newParams.sort = 'relevance';
+      }
+    }
+    updateParams(newParams);
+  };
+
+  const handleTagClick = (tag) => {
+    setInputValue(tag);
+    updateParams({ q: tag, page: '1', sort: 'relevance' });
+  };
+
+  const handleClearSearch = () => {
+    setInputValue('');
+    updateParams({ q: '', page: '1' });
+  };
+
+  const handleCategoryChange = (catSlug) => {
+    updateParams({ category: catSlug, page: '1' });
+  };
+
+  const handleLanguageChange = (lang) => {
+    updateParams({ language: lang, page: '1' });
+  };
+
+  const handleDateChange = (date) => {
+    updateParams({ date, page: '1' });
+  };
+
+  const handleCustomDateChange = (from, to) => {
+    updateParams({ from, to, page: '1' });
+  };
+
+  const handleContentTypeChange = (type) => {
+    updateParams({ content: type, page: '1' });
+  };
+
+  const handleSortChange = (sort) => {
+    updateParams({ sort, page: '1' });
+  };
+
+  const handlePageChange = (newPage) => {
+    updateParams({ page: String(newPage) });
+    window.scrollTo({ top: 280, behavior: 'smooth' });
+  };
+
+  const handleClearAllFilters = () => {
+    const params = {};
+    if (query) params.q = query;
+    setSearchParams(params);
+  };
+
+  // 1. First run query-based scoring search
+  const searchedArticles = useMemo(() => {
+    if (!query.trim()) {
+      return mockNews;
+    }
+    return searchNews(mockNews, query);
+  }, [query]);
+
+  // Compute category facet counts for the current search results (before category filtering)
+  const categoryCounts = useMemo(() => {
+    const counts = { all: searchedArticles.length };
+    searchedArticles.forEach((article) => {
+      const cat = article.category;
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return counts;
+  }, [searchedArticles]);
+
+  // 2. Then apply faceted filters (Category, Language, Date, Content Type, Sorting)
+  const filteredResults = useMemo(() => {
+    return filterNews(searchedArticles, {
+      category: activeCategory,
+      language: activeLanguage,
+      dateRange: activeDate,
+      customFrom,
+      customTo,
+      contentType,
+      sortBy: activeSort,
+    });
+  }, [searchedArticles, activeCategory, activeLanguage, activeDate, customFrom, customTo, contentType, activeSort]);
+
+  // 3. Paginate results
+  const pageSize = 8;
+  const paginatedResults = useMemo(() => {
+    return paginateNews(filteredResults, currentPage, pageSize);
+  }, [filteredResults, currentPage, pageSize]);
+
+  // Trending stories for sidebar
+  const trendingArticles = useMemo(() => {
+    return getTrendingNews(5);
+  }, []);
+
+  const hasActiveFilters =
+    activeCategory !== 'all' ||
+    activeLanguage !== 'all' ||
+    activeDate !== 'all' ||
+    customFrom !== '' ||
+    customTo !== '' ||
+    contentType !== 'all' ||
+    (query && activeSort !== 'relevance') ||
+    (!query && activeSort !== 'newest');
+
+  return (
+    <div className="bg-paper-canvas min-h-screen py-4 sm:py-6">
+      <Container className="px-3 sm:px-6 space-y-6">
+        {/* HERO COMMAND BAR (Stitch Search Header) */}
+        <div className="bg-paper-canvas border border-border-rule p-4 sm:p-6 shadow-xs">
+          <div className="max-w-4xl mx-auto space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary-container" />
+              <h1 className="font-mukta text-xl sm:text-2xl font-bold text-on-surface">
+                समाचार एवं अभिलेखागार खोज (Search Portal)
+              </h1>
+            </div>
+
+            {/* Large Search Input */}
+            <form onSubmit={handleSearchSubmit} className="relative flex items-center">
+              <div className="relative flex-1 flex items-center">
+                <Search className="w-5 h-5 absolute left-3.5 text-secondary pointer-events-none" />
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  placeholder="शीर्षक, विषय, कीवर्ड, शहर या रिपोर्टर खोजें (उदा. सेमीकंडक्टर, बजट)..."
+                  className="w-full pl-11 pr-10 py-3 bg-paper-tint border-2 border-border-rule text-sm sm:text-base font-inter text-on-surface placeholder-secondary focus:outline-none focus:border-primary-container transition-colors"
+                />
+                {inputValue && (
+                  <button
+                    type="button"
+                    onClick={handleClearSearch}
+                    className="absolute right-3 p-1 text-secondary hover:text-on-surface cursor-pointer"
+                    title="साफ़ करें"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                className="px-6 py-3 bg-primary-container text-white font-mukta font-bold text-base hover:bg-primary transition-colors cursor-pointer shrink-0 ml-2"
+              >
+                खोजें
+              </button>
+            </form>
+
+            {/* Trending Quick Search Tag Pills */}
+            <div className="flex items-center gap-2 flex-wrap pt-1 text-xs font-inter">
+              <span className="text-secondary font-medium flex items-center gap-1">
+                <TrendingUp className="w-3.5 h-3.5 text-primary-container" />
+                ट्रेंडिंग खोजें:
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {trendingTags.map((tag) => (
+                  <button
+                    key={tag}
+                    onClick={() => handleTagClick(tag)}
+                    className="px-2.5 py-1 bg-paper-tint hover:bg-paper-subtle border border-border-rule text-on-surface text-xs rounded transition-colors cursor-pointer"
+                  >
+                    #{tag}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SEARCH META BAR: Stats, Language Segmented Control, Sort Selector */}
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-paper-tint border border-border-rule px-4 py-2.5 text-xs font-inter">
+          {/* Results count text */}
+          <div className="flex items-center gap-2 text-on-surface">
+            {query ? (
+              <span>
+                परिणाम: "<strong>{query}</strong>" के लिए कुल{' '}
+                <strong className="text-primary-container">{filteredResults.length}</strong> समाचार मिले
+              </span>
+            ) : (
+              <span>
+                कुल <strong>{filteredResults.length}</strong> समाचार उपलब्ध
+              </span>
+            )}
+          </div>
+
+          <div className="flex items-center gap-4 flex-wrap">
+            {/* Language Segmented Control */}
+            <div className="inline-flex rounded border border-border-rule overflow-hidden bg-paper-canvas">
+              <button
+                onClick={() => handleLanguageChange('all')}
+                className={`px-3 py-1 font-inter text-xs transition-colors cursor-pointer ${
+                  activeLanguage === 'all'
+                    ? 'bg-primary-container text-white font-bold'
+                    : 'text-secondary hover:text-on-surface'
+                }`}
+              >
+                सभी
+              </button>
+              <button
+                onClick={() => handleLanguageChange('hi')}
+                className={`px-3 py-1 font-inter text-xs transition-colors cursor-pointer border-l border-border-rule ${
+                  activeLanguage === 'hi'
+                    ? 'bg-primary-container text-white font-bold'
+                    : 'text-secondary hover:text-on-surface'
+                }`}
+              >
+                हिन्दी
+              </button>
+              <button
+                onClick={() => handleLanguageChange('en')}
+                className={`px-3 py-1 font-inter text-xs transition-colors cursor-pointer border-l border-border-rule ${
+                  activeLanguage === 'en'
+                    ? 'bg-primary-container text-white font-bold'
+                    : 'text-secondary hover:text-on-surface'
+                }`}
+              >
+                English
+              </button>
+            </div>
+
+            {/* Sorting Dropdown */}
+            <div className="flex items-center gap-1.5">
+              <span className="text-secondary">क्रमबद्ध:</span>
+              <select
+                value={activeSort}
+                onChange={(e) => handleSortChange(e.target.value)}
+                className="bg-paper-canvas border border-border-rule text-on-surface text-xs font-inter py-1 px-2 focus:outline-none focus:border-border-heavy cursor-pointer"
+              >
+                {query && <option value="relevance">प्रासंगिकता (Most Relevant)</option>}
+                <option value="newest">नवीनतम (Newest First)</option>
+                <option value="oldest">सबसे पुराना (Oldest First)</option>
+                <option value="popular">सर्वाधिक पढ़ा गया (Most Read)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* FACET BAR FILTERS */}
+        <SearchFilters
+          activeCategory={activeCategory}
+          activeLanguage={activeLanguage}
+          activeDate={activeDate}
+          customFrom={customFrom}
+          customTo={customTo}
+          contentType={contentType}
+          categoryCounts={categoryCounts}
+          onCategoryChange={handleCategoryChange}
+          onLanguageChange={handleLanguageChange}
+          onDateChange={handleDateChange}
+          onCustomDateChange={handleCustomDateChange}
+          onContentTypeChange={handleContentTypeChange}
+          onClearFilters={handleClearAllFilters}
+          hasActiveFilters={hasActiveFilters}
+        />
+
+        {/* MAIN RESULTS FEED & SIDEBAR (BROADSHEET 2-COLUMN) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Main 8-Column Editorial Feed */}
+          <div className="lg:col-span-8 space-y-4">
+            {filteredResults.length === 0 ? (
+              /* POLISHED ZERO RESULTS EMPTY STATE (from Stitch) */
+              <div className="bg-paper-tint border-2 border-dashed border-border-rule p-6 sm:p-10 text-center space-y-5">
+                <div className="w-14 h-14 mx-auto rounded-full bg-ticker-tint flex items-center justify-center text-breaking-crimson">
+                  <AlertCircle className="w-7 h-7" />
+                </div>
+
+                <div className="space-y-1">
+                  <span className="text-xs uppercase tracking-widest text-breaking-crimson font-bold font-inter">
+                    शून्य परिणाम स्थिति (Zero Results)
+                  </span>
+                  <h3 className="font-mukta text-xl sm:text-2xl font-bold text-on-surface">
+                    {query
+                      ? `'${query}' के लिए कोई परिणाम नहीं मिला`
+                      : 'कोई समाचार मेल नहीं खाता'}
+                  </h3>
+                  <p className="font-inter text-xs sm:text-sm text-secondary max-w-md mx-auto">
+                    आपके द्वारा खोजे गए शब्द या चुने गए फ़िल्टर से मेल खाते लेख हमारे संग्रह में उपलब्ध नहीं हैं। कृपया नीचे दिए गए सुझावों की सहायता लें:
+                  </p>
+                </div>
+
+                {/* Helpful Checklist */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-lg mx-auto bg-paper-canvas border border-border-rule p-4 text-xs font-inter">
+                  <div className="flex items-start gap-2 text-on-surface">
+                    <span className="text-primary-container font-bold">✓</span>
+                    <span>वर्तनी (Spelling) की जांच करें या वैकल्पिक शब्द लिखें।</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-on-surface">
+                    <span className="text-primary-container font-bold">✓</span>
+                    <span>लगाए गए फ़िल्टर साफ़ करके पुनः खोजें।</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-on-surface">
+                    <span className="text-primary-container font-bold">✓</span>
+                    <span>अधिक सामान्य व संक्षिप्त कीवर्ड का प्रयोग करें।</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-on-surface">
+                    <span className="text-primary-container font-bold">✓</span>
+                    <span>वर्तमान में ट्रेंडिंग विषयों की सूची ब्राउज़ करें।</span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  {hasActiveFilters && (
+                    <button
+                      onClick={handleClearAllFilters}
+                      className="px-4 py-2 bg-primary-container text-white font-inter text-xs font-bold hover:bg-primary transition-colors cursor-pointer"
+                    >
+                      फ़िल्टर हटाएं एवं पुनः प्रयास करें
+                    </button>
+                  )}
+                  <Link
+                    to="/"
+                    className="px-4 py-2 bg-paper-canvas border border-border-rule text-on-surface font-inter text-xs hover:border-border-heavy transition-colors"
+                  >
+                    मुख्य पृष्ठ पर वापस जाएं
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              /* ACTIVE RESULTS CONTAINER */
+              <div className="space-y-4">
+                {paginatedResults.items.map((article, index) => (
+                  <SearchResultCard
+                    key={article.id}
+                    article={article}
+                    query={query}
+                    isTopMatch={index === 0 && currentPage === 1 && !!query}
+                  />
+                ))}
+
+                {/* Pagination */}
+                {paginatedResults.totalPages > 1 && (
+                  <div className="pt-4">
+                    <Pagination
+                      currentPage={currentPage}
+                      totalPages={paginatedResults.totalPages}
+                      onPageChange={handlePageChange}
+                    />
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Right 4-Column Broadsheet Reading Companion Sidebar */}
+          <div className="lg:col-span-4">
+            <div className="sticky top-20">
+              <ArticleSidebar trendingArticles={trendingArticles} />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
+}

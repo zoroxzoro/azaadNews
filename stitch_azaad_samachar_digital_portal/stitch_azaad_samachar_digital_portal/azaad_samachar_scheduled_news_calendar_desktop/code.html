@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+
+<html lang="hi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Mukta:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#e5bdbb", "tertiary-fixed": "#d9e3f9", "on-secondary": "#ffffff", "surface": "#f9f9ff", "background": "#f9f9ff", "on-secondary-container": "#636262", "on-primary-fixed-variant": "#92001c", "on-surface": "#111c2c", "live-pulse": "#E53E3E", "border-heavy": "#1A1A1A", "error": "#ba1a1a", "inverse-primary": "#ffb3b1", "on-surface-variant": "#5c403f", "on-tertiary-fixed": "#121c2c", "outline": "#906f6e", "on-primary-container": "#ffdad8", "on-tertiary-container": "#d9e3f9", "surface-variant": "#d8e3f9", "surface-tint": "#bf0229", "primary-fixed": "#ffdad8", "primary-container": "#c8102e", "primary-fixed-dim": "#ffb3b1", "tertiary-fixed-dim": "#bdc7dc", "breaking-crimson": "#DA251D", "on-tertiary": "#ffffff", "on-primary-fixed": "#410007", "inverse-surface": "#263142", "surface-bright": "#f9f9ff", "on-tertiary-fixed-variant": "#3d4759", "on-secondary-fixed-variant": "#474746", "surface-container-high": "#dee9ff", "surface-container-highest": "#d8e3f9", "surface-dim": "#cfdaf1", "surface-container-lowest": "#ffffff", "surface-container-low": "#f0f3ff", "border-rule": "#E2E8F0", "on-primary": "#ffffff", "secondary-container": "#e2dfde", "secondary-fixed-dim": "#c8c6c5", "error-container": "#ffdad6", "paper-subtle": "#EDF2F7", "paper-tint": "#F8F9FA", "on-error-container": "#93000a", "surface-container": "#e7eeff", "ticker-tint": "#FCE9E9", "tertiary-container": "#5b6578", "inverse-on-surface": "#ebf1ff", "on-error": "#ffffff", "secondary": "#5f5e5e", "on-secondary-fixed": "#1c1b1b", "paper-canvas": "#FFFFFF", "tertiary": "#434d5f", "on-background": "#111c2c", "primary": "#9e001f", "secondary-fixed": "#e5e2e1" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.25rem", "margin-desktop": "2.5rem", "margin": "1rem", "space-sm": "0.5rem", "space-xl": "2rem", "space-xs": "0.25rem", "gutter-desktop": "1.5rem", "space-md": "0.75rem", "gutter": "1rem" }, "fontFamily": { "body-sm": [ "Inter" ], "label-md": [ "Inter" ], "label-sm": [ "Inter" ], "label-lg": [ "Inter" ], "headline-md": [ "Mukta" ], "display-xl": [ "Mukta" ], "headline-sm": [ "Mukta" ], "headline-lg-mobile": [ "Mukta" ], "headline-lg": [ "Mukta" ], "body-md": [ "Inter" ], "body-lg": [ "Inter" ], "display-xl-mobile": [ "Mukta" ] }, "fontSize": { "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "label-sm": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" } ], "label-lg": [ "14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "headline-md": [ "22px", { "lineHeight": "28px", "fontWeight": "700" } ], "display-xl": [ "44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "fontWeight": "600" } ], "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "fontWeight": "700" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "body-lg": [ "17px", { "lineHeight": "28px", "fontWeight": "400" } ], "display-xl-mobile": [ "30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-paper-canvas border-r border-border-rule z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-5 border-b border-border-rule flex items-center justify-between bg-paper-canvas"><div class="flex items-center gap-2"><div class="w-8 h-8 bg-primary-container text-on-primary flex items-center justify-center rounded"><span class="font-headline-md text-headline-md font-bold leading-none">आ</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface leading-tight">आज़ाद समाचार</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">न्यूज़रूम CMS</span></div></div><button aria-label="Toggle sidebar" class="text-secondary hover:text-on-surface lg:hidden" type="button"><span class="material-symbols-outlined text-[20px]">menu_open</span></button></div><div class="px-4 py-3 bg-paper-tint border-b border-border-rule"><div class="flex items-center justify-between text-on-surface"><span class="font-label-sm text-label-sm font-bold text-secondary uppercase">डेस्क स्थिति</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-live-pulse font-bold"><span class="w-2 h-2 rounded-full bg-live-pulse animate-pulse"></span>लाइव सक्रिय</span></div><div class="mt-1 text-on-surface font-body-sm text-body-sm truncate"><span class="font-medium">शिफ्ट:</span> मॉर्निंग 06:00 - 14:00</div></div><nav class="flex flex-col p-3 gap-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold"><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-headline-sm text-headline-sm">डैशबोर्ड</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="all-news" href="#"><span class="material-symbols-outlined text-[20px]">article</span><span class="font-headline-sm text-headline-sm">सभी समाचार</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="write-news" href="#"><span class="material-symbols-outlined text-[20px]">edit_square</span><span class="font-headline-sm text-headline-sm">नया समाचार</span></a><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded transition-colors bg-primary-container text-on-primary font-bold" data-path="scheduled" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span class="font-headline-sm text-headline-sm">शेड्यूल्ड</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[20px]">category</span><span class="font-headline-sm text-headline-sm">श्रेणियां</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="media" href="#"><span class="material-symbols-outlined text-[20px]">photo_library</span><span class="font-headline-sm text-headline-sm">मीडिया</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="ai-proof" href="#"><span class="material-symbols-outlined text-[20px]">spellcheck</span><span class="font-headline-sm text-headline-sm">AI वर्तनी</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="social" href="#"><span class="material-symbols-outlined text-[20px]">share</span><span class="font-headline-sm text-headline-sm">सोशल लिंक्स</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-headline-sm text-headline-sm">सेटिंग्स</span></a></nav></div><div class="p-3 border-t border-border-rule bg-paper-tint"><div class="flex items-center gap-3 px-2 py-1.5"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-on-surface truncate">राजेश कुमार</span><span class="font-label-sm text-label-sm text-secondary truncate">मुख्य संपादक</span></div><span class="material-symbols-outlined text-secondary text-[18px] cursor-pointer hover:text-on-surface">logout</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-paper-canvas border-b border-border-rule z-40 flex items-center justify-between px-6"><div class="flex items-center gap-4 flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">search</span><input class="w-full h-10 pl-10 pr-4 bg-paper-subtle border border-border-rule rounded text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-border-heavy transition-colors placeholder:text-secondary" placeholder="समाचार, आर्काइव, या टैग खोजें (Ctrl + K)..." type="search"/></div></div><div class="flex items-center gap-3"><button class="inline-flex items-center gap-2 px-3 py-1.5 bg-ticker-tint border border-breaking-crimson text-breaking-crimson rounded hover:bg-primary-container hover:text-on-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px] animate-pulse">campaign</span><span class="font-label-md text-label-md font-bold uppercase tracking-wider">ब्रेकिंग अलर्ट जारी करें</span></button><div class="h-6 w-px bg-border-rule mx-1"></div><button class="inline-flex items-center gap-1 px-2.5 py-1.5 border border-border-rule rounded bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">translate</span><span>हिन्दी (IN)</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button><button aria-label="Notifications" class="relative p-2 rounded text-secondary hover:text-on-surface hover:bg-paper-subtle transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Pinned Top Action & Control Header -->
+<section class="bg-paper-canvas px-6 py-4 shadow-sm relative z-20">
+<div class="flex flex-col gap-4">
+<!-- Upper Action Row -->
+<div class="flex items-center justify-between flex-wrap gap-4">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-8 bg-primary-container"></div>
+<div>
+<div class="flex items-center gap-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+                शेड्यूल्ड समाचार कैलेंडर
+              </h1>
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase bg-paper-subtle px-2 py-0.5">
+                Editorial Cadence Engine
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+              दैनिक प्रकाशन समय-सारणी, स्लॉट संतुलन और प्राइम-टाइम कैडेंस मॉनिटर (IST)
+            </p>
+</div>
+</div>
+<!-- Controls: View Modes & Quick Actions -->
+<div class="flex items-center gap-3">
+<!-- View switcher tabs -->
+<div class="flex items-center bg-paper-subtle p-1 rounded-none">
+<button class="px-3 py-1 font-label-md text-label-md text-secondary hover:text-on-surface transition-colors" type="button">
+              मासिक
+            </button>
+<button class="px-3 py-1 font-label-md text-label-md bg-paper-canvas text-primary-container font-bold shadow-sm transition-all" type="button">
+              साप्ताहिक (Weekly)
+            </button>
+<button class="px-3 py-1 font-label-md text-label-md text-secondary hover:text-on-surface transition-colors" type="button">
+              दैनिक
+            </button>
+</div>
+<!-- Date Navigation Group -->
+<div class="flex items-center bg-paper-subtle px-2 py-1 gap-1">
+<button class="p-1 text-secondary hover:text-on-surface transition-colors" title="पिछला सप्ताह" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="font-label-md text-label-md font-bold text-on-surface px-2">
+              24 मार्च - 30 मार्च 2025
+            </span>
+<button class="p-1 text-secondary hover:text-on-surface transition-colors" title="अगला सप्ताह" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="ml-1 px-2.5 py-0.5 bg-paper-canvas text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider hover:bg-ticker-tint transition-colors" type="button">
+              आज (Today)
+            </button>
+</div>
+<!-- Action Buttons -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-paper-canvas text-on-surface font-label-md text-label-md hover:bg-paper-subtle transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">auto_fix_high</span>
+<span>ऑटो-कैडेंस रीबैलेंस</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-primary-container text-on-primary font-label-md text-label-md font-bold hover:bg-primary transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ नया स्लॉट शेड्यूल करें</span>
+</button>
+</div>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-3 pt-2">
+<div class="bg-paper-tint px-3.5 py-2.5 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary font-bold">कुल शेड्यूल्ड समाचार</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">38</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[24px]">calendar_month</span>
+</div>
+<div class="bg-paper-tint px-3.5 py-2.5 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary font-bold">आज के स्लॉट (मंगल 25)</span>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary-container">14</span>
+<span class="font-label-sm text-label-sm text-secondary">/ 16 लक्ष्य</span>
+</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-live-pulse animate-pulse"></div>
+</div>
+<div class="bg-paper-tint px-3.5 py-2.5 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary font-bold">प्राइम टाइम (18:00 - 22:00)</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface">8 कतार में</div>
+</div>
+<span class="material-symbols-outlined text-breaking-crimson text-[24px]">local_fire_department</span>
+</div>
+<div class="bg-ticker-tint px-3.5 py-2.5 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-breaking-crimson font-bold">खाली आवश्यक स्लॉट (Gaps)</span>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-md text-headline-md font-bold text-breaking-crimson">3 स्लॉट</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">कार्यवाही जरूरी</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-breaking-crimson text-[24px]">warning</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Filters & Taxonomy Bar -->
+<section class="bg-paper-canvas px-6 py-2.5 shadow-sm sticky top-16 z-10 flex items-center justify-between flex-wrap gap-3">
+<!-- Status Quick Toggles -->
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary mr-1">स्थिति:</span>
+<button class="px-2.5 py-1 bg-border-heavy text-paper-canvas font-label-sm text-label-sm font-bold" type="button">
+        सभी (38)
+      </button>
+<button class="px-2.5 py-1 bg-paper-subtle hover:bg-paper-tint text-on-surface font-label-sm text-label-sm flex items-center gap-1.5" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+        तैयार / स्वीकृत (22)
+      </button>
+<button class="px-2.5 py-1 bg-paper-subtle hover:bg-paper-tint text-on-surface font-label-sm text-label-sm flex items-center gap-1.5" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#D97706]"></span>
+        समीक्षाधीन (10)
+      </button>
+<button class="px-2.5 py-1 bg-paper-subtle hover:bg-paper-tint text-on-surface font-label-sm text-label-sm flex items-center gap-1.5" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        ड्राफ्ट (4)
+      </button>
+<button class="px-2.5 py-1 bg-ticker-tint hover:bg-error-container text-breaking-crimson font-label-sm text-label-sm font-bold flex items-center gap-1.5" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-breaking-crimson animate-ping"></span>
+        त्रुटि / होल्ड (2)
+      </button>
+</div>
+<!-- Category Dropdown & Actions -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">filter_alt</span>
+<span>सक्रिय फ़िल्टर (3)</span>
+</div>
+<div class="h-4 w-px bg-paper-subtle"></div>
+<div class="flex items-center gap-1.5">
+<button class="px-2 py-1 bg-paper-subtle hover:bg-paper-tint text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span>श्रेणी: सभी</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button class="px-2 py-1 bg-paper-subtle hover:bg-paper-tint text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span>डेस्क: नेशनल &amp; बिज़नेस</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button class="px-2 py-1 bg-paper-subtle hover:bg-paper-tint text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span>संपादक: ऑल डेस्क</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Main Editorial Cadence Worksurface: Split Grid + Right Live Runlist Sidebar -->
+<div class="flex flex-1 w-full overflow-hidden">
+<!-- Left: 7-Day Timetable Grid -->
+<div class="flex-1 overflow-x-auto overflow-y-auto max-h-[calc(100vh-14rem)] bg-paper-canvas">
+<div class="min-w-[1100px] w-full flex flex-col">
+<!-- Day Columns Header -->
+<div class="grid grid-cols-[130px_repeat(7,1fr)] bg-paper-tint sticky top-0 z-20 shadow-sm">
+<!-- Time Track Label Header -->
+<div class="p-3 text-secondary font-label-sm text-label-sm uppercase font-bold flex items-center justify-center bg-paper-subtle">
+            समय चक्र (IST)
+          </div>
+<!-- सोम 24 -->
+<div class="p-3 text-center bg-paper-tint">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold block">सोमवार</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">24 मार्च</span>
+<span class="inline-block mt-0.5 text-secondary font-label-sm text-[10px]">6 समाचार पोस्टेड</span>
+</div>
+<!-- मंगल 25 (TODAY - High Priority Focus Column) -->
+<div class="p-3 text-center bg-ticker-tint relative shadow-sm">
+<div class="absolute top-0 left-0 right-0 h-1 bg-breaking-crimson"></div>
+<div class="flex items-center justify-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-breaking-crimson animate-ping"></span>
+<span class="font-label-sm text-label-sm text-breaking-crimson uppercase font-bold">मंगलवार (आज)</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">25 मार्च</span>
+<span class="inline-block mt-0.5 bg-primary-container text-on-primary px-1.5 py-0.2 font-label-sm text-[10px] font-bold">
+              14 स्लॉट सक्रिय
+            </span>
+</div>
+<!-- बुध 26 -->
+<div class="p-3 text-center bg-paper-tint">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold block">बुधवार</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">26 मार्च</span>
+<span class="inline-block mt-0.5 text-secondary font-label-sm text-[10px]">7 स्लॉट शेड्यूल्ड</span>
+</div>
+<!-- गुरु 27 -->
+<div class="p-3 text-center bg-paper-tint">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold block">गुरुवार</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">27 मार्च</span>
+<span class="inline-block mt-0.5 text-secondary font-label-sm text-[10px]">4 स्लॉट शेड्यूल्ड</span>
+</div>
+<!-- शुक्र 28 -->
+<div class="p-3 text-center bg-paper-tint">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold block">शुक्रवार</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">28 मार्च</span>
+<span class="inline-block mt-0.5 text-secondary font-label-sm text-[10px]">3 स्लॉट शेड्यूल्ड</span>
+</div>
+<!-- शनि 29 -->
+<div class="p-3 text-center bg-paper-tint">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold block">शनिवार</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">29 मार्च</span>
+<span class="inline-block mt-0.5 text-secondary font-label-sm text-[10px]">सप्ताहांत एडिशन</span>
+</div>
+<!-- रवि 30 -->
+<div class="p-3 text-center bg-paper-tint">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold block">रविवार</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">30 मार्च</span>
+<span class="inline-block mt-0.5 text-secondary font-label-sm text-[10px]">स्पेशल फ़ीचर्स</span>
+</div>
+</div>
+<!-- ================= SLOT ROW 1: 06:00 - 09:00 (मॉर्निंग ब्रीफिंग) ================= -->
+<div class="grid grid-cols-[130px_repeat(7,1fr)] min-h-[140px] bg-paper-canvas">
+<div class="p-3 bg-paper-subtle/50 flex flex-col justify-start">
+<span class="font-label-md text-label-md font-bold text-on-surface">06:00 - 09:00</span>
+<span class="font-label-sm text-label-sm text-primary font-bold mt-1">मॉर्निंग ब्रीफिंग</span>
+<span class="font-body-sm text-[11px] text-secondary mt-1">दैनिक हेडलाइंस, अखबार समीक्षा</span>
+</div>
+<!-- सोम 24 (Archived/Published) -->
+<div class="p-2 bg-paper-canvas opacity-75">
+<div class="bg-paper-tint p-2 h-full flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="bg-paper-subtle text-on-surface px-1 py-0.5 font-label-sm text-[10px] font-bold">06:30 प्रकाशित</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">check_circle</span>
+</div>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface leading-snug">
+                  सोमवार सुबह की 10 बड़ी खबरें व संपादकीय रुख
+                </h4>
+</div>
+<span class="font-body-sm text-[11px] text-secondary">डेस्क टीम | 4.2k रीड्स</span>
+</div>
+</div>
+<!-- मंगल 25 (TODAY - Published already) -->
+<div class="p-2 bg-ticker-tint/20">
+<div class="bg-paper-canvas p-2.5 h-full flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<span class="bg-[#DCFCE7] text-[#166534] px-1.5 py-0.5 font-label-sm text-[10px] font-bold uppercase">
+                    07:15 IST • प्रकाशित
+                  </span>
+<span class="material-symbols-outlined text-[16px] text-[#166534]">verified</span>
+</div>
+<h4 class="font-headline-sm text-body-md font-bold text-on-surface line-clamp-2">
+                  आज की ताजा सुर्खियां: दिल्ली-एनसीआर मौसम अलर्ट व संसद कार्यवाही
+                </h4>
+</div>
+<div class="flex items-center justify-between text-secondary pt-2">
+<span class="font-label-sm text-[11px]">अविनाश सक्सेना</span>
+<span class="font-label-sm text-[11px] text-primary font-bold">लाइव (9.4k व्यू)</span>
+</div>
+</div>
+</div>
+<!-- बुध 26 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-paper-subtle text-secondary px-1.5 py-0.5 font-label-sm text-[10px] font-bold">06:45 IST</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1 line-clamp-2">
+                  बुधवार मॉर्निंग बुलेटिन: ग्लोबल मार्केट ट्रेंड्स
+                </h4>
+</div>
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-[10px]">ड्राफ्ट (संपादक समीक्षा)</span>
+<span class="material-symbols-outlined text-[16px]">pending</span>
+</div>
+</div>
+</div>
+<!-- गुरु 27 -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex flex-col items-center justify-center text-center">
+<span class="font-label-sm text-[11px] text-secondary">स्लॉट उपलब्ध</span>
+<button class="mt-1 text-primary text-[11px] font-label-sm font-bold hover:underline" type="button">+ जोड़ें</button>
+</div>
+</div>
+<!-- शुक्र 28 -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">ऑटो-ब्रीफ कतार</span>
+</div>
+</div>
+<!-- शनि 29 -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">वीकेंड ब्रीफ</span>
+</div>
+</div>
+<!-- रवि 30 -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">संडे विशेष</span>
+</div>
+</div>
+</div>
+<!-- ================= SLOT ROW 2: 09:00 - 12:00 (मार्केट ओपन व मुख्य राष्ट्रीय) ================= -->
+<div class="grid grid-cols-[130px_repeat(7,1fr)] min-h-[160px] bg-paper-canvas">
+<div class="p-3 bg-paper-subtle/50 flex flex-col justify-start">
+<span class="font-label-md text-label-md font-bold text-on-surface">09:00 - 12:00</span>
+<span class="font-label-sm text-label-sm text-breaking-crimson font-bold mt-1">मार्केट व संसद</span>
+<span class="font-body-sm text-[11px] text-secondary mt-1">सेंसेक्स, निफ्टी, नीतिगत घोषणाएं</span>
+</div>
+<!-- सोम 24 -->
+<div class="p-2 bg-paper-canvas opacity-75">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-[10px] text-secondary">10:15 प्रकाशित</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface">
+                  बाजार में शुरुआती उछाल: आईटी और बैंकिंग चमके
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">मार्केट डेस्क</span>
+</div>
+</div>
+<!-- मंगल 25 (TODAY - Just Published) -->
+<div class="p-2 bg-ticker-tint/20">
+<div class="bg-paper-canvas p-2.5 h-full flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<span class="bg-border-heavy text-paper-canvas px-1.5 py-0.5 font-label-sm text-[10px] font-bold uppercase">
+                    11:30 IST • लाइव
+                  </span>
+<span class="material-symbols-outlined text-[16px] text-primary">feed</span>
+</div>
+<h4 class="font-headline-sm text-body-md font-bold text-on-surface line-clamp-2">
+                  संसद में नई औद्योगिक नीति व सेमीकंडक्टर मिशन 2025 पेश
+                </h4>
+<div class="mt-1 flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 bg-paper-subtle text-on-surface font-label-sm text-[10px]">राष्ट्रीय</span>
+<span class="px-1.5 py-0.2 bg-paper-subtle text-on-surface font-label-sm text-[10px]">संसद</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-secondary pt-2">
+<span class="font-label-sm text-[11px]">सुरेश पाटिल</span>
+<button class="text-primary hover:text-breaking-crimson" title="री-शेड्यूल विकल्प" type="button">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+</button>
+</div>
+</div>
+</div>
+<!-- बुध 26 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-[#FEF3C7] text-[#92400E] px-1.5 py-0.5 font-label-sm text-[10px] font-bold">10:45 IST • समीक्षाधीन</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1.5">
+                  RBI मौद्रिक समीक्षा के संभावित संकेत: ब्याज दर विश्लेषण
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">ऋषभ मल्होत्रा</span>
+</div>
+</div>
+<!-- गुरु 27 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-paper-subtle text-secondary px-1.5 py-0.5 font-label-sm text-[10px] font-bold">11:00 IST</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1">
+                  कैबिनेट फैसलों पर विशेष मीडिया ब्रीफिंग लाइव
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">प्रेस इनफार्मेशन ब्यूरो</span>
+</div>
+</div>
+<!-- शुक्र 28, शनि 29, रवि 30 placeholders -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">10:30 स्लॉट रिजर्व्ड</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">सप्ताहांत मार्केट राउंडअप</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">रविवार कॉलम</span>
+</div>
+</div>
+</div>
+<!-- ================= SLOT ROW 3: 12:00 - 15:00 (दोपहर अपडेट व राज्य खबरें) ================= -->
+<div class="grid grid-cols-[130px_repeat(7,1fr)] min-h-[190px] bg-paper-canvas">
+<div class="p-3 bg-paper-subtle/50 flex flex-col justify-start">
+<span class="font-label-md text-label-md font-bold text-on-surface">12:00 - 15:00</span>
+<span class="font-label-sm text-label-sm text-primary font-bold mt-1">दोपहर व राज्य</span>
+<span class="font-body-sm text-[11px] text-secondary mt-1">UP/Bihar ब्यूरो, दोपहर बुलेटिन</span>
+</div>
+<!-- सोम 24 -->
+<div class="p-2 bg-paper-canvas opacity-75">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-[10px] text-secondary">13:15 प्रकाशित</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface">
+                  उत्तर प्रदेश ग्राम पंचायत सुधारों का विस्तृत मसौदा जारी
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">लखनऊ ब्यूरो</span>
+</div>
+</div>
+<!-- मंगल 25 (TODAY - 2 Key Story Cards & 1 ALERT GAP) -->
+<div class="p-2 bg-ticker-tint/20 flex flex-col gap-2">
+<!-- Card 1: 12:30 PM सेंसेक्स रिकॉर्ड क्लोज -->
+<div class="bg-paper-canvas p-2.5 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="bg-[#DCFCE7] text-[#166534] px-1.5 py-0.5 font-label-sm text-[10px] font-bold uppercase">
+                  12:30 IST • तैयार (Ready)
+                </span>
+<div class="flex items-center gap-1">
+<button class="text-secondary hover:text-on-surface" title="संपादित करें" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="text-secondary hover:text-primary" title="पूर्वावलोकन" type="button">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+</button>
+</div>
+</div>
+<h4 class="font-headline-sm text-body-md font-bold text-on-surface leading-tight hover:text-primary cursor-pointer">
+                सेंसेक्स 85K रिकॉर्ड क्लोज विश्लेषण: निवेशकों की 3 लाख करोड़ की कमाई
+              </h4>
+<div class="mt-2 flex items-center justify-between text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 bg-paper-subtle text-on-surface font-label-sm text-[10px] font-bold">बिज़नेस</span>
+<span class="font-label-sm text-[11px]">अमित त्रिपाठी</span>
+</div>
+<span class="material-symbols-outlined text-breaking-crimson text-[16px]" title="पिन टू लीड">push_pin</span>
+</div>
+</div>
+<!-- Card 2: 14:30 PM [ALERT: STORY GAP] -->
+<div class="bg-ticker-tint p-2.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-breaking-crimson font-label-sm text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>खाली स्लॉट / Story Gap (14:30)</span>
+</div>
+<span class="font-label-sm text-[10px] text-breaking-crimson font-bold">हाई प्राथमिकता</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface font-medium my-1.5">
+                खेल या क्षेत्रीय लीड स्टोरी आवश्यक — कैडेंस ड्राप रिस्क!
+              </p>
+<div class="flex items-center justify-between">
+<button class="px-2 py-1 bg-breaking-crimson text-paper-canvas font-label-sm text-[11px] font-bold hover:bg-primary transition-colors" type="button">
+                  + तत्काल स्टोरी असाइन करें
+                </button>
+<span class="text-secondary font-label-sm text-[10px]">ऑटो-फिल 15m बाकी</span>
+</div>
+</div>
+</div>
+<!-- बुध 26 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-[#DCFCE7] text-[#166534] px-1.5 py-0.5 font-label-sm text-[10px] font-bold">13:00 IST • तैयार</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1">
+                  बिहार में कृषि ड्रोन सब्सिडी: नए पोर्टल का सीधा लाभ
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">पटना ब्यूरो • आलोक वर्मा</span>
+</div>
+</div>
+<!-- गुरु 27 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-paper-subtle text-secondary px-1.5 py-0.5 font-label-sm text-[10px] font-bold">14:00 IST</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1">
+                  मध्य प्रदेश जंगल सफारी टूरिज्म नई गाइडलाइन
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">भोपाल डेस्क</span>
+</div>
+</div>
+<!-- शुक्र 28, शनि 29, रवि 30 -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">दोपहर स्लॉट 13:30</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">वीकेंड फ़ूड &amp; ट्रेवल</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">रविवार साहित्य विशेष</span>
+</div>
+</div>
+</div>
+<!-- ================= SLOT ROW 4: 15:00 - 18:00 (शाम का विश्लेषण व खेल) ================= -->
+<div class="grid grid-cols-[130px_repeat(7,1fr)] min-h-[170px] bg-paper-canvas">
+<div class="p-3 bg-paper-subtle/50 flex flex-col justify-start">
+<span class="font-label-md text-label-md font-bold text-on-surface">15:00 - 18:00</span>
+<span class="font-label-sm text-label-sm text-primary font-bold mt-1">शाम विश्लेषण व खेल</span>
+<span class="font-body-sm text-[11px] text-secondary mt-1">आईपीएल, ओपिनियन, स्टेट फोकस</span>
+</div>
+<!-- सोम 24 -->
+<div class="p-2 bg-paper-canvas opacity-75">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-[10px] text-secondary">16:45 प्रकाशित</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface">
+                  IPL 2025 प्री-टूर्नामेंट कैंप: भारतीय युवाओं की परीक्षा
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">स्पोर्ट्स डेस्क</span>
+</div>
+</div>
+<!-- मंगल 25 (TODAY - Photo Feature Under Review) -->
+<div class="p-2 bg-ticker-tint/20">
+<div class="bg-paper-canvas p-2.5 h-full flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<span class="bg-[#FEF3C7] text-[#92400E] px-1.5 py-0.5 font-label-sm text-[10px] font-bold uppercase">
+                    16:00 IST • समीक्षाधीन (In Review)
+                  </span>
+<span class="material-symbols-outlined text-[16px] text-[#92400E]">rate_review</span>
+</div>
+<h4 class="font-headline-sm text-body-md font-bold text-on-surface line-clamp-2">
+                  गंगा एक्सप्रेसवे इन्फ्रास्ट्रक्चर फोटो फीचर: 12 जिलों में तेज कनेक्टिविटी
+                </h4>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 bg-paper-subtle text-on-surface font-label-sm text-[10px] font-bold">राज्य / UP</span>
+<span class="inline-flex items-center gap-1 text-secondary font-label-sm text-[10px]">
+<span class="material-symbols-outlined text-[12px]">photo_camera</span> 14 फोटो
+                  </span>
+</div>
+</div>
+<div class="flex items-center justify-between text-secondary pt-2">
+<span class="font-label-sm text-[11px]">प्रियंका शर्मा</span>
+<button class="text-primary hover:text-breaking-crimson font-label-sm text-[11px] font-bold" type="button">
+                  स्वीकृति दें →
+                </button>
+</div>
+</div>
+</div>
+<!-- बुध 26 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-[#DCFCE7] text-[#166534] px-1.5 py-0.5 font-label-sm text-[10px] font-bold">17:15 IST • तैयार</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1">
+                  क्रिकेट विश्व कप क्वालीफायर: एशियाई टीमों का समीकरण
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">सुनील गावस्कर कॉलम</span>
+</div>
+</div>
+<!-- गुरु 27, शुक्र 28, शनि 29, रवि 30 -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">16:30 शेड्यूल्ड (टेक्नोलॉजी)</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">17:00 ऑटोमोबाइल वीकली</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">मैच डे लाइव स्लॉट</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">सिनेमा समीक्षा</span>
+</div>
+</div>
+</div>
+<!-- ================= SLOT ROW 5: 18:00 - 21:00 (प्राइम टाइम प्राइम रिपोर्ट व वीडियो) ================= -->
+<div class="grid grid-cols-[130px_repeat(7,1fr)] min-h-[190px] bg-paper-canvas">
+<div class="p-3 bg-paper-subtle/50 flex flex-col justify-start">
+<div class="flex items-center gap-1 text-breaking-crimson font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+<span>18:00 - 21:00</span>
+</div>
+<span class="font-label-sm text-label-sm text-breaking-crimson font-bold mt-1">प्राइम टाइम स्लॉट</span>
+<span class="font-body-sm text-[11px] text-secondary mt-1">वीडियो डिबेट, 9 PM लीड पैकेज</span>
+</div>
+<!-- सोम 24 -->
+<div class="p-2 bg-paper-canvas opacity-75">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-[10px] text-secondary">20:00 प्रसारित</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface">
+                  प्राइम डिबेट: वैश्विक तनाव और भारत का कूटनीतिक रुख
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">व्यूज: 1.2M</span>
+</div>
+</div>
+<!-- मंगल 25 (TODAY - Prime Video Package) -->
+<div class="p-2 bg-ticker-tint/20">
+<div class="bg-paper-canvas p-2.5 h-full flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1">
+<span class="bg-primary-container text-on-primary px-1.5 py-0.5 font-label-sm text-[10px] font-bold uppercase">
+                      19:30 IST • वीडियो प्राइम
+                    </span>
+<span class="bg-border-heavy text-paper-canvas px-1 py-0.5 font-label-sm text-[9px] font-bold">
+                      ▶ 24:15
+                    </span>
+</div>
+<span class="inline-flex items-center text-breaking-crimson font-label-sm text-[10px] font-bold">
+                    लॉक (Locked)
+                  </span>
+</div>
+<h4 class="font-headline-sm text-body-md font-bold text-on-surface line-clamp-2">
+                  विशेष प्राइम शो: आज का मुद्दा — भारत की नई रक्षा खरीद नीति और आत्मनिर्भरता
+                </h4>
+<div class="mt-2 flex items-center gap-2">
+<span class="px-1.5 py-0.2 bg-paper-subtle text-on-surface font-label-sm text-[10px] font-bold">वीडियो प्राइम</span>
+<span class="text-secondary font-label-sm text-[11px]">YouTube / OTT सिंक</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-secondary pt-2">
+<span class="font-label-sm text-[11px]">मीनाक्षी सुंदरम</span>
+<div class="flex items-center gap-1.5">
+<button class="text-secondary hover:text-on-surface" title="री-शेड्यूल" type="button">
+<span class="material-symbols-outlined text-[16px]">history_toggle_off</span>
+</button>
+<button class="text-breaking-crimson hover:text-primary" title="प्रसारण पुष्टि" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- बुध 26 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-[#DCFCE7] text-[#166534] px-1.5 py-0.5 font-label-sm text-[10px] font-bold">20:00 IST • तैयार</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1">
+                  द बिग इंटरव्यू: वित्त मंत्री से खास बातचीत (एक्सक्लूसिव)
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">राजेश कुमार (संपादक)</span>
+</div>
+</div>
+<!-- गुरु 27 -->
+<div class="p-2 bg-paper-canvas">
+<div class="bg-paper-tint p-2.5 h-full flex flex-col justify-between">
+<div>
+<span class="bg-ticker-tint text-breaking-crimson px-1.5 py-0.5 font-label-sm text-[10px] font-bold">19:00 IST • स्क्रिप्ट ड्राफ्ट</span>
+<h4 class="font-headline-sm text-[13px] font-bold text-on-surface mt-1">
+                  साइबर फ्रॉड गिरोहों का भंडाफोड़: विशेष इंवेस्टिगेशन
+                </h4>
+</div>
+<span class="font-label-sm text-[10px] text-secondary">एसआईटी डेस्क</span>
+</div>
+</div>
+<!-- शुक्र 28, शनि 29, रवि 30 -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">शुक्रवार प्राइम स्लॉट</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">वीकेंड कॉन्क्लेव शो</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">रविवार स्पेशल राउंडटेबल</span>
+</div>
+</div>
+</div>
+<!-- ================= SLOT ROW 6: 21:00 - 23:00 (नाइट रैप-अप) ================= -->
+<div class="grid grid-cols-[130px_repeat(7,1fr)] min-h-[140px] bg-paper-canvas">
+<div class="p-3 bg-paper-subtle/50 flex flex-col justify-start">
+<span class="font-label-md text-label-md font-bold text-on-surface">21:00 - 23:00</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold mt-1">नाइट रैप-अप</span>
+<span class="font-body-sm text-[11px] text-secondary mt-1">दिनभर का सार, रात की बड़ी खबरें</span>
+</div>
+<!-- सोम 24 -->
+<div class="p-2 bg-paper-canvas opacity-75">
+<div class="bg-paper-tint p-2 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">नाइट एडिशन पूरा</span>
+</div>
+</div>
+<!-- मंगल 25 (TODAY - Scheduled Night Wrap) -->
+<div class="p-2 bg-ticker-tint/20">
+<div class="bg-paper-canvas p-2.5 h-full flex flex-col justify-between shadow-sm">
+<div>
+<span class="bg-[#DCFCE7] text-[#166534] px-1.5 py-0.5 font-label-sm text-[10px] font-bold uppercase">
+                  22:15 IST • शेड्यूल्ड
+                </span>
+<h4 class="font-headline-sm text-body-md font-bold text-on-surface mt-1 line-clamp-2">
+                  आज की 25 बड़ी खबरें: दिनभर का पूरा घटनाक्रम 10 मिनट में
+                </h4>
+</div>
+<div class="flex items-center justify-between text-secondary pt-1">
+<span class="font-label-sm text-[11px]">नाइट शिफ्ट टीम</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">timelapse</span>
+</div>
+</div>
+</div>
+<!-- बुध 26 to रवि 30 placeholders -->
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">22:00 स्लॉट</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">22:00 स्लॉट</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">22:00 स्लॉट</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">22:00 स्लॉट</span>
+</div>
+</div>
+<div class="p-2 bg-paper-canvas">
+<div class="p-2 bg-paper-subtle/30 h-full flex items-center justify-center">
+<span class="font-label-sm text-[11px] text-secondary">22:00 स्लॉट</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Editorial Cadence Live Drawer / Runlist (आज की रनलिस्ट) -->
+<aside class="w-80 bg-paper-canvas flex flex-col justify-between shrink-0 shadow-sm">
+<!-- Drawer Header -->
+<div class="p-4 bg-paper-tint">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-breaking-crimson text-[20px]">view_timeline</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+              आज की रनलिस्ट (Runlist)
+            </h3>
+</div>
+<button class="text-secondary hover:text-on-surface" title="ताजा करें" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+<div class="mt-2 flex items-center justify-between text-secondary">
+<span class="font-label-sm text-label-sm">25 मार्च 2025 • मंगलवार</span>
+<span class="font-label-sm text-label-sm text-[#166534] font-bold">कैडेंस स्थिति: 88% संतुलित</span>
+</div>
+</div>
+<!-- Realtime Drop Timeline -->
+<div class="p-4 flex-1 overflow-y-auto space-y-4">
+<!-- Next Upcoming Drop Card -->
+<div class="bg-ticker-tint p-3 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="inline-flex items-center gap-1 font-label-sm text-[10px] text-breaking-crimson font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-breaking-crimson animate-ping"></span>
+              अगला ड्रॉप (Next Drop)
+            </span>
+<span class="font-label-sm text-[11px] font-bold text-breaking-crimson bg-paper-canvas px-1.5 py-0.5">
+              12 मिनट में
+            </span>
+</div>
+<h5 class="font-headline-sm text-body-md font-bold text-on-surface leading-tight">
+            सेंसेक्स 85K रिकॉर्ड क्लोज विश्लेषण
+          </h5>
+<div class="mt-2 flex items-center justify-between text-secondary">
+<span class="font-body-sm text-[11px]">अमित त्रिपाठी • बिज़नेस</span>
+<button class="text-primary hover:underline font-label-sm text-[11px] font-bold" type="button">
+              अभी पुश करें
+            </button>
+</div>
+</div>
+<!-- Sequential Timeline items -->
+<div class="relative pl-5 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-paper-subtle">
+<!-- Item 1: Past -->
+<div class="relative">
+<div class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-[#166534]"></div>
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-[11px] font-bold">11:30 IST</span>
+<span class="font-label-sm text-[10px] text-[#166534] font-bold">सफल पब्लिश</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface font-medium truncate mt-0.5">
+              संसद में नई औद्योगिक नीति व सेमीकंडक्टर
+            </p>
+</div>
+<!-- Item 2: Up Next -->
+<div class="relative">
+<div class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-breaking-crimson"></div>
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-[11px] font-bold text-breaking-crimson">12:30 IST</span>
+<span class="font-label-sm text-[10px] text-breaking-crimson font-bold">रेडी टू गो</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface font-bold truncate mt-0.5">
+              सेंसेक्स 85K रिकॉर्ड क्लोज विश्लेषण
+            </p>
+</div>
+<!-- Item 3: Gap Alert -->
+<div class="relative">
+<div class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-error"></div>
+<div class="flex items-center justify-between text-breaking-crimson">
+<span class="font-label-sm text-[11px] font-bold">14:30 IST</span>
+<span class="font-label-sm text-[10px] font-bold uppercase">GAP WARNING</span>
+</div>
+<p class="font-body-sm text-[12px] text-breaking-crimson font-medium truncate mt-0.5">
+              खेल/क्षेत्रीय लीड की अनुपस्थिति
+            </p>
+</div>
+<!-- Item 4: Scheduled Review -->
+<div class="relative">
+<div class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-[#D97706]"></div>
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-[11px] font-bold">16:00 IST</span>
+<span class="font-label-sm text-[10px] text-[#D97706] font-bold">रिव्यू पेंडिंग</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface font-medium truncate mt-0.5">
+              गंगा एक्सप्रेसवे इन्फ्रास्ट्रक्चर फोटो फीचर
+            </p>
+</div>
+<!-- Item 5: Locked Prime -->
+<div class="relative">
+<div class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-border-heavy"></div>
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-[11px] font-bold text-on-surface">19:30 IST</span>
+<span class="font-label-sm text-[10px] text-secondary font-bold">टाइम लॉक्ड</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface font-medium truncate mt-0.5">
+              विशेष प्राइम शो: आज का मुद्दा
+            </p>
+</div>
+<!-- Item 6: Night Wrap -->
+<div class="relative">
+<div class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-paper-subtle"></div>
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-[11px] font-bold">22:15 IST</span>
+<span class="font-label-sm text-[10px] text-secondary">ड्राफ्ट कतार</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface font-medium truncate mt-0.5">
+              आज की 25 बड़ी खबरें (नाइट रैप)
+            </p>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Controls -->
+<div class="p-3 bg-paper-tint flex flex-col gap-2">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-label-sm text-label-sm font-bold">रनलिस्ट ऑटोमेशन</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-paper-subtle peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-paper-canvas after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-paper-canvas after:border-paper-subtle after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<p class="font-body-sm text-[11px] text-secondary leading-tight">
+          सक्रिय होने पर, स्लॉट तय समय पर स्वचालित रूप से वेबसाइट और ऐप पर प्रकाशित हो जाएंगे।
+        </p>
+</div>
+</aside>
+</div>
+<!-- Interactive Overlays & Modals Section (Live Embedded In-Place Demo) -->
+<!-- Reschedule & Time-Lock Confirmation Modal (Demonstrated in bottom or contextual state) -->
+<div class="fixed inset-0 z-50 bg-border-heavy/60 backdrop-blur-sm flex items-center justify-center p-4" id="reschedule-modal">
+<div class="bg-paper-canvas max-w-xl w-full shadow-2xl relative">
+<!-- Modal Top Priority Stripe -->
+<div class="h-1.5 w-full bg-primary-container"></div>
+<!-- Modal Header -->
+<div class="p-5 flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-ticker-tint text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">schedule</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface leading-tight">
+              समाचार प्रकाशन समय पुनर्निर्धारित करें
+            </h3>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">
+              Reschedule &amp; Cadence Lock Confirmation
+            </span>
+</div>
+</div>
+<button class="text-secondary hover:text-on-surface p-1" onclick="document.getElementById('reschedule-modal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-5 space-y-4">
+<!-- Target Article Info Card -->
+<div class="bg-paper-tint p-3.5">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-border-heavy text-paper-canvas px-1.5 py-0.5 font-label-sm text-[10px] font-bold uppercase">
+              राष्ट्रीय
+            </span>
+<span class="font-label-sm text-[11px] text-secondary">ID: NS-2025-08941</span>
+</div>
+<h4 class="font-headline-sm text-body-lg font-bold text-on-surface">
+            संसद में नई औद्योगिक नीति व सेमीकंडक्टर मिशन 2025
+          </h4>
+<span class="font-body-sm text-[12px] text-secondary mt-1 block">
+            लेखक: सुरेश पाटिल • डेस्क: मुख्य संपादक (नेशनल)
+          </span>
+</div>
+<!-- Time Comparison Box -->
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-paper-subtle/50 p-3">
+<span class="font-label-sm text-label-sm text-secondary font-bold block uppercase">वर्तमान निर्धारित समय</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">
+              12:00 PM
+            </div>
+<span class="font-label-sm text-[11px] text-secondary">25 मार्च 2025 (मंगलवार)</span>
+</div>
+<div class="bg-ticker-tint p-3">
+<span class="font-label-sm text-label-sm text-breaking-crimson font-bold block uppercase">नया चयनित समय (IST)</span>
+<div class="font-headline-sm text-headline-sm font-bold text-primary-container mt-1">
+              13:45 PM
+            </div>
+<span class="font-label-sm text-[11px] text-breaking-crimson font-medium">दोपहर बुलेटिन स्लॉट</span>
+</div>
+</div>
+<!-- Conflict & Cadence Validation Warning Banner -->
+<div class="bg-ticker-tint p-3 flex items-start gap-2.5 shadow-sm">
+<span class="material-symbols-outlined text-breaking-crimson text-[20px] shrink-0 mt-0.5">warning</span>
+<div class="text-on-surface">
+<span class="font-label-md text-label-md font-bold text-breaking-crimson">कैडेंस क्लैश चेतावनी (Conflict Detected):</span>
+<p class="font-body-sm text-[12px] text-on-surface leading-snug mt-0.5">
+              13:30 - 14:00 के बीच 2 अन्य राष्ट्रीय खबरें पहले से कतारबद्ध हैं। इस समय स्लॉट में पुनर्निर्धारित करने से 'सेंसेक्स रिकॉर्ड' के साथ ऑडियंस अटेंशन विभाजित हो सकता है।
+            </p>
+</div>
+</div>
+<!-- Options Checkboxes -->
+<div class="space-y-2 pt-1">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary rounded-none border-secondary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">डेस्क एडिटर और रिपोर्टर (सुरेश पाटिल) को री-शेड्यूल ईमेल/स्लैक अलर्ट भेजें</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary rounded-none border-secondary focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">होमपेज प्राइम पोजीशन लॉक (Hero Anchor) बनाए रखें</span>
+</label>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-4 bg-paper-tint flex items-center justify-between">
+<button class="px-4 py-2 bg-paper-canvas text-on-surface font-label-md text-label-md hover:bg-paper-subtle transition-colors" onclick="document.getElementById('reschedule-modal').classList.add('hidden')" type="button">
+          रद्द करें (Cancel)
+        </button>
+<div class="flex items-center gap-2">
+<button class="px-3 py-2 bg-paper-subtle text-on-surface font-label-md text-label-md hover:bg-paper-canvas transition-colors" onclick="document.getElementById('reschedule-modal').classList.add('hidden')" type="button">
+            सुझावित खाली स्लॉट (14:30) चुनें
+          </button>
+<button class="px-5 py-2 bg-primary-container text-on-primary font-label-md text-label-md font-bold hover:bg-primary transition-colors shadow-sm" onclick="document.getElementById('reschedule-modal').classList.add('hidden')" type="button">
+            पुष्टि करें और री-शेड्यूल करें
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

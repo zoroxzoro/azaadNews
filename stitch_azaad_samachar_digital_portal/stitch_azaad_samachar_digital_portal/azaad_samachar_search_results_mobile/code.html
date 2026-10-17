@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="hi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Mukta:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed-dim": "#ffb3b1", "paper-tint": "#F8F9FA", "paper-subtle": "#EDF2F7", "on-tertiary": "#ffffff", "on-background": "#111c2c", "ticker-tint": "#FCE9E9", "breaking-crimson": "#DA251D", "on-secondary-fixed-variant": "#474746", "tertiary-fixed-dim": "#bdc7dc", "surface-container": "#e7eeff", "background": "#f9f9ff", "border-heavy": "#1A1A1A", "outline-variant": "#e5bdbb", "on-tertiary-fixed-variant": "#3d4759", "inverse-primary": "#ffb3b1", "on-secondary": "#ffffff", "inverse-surface": "#263142", "outline": "#906f6e", "live-pulse": "#E53E3E", "primary-container": "#c8102e", "surface-container-lowest": "#ffffff", "on-primary-container": "#ffdad8", "surface-container-high": "dee9ff", "secondary-fixed": "#e5e2e1", "surface-container-low": "#f0f3ff", "on-tertiary-container": "#d9e3f9", "surface-container-highest": "#d8e3f9", "secondary-container": "#e2dfde", "error": "#ba1a1a", "on-error": "#ffffff", "on-tertiary-fixed": "#121c2c", "on-secondary-container": "#636262", "on-primary": "#ffffff", "on-primary-fixed": "#410007", "surface": "#f9f9ff", "surface-bright": "#f9f9ff", "secondary-fixed-dim": "#c8c6c5", "on-secondary-fixed": "#1c1b1b", "primary": "#9e001f", "error-container": "#ffdad6", "primary-fixed": "#ffdad8", "on-surface": "#111c2c", "on-primary-fixed-variant": "#92001c", "on-error-container": "#93000a", "border-rule": "#E2E8F0", "surface-tint": "#bf0229", "tertiary": "#434d5f", "paper-canvas": "#FFFFFF", "tertiary-container": "#5b6578", "surface-dim": "#cfdaf1", "surface-variant": "#d8e3f9", "on-surface-variant": "#5c403f", "tertiary-fixed": "#d9e3f9", "inverse-on-surface": "#ebf1ff", "secondary": "#5f5e5e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-desktop": "2.5rem", "margin": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xl": "2rem", "space-md": "0.75rem", "gutter-desktop": "1.5rem", "space-xs": "0.25rem", "space-lg": "1.25rem" }, "fontFamily": { "headline-lg": ["Mukta"], "display-xl-mobile": ["Mukta"], "label-sm": ["Inter"], "label-lg": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Mukta"], "label-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Mukta"], "display-xl": ["Mukta"], "headline-md": ["Mukta"], "body-sm": ["Inter"] }, "fontSize": { "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }], "body-lg": ["17px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "display-xl": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 inset-x-0 z-50 bg-paper-canvas/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Article Detail</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Share Article" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">share</span></button><button aria-label="Bookmark Article" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">bookmark_border</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-14 bg-surface pb-safe"><div class="flex flex-col w-full pb-10">
+<!-- Sticky Query Control & Context Sub-header -->
+<div class="sticky top-0 z-30 bg-paper-canvas px-margin pt-space-sm pb-space-sm shadow-sm flex flex-col gap-space-sm">
+<!-- Search Bar Input Box -->
+<div class="flex items-center bg-paper-subtle rounded-none px-space-sm py-1.5 focus-within:bg-paper-canvas transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px] mr-2">search</span>
+<input class="w-full bg-transparent font-body-md text-on-surface outline-none placeholder:text-secondary text-body-md" id="search-input" placeholder="समाचार, विषय या स्थान खोजें..." type="text" value="सेमीकंडक्टर नीति"/>
+<button aria-label="खोज साफ करें" class="w-8 h-8 flex items-center justify-center text-secondary hover:text-on-surface active:scale-95 transition-transform" id="clear-search-btn" onclick="document.getElementById('search-input').value=''; this.style.display='none'; document.getElementById('search-input').focus();" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<button aria-label="सर्च निष्पादित करें" class="bg-primary-container text-on-primary w-9 h-9 flex items-center justify-center ml-1 shadow-sm active:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[19px]">arrow_forward</span>
+</button>
+</div>
+<!-- Results Count Pill & Language Filter -->
+<div class="flex items-center justify-between pt-1">
+<div class="inline-flex items-center gap-1.5 bg-paper-tint px-2.5 py-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide uppercase">48 परिणाम मिले (48 Results)</span>
+</div>
+<!-- Quick Language Segmented Control -->
+<div class="inline-flex bg-paper-subtle p-0.5" role="tablist">
+<button class="px-2.5 py-0.5 font-label-sm text-label-sm font-bold bg-paper-canvas text-on-surface shadow-xs">सभी</button>
+<button class="px-2 py-0.5 font-label-sm text-label-sm text-secondary hover:text-on-surface">हिंदी (38)</button>
+<button class="px-2 py-0.5 font-label-sm text-label-sm text-secondary hover:text-on-surface">English (10)</button>
+</div>
+</div>
+</div>
+<!-- Collapsible Horizontal Filter & Sort Bar -->
+<div class="w-full bg-paper-tint overflow-x-auto py-2.5 px-margin no-scrollbar flex items-center gap-2">
+<!-- Active Filter Counter Chip -->
+<button class="flex-shrink-0 inline-flex items-center gap-1.5 bg-on-surface text-paper-canvas px-3 py-1 text-label-md font-label-md shadow-xs active:opacity-90">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span>फ़िल्टर</span>
+<span class="w-4 h-4 rounded-full bg-primary-container text-on-primary text-[10px] flex items-center justify-center font-bold">2</span>
+</button>
+<!-- Category Dropdown Chip -->
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-paper-canvas text-on-surface px-2.5 py-1 text-label-md font-label-md active:bg-paper-subtle">
+<span class="text-secondary">श्रेणी:</span>
+<span class="font-semibold">सभी</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_drop_down</span>
+</button>
+<!-- Date Range Chip -->
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-paper-canvas text-on-surface px-2.5 py-1 text-label-md font-label-md active:bg-paper-subtle">
+<span class="text-secondary">तिथि:</span>
+<span class="font-semibold">पिछला माह</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_drop_down</span>
+</button>
+<!-- Sort Order Chip -->
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-paper-canvas text-on-surface px-2.5 py-1 text-label-md font-label-md active:bg-paper-subtle">
+<span class="text-secondary">क्रम:</span>
+<span class="font-semibold">नवीनतम</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_drop_down</span>
+</button>
+<!-- Media Type Chip -->
+<button class="flex-shrink-0 inline-flex items-center gap-1 bg-paper-canvas text-secondary px-2.5 py-1 text-label-md font-label-md">
+<span>फॉर्मेट: सभी</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<!-- Search Results Stream -->
+<div class="flex flex-col w-full bg-paper-canvas">
+<!-- Result 1: Lead Top Match Editorial Package -->
+<article class="p-margin bg-paper-canvas transition-colors relative">
+<!-- Editorial Indicator Bar -->
+<div class="w-12 h-1 bg-primary-container mb-space-sm"></div>
+<!-- Metadata & Taxonomy -->
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="bg-primary-container text-on-primary font-label-sm text-label-sm px-1.5 py-0.5 uppercase tracking-wider font-bold">शीर्ष परिणाम</span>
+<span class="bg-paper-subtle text-on-surface font-label-sm text-label-sm px-1.5 py-0.5 font-semibold">बिज़नेस</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">25 मार्च 2025</span>
+</div>
+<!-- Headline with Matched Keyword Highlight -->
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-space-xs leading-snug">
+        संसद में नई राष्ट्रीय औद्योगिक नीति व <mark class="bg-ticker-tint text-primary font-bold px-1 rounded-none">सेमीकंडक्टर</mark> मिशन 2025 विधेयक पर बनी ऐतिहासिक सहमति
+      </h2>
+<!-- Synopsis -->
+<p class="font-body-md text-body-md text-secondary mb-space-sm line-clamp-3">
+        केंद्रीय कैबिनेट ने घरेलू चिप विनिर्माण और हार्डवेयर इकोसिस्टम को बढ़ावा देने के लिए 82,000 करोड़ रुपये की संशोधित प्रोत्साहन योजना को मंजूरी दी। वैश्विक निवेश आकर्षित करने पर विशेष ज़ोर।
+      </p>
+<!-- Author Byline & Micro Action Row -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-paper-subtle flex items-center justify-center text-on-surface font-label-sm font-bold">
+            आ
+          </div>
+<span class="font-label-md text-label-md text-on-surface font-medium">आनंद स्वरूप त्रिवेदी • ब्यूरो नई दिल्ली</span>
+</div>
+<div class="flex items-center gap-3 text-secondary">
+<button aria-label="सहेजें" class="hover:text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">bookmark_add</span>
+</button>
+<button aria-label="शेयर करें" class="hover:text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Structural Hairline Divider via subtle background shift -->
+<div class="h-2 w-full bg-paper-subtle"></div>
+<!-- Result 2: Standard Horizontal Story Unit -->
+<article class="p-margin bg-paper-canvas flex gap-space-md items-start active:bg-paper-tint transition-colors">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm font-bold text-primary uppercase">टेक्नोलॉजी</span>
+<span class="text-secondary text-[10px]">•</span>
+<span class="font-label-sm text-label-sm text-secondary">24 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1.5 line-clamp-3">
+          धोलेरा स्मार्ट सिटी में भारत के पहले <mark class="bg-ticker-tint text-primary font-semibold px-0.5">सेमीकंडक्टर</mark> फैब का निर्माण कार्य 70% पूरा
+        </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-2">
+          टाटा इलेक्ट्रॉनिक्स और पीएसएमसी के संयुक्त उद्यम के तहत इसी वर्ष के अंत तक पहली वाणिज्यिक चिप के उत्पादन का लक्ष्य।
+        </p>
+</div>
+<!-- Right Thumbnail Block -->
+<div class="w-24 h-24 flex-shrink-0 relative bg-paper-subtle overflow-hidden">
+<img alt="सेमीकंडक्टर फैब का निर्माण" class="w-full h-full object-cover" data-alt="Modern cleanroom semiconductor fabrication plant interior with automated robotic manufacturing arms under bright surgical lighting and clean industrial setting, broadsheet photojournalism style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3fXJEpOmN0-XB_ygJzSoe-maOpbMmaQM7hvz5i9E3UmKDaOlEZZB_OyFuDxg0jF5C9B4vvaBzvhIRs5-6k30A9_wFG-r3eGUWJWXOlMeKzCLcGMZEebGIi7qYhV7aTNpt9mR__epntQNc4m2yoQf4Raz41ION8KmOX-VmUlB8bKVYQyKWp3W2CtY_p0Bmeuyr26-vVI6G8kMngm6_wrIQ_XCTOYJzOorfEU3nJeODG1qHuu6SH_Q8"/>
+<div class="absolute bottom-0 right-0 bg-border-heavy/90 text-on-primary px-1 font-label-sm text-[10px]">
+          गुजरात
+        </div>
+</div>
+</article>
+<!-- Separation rule -->
+<div class="h-2 w-full bg-paper-subtle"></div>
+<!-- Result 3: Video Special Coverage Block -->
+<article class="p-margin bg-paper-canvas flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="bg-breaking-crimson text-on-primary font-label-sm text-label-sm px-1.5 py-0.5 font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary animate-pulse"></span>
+            वीडियो विश्लेषण
+          </span>
+<span class="font-label-sm text-label-sm text-secondary">विशेष रिपोर्ट</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">24 मार्च 2025</span>
+</div>
+<!-- Video Media Banner Container -->
+<div class="relative w-full aspect-video bg-border-heavy overflow-hidden">
+<img alt="स्पेशल रिपोर्ट वीडियो" class="w-full h-full object-cover opacity-90" data-alt="Television broadcast studio documentary graphic showing glowing semiconductor silicon wafer map of India, high technology concept with broadcast infographics and deep crimson lighting accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4fWvPCochIoZ2KyHSa_WWfTERvCcSynulI9bzCcp55UzH46ExQ9x53W7S0Vh3W7ZnjmxZ7dM3xbss1fa04sATVF17nFFyW1nLR3oAChNwAPB60auLR97OW2f-Iuq46bLima-Yu1S8AL7J08G_vr1dj0YSajplBFc5suKcyNXYfytu3bueYDlJN0Dh7sMMh_l6GV3w1Q9o4CJEzn4EH2kQN7oMhRmSRsRUdv6m9WEB5yMHQV1UyPIU"/>
+<!-- Centered Play Action Target -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 bg-primary-container text-on-primary flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<!-- Time Badge -->
+<div class="absolute bottom-2 left-2 bg-border-heavy/90 text-on-primary px-2 py-0.5 font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+<span>08:24</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">
+        स्पेशल रिपोर्ट: <mark class="bg-ticker-tint text-primary font-bold px-0.5">सेमीकंडक्टर</mark> हब के रूप में भारत का वैश्विक उदय
+      </h3>
+<p class="font-body-md text-body-md text-secondary line-clamp-2">
+        विशेषज्ञों के साथ गहन पड़ताल कि क्या नई <mark class="bg-ticker-tint text-primary font-semibold px-0.5">नीति</mark> भारत को ताइवान और दक्षिण कोरिया के समकक्ष खड़ा कर पाएगी।
+      </p>
+</article>
+<!-- Separation rule -->
+<div class="h-2 w-full bg-paper-subtle"></div>
+<!-- Result 4: English Language Example Item -->
+<article class="p-margin bg-paper-canvas flex gap-space-md items-start active:bg-paper-tint transition-colors">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm font-bold text-on-surface tracking-wider uppercase">Economy &amp; Trade</span>
+<span class="text-secondary text-[10px]">•</span>
+<span class="font-label-sm text-label-sm text-secondary">March 23, 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1.5 line-clamp-2 font-body-lg font-bold">
+          India's <mark class="bg-ticker-tint text-primary font-bold px-0.5">Semiconductor</mark> Ecosystem: Global Tech Giants Expand R&amp;D Hubs in Bengaluru
+        </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-2">
+          Major multinational chip designers announce a combined $3.2B infrastructure commitment following the revised policy draft.
+        </p>
+</div>
+<!-- Right Thumbnail Block -->
+<div class="w-24 h-24 flex-shrink-0 relative bg-paper-subtle overflow-hidden">
+<img alt="Semiconductor R&amp;D campus" class="w-full h-full object-cover" data-alt="Modern gleaming glass architecture of technology research center campus in Bengaluru surrounded by green trees on a crisp morning, editorial corporate photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu97fQIrKPlLrvAkItFDLKQIL1nplzHK91s1blh8cDytssslPWwr3znTH1YNnqLt7nF6UL4iMYL3TmAaEJekJ1L6GXYHd7s0x-0Us4Ca4CL9TfcpWiSpBTtNjcpPR-ZTCOpU36QL4x_hMEr2yNWsUzQIVP9nFTo-KeS9FKWxTbHOOgAlIZMqChHdkctg5pZy3_4S6DkbaMisd9kIvJx-m0V04mbywze51dp4XOzgnGI-tJy8RAWeEn"/>
+<div class="absolute bottom-0 right-0 bg-border-heavy/90 text-on-primary px-1 font-label-sm text-[10px]">
+          ENG
+        </div>
+</div>
+</article>
+<!-- Load More Editorial Button with Progress Indicators -->
+<div class="p-margin bg-paper-canvas flex flex-col items-center gap-space-sm pt-space-lg">
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary py-3 font-label-lg text-label-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs active:scale-[0.99] transition-all" type="button">
+<span>और परिणाम देखें (Load More)</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<!-- Pagination and Page Indicator Dots -->
+<div class="flex items-center justify-between w-full pt-1 px-1">
+<span class="font-label-sm text-label-sm text-secondary">पृष्ठ 1 / 12 (कुल 48)</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-primary-container"></span>
+<span class="w-2 h-2 bg-paper-subtle"></span>
+<span class="w-2 h-2 bg-paper-subtle"></span>
+<span class="w-2 h-2 bg-paper-subtle"></span>
+</div>
+</div>
+</div>
+<!-- Separation rule -->
+<div class="h-3 w-full bg-paper-subtle"></div>
+<!-- Interactive Demonstration: Zero Results / 'कोई परिणाम नहीं' Empty State Component -->
+<!-- (Styled as a contextual editorial assistant module) -->
+<section class="p-margin bg-paper-canvas">
+<!-- Section Label -->
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">वैकल्पिक स्थिति पूर्वावलोकन (Empty State Demo)</span>
+<span class="font-label-sm text-label-sm bg-ticker-tint text-primary px-2 py-0.5">क्वेरी: "xyzabc123"</span>
+</div>
+<div class="bg-paper-tint p-space-lg flex flex-col items-center text-center">
+<!-- Human / Editorial Search Illustration Icon -->
+<div class="relative w-16 h-16 bg-paper-canvas flex items-center justify-center mb-space-md shadow-xs">
+<span class="material-symbols-outlined text-secondary text-[36px]">find_in_page</span>
+<span class="absolute -top-1 -right-1 w-5 h-5 bg-ticker-tint text-primary flex items-center justify-center text-[12px] font-bold">
+            0
+          </span>
+</div>
+<!-- Primary Empty State Message -->
+<h4 class="font-headline-md text-headline-md text-on-surface mb-space-xs">
+          कोई परिणाम नहीं मिला
+        </h4>
+<p class="font-body-sm text-body-sm text-secondary max-w-xs mb-space-md">
+          आपके द्वारा खोजे गए शब्द <strong class="text-on-surface">"xyzabc123"</strong> से संबंधित कोई समाचार या रिपोर्ट हमारे संग्रह में मौजूद नहीं है।
+        </p>
+<!-- Help Tips Box -->
+<div class="w-full bg-paper-canvas p-space-sm text-left mb-space-md">
+<div class="font-label-sm text-label-sm text-on-surface font-bold uppercase mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">lightbulb</span>
+<span>सुझाव:</span>
+</div>
+<ul class="font-body-sm text-body-sm text-secondary space-y-1 list-disc list-inside">
+<li>शब्दों की सही स्पेलिंग जांचें या मात्राएं सुधारें</li>
+<li>अधिक सामान्य या वैकल्पिक कीवर्ड का प्रयोग करें</li>
+<li>फ़िल्टर या तिथि सीमा को रीसेट करके पुनः प्रयास करें</li>
+</ul>
+</div>
+<!-- Trending Topics / Popular Tags Recommendation -->
+<div class="w-full text-left">
+<div class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider mb-2">
+            आज के चर्चित विषय (Trending Topics)
+          </div>
+<div class="flex flex-wrap gap-1.5">
+<a class="inline-flex items-center gap-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface px-2.5 py-1 text-label-md font-label-md transition-colors shadow-2xs" href="#">
+<span class="text-primary font-bold">#</span>बजट2025
+            </a>
+<a class="inline-flex items-center gap-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface px-2.5 py-1 text-label-md font-label-md transition-colors shadow-2xs" href="#">
+<span class="text-primary font-bold">#</span>शेयरबाजार
+            </a>
+<a class="inline-flex items-center gap-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface px-2.5 py-1 text-label-md font-label-md transition-colors shadow-2xs" href="#">
+<span class="text-primary font-bold">#</span>IPL2025
+            </a>
+<a class="inline-flex items-center gap-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface px-2.5 py-1 text-label-md font-label-md transition-colors shadow-2xs" href="#">
+<span class="text-primary font-bold">#</span>चुनाव2025
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Editorial Help Strip -->
+<div class="px-margin py-space-sm bg-paper-subtle flex items-center justify-between text-secondary">
+<span class="font-label-sm text-label-sm">आज़ाद समाचार आर्काइव • 1947 - 2025</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline font-semibold flex items-center gap-0.5">
+<span>उन्नत खोज</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Search query input reactivity micro-interaction
+  const input = document.getElementById('search-input');
+  const clearBtn = document.getElementById('clear-search-btn');
+
+  if (input && clearBtn) {
+    input.addEventListener('input', function() {
+      if (this.value.trim().length > 0) {
+        clearBtn.style.display = 'flex';
+      } else {
+        clearBtn.style.display = 'none';
+      }
+    });
+  }
+</script></main></body></html>

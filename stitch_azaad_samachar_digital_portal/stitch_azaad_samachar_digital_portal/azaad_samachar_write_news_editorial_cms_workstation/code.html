@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+
+<html lang="hi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Mukta:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-container": "#e7eeff",
+        "tertiary": "#434d5f",
+        "on-tertiary": "#ffffff",
+        "ticker-tint": "#FCE9E9",
+        "on-primary-fixed": "#410007",
+        "paper-tint": "#F8F9FA",
+        "outline": "#906f6e",
+        "breaking-crimson": "#DA251D",
+        "surface-container-high": "#dee9ff",
+        "live-pulse": "#E53E3E",
+        "on-surface": "#111c2c",
+        "outline-variant": "#e5bdbb",
+        "secondary-container": "#e2dfde",
+        "surface-container-low": "#f0f3ff",
+        "surface-variant": "#d8e3f9",
+        "inverse-primary": "#ffb3b1",
+        "on-tertiary-fixed": "#121c2c",
+        "on-error-container": "#93000a",
+        "on-secondary": "#ffffff",
+        "error": "#ba1a1a",
+        "on-secondary-container": "#636262",
+        "on-background": "#111c2c",
+        "background": "#f9f9ff",
+        "border-heavy": "#1A1A1A",
+        "surface-tint": "#bf0229",
+        "primary-fixed-dim": "#ffb3b1",
+        "inverse-surface": "#263142",
+        "secondary-fixed-dim": "#c8c6c5",
+        "primary-fixed": "#ffdad8",
+        "paper-subtle": "#EDF2F7",
+        "tertiary-container": "#5b6578",
+        "surface-container-highest": "#d8e3f9",
+        "on-error": "#ffffff",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary-fixed-variant": "#474746",
+        "on-tertiary-fixed-variant": "#3d4759",
+        "inverse-on-surface": "#ebf1ff",
+        "surface-bright": "#f9f9ff",
+        "surface-dim": "#cfdaf1",
+        "primary-container": "#c8102e",
+        "error-container": "#ffdad6",
+        "paper-canvas": "#FFFFFF",
+        "tertiary-fixed": "#d9e3f9",
+        "on-primary": "#ffffff",
+        "on-tertiary-container": "#d9e3f9",
+        "border-rule": "#E2E8F0",
+        "secondary-fixed": "#e5e2e1",
+        "secondary": "#5f5e5e",
+        "on-surface-variant": "#5c403f",
+        "tertiary-fixed-dim": "#bdc7dc",
+        "surface": "#f9f9ff",
+        "on-secondary-fixed": "#1c1b1b",
+        "on-primary-fixed-variant": "#92001c",
+        "primary": "#9e001f",
+        "on-primary-container": "#ffdad8"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "gutter": "1rem",
+        "space-md": "0.75rem",
+        "margin": "1rem",
+        "space-xl": "2rem",
+        "space-lg": "1.25rem",
+        "margin-desktop": "2.5rem",
+        "gutter-desktop": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "body-lg": ["Inter"],
+        "label-sm": ["Inter"],
+        "headline-lg-mobile": ["Mukta"],
+        "body-md": ["Inter"],
+        "headline-sm": ["Mukta"],
+        "display-xl": ["Mukta"],
+        "label-md": ["Inter"],
+        "label-lg": ["Inter"],
+        "headline-lg": ["Mukta"],
+        "headline-md": ["Mukta"],
+        "body-sm": ["Inter"],
+        "display-xl-mobile": ["Mukta"]
+      },
+      "fontSize": {
+        "body-lg": ["17px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+        "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+        "display-xl": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600"}],
+        "label-lg": ["14px", {"lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+        "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "display-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-paper-canvas z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-paper-tint"><div class="bg-primary-container text-on-primary font-headline-md font-bold px-space-sm py-space-xs leading-none">आस</div><div class="flex flex-col"><span class="font-headline-md text-headline-md leading-none font-bold text-on-surface tracking-tight">आज़ाद समाचार</span><span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Editorial CMS v2.4</span></div></div><div class="px-space-md py-space-sm bg-ticker-tint flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-live-pulse animate-pulse"></span><span class="font-label-sm text-label-sm uppercase text-breaking-crimson font-bold">लाइव डेस्क सक्रिय</span></div><span class="font-label-sm text-label-sm text-on-surface-variant font-bold">DELHI-HQ</span></div><div class="px-space-lg pt-space-md pb-space-xs"><span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-bold">मुख्य नेविगेशन / Navigation</span></div><nav class="flex-1 overflow-y-auto px-space-sm space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold"><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span class="font-headline-sm text-headline-sm">डैशबोर्ड (Dashboard)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="all-news" href="#"><span class="material-symbols-outlined text-[20px]">newspaper</span><span class="font-headline-sm text-headline-sm">सभी समाचार (All News)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="write-news" href="#"><span class="material-symbols-outlined text-[20px]">edit_note</span><span class="font-headline-sm text-headline-sm">नया समाचार (Write)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="scheduled-news" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span class="font-headline-sm text-headline-sm">शेड्यूल्ड (Scheduled)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[20px]">category</span><span class="font-headline-sm text-headline-sm">श्रेणियां (Categories)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="media-library" href="#"><span class="material-symbols-outlined text-[20px]">perm_media</span><span class="font-headline-sm text-headline-sm">मीडिया (Media)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="ai-proofreading" href="#"><span class="material-symbols-outlined text-[20px]">spellcheck</span><span class="font-headline-sm text-headline-sm">AI वर्तनी (AI Proof)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="social-links" href="#"><span class="material-symbols-outlined text-[20px]">share</span><span class="font-headline-sm text-headline-sm">सोशल लिंक्स (Social)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-headline-sm text-headline-sm">सेटिंग्स (Settings)</span></a></nav></div><div class="p-space-md bg-paper-tint"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm font-bold text-on-surface truncate leading-tight">राजेश कुमार</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">वरिष्ठ संपादक (Sr. Editor)</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-paper-canvas/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="flex items-center gap-space-xs bg-paper-subtle px-space-sm py-space-xs"><span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">डेस्क:</span><span class="font-label-sm text-label-sm font-bold text-on-surface">संपादकीय पोर्टल - Editorial Desk</span></div><div class="relative flex-1"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span><input class="w-full bg-paper-tint pl-8 pr-space-sm py-space-xs text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-paper-canvas placeholder:text-on-surface-variant/60" placeholder="समाचार, लेखक, टैग या स्टोरी ID खोजें... (Ctrl + /)" type="text"/></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex flex-col items-end text-right"><span class="font-label-sm text-label-sm font-bold text-on-surface">शिफ्ट: मॉर्निंग (06:00 - 14:00)</span><span class="font-label-sm text-label-sm text-on-surface-variant">इंचार्ज: राजेश कुमार (Senior Desk)</span></div><button class="flex items-center gap-space-xs bg-breaking-crimson hover:bg-primary text-on-primary px-space-md py-space-xs transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] animate-pulse">bolt</span><span class="font-label-md text-label-md uppercase font-bold tracking-wide">ब्रेकिंग न्यूज़ अलर्ट</span></button><div class="flex items-center bg-paper-subtle p-0.5"><button class="px-space-xs py-0.5 font-label-sm text-label-sm font-bold bg-paper-canvas text-on-surface shadow-sm">हिन्दी</button><button class="px-space-xs py-0.5 font-label-sm text-label-sm font-bold text-on-surface-variant hover:text-on-surface">ENG</button></div><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface hover:bg-paper-tint transition-colors cursor-pointer"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-4 h-4 bg-live-pulse text-on-primary font-label-sm text-[9px] font-bold rounded-full flex items-center justify-center leading-none">7</span></button><div class="flex items-center gap-space-xs pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Sticky Sub-Header Editorial Command Ribbon -->
+<div class="sticky top-16 z-30 bg-paper-canvas px-space-lg py-space-sm shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Left: Navigation Back & Live Status Metas -->
+<div class="flex items-center gap-space-md flex-wrap">
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>सभी समाचार (All News)</span>
+</a>
+<div class="h-4 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">स्वतः सहेजा गया 11:42 AM · <strong class="text-on-surface">ड्राफ्ट सुरक्षित</strong></span>
+</div>
+<div class="h-4 w-px bg-surface-container-highest hidden sm:block"></div>
+<div class="hidden sm:flex items-center gap-space-sm font-label-sm text-label-sm text-on-surface-variant bg-paper-subtle px-space-sm py-0.5">
+<span>शब्द: <strong class="text-on-surface">842</strong></span>
+<span>•</span>
+<span>अनुमानित पठन: <strong class="text-on-surface">4 मिनट</strong></span>
+<span>•</span>
+<span>वर्ण: <strong class="text-on-surface">4,120</strong></span>
+</div>
+<span class="bg-amber-100 text-amber-900 font-label-sm text-label-sm font-bold px-2 py-0.5 uppercase tracking-wider">
+          ड्राफ्ट अवस्था / DRAFT
+        </span>
+</div>
+<!-- Right: Workflow Actions (Save, Preview, Schedule, Publish) -->
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-space-md py-1.5 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors cursor-pointer" id="saveDraftBtn" title="सहेजें (Ctrl+S)">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>सहेजें</span>
+<kbd class="hidden md:inline-block font-label-sm text-[9px] bg-paper-canvas px-1 py-0.5 shadow-sm text-on-surface-variant">Ctrl+S</kbd>
+</button>
+<button class="inline-flex items-center gap-1 px-space-md py-1.5 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>पूर्वावलोकन</span>
+</button>
+<button class="inline-flex items-center gap-1 px-space-md py-1.5 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">schedule_send</span>
+<span class="hidden lg:inline">शेड्यूल करें</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-lg py-1.5 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-bold transition-all shadow-sm cursor-pointer" id="publishBtn">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+<span>प्रकाशित करें (Publish)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Newsroom 3-Column Desk Grid -->
+<div class="px-space-md lg:px-space-lg py-space-md">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- ======================================================== -->
+<!-- COLUMN 1: MAIN LONG-FORM WRITING CANVAS (7 Cols on XL)   -->
+<!-- ======================================================== -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Story Format & Language Controls -->
+<div class="bg-paper-canvas p-space-md shadow-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant mr-1">प्रारूप:</span>
+<button class="px-space-sm py-1 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold">मानक समाचार (Standard)</button>
+<button class="px-space-sm py-1 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-sm text-label-sm">विशेष रिपोर्ट (In-depth)</button>
+<button class="px-space-sm py-1 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-live-pulse"></span>
+              लाइव ब्लॉग (Live)
+            </button>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center bg-paper-subtle p-0.5">
+<button class="px-2 py-0.5 font-label-sm text-label-sm font-bold bg-paper-canvas text-on-surface shadow-xs">हिंदी</button>
+<button class="px-2 py-0.5 font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface">English</button>
+</div>
+<div class="flex items-center gap-0.5 bg-paper-subtle p-0.5">
+<button class="w-6 h-6 flex items-center justify-center font-label-sm text-label-sm text-on-surface hover:bg-paper-canvas" title="फ़ॉन्ट आकार छोटा">A-</button>
+<button class="w-6 h-6 flex items-center justify-center font-label-sm text-label-sm font-bold text-on-surface hover:bg-paper-canvas" title="फ़ॉन्ट आकार बड़ा">A+</button>
+</div>
+</div>
+</div>
+<!-- Headline & Slug Box -->
+<div class="bg-paper-canvas p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-breaking-crimson flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">format_size</span>
+              मुख्य शीर्षक (Main Headline) *
+            </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="charCount">112 / 140 वर्ण</span>
+</div>
+<textarea class="w-full bg-transparent font-headline-lg text-headline-lg text-on-surface font-bold resize-none focus:outline-none placeholder:text-on-surface-variant/40 leading-snug tracking-tight" placeholder="आकर्षक व तथ्यपरक शीर्षक दर्ज करें..." rows="2">संसद में नई राष्ट्रीय औद्योगिक नीति व सेमीकंडक्टर मिशन 2025 विधेयक पर बनी ऐतिहासिक सहमति, 10 लाख नए रोज़गार का लक्ष्य</textarea>
+<!-- Permalink / Slug Editor -->
+<div class="bg-paper-tint p-space-sm flex flex-wrap items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">link</span>
+              यूआरएल स्लग:
+            </span>
+<span class="text-on-surface-variant">https://azaadsamachar.com/national/</span>
+<input class="bg-paper-canvas px-2 py-0.5 text-on-surface font-body-sm text-body-sm flex-1 min-w-[200px] focus:outline-none focus:bg-paper-subtle font-mono text-[12px]" type="text" value="cabinet-approves-semiconductor-mission-phase-2-employment"/>
+<button class="p-1 hover:bg-paper-canvas text-on-surface cursor-pointer" title="कॉपी करें">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<!-- Summary Dek / Short Excerpt -->
+<div class="mt-space-xs flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant">संक्षिप्त विवरण (Summary / Dek for Wire &amp; Social)</label>
+<span class="font-label-sm text-label-sm text-emerald-700">अनुकूलित (178/220)</span>
+</div>
+<textarea class="w-full bg-paper-tint p-space-sm text-on-surface font-body-md text-body-md focus:bg-paper-canvas focus:outline-none placeholder:text-on-surface-variant/50 leading-relaxed" placeholder="स्टोरी का 2-लाइन सार लिखें जो सोशल कार्ड्स और RSS फ़ीड में प्रदर्शित होगा..." rows="2">केंद्रीय मंत्रिमंडल ने 76,000 करोड़ रुपये के परिव्यय वाले सेमीकंडक्टर मिशन 2.0 को दी हरी झंडी। संसद के दोनों सदनों में व्यापक चर्चा के बाद नई विनिर्माण नीति पर विपक्ष के साथ अभूतपूर्व सहमति दर्ज की गई।</textarea>
+</div>
+</div>
+<!-- Rich-Text WYSIWYG Ribbon & Writing Surface -->
+<div class="bg-paper-canvas shadow-sm flex flex-col">
+<!-- Formatting Bar -->
+<div class="bg-paper-tint p-space-sm flex flex-wrap items-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface font-bold text-sm" title="Bold (Ctrl+B)">B</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface italic text-sm" title="Italic (Ctrl+I)">I</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface underline text-sm" title="Underline (Ctrl+U)">U</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface line-through text-sm" title="Strikethrough">S</button>
+<div class="h-4 w-px bg-surface-container-highest mx-1"></div>
+<button class="px-2 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface font-label-md text-label-md font-bold" title="उपशीर्षक H2">H2</button>
+<button class="px-2 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface font-label-md text-label-md" title="उपशीर्षक H3">H3</button>
+<div class="h-4 w-px bg-surface-container-highest mx-1"></div>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="उद्धरण (Blockquote)">
+<span class="material-symbols-outlined text-[18px]">format_quote</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="बुलेट सूची">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="क्रमांक सूची">
+<span class="material-symbols-outlined text-[18px]">format_list_numbered</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="तालिका डालें (Table)">
+<span class="material-symbols-outlined text-[18px]">table_chart</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest mx-1"></div>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="छवि जोड़ें (Inline Image)">
+<span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="यूट्यूब वीडियो एम्बेड (YouTube)">
+<span class="material-symbols-outlined text-[18px]">smart_display</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="X / ट्विटर थ्रेड">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface" title="हाइपरलिंक (Link)">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest mx-1"></div>
+<!-- Devanagari Special Characters Dropdown Button -->
+<div class="relative group">
+<button class="px-2 h-7 flex items-center gap-1 hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm bg-paper-canvas shadow-xs">
+<span>देवनागरी चिह्न (।)</span>
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>
+</button>
+</div>
+<button class="w-7 h-7 flex items-center justify-center hover:bg-paper-subtle text-on-surface ml-auto" title="फॉर्मेट हटाएं">
+<span class="material-symbols-outlined text-[18px]">format_clear</span>
+</button>
+</div>
+<!-- Long-Form Body Writing Surface with Annotated Editorial Layout -->
+<div class="p-space-lg font-body-lg text-body-lg text-on-surface space-y-space-md focus:outline-none min-h-[580px] leading-relaxed bg-paper-canvas">
+<p>
+<strong>नई दिल्ली (विशेष संवाददाता):</strong> संसद के मानसून सत्र के दौरान आज भारतीय विनिर्माण और उच्च प्रौद्योगिकी क्षेत्र के लिए एक ऐतिहासिक पड़ाव दर्ज किया गया। दोनों सदनों में गहन विचार-विमर्श के बाद बहुप्रतीक्षित 
+              <!-- AI Inline Annotation: Spelling -->
+<mark class="bg-amber-100 text-on-surface px-1 cursor-pointer underline decoration-amber-500 decoration-wavy" title="AI वर्तनी सुधार उपलब्ध: 'सेमीकंडक्टर'">सेमीकन्डक्टर</mark>
+              मिशन 2025 विधेयक को सर्वसम्मति से पारित कर दिया गया।
+            </p>
+<p>
+              इस विधेयक के तहत आगामी पांच वर्षों में भारत को वैश्विक चिप डिजाइन, पैकेजिंग और फैब्रिकेशन हब बनाने का रोडमैप तय किया गया है। उद्योग विशेषज्ञों के अनुसार, यह पहल घरेलू स्तर पर 
+              <strong class="font-bold">10 लाख से अधिक कुशल व अर्ध-कुशल रोज़गार</strong> 
+              सृजित करने में सक्षम होगी। 
+              <!-- AI Inline Annotation: Grammar -->
+              केंद्रीय <mark class="bg-rose-100 text-on-surface px-1 cursor-pointer underline decoration-breaking-crimson decoration-wavy" title="AI व्याकरण सुधार: 'मंजूरी दी' होना चाहिए">कैबिनेट ने प्रस्तावों को मंजूरी दिया</mark> जिसके उपरांत दोनों सदनों में सत्ता पक्ष और विपक्ष ने एकमत से भारत को सेमीकंडक्टर आत्मनिर्भरता की राह पर ले जाने का संकल्प लिया।
+            </p>
+<!-- Pull Quote Broadsheet Component -->
+<div class="my-space-lg p-space-md bg-paper-tint pl-space-lg flex flex-col gap-1 shadow-sm">
+<p class="font-headline-md text-headline-md text-primary font-bold italic leading-snug">
+                "यह केवल एक औद्योगिक नीति नहीं है, बल्कि 21वीं सदी के आत्मनिर्भर भारत की संप्रभु डिजिटल आधारशिला है।"
+              </p>
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">
+                — केंद्रीय इलेक्ट्रॉनिक्स एवं आईटी मंत्री, संसद में संबोधन के दौरान
+              </span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface pt-space-sm">
+              चार प्रमुख राज्यों में स्थापित होंगे नए मेगा फैब्रिकेशन प्लांट
+            </h2>
+<p>
+              विधेयक के वित्तीय प्रावधानों के अनुसार, गुजरात, कर्नाटक, तमिलनाडु और उत्तर प्रदेश में राज्य सरकारों के संयुक्त उपक्रम से चार नए नोड्स को स्वीकृति मिली है। इसके लिए 
+              <!-- AI Inline Annotation: Entity Verification -->
+<mark class="bg-purple-100 text-on-surface px-1 cursor-pointer underline decoration-purple-500" title="संस्थान सत्यापन: डाटाबेस में 'आईआईटी रुड़की' सत्यापित">आईआईटी रुड़की</mark> 
+              तथा आईआईएससी बेंगलुरु को विशेष अनुसंधान और नोडल प्रशिक्षण केंद्र के रूप में नामित किया गया है।
+            </p>
+<!-- Inline Media Placement Card -->
+<div class="my-space-md bg-paper-tint p-space-sm flex flex-col gap-space-xs">
+<div class="w-full h-72 overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="High-density wide shot inside the Indian Parliament Lok Sabha session with ministers discussing national industrial policy documents, bright formal television newsroom lighting, broadcast camera setup, serious journalistic depth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKdGICbJiyVKemiWYnd3JtimhDrxVuAHApNdBEHxSmjzltGPmHoiCAVCm4u2KGB_ot9d9X2nsli6nlOWZMvM_l13f5Uy7SwQSJKA4LfoM6bpsfBnencSkrZF3erhqbYj1bwnWxVyuleWUCaYDxq4uH3OqM6JZGGMHb2igoKMNPS944ZOmkCpQqNjf7fhFU-R5ETnW4aE4W_BJoDycyTluCfuauLQr3S94cIIWWV2_d3LC-1Gf-4izh"/>
+<div class="absolute bottom-2 left-2 bg-border-heavy/90 text-on-primary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wide">
+                  संसद विशेष · लोकसभा पटल
+                </div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+<span>संसद के दोनों सदनों में राष्ट्रीय विनिर्माण सुधार 2025 पर मतदान के पूर्व सत्र की कार्यवाही।</span>
+<span class="font-bold">फोटो साभार: पीटीआई / आज़ाद समाचार ब्यूरो</span>
+</div>
+</div>
+<!-- Embedded Video Inline Module -->
+<div class="my-space-md bg-paper-subtle p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold uppercase text-breaking-crimson flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+                  एम्बेडेड वीडियो प्रसारण (Video Package)
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: AZ-SemiCon-09</span>
+</div>
+<div class="w-full h-56 bg-surface-container-high relative overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Television broadcast graphic layout showing a high tech semiconductor microchip wafer cleanroom in India, digital graphics overlay with data tickers and Indian flag emblem, broadcast documentary visual style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiyt14iY_mTZz3a9_a03zmNthbUNRUVOXj4tWPD7hHmthwfIEKuY0FXMTtsgsV8YbaimaZvwODOMG71B2GgJDGtMthqog7QH1yrO2bsKodx1-ojqKNczNoNAViVsY_Lk7QUh7fTD4qnt_06z1RuJIHN7xKxiefQv-ROWutm22anZq6cGEcpB2odd8aRA4MxqZVcaam0zp8yushIM9rwDRABBzTmQQQTfnb1xO-7bQ8aCuASfu5NDHj"/>
+<div class="absolute inset-0 bg-on-surface/40 flex items-center justify-center">
+<button class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[28px]">play_arrow</span>
+</button>
+</div>
+<div class="absolute bottom-2 left-2 bg-border-heavy/90 text-on-primary font-label-sm text-label-sm px-2 py-0.5">
+                  ▶ 04:18 · विशेष रिपोर्ट: भारत का सेमीकंडक्टर हब
+                </div>
+</div>
+</div>
+<p>
+              नीति विश्लेषकों का मानना है कि इस कानून से देश के इलेक्ट्रॉनिक्स आयात बिल में अगले 7 वर्षों के भीतर 38 प्रतिशत की ठोस कमी आने का अनुमान है।
+            </p>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- COLUMN 2: METADATA, MEDIA & TAXONOMY DRAWER (2.5 Cols)   -->
+<!-- ======================================================== -->
+<div class="xl:col-span-2 flex flex-col gap-space-md">
+<!-- Taxonomy & Desks Box -->
+<div class="bg-paper-canvas p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">वर्गीकरण व डेस्क</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">account_tree</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">मुख्य श्रेणी (Primary)</label>
+<select class="w-full bg-paper-tint p-2 text-on-surface font-body-sm text-body-sm focus:bg-paper-canvas focus:outline-none">
+<option selected="">राष्ट्रीय (National)</option>
+<option>राजनीति (Politics)</option>
+<option>अर्थव्यवस्था (Economy)</option>
+<option>प्रौद्योगिकी (Tech)</option>
+<option>अंतरराष्ट्रीय (World)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">उपश्रेणी (Subcategory)</label>
+<select class="w-full bg-paper-tint p-2 text-on-surface font-body-sm text-body-sm focus:bg-paper-canvas focus:outline-none">
+<option selected="">संसद व औद्योगिक नीति</option>
+<option>इलेक्ट्रॉनिक्स व विनिर्माण</option>
+<option>मंत्रिमंडल फैसले</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">लेखक / बाईलाइन (Author Desk)</label>
+<select class="w-full bg-paper-tint p-2 text-on-surface font-body-sm text-body-sm focus:bg-paper-canvas focus:outline-none">
+<option selected="">राजेश कुमार बाजपेयी (वरिष्ठ ब्यूरो)</option>
+<option>समीक्षा श्रीवास्तव (आर्थिक डेस्क)</option>
+<option>आज़ाद समाचार विशेष सेल</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">डेटलाइन / स्थान (Location)</label>
+<input class="w-full bg-paper-tint p-2 text-on-surface font-body-sm text-body-sm focus:bg-paper-canvas focus:outline-none" type="text" value="नई दिल्ली"/>
+</div>
+</div>
+<!-- Featured Media (मुख्य मीडिया) Uploader Box -->
+<div class="bg-paper-canvas p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">मुख्य मीडिया (Featured)</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">photo_library</span>
+</div>
+<div class="relative w-full h-36 bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="Official high table press conference in New Delhi cabinet hall, microchips and national development policy charts displayed on screens, professional Indian photojournalism, crisp 16:9 ratio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC9At2OyOl7NFQMPuy89PYOJLHfrN2gxqugYT8QXuh7WnD0-mJLhne8QwuI3r1yGsSpZ2Nwr-wcUJ6UGaex7yGDrb4YpK5-_rcY0rE7wYO8qyAija-tqI54PgUCxaUJ0DU7M6rRcGKiEx5ElGVCHsNPHDLSQsjBuQpyvzADM-QiceO1DKkdfsKwe5JnI8Wdq6bmj_ziOO3XTj8FoEFz8FSlShyEme4miw5WQqd-yzSByBGRJNdxKfU"/>
+<div class="absolute inset-0 bg-on-surface/50 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-2 transition-opacity">
+<button class="bg-paper-canvas text-on-surface px-2 py-1 font-label-sm text-label-sm font-bold cursor-pointer">बदलें</button>
+<button class="bg-breaking-crimson text-on-primary px-2 py-1 font-label-sm text-label-sm font-bold cursor-pointer">हटाएं</button>
+</div>
+<span class="absolute bottom-1 right-1 bg-border-heavy text-on-primary font-label-sm text-[10px] px-1">16:9 · 1920×1080</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">ऑल्ट टेक्स्ट (Alt for SEO)</label>
+<input class="w-full bg-paper-tint p-1.5 text-on-surface font-body-sm text-body-sm focus:bg-paper-canvas focus:outline-none" type="text" value="संसद में औद्योगिक नीति 2025 प्रस्तुति के दौरान कैबिनेट प्रतिनिधिमंडल"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">फोटो क्रेडिट (Credit)</label>
+<input class="w-full bg-paper-tint p-1.5 text-on-surface font-body-sm text-body-sm focus:bg-paper-canvas focus:outline-none" type="text" value="पीटीआई / संसद् सचिवालय"/>
+</div>
+</div>
+<!-- Video Integration Box -->
+<div class="bg-paper-canvas p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">यूट्यूब लिंक (Video Link)</span>
+<span class="material-symbols-outlined text-[18px] text-breaking-crimson">smart_display</span>
+</div>
+<input class="w-full bg-paper-tint p-1.5 text-on-surface font-mono text-[11px] focus:bg-paper-canvas focus:outline-none" type="text" value="https://www.youtube.com/watch?v=AZ-SemiCon2025"/>
+<div class="p-2 bg-paper-subtle flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface">वीडियो लिंक सत्यापित व पूर्वावलोकन तैयार</span>
+</div>
+</div>
+<!-- Tags & SEO Cloud -->
+<div class="bg-paper-canvas p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">टैग्स व कीवर्ड्स</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">tag</span>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-paper-subtle text-on-surface px-2 py-0.5 font-label-sm text-label-sm flex items-center gap-1">
+              #SemiconductorMission
+              <button class="hover:text-breaking-crimson cursor-pointer">×</button>
+</span>
+<span class="bg-paper-subtle text-on-surface px-2 py-0.5 font-label-sm text-label-sm flex items-center gap-1">
+              #Employment2025
+              <button class="hover:text-breaking-crimson cursor-pointer">×</button>
+</span>
+<span class="bg-paper-subtle text-on-surface px-2 py-0.5 font-label-sm text-label-sm flex items-center gap-1">
+              #CabinetDecision
+              <button class="hover:text-breaking-crimson cursor-pointer">×</button>
+</span>
+<span class="bg-paper-subtle text-on-surface px-2 py-0.5 font-label-sm text-label-sm flex items-center gap-1">
+              #MakeInIndia
+              <button class="hover:text-breaking-crimson cursor-pointer">×</button>
+</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<input class="flex-1 bg-paper-tint p-1.5 text-on-surface font-body-sm text-body-sm focus:bg-paper-canvas focus:outline-none" placeholder="नया टैग जोड़ें..." type="text"/>
+<button class="px-3 py-1.5 bg-paper-subtle hover:bg-surface-container font-label-sm text-label-sm font-bold text-on-surface cursor-pointer">+</button>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- COLUMN 3: AI PROOFREADING & EDITORIAL ASSISTANT (2.5 Cols)-->
+<!-- ======================================================== -->
+<div class="xl:col-span-3 flex flex-col gap-space-md">
+<!-- Assistant Header & Scorecard -->
+<div class="bg-paper-canvas p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_fix_high</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">AI वर्तनी व भाषा सहायक</span>
+</div>
+<span class="font-label-sm text-label-sm bg-ticker-tint text-breaking-crimson font-bold px-2 py-0.5">v2.4</span>
+</div>
+<!-- Overall Quality Scorecard -->
+<div class="bg-paper-tint p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">भाषा शुद्धता स्कोर</span>
+<span class="font-headline-md text-headline-md font-bold text-emerald-700">94.8%</span>
+</div>
+<!-- Progress Meter Bar -->
+<div class="w-full h-2 bg-surface-container overflow-hidden">
+<div class="h-full bg-emerald-600 w-[94.8%]"></div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1 font-label-sm text-label-sm">
+<div class="bg-paper-canvas p-2">
+<span class="text-on-surface-variant block">पठन सुगमता:</span>
+<strong class="text-on-surface font-bold">कक्षा 10 (सरल)</strong>
+</div>
+<div class="bg-paper-canvas p-2">
+<span class="text-on-surface-variant block">संपादकीय टोन:</span>
+<strong class="text-on-surface font-bold">तटस्थ व आधिकारिक</strong>
+</div>
+</div>
+</div>
+<!-- Batch Action Controls -->
+<div class="flex items-center gap-space-xs pt-1">
+<button class="flex-1 py-1.5 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-1" id="applyAllBtn">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+              सभी सुरक्षित लागू करें
+            </button>
+<button class="px-2.5 py-1.5 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-sm text-label-sm cursor-pointer" title="पुनः स्कैन करें">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+</button>
+</div>
+</div>
+<!-- Issue Stream Cards -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant">समीक्षा सूची (6 सुझाव उपलब्ध)</span>
+<span class="font-label-sm text-label-sm text-breaking-crimson font-bold">प्राथमिकता: उच्च</span>
+</div>
+<!-- Card 1: Spelling (वर्तनी) -->
+<div class="bg-paper-canvas p-space-sm shadow-sm flex flex-col gap-1.5 transition-all hover:bg-paper-tint">
+<div class="flex items-center justify-between">
+<span class="bg-amber-100 text-amber-900 font-label-sm text-[10px] font-bold px-1.5 py-0.5 uppercase">
+                वर्तनी अशुद्धि
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">पैराग्राफ 1</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              अशुद्ध शब्द: <del class="text-breaking-crimson">सेमीकन्डक्टर</del>
+</p>
+<div class="bg-emerald-50 text-emerald-950 p-1.5 font-label-sm text-label-sm flex items-center justify-between">
+<span>सुझाव: <strong>सेमीकंडक्टर</strong> (अनुस्वार मानक)</span>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="px-2 py-0.5 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer">अनदेखा करें</button>
+<button class="px-3 py-1 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold hover:bg-primary transition-colors cursor-pointer">स्वीकारें</button>
+</div>
+</div>
+<!-- Card 2: Grammar / Gender Agreement -->
+<div class="bg-paper-canvas p-space-sm shadow-sm flex flex-col gap-1.5 transition-all hover:bg-paper-tint">
+<div class="flex items-center justify-between">
+<span class="bg-rose-100 text-rose-900 font-label-sm text-[10px] font-bold px-1.5 py-0.5 uppercase">
+                व्याकरण व लिंग सामंजस्य
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">पैराग्राफ 2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              त्रुटिपूर्ण वाक्य: <span class="text-breaking-crimson font-medium">"...मंजूरी दिया"</span>
+</p>
+<div class="bg-emerald-50 text-emerald-950 p-1.5 font-label-sm text-label-sm">
+              सुझाव: <strong>"...मंजूरी दी"</strong> ('मंजूरी' स्त्रीलिंग संज्ञा)
+            </div>
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="px-2 py-0.5 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer">अनदेखा करें</button>
+<button class="px-3 py-1 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold hover:bg-primary transition-colors cursor-pointer">स्वीकारें</button>
+</div>
+</div>
+<!-- Card 3: Fact & Entity Verification -->
+<div class="bg-paper-canvas p-space-sm shadow-sm flex flex-col gap-1.5 transition-all hover:bg-paper-tint">
+<div class="flex items-center justify-between">
+<span class="bg-purple-100 text-purple-900 font-label-sm text-[10px] font-bold px-1.5 py-0.5 uppercase">
+                तथ्य सत्यापन (Verified)
+              </span>
+<span class="font-label-sm text-label-sm text-emerald-700 font-bold">डेटाबेस मेल</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface flex items-start gap-1">
+<span class="material-symbols-outlined text-purple-700 text-[16px] shrink-0">verified</span>
+<span><strong>"आईआईटी रुड़की"</strong> को 2025 इलेक्ट्रॉनिक्स कंसोर्टियम सूची में सत्यापित किया गया।</span>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm pt-0.5">
+              स्रोत: संसदीय गजट अधिसूचना सं. 402/2025
+            </div>
+</div>
+<!-- Card 4: Style / Passive to Active Journalistic Hindi -->
+<div class="bg-paper-canvas p-space-sm shadow-sm flex flex-col gap-1.5 transition-all hover:bg-paper-tint">
+<div class="flex items-center justify-between">
+<span class="bg-blue-100 text-blue-900 font-label-sm text-[10px] font-bold px-1.5 py-0.5 uppercase">
+                शैली व स्पष्टता (Style)
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">पैराग्राफ 4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              सुझाव: वाक्य को सीधे सक्रिय वाच्य में बदलें जिससे पठन प्रवाह अधिक आधिकारिक बने।
+            </p>
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="px-2 py-0.5 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer">अनदेखा</button>
+<button class="px-3 py-1 bg-paper-subtle hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-bold cursor-pointer">बदलें</button>
+</div>
+</div>
+</div>
+<!-- Human Editorial Sign-Off Box (मानव सत्यापन) -->
+<div class="bg-paper-canvas p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-1.5 pb-space-xs">
+<span class="material-symbols-outlined text-on-surface text-[18px]">verified_user</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">संपादकीय स्वीकृति (Sign-Off)</span>
+</div>
+<label class="flex items-start gap-2 cursor-pointer">
+<input class="mt-1 w-4 h-4 text-breaking-crimson focus:ring-0 rounded-none" id="editorialAck" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">
+              मैंने सभी तथ्य, मानहानि दिशा-निर्देश, स्रोत और वर्तनी सुधारों की पुष्टि कर ली है।
+            </span>
+</label>
+<div class="flex flex-col gap-1 pt-1">
+<label class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">संपादक डिजिटल पिन (Editor PIN)</label>
+<div class="flex items-center gap-2">
+<input class="w-24 bg-paper-tint p-1.5 text-center tracking-widest text-on-surface font-bold focus:bg-paper-canvas focus:outline-none" maxlength="4" placeholder="••••" type="password"/>
+<span class="font-label-sm text-label-sm text-emerald-700 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                हस्ताक्षर सुरक्षित
+              </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Notification Toast -->
+<div class="fixed bottom-6 right-6 z-50 bg-border-heavy text-on-primary px-space-md py-space-sm shadow-xl flex items-center gap-space-sm transition-all transform translate-y-24 opacity-0" id="actionToast">
+<span class="material-symbols-outlined text-emerald-400 text-[20px]" id="toastIcon">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold" id="toastTitle">ड्राफ्ट सफलतापूर्वक सहेजा गया</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container" id="toastDesc">सभी बदलाव क्लाउड डेटाबेस में सुरक्षित हैं।</span>
+</div>
+</div>
+<!-- Micro-Interactions Script for Newsroom Authoring -->
+<script>
+    (function initEditorialDesk() {
+      const saveDraftBtn = document.getElementById('saveDraftBtn');
+      const publishBtn = document.getElementById('publishBtn');
+      const applyAllBtn = document.getElementById('applyAllBtn');
+      const toast = document.getElementById('actionToast');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastDesc = document.getElementById('toastDesc');
+      const editorialAck = document.getElementById('editorialAck');
+
+      function triggerToast(title, desc, isError = false) {
+        if (!toast) return;
+        toastTitle.textContent = title;
+        toastDesc.textContent = desc;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 3200);
+      }
+
+      if (saveDraftBtn) {
+        saveDraftBtn.addEventListener('click', () => {
+          triggerToast('ड्राफ्ट सहेजा गया (Draft Saved)', '11:44 AM पर स्वचालित सिंक संपन्न।');
+        });
+      }
+
+      if (applyAllBtn) {
+        applyAllBtn.addEventListener('click', () => {
+          triggerToast('AI सुझाव लागू किए गए', '4 सुरक्षित वर्तनी और व्याकरण सुधार लेख में जोड़े गए।');
+        });
+      }
+
+      if (publishBtn) {
+        publishBtn.addEventListener('click', () => {
+          if (editorialAck && !editorialAck.checked) {
+            triggerToast('संपादकीय स्वीकृति आवश्यक', 'कृपया प्रकाशन से पहले स्वीकृति चेकबॉक्स पर टिक करें।', true);
+            editorialAck.focus();
+            return;
+          }
+          triggerToast('समाचार प्रकाशित हुआ!', 'स्टोरी अब मुख्य पोर्टल और RSS वायर पर लाइव है।');
+        });
+      }
+
+      // Keyboard Shortcut Ctrl+S
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+          e.preventDefault();
+          triggerToast('ड्राफ्ट सुरक्षित (Quick Save)', 'कीबोर्ड शॉर्टकट द्वारा स्टोरी सुरक्षित की गई।');
+        }
+      });
+    })();
+  </script>
+</div></main></div></body></html>

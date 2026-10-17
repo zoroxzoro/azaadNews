@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Light Theme Variables */
+  --bg-app: #f9f9ff;
+  --bg-surface: #f9f9ff;
+  --bg-paper-canvas: #ffffff;
+  --bg-paper-tint: #f8f9fa;
+  --bg-paper-subtle: #edf2f7;
+  --bg-surface-container: #e7eeff;
+  --border-rule: #e2e8f0;
+  --border-heavy: #1a1a1a;
+  --text-on-surface: #111c2c;
+  --text-on-surface-variant: #5c403f;
+  --text-secondary: #5f5e5e;
+  --text-tertiary: #434d5f;
+  --bg-ticker-tint: #fce9e9;
+  --text-ticker: #1a1a1a;
+  --bg-footer: #10264b;
+  --bg-nav: #1a1a1a;
+}
+
+.dark {
+  /* Dark Theme Variables (Broadsheet Night Newsroom Palette) */
+  --bg-app: #0b1320;
+  --bg-surface: #0e1726;
+  --bg-paper-canvas: #121e31;
+  --bg-paper-tint: #16243b;
+  --bg-paper-subtle: #1c2d47;
+  --bg-surface-container: #1b293f;
+  --border-rule: #243550;
+  --border-heavy: #3d5173;
+  --text-on-surface: #f1f5f9;
+  --text-on-surface-variant: #94a3b8;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #cbd5e1;
+  --bg-ticker-tint: #261116;
+  --text-ticker: #fecdd3;
+  --bg-footer: #080d17;
+  --bg-nav: #090e19;
+}
+
+@theme {
+  /* Brand Constants */
+  --color-primary: #9e001f;
+  --color-primary-container: #c8102e;
+  --color-primary-hover: #a00d24;
+  --color-primary-dark: #800018;
+  --color-primary-light: #ffdad8;
+  --color-breaking-crimson: #DA251D;
+  --color-deep-navy: #10264B;
+  --color-gold-accent: #D9B56D;
+  --color-live-pulse: #E53E3E;
+
+  /* Theme Dynamic Colors */
+  --color-background: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-paper-canvas: var(--bg-paper-canvas);
+  --color-paper-tint: var(--bg-paper-tint);
+  --color-paper-subtle: var(--bg-paper-subtle);
+  --color-surface-container: var(--bg-surface-container);
+  --color-border-rule: var(--border-rule);
+  --color-border-heavy: var(--border-heavy);
+  --color-on-surface: var(--text-on-surface);
+  --color-on-surface-variant: var(--text-on-surface-variant);
+  --color-secondary: var(--text-secondary);
+  --color-tertiary: var(--text-tertiary);
+  --color-ticker-tint: var(--bg-ticker-tint);
+
+  /* Typography */
+  --font-headline: 'Mukta', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mukta: 'Mukta', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-inter);
+    color: var(--text-on-surface);
+    background-color: var(--bg-app);
+    scroll-behavior: smooth;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Headings default to Mukta for high-contrast Hindi news typography */
+  h1, h2, h3, h4, h5, h6, .font-mukta {
+    font-family: var(--font-mukta);
+  }
+
+  /* Remove default tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Broadsheet Editorial Helper Utilities */
+.editorial-top-rule {
+  border-top: 3px solid var(--border-heavy);
+}
+
+.editorial-top-rule-primary {
+  border-top: 3px solid var(--color-primary-container);
+}
+
+.editorial-hairline {
+  border-color: var(--border-rule);
+}
+
+/* Custom Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* AI Proofreading Highlight Decorations in TipTap Editor */
+.proofreading-highlight {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border-radius: 1px;
+}
+
+.proofreading-highlight-spelling {
+  text-decoration: underline wavy #d97706;
+  text-decoration-thickness: 1.5px;
+  background-color: rgba(254, 243, 199, 0.45);
+}
+
+.dark .proofreading-highlight-spelling {
+  text-decoration-color: #f59e0b;
+  background-color: rgba(120, 53, 15, 0.35);
+}
+
+.proofreading-highlight-grammar {
+  text-decoration: underline wavy #e11d48;
+  text-decoration-thickness: 1.5px;
+  background-color: rgba(255, 228, 230, 0.45);
+}
+
+.dark .proofreading-highlight-grammar {
+  text-decoration-color: #f43f5e;
+  background-color: rgba(136, 19, 55, 0.35);
+}
+
+.proofreading-highlight-punctuation {
+  text-decoration: underline dotted #2563eb;
+  text-decoration-thickness: 2px;
+  background-color: rgba(219, 234, 254, 0.4);
+}
+
+.dark .proofreading-highlight-punctuation {
+  text-decoration-color: #60a5fa;
+  background-color: rgba(30, 58, 138, 0.35);
+}
+
+.proofreading-highlight-style {
+  text-decoration: underline dashed #9333ea;
+  text-decoration-thickness: 1.5px;
+  background-color: rgba(243, 232, 255, 0.4);
+}
+
+.dark .proofreading-highlight-style {
+  text-decoration-color: #c084fc;
+  background-color: rgba(88, 28, 135, 0.35);
+}
+
+.proofreading-highlight:hover {
+  filter: brightness(0.95);
+}
+
+.proofreading-highlight-active {
+  outline: 2px solid #c8102e !important;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.2);
+}
+

@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+<html lang="hi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Mukta:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#e5bdbb", "tertiary-fixed": "#d9e3f9", "on-secondary": "#ffffff", "surface": "#f9f9ff", "background": "#f9f9ff", "on-secondary-container": "#636262", "on-primary-fixed-variant": "#92001c", "on-surface": "#111c2c", "live-pulse": "#E53E3E", "border-heavy": "#1A1A1A", "error": "#ba1a1a", "inverse-primary": "#ffb3b1", "on-surface-variant": "#5c403f", "on-tertiary-fixed": "#121c2c", "outline": "#906f6e", "on-primary-container": "#ffdad8", "on-tertiary-container": "#d9e3f9", "surface-variant": "#d8e3f9", "surface-tint": "#bf0229", "primary-fixed": "#ffdad8", "primary-container": "#c8102e", "primary-fixed-dim": "#ffb3b1", "tertiary-fixed-dim": "#bdc7dc", "breaking-crimson": "#DA251D", "on-tertiary": "#ffffff", "on-primary-fixed": "#410007", "inverse-surface": "#263142", "surface-bright": "#f9f9ff", "on-tertiary-fixed-variant": "#3d4759", "on-secondary-fixed-variant": "#474746", "surface-container-high": "#dee9ff", "surface-container-highest": "#d8e3f9", "surface-dim": "#cfdaf1", "surface-container-lowest": "#ffffff", "surface-container-low": "#f0f3ff", "border-rule": "#E2E8F0", "on-primary": "#ffffff", "secondary-container": "#e2dfde", "secondary-fixed-dim": "#c8c6c5", "error-container": "#ffdad6", "paper-subtle": "#EDF2F7", "paper-tint": "#F8F9FA", "on-error-container": "#93000a", "surface-container": "#e7eeff", "ticker-tint": "#FCE9E9", "tertiary-container": "#5b6578", "inverse-on-surface": "#ebf1ff", "on-error": "#ffffff", "secondary": "#5f5e5e", "on-secondary-fixed": "#1c1b1b", "paper-canvas": "#FFFFFF", "tertiary": "#434d5f", "on-background": "#111c2c", "primary": "#9e001f", "secondary-fixed": "#e5e2e1" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.25rem", "margin-desktop": "2.5rem", "margin": "1rem", "space-sm": "0.5rem", "space-xl": "2rem", "space-xs": "0.25rem", "gutter-desktop": "1.5rem", "space-md": "0.75rem", "gutter": "1rem" }, "fontFamily": { "body-sm": [ "Inter" ], "label-md": [ "Inter" ], "label-sm": [ "Inter" ], "label-lg": [ "Inter" ], "headline-md": [ "Mukta" ], "display-xl": [ "Mukta" ], "headline-sm": [ "Mukta" ], "headline-lg-mobile": [ "Mukta" ], "headline-lg": [ "Mukta" ], "body-md": [ "Inter" ], "body-lg": [ "Inter" ], "display-xl-mobile": [ "Mukta" ] }, "fontSize": { "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "label-sm": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" } ], "label-lg": [ "14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "headline-md": [ "22px", { "lineHeight": "28px", "fontWeight": "700" } ], "display-xl": [ "44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "fontWeight": "600" } ], "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "fontWeight": "700" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "body-lg": [ "17px", { "lineHeight": "28px", "fontWeight": "400" } ], "display-xl-mobile": [ "30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-paper-canvas border-r border-border-rule z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-5 border-b border-border-rule flex items-center justify-between bg-paper-canvas"><div class="flex items-center gap-2"><div class="w-8 h-8 bg-primary-container text-on-primary flex items-center justify-center rounded"><span class="font-headline-md text-headline-md font-bold leading-none">आ</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface leading-tight">आज़ाद समाचार</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">न्यूज़रूम CMS</span></div></div><button aria-label="Toggle sidebar" class="text-secondary hover:text-on-surface lg:hidden" type="button"><span class="material-symbols-outlined text-[20px]">menu_open</span></button></div><div class="px-4 py-3 bg-paper-tint border-b border-border-rule"><div class="flex items-center justify-between text-on-surface"><span class="font-label-sm text-label-sm font-bold text-secondary uppercase">डेस्क स्थिति</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-live-pulse font-bold"><span class="w-2 h-2 rounded-full bg-live-pulse animate-pulse"></span>लाइव सक्रिय</span></div><div class="mt-1 text-on-surface font-body-sm text-body-sm truncate"><span class="font-medium">शिफ्ट:</span> मॉर्निंग 06:00 - 14:00</div></div><nav class="flex flex-col p-3 gap-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold"><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-headline-sm text-headline-sm">डैशबोर्ड</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="all-news" href="#"><span class="material-symbols-outlined text-[20px]">article</span><span class="font-headline-sm text-headline-sm">सभी समाचार</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="write-news" href="#"><span class="material-symbols-outlined text-[20px]">edit_square</span><span class="font-headline-sm text-headline-sm">नया समाचार</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="scheduled" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span class="font-headline-sm text-headline-sm">शेड्यूल्ड</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="categories" href="#"><span class="material-symbols-outlined text-[20px]">category</span><span class="font-headline-sm text-headline-sm">श्रेणियां</span></a><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded transition-colors bg-primary-container text-on-primary font-bold" data-path="media" href="#"><span class="material-symbols-outlined text-[20px]">photo_library</span><span class="font-headline-sm text-headline-sm">मीडिया</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="ai-proof" href="#"><span class="material-symbols-outlined text-[20px]">spellcheck</span><span class="font-headline-sm text-headline-sm">AI वर्तनी</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="social" href="#"><span class="material-symbols-outlined text-[20px]">share</span><span class="font-headline-sm text-headline-sm">सोशल लिंक्स</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded text-on-surface hover:bg-paper-subtle transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-headline-sm text-headline-sm">सेटिंग्स</span></a></nav></div><div class="p-3 border-t border-border-rule bg-paper-tint"><div class="flex items-center gap-3 px-2 py-1.5"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-on-surface truncate">राजेश कुमार</span><span class="font-label-sm text-label-sm text-secondary truncate">मुख्य संपादक</span></div><span class="material-symbols-outlined text-secondary text-[18px] cursor-pointer hover:text-on-surface">logout</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-paper-canvas border-b border-border-rule z-40 flex items-center justify-between px-6"><div class="flex items-center gap-4 flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">search</span><input class="w-full h-10 pl-10 pr-4 bg-paper-subtle border border-border-rule rounded text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-border-heavy transition-colors placeholder:text-secondary" placeholder="समाचार, आर्काइव, या टैग खोजें (Ctrl + K)..." type="search"/></div></div><div class="flex items-center gap-3"><button class="inline-flex items-center gap-2 px-3 py-1.5 bg-ticker-tint border border-breaking-crimson text-breaking-crimson rounded hover:bg-primary-container hover:text-on-primary transition-colors" type="button"><span class="material-symbols-outlined text-[18px] animate-pulse">campaign</span><span class="font-label-md text-label-md font-bold uppercase tracking-wider">ब्रेकिंग अलर्ट जारी करें</span></button><div class="h-6 w-px bg-border-rule mx-1"></div><button class="inline-flex items-center gap-1 px-2.5 py-1.5 border border-border-rule rounded bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">translate</span><span>हिन्दी (IN)</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button><button aria-label="Notifications" class="relative p-2 rounded text-secondary hover:text-on-surface hover:bg-paper-subtle transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Pinned Top Notification / Storage Alert Ribbon -->
+<div class="w-full bg-ticker-tint text-on-surface px-6 py-2 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-paper-canvas animate-pulse"></span>
+        DAM सर्वर लाइव
+      </span>
+<span class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-semibold">न्यूज़रूम अलर्ट:</strong> मुख्य प्रेस वायर (PTI / ANI API) से पिछले 1 घंटे में 48 नई हाई-रेज़ तस्वीरें स्वचालित सिंक हो चुकी हैं।
+      </span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">cloud_done</span> CDN स्थिति: 99.98% अपटाइम</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<button class="hover:text-primary transition-colors flex items-center gap-0.5" type="button">
+        सिंक रिफ्रेश <span class="material-symbols-outlined text-[15px]">refresh</span>
+</button>
+</div>
+</div>
+<!-- Command Header & Breadcrumb Bar -->
+<div class="w-full bg-paper-canvas px-6 py-5 shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm mb-1 uppercase tracking-wider">
+<span>डिजिटल आर्काइव</span>
+<span>/</span>
+<span class="text-primary font-bold">मीडिया हब</span>
+<span>/</span>
+<span>दैनिक इनपुट फीड</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+            मीडिया लाइब्रेरी (Media Asset Library)
+          </h1>
+<span class="px-2.5 py-0.5 bg-paper-subtle text-secondary font-label-sm text-label-sm rounded-full">
+            2,480 कुल संपत्तियां
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+          संपादकीय तस्वीरें, वीडियो पैकेज, इन्फोग्राफिक्स, वायर फोटोज व आधिकारिक प्रेस हैंडआउट्स का केंद्रीय भंडार
+        </p>
+</div>
+<!-- Quick Action Controls & Cloud Storage Gauge -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Storage Meter Card -->
+<div class="flex items-center gap-3 px-3 py-2 bg-paper-tint rounded">
+<div class="flex flex-col text-left">
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-sm text-label-sm text-secondary font-bold">स्टोरेज कोटा</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">142.8 GB / 500 GB</span>
+</div>
+<div class="w-36 h-1.5 bg-surface-container rounded-full overflow-hidden mt-1.5">
+<div class="bg-primary h-full rounded-full" style="width: 28.5%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">28% प्रयुक्त (AWS S3 AP-South)</span>
+</div>
+<button class="p-1 hover:bg-paper-subtle rounded text-secondary hover:text-on-surface" title="स्टोरेज अपग्रेड करें" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+</button>
+</div>
+<button class="inline-flex items-center gap-2 px-3.5 py-2 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md transition-colors shadow-sm" id="btn-open-embed" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]">video_library</span>
+<span>यूट्यूब वीडियो जोड़ें</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm" id="btn-quick-upload" type="button">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+<span>+ नई मीडिया अपलोड करें</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Faceted Search, Filters & Triage Strip -->
+<div class="w-full bg-paper-tint px-6 py-3.5 shadow-sm">
+<div class="flex flex-col gap-3">
+<!-- Search Input + Key Filters Bar -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
+<!-- Primary Search -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">
+            search
+          </span>
+<input class="w-full h-11 pl-10 pr-24 bg-paper-canvas text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-border-heavy placeholder:text-secondary shadow-sm" id="media-search-input" placeholder="कीवर्ड, कैप्शन, फोटोग्राफर, वायर आईडी या क्रेडिट से खोजें (उदा: संसद, सेमीकंडक्टर, IPL, ISRO)..." type="search"/>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-paper-subtle text-secondary font-label-sm text-label-sm rounded">⌘K</span>
+<button class="p-1 text-secondary hover:text-primary" title="उन्नत खोज" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Secondary Dropdowns -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Aspect Ratio Dropdown -->
+<div class="relative">
+<select class="h-11 px-3 pr-8 bg-paper-canvas text-on-surface font-label-md text-label-md appearance-none cursor-pointer focus:outline-none shadow-sm">
+<option value="all">अनुपात: सभी (All Ratio)</option>
+<option selected="" value="16:9">16:9 (लीड हेडलाइन)</option>
+<option value="4:3">4:3 (मानक संपादकीय)</option>
+<option value="1:1">1:1 (स्क्वायर / सोशल)</option>
+<option value="9:16">9:16 (स्टोरी / रील्स)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- License / Source Agency -->
+<div class="relative">
+<select class="h-11 px-3 pr-8 bg-paper-canvas text-on-surface font-label-md text-label-md appearance-none cursor-pointer focus:outline-none shadow-sm">
+<option value="all">स्रोत: सभी एजेंसियां</option>
+<option value="pti">पीटीआई (PTI Wire)</option>
+<option value="ani">एएनआई (ANI Multimedia)</option>
+<option value="reuters">रॉयटर्स (Reuters International)</option>
+<option value="inhouse">इन-हाउस फ़ोटोडेस्क</option>
+<option value="pib">पीआईबी (PIB Govt Wire)</option>
+<option value="freelance">फ्रीलांस स्ट्रिंगर</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Date Added -->
+<div class="relative">
+<select class="h-11 px-3 pr-8 bg-paper-canvas text-on-surface font-label-md text-label-md appearance-none cursor-pointer focus:outline-none shadow-sm">
+<option value="today">समय: आज (Last 24h)</option>
+<option selected="" value="this-week">इस सप्ताह (Current Week)</option>
+<option value="this-month">मार्च 2025</option>
+<option value="custom">कस्टम तिथि सीमा...</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Clear / Reset Filter Button -->
+<button class="h-11 px-3 bg-paper-canvas hover:bg-paper-subtle text-secondary hover:text-on-surface font-label-md text-label-md flex items-center gap-1 shadow-sm" title="सभी फ़िल्टर साफ़ करें" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>रीसेट</span>
+</button>
+</div>
+</div>
+<!-- Format Categories & Quick Status Chips -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+<div class="flex flex-wrap items-center gap-1.5" id="asset-type-pills">
+<button class="px-3 py-1.5 bg-border-heavy text-on-secondary font-label-md text-label-md flex items-center gap-1.5 shadow-sm" type="button">
+<span>सभी मीडिया</span>
+<span class="px-1.5 py-0.2 bg-paper-canvas/20 font-label-sm text-label-sm">2,480</span>
+</button>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">image</span>
+<span>तस्वीरें (Images)</span>
+<span class="text-secondary font-label-sm text-label-sm">1,850</span>
+</button>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">videocam</span>
+<span>वीडियो पैकेज (Videos)</span>
+<span class="text-secondary font-label-sm text-label-sm">420</span>
+</button>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">insert_chart</span>
+<span>इन्फोग्राफिक्स</span>
+<span class="text-secondary font-label-sm text-label-sm">150</span>
+</button>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span>प्रेस रिलीज / पीडीएफ</span>
+<span class="text-secondary font-label-sm text-label-sm">60</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 bg-paper-canvas px-1.5 py-1 shadow-sm">
+<button class="p-1 bg-paper-subtle text-on-surface" title="ग्रिड दृश्य" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button class="p-1 text-secondary hover:text-on-surface" title="सूची दृश्य" type="button">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+<button class="p-1 text-secondary hover:text-on-surface" title="सघन थंबनेल दृश्य" type="button">
+<span class="material-symbols-outlined text-[18px]">density_medium</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">सॉर्ट: नवीनतम पहले</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Drag-and-Drop Dropzone & Error Simulation Notification Bar -->
+<div class="px-6 pt-4 pb-2">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+<!-- Active Upload In-Progress State -->
+<div class="bg-paper-canvas p-4 shadow-sm flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[26px]">cloud_upload</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2 truncate">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">
+                parliament_budget_briefing_session_raw_4k.webp
+              </span>
+<span class="px-1.5 py-0.2 bg-ticker-tint text-breaking-crimson font-label-sm text-label-sm">
+                अपलोड जारी
+              </span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">78%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden mt-2">
+<div class="bg-primary-container h-full transition-all duration-300" style="width: 78%"></div>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mt-1.5">
+<span>आकार: 18.4 MB / 23.6 MB • 4.2 MB/s</span>
+<button class="text-error hover:underline flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-[14px]">cancel</span> रद्द करें
+            </button>
+</div>
+</div>
+</div>
+<!-- Live Error / Validation Demonstration Box -->
+<div class="bg-ticker-tint p-4 shadow-sm flex items-start gap-3.5">
+<div class="w-8 h-8 rounded-full bg-breaking-crimson text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-breaking-crimson font-bold">
+              अपलोड त्रुटि: फ़ाइल विनिर्देश अस्वीकृत
+            </span>
+<span class="font-label-sm text-label-sm text-secondary">2 मिनट पूर्व</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+<strong class="font-semibold">election_raw_archive.tiff</strong> को अस्वीकार कर दिया गया। त्रुटि: एकल फ़ाइल का आकार <strong class="text-breaking-crimson">25MB</strong> से अधिक नहीं हो सकता और केवल <strong class="font-medium">JPG, PNG, WebP, MP4</strong> प्रारूप ही मान्य हैं।
+          </p>
+<div class="flex items-center gap-3 mt-2">
+<button class="font-label-sm text-label-sm text-breaking-crimson font-bold underline hover:text-primary" type="button">
+              फ़ाइल कंप्रेस करके पुनः प्रयास करें
+            </button>
+<span class="text-secondary font-label-sm text-label-sm">•</span>
+<button class="font-label-sm text-label-sm text-secondary hover:text-on-surface" type="button">
+              सूचना छुपाएं
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Body: Two-Column Workspace (High-Density Asset Grid + Real-Time Inspector Drawer) -->
+<div class="px-6 py-4 flex flex-col xl:flex-row gap-6 items-start">
+<!-- LEFT PANE: High-Density 8-Asset Editorial Grid -->
+<div class="flex-1 w-full min-w-0">
+<!-- Grid Status Bar -->
+<div class="flex items-center justify-between mb-3 text-secondary font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-bold">परिणाम: 8 मुख्य संपत्तियां प्रदर्शित</span>
+<span class="text-secondary">•</span>
+<span>चयनित: <span class="text-primary font-bold" id="selected-count">1</span> आइटम</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-secondary hover:text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">select_all</span> सब चुनें
+          </button>
+<span class="text-border-rule">|</span>
+<button class="text-secondary hover:text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> बैच डाउनलोड
+          </button>
+</div>
+</div>
+<!-- Editorial Multi-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4" id="media-grid-container">
+<!-- CARD 1 (Active Selected): Parliament Cabinet Session -->
+<div class="media-card group relative bg-paper-canvas shadow-md transition-all cursor-pointer flex flex-col ring-2 ring-primary-container" data-active-uses="3 लेखों में सक्रिय" data-alt="संसद में राष्ट्रीय औद्योगिक नीति व सेमीकंडक्टर मिशन 2025 पर चर्चा के दौरान मंत्रीगण" data-asset-id="ASSET-1082" data-caption="संसद के दोनों सदनों में सर्वसम्मति से पारित विधेयक के बाद कैबिनेट कक्ष में वरिष्ठ मंत्रियों की उच्चस्तरीय बैठक।" data-cdn="https://cdn.azaadsamachar.com/2025/03/parliament-cabinet-meet-hd.jpg" data-credit="PTI / संसद सचिवालय" data-date="25 मार्च 2025, 11:30 पूर्वाह्न" data-ratio="16:9" data-res="1920x1080 (FHD)" data-size="1.8 MB" data-title="संसद भवन में कैबिनेट बैठक 2025" data-type="तस्वीर (JPG)" tabindex="0">
+<!-- 3px top rule -->
+<div class="h-[3px] w-full bg-primary-container"></div>
+<!-- Image Box with Aspect Ratio -->
+<div class="relative w-full aspect-video bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Photorealistic Indian Parliament Cabinet room with high-ranking government ministers seated around an elliptical teak wood table discussing legislation, authoritative news photography, bright balanced lighting, subtle Indian tricolor flag behind them, documentary journalism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIQoPPYYDLa_tx_Xs7RmKj2teGVTRwXMVNmOJPVhFSMOq8hZ4_p-RCWLpu-ebL-IIHiRvlFVUpe-qENlm-D-dq4X79YnHukCJF9c4ZufRs7dxarAmgEu8IC5EU_oYxOneJDIxrtHXoHimEMoseD2Nhv2l-LvTeZ5NE9Xwd_JdyM17JmMN2hKVaI7CGkAKRJFQopRttxCKF-ix9-8UW1EyEoJx7M8NDxcv_Qdc54NFRjS-cRpofOEcD"/>
+<!-- Badges -->
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-border-heavy text-on-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+                16:9
+              </span>
+<span class="px-1.5 py-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold">
+                चयनित
+              </span>
+</div>
+<div class="absolute top-2 right-2">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm">
+              1920 × 1080
+            </div>
+</div>
+<!-- Metadata content -->
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-primary font-bold uppercase">PTI वायर • राष्ट्रीय</span>
+<span>25 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                संसद भवन में कैबिनेट बैठक 2025
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                क्रेडिट: PTI / संसद सचिवालय
+              </p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">link</span>
+                3 लेखों में सक्रिय
+              </span>
+<span class="text-secondary font-semibold">1.8 MB</span>
+</div>
+</div>
+<!-- Quick Action Drawer on Hover -->
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" title="CDN लिंक कॉपी करें" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> URL
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" title="संपादित करें / क्रॉप" type="button">
+<span class="material-symbols-outlined text-[16px]">crop</span>
+</button>
+<button class="p-1 hover:text-primary text-secondary" title="विवरण देखें" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 2: Semiconductor Fab Unit Cleanroom -->
+<div class="media-card group relative bg-paper-canvas shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" data-active-uses="3 लेखों में सक्रिय" data-alt="Advanced semiconductor wafer fabrication cleanroom in Dholera Gujarat, high-tech robotic silicon processor manufacturing, clean suits, teal and crimson ambient LED indicators, precision industrial photography." data-asset-id="ASSET-1083" data-caption="गुजरात के धोलेरा स्पेशल इन्वेस्टमेंट रीजन में भारत की पहली अत्याधुनिक 28-नैनोमीटर सेमीकंडक्टर फैब यूनिट का इनक्यूबेशन रूम।" data-cdn="https://cdn.azaadsamachar.com/2025/03/dholera-semiconductor-fab-cleanroom.webp" data-credit="टाटा इलेक्ट्रॉनिक्स / पीएसएमसी" data-date="24 मार्च 2025, 04:15 अपराह्न" data-ratio="16:9" data-res="3840x2160 (4K UHD)" data-size="3.4 MB" data-title="धोलेरा सेमीकंडक्टर निर्माण फैब यूनिट" data-type="तस्वीर (WebP)" tabindex="0">
+<div class="h-[3px] w-full bg-border-heavy group-hover:bg-primary-container transition-colors"></div>
+<div class="relative w-full aspect-video bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Modern semiconductor fabrication facility cleanroom with engineers in white bunny suits examining 300mm silicon wafers under ultra-clean illuminated laboratory lighting, sharp technological details, professional editorial photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR_mC3JYNbu_G5SyRKAvzDQ59WU0dExywHaABn0qSxRz0rompAWv2K42_6NMhiEhspiDjVRWrmWfGIlB-TeD5UwCwaGgDNryuiPi8xDIW4QFsuEJtGUwkSqqH_R2u-jVG57yJxk4EQzc6FiVyGLtbqCDUs1Cqxh-V434IBH-QeY0J3mPuBRnvpKJMzxI0_HKodNV-3WF8iEE7v9Z7wtMkv65bVpOu1CiXnc9IL27OmsXDRa8z85W-g"/>
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-border-heavy text-on-secondary font-label-sm text-label-sm font-bold uppercase">
+                16:9
+              </span>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold">
+                4K UHD
+              </span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm">
+              3840 × 2160
+            </div>
+</div>
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-bold uppercase">उद्योग व तकनीक</span>
+<span>24 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                धोलेरा सेमीकंडक्टर निर्माण फैब यूनिट
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                क्रेडिट: टाटा इलेक्ट्रॉनिक्स / पीएसएमसी
+              </p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-breaking-crimson font-medium">
+<span class="material-symbols-outlined text-[14px]">auto_stories</span>
+                3 लेखों में सक्रिय
+              </span>
+<span class="text-secondary font-semibold">3.4 MB</span>
+</div>
+</div>
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> URL
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">crop</span></button>
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+</div>
+</div>
+</div>
+<!-- CARD 3: Video Package (YouTube Embed) -->
+<div class="media-card group relative bg-paper-canvas shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" data-active-uses="2 बुलेटिन में प्रयुक्त" data-alt="Editorial investigative video anchor in Azad Samachar newsroom studio with holographic map of India showing chip semiconductor hubs in Gujarat and Assam, crisp broadcast lighting." data-asset-id="ASSET-1084" data-caption="ग्राउंड जीरो से आज़ाद विशेष जांच: धोलेरा से मोरीगांव तक भारत के सेमीकंडक्टर कॉरिडोर का 100-दिन विश्लेषण।" data-cdn="https://youtu.be/AZA-892" data-credit="आज़ाद वीडियो टीम / राहुल वर्मा" data-date="24 मार्च 2025, 01:20 अपराह्न" data-ratio="16:9" data-res="1080p (60fps)" data-size="यूट्यूब एम्बेड" data-title="स्पेशल रिपोर्ट: सेमीकंडक्टर हब क्रांति" data-type="वीडियो (MP4/Stream)" tabindex="0">
+<div class="h-[3px] w-full bg-live-pulse"></div>
+<div class="relative w-full aspect-video bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High quality news broadcast production studio frame with a sharp television journalist presenting news graphics about India semiconductor technology mission, vivid studio screens, cinematic broadcast quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsFNFApw1M0EXmINp-kJRZFh86ErgiDc3rE83rQMrwDUrYII-CEWLUetg47MFoqMA54jY50ZleZ0jTTcdCjZlux9QW4o1Ezq-o_BpQhX7YJCA62xo67nHdmKrdfc-XDLmB-1QYwvy7yEpNtMvzdCrE4Pj0SPDi9tNXmMtQg7pW2Sp7TxT0JqvpV3PwOcNQSaDUAbu8CirlpV2m1RQHkiQtLncM9FkNBel9OFHFus2Q-HbE7uby9lZX"/>
+<!-- Dark Overlay Play Badge -->
+<div class="absolute inset-0 bg-border-heavy/30 flex items-center justify-center group-hover:bg-border-heavy/20 transition-colors">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px] ml-0.5">play_arrow</span>
+</div>
+</div>
+<!-- Video duration badge -->
+<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm flex items-center gap-1 font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-live-pulse animate-pulse"></span>
+<span>08:24</span>
+</div>
+<div class="absolute top-2 left-2">
+<span class="px-1.5 py-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold uppercase">
+                VIDEO
+              </span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-breaking-crimson font-bold uppercase">यूट्यूब वीडियो पैकेज</span>
+<span>24 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                स्पेशल रिपोर्ट: सेमीकंडक्टर हब
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                एम्बेड: <code class="font-mono text-primary">youtu.be/AZA-892</code>
+</p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">videocam</span> आज़ाद वीडियो टीम
+              </span>
+<span class="text-secondary font-semibold">1080p 60fps</span>
+</div>
+</div>
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">share</span> एम्बेड कोड
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">play_circle</span></button>
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+</div>
+</div>
+</div>
+<!-- CARD 4: Expressway Aerial Drone -->
+<div class="media-card group relative bg-paper-canvas shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" data-active-uses="1 आलेख में सक्रिय" data-alt="Sweeping aerial drone photography of newly constructed multi-lane Ganga Expressway cutting through lush rural Uttar Pradesh agricultural plains at dawn, golden morning sun flare, sharp infrastructure photo." data-asset-id="ASSET-1085" data-caption="मेरठ से प्रयागराज को जोड़ने वाले 594 किमी लंबे गंगा एक्सप्रेसवे का एयरस्ट्रिप खंड तैयार, भारतीय वायुसेना के लड़ाकू विमानों की लैंडिंग परीक्षण जल्द।" data-cdn="https://cdn.azaadsamachar.com/2025/03/ganga-expressway-meerut-prayagraj.jpg" data-credit="यूपीडा (UPEIDA) जनसंपर्क" data-date="23 मार्च 2025, 09:40 पूर्वाह्न" data-ratio="16:9" data-res="2560x1440 (2K QHD)" data-size="2.1 MB" data-title="गंगा एक्सप्रेसवे मेरठ-प्रयागराज खंड" data-type="तस्वीर (JPG)" tabindex="0">
+<div class="h-[3px] w-full bg-border-heavy group-hover:bg-primary-container transition-colors"></div>
+<div class="relative w-full aspect-video bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Spectacular aerial drone view of a vast six-lane expressway curving smoothly through the North Indian countryside with toll plazas and solar streetlights, crisp sunlight, journalistic infrastructure documentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU38dBvP0gcRgFBok0a7f_r1NH_aLfJmLaIgEZEc101-J4QFjuG0aYB7KdPITz26mJH2Ia2YnHpfz7RS0C8_rLKTVPghCedM2wDniCQ_zRLokWqdUXTZhEiVPp4eDDcBuJ9TNFT6aIkea6D8-h6MQ74Td3tk9yYdE3lsy-gQGfXuPhXRHvNFBElOfDEZxF2ZlktgpySfEz2bmkPSH6bXPEf9U2hykPPYfFSmC3shiHWdPuTq2BcX4"/>
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-border-heavy text-on-secondary font-label-sm text-label-sm font-bold uppercase">
+                16:9
+              </span>
+<span class="px-1.5 py-0.5 bg-paper-tint text-on-surface font-label-sm text-label-sm font-bold">
+                ड्रोन शॉट
+              </span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm">
+              2560 × 1440
+            </div>
+</div>
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-bold uppercase">इन्फ्रास्ट्रक्चर</span>
+<span>23 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                गंगा एक्सप्रेसवे मेरठ-प्रयागराज खंड
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                क्रेडिट: यूपीडा (UPEIDA)
+              </p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">link</span> 1 आलेख में
+              </span>
+<span class="text-secondary font-semibold">2.1 MB</span>
+</div>
+</div>
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> URL
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">crop</span></button>
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+</div>
+</div>
+</div>
+<!-- CARD 5: Cricket IPL Action Photo (4:3 Aspect Ratio) -->
+<div class="media-card group relative bg-paper-canvas shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" data-active-uses="4 लेखों में सक्रिय" data-alt="Indian Premier League captain raising a bat in celebration under colossal stadium floodlights with packed roaring crowd, motion blur of ball and turf, high dynamic range sports photo." data-asset-id="ASSET-1086" data-caption="आईपीएल 2025 सत्र के उद्घाटन मैच से पूर्व टीम कप्तानों का आधिकारिक फोटोशूट व ट्रॉफी अनावरण समारोह।" data-cdn="https://cdn.azaadsamachar.com/2025/03/ipl-2025-bcci-team-strategy.jpg" data-credit="बीसीसीआई (BCCI) मीडिया विंग" data-date="22 मार्च 2025, 08:50 अपराह्न" data-ratio="4:3" data-res="2048x1536 (4:3)" data-size="1.9 MB" data-title="IPL 2025 ऑक्शन व टीम रणनीति" data-type="तस्वीर (JPG)" tabindex="0">
+<div class="h-[3px] w-full bg-border-heavy group-hover:bg-primary-container transition-colors"></div>
+<div class="relative w-full aspect-[4/3] bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Electric atmosphere in a massive modern Indian cricket stadium at night under bright floodlights with iconic players in team jerseys strategizing during pitch inspection, dynamic action sports editorial photograph." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTV06wmJzCHjqPtPDRM4NXqgDaRHqhzqJk34jJt__ER58biMbEAmwdWE1OWubkUPC6nTQfb_tMjQbqDRuqonXLZsDTxOkf4XE9_PCz3rRvZ2tww-xDadpr7gyujZTIp68G-ecxnlxlVnY_fu9riudOaKZWHsvsXBS8rjUfYiL6VGNGfXIFtKJXtbxX4hnXMbv-hk-vIWKxVYr72fmPKbHx-oXkxvYTIQ6AHJpaaortPBEOHpiDjXYu"/>
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-border-heavy text-on-secondary font-label-sm text-label-sm font-bold uppercase">
+                4:3
+              </span>
+<span class="px-1.5 py-0.5 bg-paper-tint text-on-surface font-label-sm text-label-sm font-bold">
+                खेल डेस्क
+              </span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm">
+              2048 × 1536
+            </div>
+</div>
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-primary font-bold uppercase">बीसीसीआई वायर</span>
+<span>22 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                IPL 2025 ऑक्शन व टीम रणनीति
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                क्रेडिट: बीसीसीआई (BCCI)
+              </p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-breaking-crimson font-medium">
+<span class="material-symbols-outlined text-[14px]">sports_cricket</span> 4 आलेखों में सक्रिय
+              </span>
+<span class="text-secondary font-semibold">1.9 MB</span>
+</div>
+</div>
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> URL
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">crop</span></button>
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+</div>
+</div>
+</div>
+<!-- CARD 6: ISRO Satellite Launch Gaganyaan -->
+<div class="media-card group relative bg-paper-canvas shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" data-active-uses="5 लेखों में सक्रिय" data-alt="Indian heavy rocket lifting off from Sriharikota launchpad with massive plume of fiery orange exhaust and smoke billowing against a clear azure sky, authoritative space mission documentary photo." data-asset-id="ASSET-1087" data-caption="सतीश धवन अंतरिक्ष केंद्र, श्रीहरिकोटा से गगनयान मिशन के क्रू मॉड्यूल एस्केप सिस्टम का सफल प्रायोगिक परीक्षण।" data-cdn="https://cdn.azaadsamachar.com/2025/03/isro-gaganyaan-crew-escape-test.webp" data-credit="इसरो (ISRO) जनसंपर्क / SDSC शार" data-date="21 मार्च 2025, 07:12 पूर्वाह्न" data-ratio="16:9" data-res="3840x2160 (4K UHD)" data-size="4.2 MB" data-title="गगनयान क्रू एस्केप टेस्ट" data-type="तस्वीर (WebP)" tabindex="0">
+<div class="h-[3px] w-full bg-border-heavy group-hover:bg-primary-container transition-colors"></div>
+<div class="relative w-full aspect-video bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Epic rocket launch liftoff from launch pad with billowing clouds of white smoke and intense golden orange flames at the base, ISRO logo on the booster, dramatic high-speed space photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNBe0DJMdiWU6tXKUeuPJZSWGF-6P7GTGzRCV5CowiegXvaNsJdD9ZVqvH3zRX44oAHc_cFTlRNMec3Mgwih3P287Xc3bu-WtaIs78Ozf2lKyTj3gSF-2ivVT221FBc0idJqq6wfl4qDs9ex4wyVHUS8DtxRiHa73zPtVPOpAJxnRbDaWwSVGPJYVLU7GViJg-4UcmbMBWG9sjZ_NBQi0TPSfBfHibtWJmcob0ZQNnixAADB8gSLqO"/>
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-border-heavy text-on-secondary font-label-sm text-label-sm font-bold uppercase">
+                16:9
+              </span>
+<span class="px-1.5 py-0.5 bg-live-pulse text-on-primary font-label-sm text-label-sm font-bold">
+                वायर एक्सक्लूसिव
+              </span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm">
+              3840 × 2160
+            </div>
+</div>
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-bold uppercase">विज्ञान व अंतरिक्ष</span>
+<span>21 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                गगनयान क्रू एस्केप टेस्ट
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                क्रेडिट: इसरो (ISRO) जनसंपर्क
+              </p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-breaking-crimson font-medium">
+<span class="material-symbols-outlined text-[14px]">rocket_launch</span> 5 लेखों में सक्रिय
+              </span>
+<span class="text-secondary font-semibold">4.2 MB</span>
+</div>
+</div>
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> URL
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">crop</span></button>
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+</div>
+</div>
+</div>
+<!-- CARD 7: Financial Stock Exchange Floor -->
+<div class="media-card group relative bg-paper-canvas shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" data-active-uses="2 लेखों में सक्रिय" data-alt="Traders watching vibrant green financial stock market tickers on multi-screen terminals at Bombay Stock Exchange, blurred foreground of keyboard, authentic business reporting photography." data-asset-id="ASSET-1088" data-caption="भारतीय शेयर बाजार में ऐतिहासिक तेजी: विदेशी संस्थागत निवेशकों की भारी लिवाली के चलते बीएसई सेंसेक्स पहली बार 85,000 के ऐतिहासिक स्तर पर।" data-cdn="https://cdn.azaadsamachar.com/2025/03/bse-sensex-record-high-trading-floor.jpg" data-credit="रॉयटर्स / अभिषेक सेन" data-date="20 मार्च 2025, 03:45 अपराह्न" data-ratio="16:9" data-res="1920x1080 (FHD)" data-size="1.6 MB" data-title="बीएसई सेंसेक्स 85,000 अंक रिकॉर्ड" data-type="तस्वीर (JPG)" tabindex="0">
+<div class="h-[3px] w-full bg-border-heavy group-hover:bg-primary-container transition-colors"></div>
+<div class="relative w-full aspect-video bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Busy financial trading floor with multiple illuminated green monitors showing Sensex market rally trends, focused financial analysts in formal shirts, crisp realistic financial journalism shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOScfD8JpA3sbEK7c6N5o7Y0mZo4F1znsAfhjJqAAI7EQ5ZXQnQByD482_IhfkSGEq1rkM9-6zR6HH5yhc1snUkW0IfsbxcMqC9H77WM24Rt5JKp2A9xHCDjiZl7IIf1xLlCknmPydRnvsthoXBVxGEAqZnN3BsbshwxaBbiHl3NmSW1umoA8EAlgHzQwjsFvtA15ErMb52YiS9wEML5_mbkEOVgUv-c15iMwfrgZ0ILMGdhCfJHOG"/>
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-border-heavy text-on-secondary font-label-sm text-label-sm font-bold uppercase">
+                16:9
+              </span>
+<span class="px-1.5 py-0.5 bg-paper-tint text-on-surface font-label-sm text-label-sm font-bold">
+                मार्केट
+              </span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm">
+              1920 × 1080
+            </div>
+</div>
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-bold uppercase">कारोबार व बाजार</span>
+<span>20 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                बीएसई सेंसेक्स 85,000 अंक रिकॉर्ड
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                क्रेडिट: रॉयटर्स / अभिषेक सेन
+              </p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 2 लेखों में सक्रिय
+              </span>
+<span class="text-secondary font-semibold">1.6 MB</span>
+</div>
+</div>
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> URL
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">crop</span></button>
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+</div>
+</div>
+</div>
+<!-- CARD 8: Supreme Court of India (4:3 Aspect Ratio) -->
+<div class="media-card group relative bg-paper-canvas shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col" data-active-uses="6 लेखों में सक्रिय" data-alt="Imposing front facade of the Supreme Court of India in New Delhi under an overcast monsoon sky, polished stone Ashok Chakra emblem, advocates in black robes walking on the manicured lawn." data-asset-id="ASSET-1089" data-caption="सुप्रीम कोर्ट की पांच-सदस्यीय संविधान पीठ द्वारा नागरिकता व मौलिक अधिकारों से जुड़े विशेष वाद पर ऐतिहासिक अंतिम सुनवाई।" data-cdn="https://cdn.azaadsamachar.com/2025/03/supreme-court-constitution-bench-delhi.jpg" data-credit="आज़ाद विधि संवाददाता / नई दिल्ली" data-date="19 मार्च 2025, 02:00 अपराह्न" data-ratio="4:3" data-res="2048x1536 (4:3)" data-size="2.4 MB" data-title="सुप्रीम कोर्ट संविधान पीठ सुनवाई" data-type="तस्वीर (JPG)" tabindex="0">
+<div class="h-[3px] w-full bg-border-heavy group-hover:bg-primary-container transition-colors"></div>
+<div class="relative w-full aspect-[4/3] bg-paper-subtle overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Stately architecture of the Supreme Court of India building in New Delhi, central dome and pillars under dramatic soft clouds, advocates in traditional robes, dignified broadsheet editorial photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhR7xjHbkevfriYjtDZCcUwPl7YmFc2ryv9Yj4Ck1zRCAQ_6swCifECmQWVLKj6tzbnG58ZLwg0sypH1Ji0Bdk21PUx3ng278JWJhCktijEWjLO6AspTLkVwKthzG2CeimvAJ6WU2CaVLO_uCJSgvWDr7ppjDloSYsIzS-EoC3JCuDEz5P9aW0YEOIQ8rXGDRvv5k2mfeHPbYoXLnvaDfV3dxLBKNQ48kOcNSViNof3P-XxYbCkN1k"/>
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 bg-border-heavy text-on-secondary font-label-sm text-label-sm font-bold uppercase">
+                4:3
+              </span>
+<span class="px-1.5 py-0.5 bg-paper-tint text-on-surface font-label-sm text-label-sm font-bold">
+                न्यायिक डेस्क
+              </span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm">
+              2048 × 1536
+            </div>
+</div>
+<div class="p-3.5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-secondary font-label-sm text-label-sm mb-1">
+<span class="text-tertiary font-bold uppercase">विधि व न्याय</span>
+<span>19 मार्च 2025</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                सुप्रीम कोर्ट संविधान पीठ सुनवाई
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-1 mt-1">
+                क्रेडिट: आज़ाद विधि संवाददाता
+              </p>
+</div>
+<div class="pt-3 mt-3 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-breaking-crimson font-medium">
+<span class="material-symbols-outlined text-[14px]">gavel</span> 6 लेखों में सक्रिय
+              </span>
+<span class="text-secondary font-semibold">2.4 MB</span>
+</div>
+</div>
+<div class="p-2 bg-paper-tint flex items-center justify-between">
+<button class="quick-copy-btn px-2 py-1 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> URL
+            </button>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">crop</span></button>
+<button class="p-1 hover:text-primary text-secondary" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination & Page Density Footer -->
+<div class="mt-6 p-4 bg-paper-canvas flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+<div class="flex items-center gap-3 text-secondary font-body-sm text-body-sm">
+<span>पृष्ठ 1 / 310 (कुल 2,480 संपत्तियां)</span>
+<span class="text-border-rule">|</span>
+<span class="flex items-center gap-1.5">
+            प्रति पृष्ठ:
+            <select class="bg-paper-subtle text-on-surface px-2 py-0.5 rounded font-label-sm text-label-sm focus:outline-none">
+<option>8</option>
+<option selected="">16</option>
+<option>32</option>
+<option>64</option>
+</select>
+</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-3 py-1.5 bg-paper-subtle text-secondary/50 font-label-md text-label-md cursor-not-allowed" disabled="" type="button">
+            पिछला
+          </button>
+<button class="px-3 py-1.5 bg-primary-container text-on-primary font-label-md text-label-md font-bold" type="button">
+            1
+          </button>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md" type="button">
+            2
+          </button>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md" type="button">
+            3
+          </button>
+<span class="px-2 text-secondary">...</span>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md" type="button">
+            310
+          </button>
+<button class="px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md" type="button">
+            अगला
+          </button>
+</div>
+</div>
+</div>
+<!-- RIGHT PANE: Real-time Asset Inspector / Metadata Modal Drawer -->
+<div class="w-full xl:w-96 2xl:w-[420px] shrink-0 bg-paper-canvas shadow-md sticky top-20 flex flex-col">
+<!-- Inspector Top Bar with 3px Accent Rule -->
+<div class="h-[3px] w-full bg-primary"></div>
+<div class="p-4 bg-paper-tint flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">feed</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">
+            मीडिया परिसंपत्ति विवरण
+          </span>
+</div>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm uppercase font-bold" id="inspector-badge">
+          ASSET-1082
+        </span>
+</div>
+<!-- Scrollable Inspector Content -->
+<div class="p-4 flex flex-col gap-4 max-h-[calc(100vh-180px)] overflow-y-auto">
+<!-- Live High-Res Image Preview Box with Zoom Affordance -->
+<div class="relative w-full aspect-video bg-paper-subtle overflow-hidden group shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Photorealistic Indian Parliament Cabinet room with high-ranking government ministers seated around an elliptical teak wood table discussing legislation, authoritative news photography, bright balanced lighting, subtle Indian tricolor flag behind them, documentary journalism style." id="inspector-preview-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-29v9n_lqdTVV5t3WmkKzjTbsO5C61eIggsyx3H_Rt2OTWLnuIoOMUBtWPDAVSLrHSmEV9U-6kmnFgySgi8RdTvFPDCyCCZ1FvlposnmwQJvpZBdjRjE5yoPKXNgLsA3xVthBs-7t6pzvfkrA1F6kkUOR0FurJpQn6UtRoJaoDKnga5NaSI4GTlvUlBH-6RxFuxqJNlnMhviicm74KAK9yi4gmQPTFpFsErHDTbjM4Bh0gXNW3eUe"/>
+<div class="absolute inset-0 bg-border-heavy/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="px-2.5 py-1.5 bg-paper-canvas text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow" id="btn-zoom-modal" type="button">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> पूर्ण आकार देखें
+            </button>
+<button class="px-2.5 py-1.5 bg-paper-canvas text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> डाउनलोड
+            </button>
+</div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-border-heavy/90 text-on-secondary font-label-sm text-label-sm" id="inspector-res-tag">
+            1920 × 1080 (16:9)
+          </div>
+</div>
+<!-- Permalink / CDN URL Field with Copy Action -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">
+              सीडीएन परमालिंक (CDN Asset URL)
+            </label>
+<span class="font-label-sm text-label-sm text-breaking-crimson font-bold hidden" id="copy-success-tooltip">
+              ✓ यूआरएल कॉपी किया गया!
+            </span>
+</div>
+<div class="flex items-stretch shadow-sm">
+<input class="w-full px-2.5 py-1.5 bg-paper-subtle text-on-surface font-mono font-label-sm text-label-sm truncate focus:outline-none" id="inspector-cdn-input" readonly="" type="text" value="https://cdn.azaadsamachar.com/2025/03/parliament-cabinet-meet-hd.jpg"/>
+<button class="px-3 bg-border-heavy hover:bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 transition-colors shrink-0" id="btn-copy-cdn" title="URL क्लिपबोर्ड में कॉपी करें" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>कॉपी</span>
+</button>
+</div>
+</div>
+<!-- Technical Specification Matrix -->
+<div class="p-3 bg-paper-tint">
+<div class="grid grid-cols-2 gap-y-2 text-on-surface font-body-sm text-body-sm">
+<div>
+<span class="text-secondary font-label-sm text-label-sm block">फ़ाइल का आकार:</span>
+<strong class="font-semibold" id="inspector-size">1.8 MB (JPG)</strong>
+</div>
+<div>
+<span class="text-secondary font-label-sm text-label-sm block">अनुपात व रेजोल्यूशन:</span>
+<strong class="font-semibold" id="inspector-ratio">16:9 (FHD)</strong>
+</div>
+<div>
+<span class="text-secondary font-label-sm text-label-sm block">अपलोड तिथि:</span>
+<span class="text-on-surface font-medium text-[12px]" id="inspector-date">25 मार्च 2025, 11:30</span>
+</div>
+<div>
+<span class="text-secondary font-label-sm text-label-sm block">फ़ोटोडेस्क एडिटर:</span>
+<span class="text-on-surface font-medium text-[12px]">समीर खान (शिफ्ट A)</span>
+</div>
+</div>
+</div>
+<!-- Editable Metadata Form -->
+<div class="flex flex-col gap-3">
+<!-- Title / Hindi Headline -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase">
+              परिसंपत्ति शीर्षक (Asset Headline)
+            </label>
+<input class="w-full px-3 py-1.5 bg-paper-canvas text-on-surface font-headline-sm text-headline-sm font-bold focus:outline-none focus:ring-1 focus:ring-border-heavy shadow-sm" id="inspector-title-input" type="text" value="संसद भवन में कैबिनेट बैठक 2025"/>
+</div>
+<!-- Editorial Alt Text (SEO Crucial) -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase">
+                SEO ऑल्ट टेक्स्ट (Alt Text)
+              </label>
+<span class="text-secondary font-label-sm text-label-sm">गूगल न्यूज़ अनिवार्य</span>
+</div>
+<textarea class="w-full p-2.5 bg-paper-canvas text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-border-heavy shadow-sm resize-none" id="inspector-alt-input" rows="2">संसद में राष्ट्रीय औद्योगिक नीति व सेमीकंडक्टर मिशन 2025 पर चर्चा के दौरान मंत्रीगण</textarea>
+</div>
+<!-- Editorial Caption -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase">
+              संपादकीय कैप्शन (Hindi Caption)
+            </label>
+<textarea class="w-full p-2.5 bg-paper-canvas text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-border-heavy shadow-sm resize-none" id="inspector-caption-input" rows="3">संसद के दोनों सदनों में सर्वसम्मति से पारित विधेयक के बाद कैबिनेट कक्ष में वरिष्ठ मंत्रियों की उच्चस्तरीय बैठक।</textarea>
+</div>
+<!-- Photo Credit & Wire Agency -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase">
+                फ़ोटो क्रेडिट (Byline)
+              </label>
+<input class="w-full px-2.5 py-1.5 bg-paper-canvas text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-border-heavy shadow-sm" id="inspector-credit-input" type="text" value="PTI / संसद सचिवालय"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase">
+                लाइसेंस प्रकार
+              </label>
+<select class="w-full px-2 py-1.5 bg-paper-canvas text-on-surface font-label-sm text-label-sm focus:outline-none shadow-sm">
+<option selected="">PTI वायर अधिकार</option>
+<option>आज़ाद विशेष कॉपीराइट</option>
+<option>प्रेस इनफार्मेशन ब्यूरो (PIB)</option>
+<option>रॉयटर्स लाइसेंस</option>
+<option>क्रिएटिव कॉमन्स 4.0</option>
+</select>
+</div>
+</div>
+<!-- Linked Articles / Active Usage -->
+<div class="p-3 bg-paper-tint flex flex-col gap-2">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-label-sm text-label-sm font-bold uppercase text-secondary">
+                सक्रिय प्रयुक्त समाचार (Linked Stories)
+              </span>
+<span class="px-1.5 py-0.2 bg-primary-container text-on-primary font-label-sm text-label-sm">
+                2 आलेख
+              </span>
+</div>
+<div class="flex flex-col gap-1.5 text-on-surface font-body-sm text-body-sm">
+<a class="p-1.5 bg-paper-canvas hover:bg-paper-subtle transition-colors flex items-center justify-between group shadow-sm" href="#">
+<span class="truncate font-medium text-[13px] group-hover:text-primary">
+                  1. कैबिनेट का बड़ा फैसला: राष्ट्रीय सेमीकंडक्टर मिशन 2.0 स्वीकृत...
+                </span>
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0">arrow_forward</span>
+</a>
+<a class="p-1.5 bg-paper-canvas hover:bg-paper-subtle transition-colors flex items-center justify-between group shadow-sm" href="#">
+<span class="truncate font-medium text-[13px] group-hover:text-primary">
+                  2. संसद बजट सत्र 2025: दोनों सदनों की कार्यवाही अनिश्चितकाल के लिए स्थगित...
+                </span>
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Action Buttons / CTA Strip -->
+<div class="pt-2 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<button class="flex-1 py-2.5 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-bold transition-colors shadow-sm text-center flex items-center justify-center gap-1.5" id="btn-save-inspector" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>परिवर्तन सहेजें (Save)</span>
+</button>
+<button class="px-3 py-2.5 bg-border-heavy hover:bg-on-surface text-on-secondary font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1" title="वर्तमान आलेख में सीधे जोड़ें" type="button">
+<span class="material-symbols-outlined text-[18px]">post_add</span>
+<span>आलेख में प्रविष्ट करें</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-1">
+<button class="text-error hover:text-breaking-crimson font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="btn-delete-asset" type="button">
+<span class="material-symbols-outlined text-[16px]">delete_forever</span>
+<span>आर्काइव से हटाएं (Delete)</span>
+</button>
+<button class="text-secondary hover:text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>परिवर्तन इतिहास (Audit)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL: YouTube Embed Ingestion Modal Dialog (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-border-heavy/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="embed-modal-backdrop">
+<div class="bg-paper-canvas w-full max-w-xl shadow-xl flex flex-col">
+<div class="h-[3px] w-full bg-primary"></div>
+<div class="p-4 bg-paper-tint flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-breaking-crimson text-[22px]">video_library</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">यूट्यूब / वीडियो पैकेज लिंक एम्बेड करें</h3>
+</div>
+<button class="text-secondary hover:text-on-surface" id="btn-close-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-6 flex flex-col gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase">
+            यूट्यूब वीडियो URL या कोड दर्ज करें
+          </label>
+<input class="w-full px-3 py-2 bg-paper-subtle text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-border-heavy" placeholder="https://www.youtube.com/watch?v=XXXXXX या youtu.be/XXXXXX" type="url"/>
+<span class="text-secondary font-label-sm text-label-sm">
+            प्रणाली स्वचालित रूप से यूट्यूब थंबनेल, टाइटल व अवधि मेटाडेटा फेच कर लेगी।
+          </span>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-secondary font-bold uppercase">
+            संपादकीय श्रेणी
+          </label>
+<select class="w-full px-3 py-2 bg-paper-canvas text-on-surface font-body-sm text-body-sm focus:outline-none">
+<option>विशेष रिपोर्ट (Special Investigation)</option>
+<option>लाइव बुलेटिन (Live Stream Archive)</option>
+<option>साक्षात्कार व पॉडकास्ट (Interview)</option>
+<option>राज्य व क्षेत्रीय बुलेटिन</option>
+</select>
+</div>
+<div class="p-3 bg-ticker-tint flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-breaking-crimson text-[18px]">verified_user</span>
+<span class="font-body-sm text-body-sm">
+            आज़ाद समाचार कॉपीराइट नियम: केवल आधिकारिक चैनल या रॉयल्टी-मुक्त अधिकृत वीडियो ही एम्बेड करें।
+          </span>
+</div>
+<div class="flex items-center justify-end gap-3 pt-2">
+<button class="px-4 py-2 bg-paper-canvas text-secondary hover:text-on-surface font-label-md text-label-md" id="btn-cancel-modal" type="button">
+            रद्द करें
+          </button>
+<button class="px-5 py-2 bg-primary-container text-on-primary font-label-md text-label-md font-bold hover:bg-primary transition-colors" id="btn-submit-embed" type="button">
+            एम्बेड जोड़ें व सहेजें
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast (Fixed Bottom Right) -->
+<div class="fixed bottom-6 right-6 z-50 px-4 py-3 bg-border-heavy text-on-secondary shadow-lg hidden flex items-center gap-3" id="action-toast">
+<span class="material-symbols-outlined text-primary text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-body-sm text-body-sm font-medium" id="toast-message">परिवर्तन सुरक्षित किए गए!</span>
+</div>
+<!-- Interactive JavaScript Behavior -->
+<script>
+    (function initMediaLibrary() {
+      // DOM References
+      const mediaCards = document.querySelectorAll('.media-card');
+      const inspectorBadge = document.getElementById('inspector-badge');
+      const inspectorTitleInput = document.getElementById('inspector-title-input');
+      const inspectorAltInput = document.getElementById('inspector-alt-input');
+      const inspectorCaptionInput = document.getElementById('inspector-caption-input');
+      const inspectorCreditInput = document.getElementById('inspector-credit-input');
+      const inspectorCdnInput = document.getElementById('inspector-cdn-input');
+      const inspectorSize = document.getElementById('inspector-size');
+      const inspectorRatio = document.getElementById('inspector-ratio');
+      const inspectorDate = document.getElementById('inspector-date');
+      const inspectorResTag = document.getElementById('inspector-res-tag');
+      const inspectorPreviewImg = document.getElementById('inspector-preview-img');
+      const btnCopyCdn = document.getElementById('btn-copy-cdn');
+      const copyTooltip = document.getElementById('copy-success-tooltip');
+      const btnSaveInspector = document.getElementById('btn-save-inspector');
+      const toast = document.getElementById('action-toast');
+      const toastMessage = document.getElementById('toast-message');
+      
+      // Embed Modal triggers
+      const btnOpenEmbed = document.getElementById('btn-open-embed');
+      const btnCloseModal = document.getElementById('btn-close-modal');
+      const btnCancelModal = document.getElementById('btn-cancel-modal');
+      const embedModal = document.getElementById('embed-modal-backdrop');
+      const btnSubmitEmbed = document.getElementById('btn-submit-embed');
+
+      function showToast(msg) {
+        toastMessage.textContent = msg;
+        toast.classList.remove('hidden');
+        toast.classList.add('flex');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+          toast.classList.remove('flex');
+        }, 3000);
+      }
+
+      // Card Click Handler to Populate Inspector
+      mediaCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          // If clicking quick copy button directly, handled separately
+          if (e.target.closest('.quick-copy-btn')) return;
+
+          // Clear selection state on others
+          mediaCards.forEach(c => {
+            c.classList.remove('ring-2', 'ring-primary-container', 'shadow-md');
+            c.classList.add('shadow-sm');
+            const selBadge = c.querySelector('.bg-primary-container');
+            // reset top rule if needed
+          });
+
+          // Apply selection to this card
+          card.classList.add('ring-2', 'ring-primary-container', 'shadow-md');
+          card.classList.remove('shadow-sm');
+
+          // Read data attributes
+          const assetId = card.getAttribute('data-asset-id') || 'ASSET';
+          const title = card.getAttribute('data-title') || '';
+          const credit = card.getAttribute('data-credit') || '';
+          const res = card.getAttribute('data-res') || '';
+          const size = card.getAttribute('data-size') || '';
+          const date = card.getAttribute('data-date') || '';
+          const type = card.getAttribute('data-type') || '';
+          const ratio = card.getAttribute('data-ratio') || '16:9';
+          const alt = card.getAttribute('data-alt') || '';
+          const caption = card.getAttribute('data-caption') || '';
+          const cdn = card.getAttribute('data-cdn') || '';
+
+          // Sync into inspector panel
+          inspectorBadge.textContent = assetId;
+          inspectorTitleInput.value = title;
+          inspectorAltInput.value = alt;
+          inspectorCaptionInput.value = caption;
+          inspectorCreditInput.value = credit;
+          inspectorCdnInput.value = cdn;
+          inspectorSize.textContent = `${size} (${type})`;
+          inspectorRatio.textContent = `${ratio} • ${res}`;
+          inspectorDate.textContent = date;
+          inspectorResTag.textContent = `${res} (${ratio})`;
+
+          // Sync image preview alt
+          const cardImg = card.querySelector('img');
+          if (cardImg && inspectorPreviewImg) {
+            inspectorPreviewImg.setAttribute('data-alt', cardImg.getAttribute('data-alt') || alt);
+          }
+        });
+      });
+
+      // Quick Copy in Inspector
+      btnCopyCdn.addEventListener('click', () => {
+        navigator.clipboard?.writeText(inspectorCdnInput.value).catch(() => {});
+        copyTooltip.classList.remove('hidden');
+        showToast('सीडीएन यूआरएल सफलतापूर्वक क्लिपबोर्ड में कॉपी हुआ!');
+        setTimeout(() => {
+          copyTooltip.classList.add('hidden');
+        }, 2500);
+      });
+
+      // Quick copy button on cards
+      document.querySelectorAll('.quick-copy-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const parentCard = btn.closest('.media-card');
+          const cdn = parentCard ? parentCard.getAttribute('data-cdn') : 'https://cdn.azaadsamachar.com/asset.jpg';
+          navigator.clipboard?.writeText(cdn).catch(() => {});
+          showToast('लिंक कॉपी किया गया!');
+        });
+      });
+
+      // Save Changes CTA
+      btnSaveInspector.addEventListener('click', () => {
+        showToast('मेटाडेटा व संपादकीय विवरण सुरक्षित कर लिए गए हैं!');
+      });
+
+      // Embed Modal Open / Close
+      if (btnOpenEmbed && embedModal) {
+        btnOpenEmbed.addEventListener('click', () => {
+          embedModal.classList.remove('hidden');
+        });
+        [btnCloseModal, btnCancelModal].forEach(b => {
+          b?.addEventListener('click', () => {
+            embedModal.classList.add('hidden');
+          });
+        });
+        btnSubmitEmbed?.addEventListener('click', () => {
+          embedModal.classList.add('hidden');
+          showToast('यूट्यूब वीडियो एम्बेड सफलतापूर्वक लाइब्रेरी में जोड़ा गया!');
+        });
+      }
+
+      // Quick Upload button alert simulation
+      const btnQuickUpload = document.getElementById('btn-quick-upload');
+      if (btnQuickUpload) {
+        btnQuickUpload.addEventListener('click', () => {
+          showToast('फ़ाइल चयन विंडो खोली जा रही है...');
+        });
+      }
+
+      // Filter pills active toggle
+      const pills = document.querySelectorAll('#asset-type-pills button');
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => {
+            p.className = 'px-3 py-1.5 bg-paper-canvas hover:bg-paper-subtle text-on-surface font-label-md text-label-md flex items-center gap-1.5 shadow-sm';
+          });
+          pill.className = 'px-3 py-1.5 bg-border-heavy text-on-secondary font-label-md text-label-md flex items-center gap-1.5 shadow-sm';
+        });
+      });
+    })();
+  </script>
+</div></main></div></body></html>
