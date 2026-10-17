@@ -51,7 +51,7 @@ export default function BrandLogo({
   const LogoContent = (
     <div className={`inline-flex flex-col select-none ${className}`}>
       {/* Brand Mark Lockup: Azaad on left of eagle, Eagle on top, Samachar on bottom of that eagle */}
-      <div className="inline-flex items-center gap-2 sm:gap-2.5">
+      <div className="inline-flex items-center gap-1 sm:gap-1.5">
         {/* 'आज़ाद' on the LEFT side of the eagle - size matched with 'समाचार' */}
         <div className="flex items-center justify-center">
           <span
@@ -87,13 +87,13 @@ export default function BrandLogo({
             />
           </div>
 
-          {/* 'समाचार' on the BOTTOM of that eagle - size matched with 'आज़ाद' */}
+          {/* 'समाचार' on the BOTTOM of that eagle - Blue color */}
           <span
             className={`font-mukta font-black tracking-tight leading-none mt-0.5 sm:mt-1 ${
               isFull
                 ? 'text-xl sm:text-2xl md:text-2xl'
                 : 'text-base sm:text-lg'
-            } ${isDark ? 'text-white' : 'text-[#10264B]'}`}
+            } ${isDark ? 'text-blue-400' : 'text-blue-700'}`}
           >
             समाचार
           </span>
