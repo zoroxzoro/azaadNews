@@ -1,32 +1,93 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, MapPin } from 'lucide-react';
-import SectionHeading from '../common/SectionHeading';
+import { ChevronRight, MapPin, Newspaper } from 'lucide-react';
+import { articlesService } from '../../services/articlesService';
+import NewsSkeleton from './NewsSkeleton';
+import { formatRelativeTime } from '../../utils/timezoneUtils';
 
 const UP_CITIES = [
-  { key: 'all', label: 'सभी ज़िले' },
-  { key: 'lucknow', label: 'लखनऊ' },
-  { key: 'ayodhya', label: 'अयोध्या' },
-  { key: 'varanasi', label: 'वाराणसी' },
-  { key: 'kanpur', label: 'कानपुर' },
-  { key: 'prayagraj', label: 'प्रयागराज' },
-  { key: 'gorakhpur', label: 'गोरखपुर' },
+  { key: 'all', label: 'सभी ज़िले', aliases: [] },
+  { key: 'lucknow', label: 'लखनऊ', aliases: ['lucknow', 'लखनऊ'] },
+  { key: 'ayodhya', label: 'अयोध्या', aliases: ['ayodhya', 'अयोध्या', 'फैजाबाद'] },
+  { key: 'varanasi', label: 'वाराणसी', aliases: ['varanasi', 'वाराणसी', 'काशी', 'बनारस'] },
+  { key: 'kanpur', label: 'कानपुर', aliases: ['kanpur', 'कानपुर'] },
+  { key: 'prayagraj', label: 'प्रयागराज', aliases: ['prayagraj', 'प्रयागराज', 'इलाहाबाद', 'allahabad'] },
+  { key: 'gorakhpur', label: 'गोरखपुर', aliases: ['gorakhpur', 'गोरखपुर'] },
 ];
 
 /**
  * UPRegionalSection component
- * Interactive city-filtered Uttar Pradesh regional news showcase
+ * Interactive city-filtered Uttar Pradesh regional news showcase with reliable location normalization.
+ * If a selected city has no matches, displays a proper empty state (never silently reverts to all articles).
  */
 export default function UPRegionalSection({ articles = [], className = '' }) {
   const [activeCity, setActiveCity] = useState('all');
+  const [leadImgError, setLeadImgError] = useState(false);
+  const [cityNews, setCityNews] = useState({ articles: [], isLoading: false });
+
+  const selectedCityObj = UP_CITIES.find((c) => c.key === activeCity);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    if (activeCity === 'all') {
+      setCityNews({ articles: [], isLoading: false });
+      return;
+    }
+
+    // First check if any passed articles match this city locally
+    const aliases = selectedCityObj?.aliases || [activeCity];
+    const localMatches = (articles || []).filter((a) => {
+      if (!a) return false;
+      const loc = (a.location || a.author?.location || '').toLowerCase();
+      const title = (a.title || '').toLowerCase();
+      const summary = (a.summary || '').toLowerCase();
+      const cat = (a.category || '').toLowerCase();
+      return aliases.some(
+        (alias) =>
+          loc.includes(alias) ||
+          title.includes(alias) ||
+          summary.includes(alias) ||
+          cat.includes(alias)
+      );
+    });
+
+    if (localMatches.length >= 4) {
+      setCityNews({ articles: localMatches, isLoading: false });
+      return;
+    }
+
+    // Query real articles for this city from Supabase
+    async function fetchCityStories() {
+      setCityNews((prev) => ({ ...prev, isLoading: true }));
+      try {
+        const res = await articlesService.getArticlesByCity(activeCity, { limit: 4 });
+        if (isMounted) {
+          setCityNews({
+            articles: res?.data || [],
+            isLoading: false,
+          });
+        }
+      } catch (err) {
+        if (isMounted) {
+          setCityNews({ articles: localMatches, isLoading: false });
+        }
+      }
+    }
+
+    fetchCityStories();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [activeCity, articles]);
 
   const filteredArticles = activeCity === 'all'
     ? articles
-    : articles.filter((a) => a.city === activeCity);
+    : cityNews.articles;
 
-  const displayArticles = filteredArticles.length > 0 ? filteredArticles : articles;
-  const leadUPStory = displayArticles[0];
-  const secondaryUPStories = displayArticles.slice(1, 4);
+  const leadUPStory = filteredArticles[0];
+  const secondaryUPStories = filteredArticles.slice(1, 4);
 
   return (
     <section className={`bg-paper-canvas p-3 sm:p-5 lg:p-6 border border-border-rule transition-colors shadow-xs ${className}`}>
@@ -58,7 +119,10 @@ export default function UPRegionalSection({ articles = [], className = '' }) {
             <button
               key={city.key}
               type="button"
-              onClick={() => setActiveCity(city.key)}
+              onClick={() => {
+                setActiveCity(city.key);
+                setLeadImgError(false);
+              }}
               className={`px-3 py-1 font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                 isActive
                   ? 'bg-primary-container text-white shadow-xs'
@@ -71,84 +135,127 @@ export default function UPRegionalSection({ articles = [], className = '' }) {
         })}
       </div>
 
-      {/* Grid: 1 Big Horizontal / Dominant Story + 3 Supporting Stories */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-        {/* Dominant Story (6 Cols) */}
-        {leadUPStory && (
-          <article className="lg:col-span-6 bg-paper-tint p-3 sm:p-4 border border-border-rule flex flex-col justify-between group">
-            <div>
-              <div className="aspect-[16/10] overflow-hidden mb-3 relative bg-surface-container">
-                <img
-                  src={leadUPStory.featuredImage}
-                  alt={leadUPStory.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-2.5 left-2.5 flex items-center gap-1 bg-[#10264B] text-white text-[10px] font-inter uppercase font-bold px-2 py-0.5">
-                  <MapPin className="w-3 h-3" />
-                  <span>{leadUPStory.author?.location || 'उत्तर प्रदेश'}</span>
+      {/* Loading Skeleton */}
+      {cityNews.isLoading && (
+        <div className="py-4">
+          <NewsSkeleton count={4} />
+        </div>
+      )}
+
+      {/* Empty State when no stories match selected city */}
+      {!cityNews.isLoading && filteredArticles.length === 0 ? (
+        <div className="bg-paper-tint border border-dashed border-border-heavy p-8 text-center flex flex-col items-center justify-center my-3">
+          <MapPin className="w-8 h-8 text-secondary/60 mb-2" />
+          <h4 className="font-mukta text-base sm:text-lg font-bold text-on-surface">
+            {selectedCityObj?.label} से संबंधित कोई ताज़ा समाचार अभी उपलब्ध नहीं है
+          </h4>
+          <p className="font-inter text-xs text-secondary mt-1 max-w-md">
+            हमारे संवाददाता इस क्षेत्र के घटनाक्रम पर नज़र रखे हुए हैं। उत्तर प्रदेश के अन्य जिलों की खबरें देखने के लिए नीचे दिए गए विकल्प चुनें।
+          </p>
+          <button
+            type="button"
+            onClick={() => setActiveCity('all')}
+            className="mt-3 px-3.5 py-1.5 bg-primary-container text-white font-mukta font-bold text-xs hover:bg-primary transition-colors cursor-pointer"
+          >
+            सभी ज़िलों की खबरें देखें
+          </button>
+        </div>
+      ) : !cityNews.isLoading && (
+        /* Grid: 1 Big Horizontal / Dominant Story + 3 Supporting Stories */
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+          {/* Dominant Story (6 Cols) */}
+          {leadUPStory && (
+            <article className="lg:col-span-6 bg-paper-tint p-3 sm:p-4 border border-border-rule flex flex-col justify-between group">
+              <div>
+                <div className="aspect-[16/10] overflow-hidden mb-3 relative bg-surface-container border border-border-rule/50">
+                  {leadUPStory.featuredImage && !leadImgError ? (
+                    <img
+                      src={leadUPStory.featuredImage}
+                      alt={leadUPStory.title}
+                      loading="lazy"
+                      onError={() => setLeadImgError(true)}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-paper-tint flex flex-col items-center justify-center p-4 text-center">
+                      <Newspaper className="w-8 h-8 text-primary-container/70 mb-1" />
+                      <span className="font-mukta text-xs font-bold text-secondary uppercase tracking-widest">
+                        आज़ाद समाचार • यूपी डेस्क
+                      </span>
+                    </div>
+                  )}
+                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1 bg-[#10264B] text-white text-[10px] font-inter uppercase font-bold px-2 py-0.5 shadow-xs">
+                    <MapPin className="w-3 h-3" />
+                    <span>{leadUPStory.author?.location || selectedCityObj?.label || 'उत्तर प्रदेश'}</span>
+                  </div>
                 </div>
-              </div>
 
-              <Link to={`/news/${leadUPStory.slug}`}>
-                <h3 className="font-mukta text-base sm:text-lg lg:text-xl font-bold text-on-surface group-hover:text-primary-container transition-colors leading-snug">
-                  {leadUPStory.title}
-                </h3>
-              </Link>
-
-              {leadUPStory.summary && (
-                <p className="font-inter text-xs sm:text-sm text-secondary mt-2 line-clamp-3 leading-relaxed">
-                  {leadUPStory.summary}
-                </p>
-              )}
-            </div>
-
-            <div className="mt-4 pt-2.5 border-t border-border-rule flex items-center justify-between font-inter text-xs text-secondary">
-              <span className="font-medium text-on-surface/90">
-                {leadUPStory.author?.name || 'राज्य ब्यूरो प्रमुख'}
-              </span>
-              <span>{leadUPStory.readTime || '4 मिनट'}</span>
-            </div>
-          </article>
-        )}
-
-        {/* 3 Supporting City Stories (6 Cols) */}
-        <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3.5">
-          {secondaryUPStories.map((story) => (
-            <article
-              key={story.id}
-              className="bg-paper-tint p-3 border border-border-rule flex gap-3 group items-center"
-            >
-              <div className="w-24 sm:w-28 aspect-[16/10] bg-surface-container shrink-0 overflow-hidden relative">
-                <img
-                  src={story.featuredImage}
-                  alt={story.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <span className="absolute bottom-1 left-1 bg-black/75 text-white text-[8px] font-inter px-1 py-0.2">
-                  {story.author?.location || 'यूपी'}
-                </span>
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <Link to={`/news/${story.slug}`}>
-                  <h4 className="font-mukta text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary-container transition-colors line-clamp-2 leading-snug">
-                    {story.title}
-                  </h4>
+                <Link to={`/news/${leadUPStory.slug}`}>
+                  <h3 className="font-mukta text-base sm:text-lg lg:text-xl font-bold text-on-surface group-hover:text-primary-container transition-colors leading-snug">
+                    {leadUPStory.title}
+                  </h3>
                 </Link>
-                <div className="flex items-center gap-2 mt-1 text-[10px] text-secondary font-inter">
-                  <span className="text-primary-container font-semibold">
-                    {story.author?.name || 'संवाददाता'}
-                  </span>
-                  <span>•</span>
-                  <span>{story.readTime || '3 मिनट'}</span>
-                </div>
+
+                {leadUPStory.summary && (
+                  <p className="font-inter text-xs sm:text-sm text-secondary mt-2 line-clamp-3 leading-relaxed">
+                    {leadUPStory.summary}
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-4 pt-2.5 border-t border-border-rule flex items-center justify-between font-inter text-xs text-secondary">
+                <span className="font-medium text-on-surface/90">
+                  {leadUPStory.author?.name || 'राज्य ब्यूरो प्रमुख'}
+                </span>
+                <span>{leadUPStory.readTime || '4 मिनट'}</span>
               </div>
             </article>
-          ))}
+          )}
+
+          {/* 3 Supporting City Stories (6 Cols) */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3.5">
+            {secondaryUPStories.map((story) => (
+              <article
+                key={story.id}
+                className="bg-paper-tint p-3 border border-border-rule flex gap-3 group items-center"
+              >
+                <div className="w-24 sm:w-28 aspect-[16/10] bg-surface-container shrink-0 overflow-hidden relative border border-border-rule/40">
+                  {story.featuredImage ? (
+                    <img
+                      src={story.featuredImage}
+                      alt={story.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-paper-tint flex items-center justify-center">
+                      <Newspaper className="w-5 h-5 text-secondary/60" />
+                    </div>
+                  )}
+                  <span className="absolute bottom-1 left-1 bg-black/75 text-white text-[8px] font-inter px-1 py-0.2">
+                    {story.author?.location || 'यूपी'}
+                  </span>
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <Link to={`/news/${story.slug}`}>
+                    <h4 className="font-mukta text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary-container transition-colors line-clamp-2 leading-snug">
+                      {story.title}
+                    </h4>
+                  </Link>
+                  <div className="flex items-center gap-2 mt-1 text-[10px] text-secondary font-inter">
+                    <span className="text-primary-container font-semibold">
+                      {story.author?.name || 'संवाददाता'}
+                    </span>
+                    <span>•</span>
+                    <span>{formatRelativeTime(story.publishedAt || story.createdAt) || story.readTime || 'ताज़ा'}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

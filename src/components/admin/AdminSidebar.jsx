@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import BrandLogo from '../common/BrandLogo';
-import { useDemoAuth } from '../../context/DemoAuthContext';
+import { useAuth } from '../../context/AuthContext';
 import {
   LayoutDashboard,
   Newspaper,
@@ -9,6 +9,7 @@ import {
   CalendarClock,
   FolderTree,
   Image as ImageIcon,
+  Users,
   Settings,
   LogOut,
   X,
@@ -53,6 +54,7 @@ export const ADMIN_NAV_ITEMS = [
     labelHindi: 'श्रेणी प्रबंधन',
     labelEnglish: 'Categories',
     icon: FolderTree,
+    superAdminOnly: true,
   },
   {
     to: '/admin/media',
@@ -60,6 +62,14 @@ export const ADMIN_NAV_ITEMS = [
     labelHindi: 'मीडिया लाइब्रेरी',
     labelEnglish: 'Media Library',
     icon: ImageIcon,
+  },
+  {
+    to: '/admin/team',
+    end: false,
+    labelHindi: 'टीम प्रबंधन',
+    labelEnglish: 'Team Management',
+    icon: Users,
+    superAdminOnly: true,
   },
   {
     to: '/admin/settings',
@@ -76,7 +86,7 @@ export default function AdminSidebar({
   mobileOpen = false,
   onCloseMobile,
 }) {
-  const { currentUser, logout } = useDemoAuth();
+  const { currentUser, logout, can, role, isSuperAdmin } = useAuth();
   const navigate = useNavigate();
 
   // Escape key listener for closing mobile drawer
@@ -164,7 +174,7 @@ export default function AdminSidebar({
                   लाइव डेस्क सक्रिय
                 </span>
               </div>
-              <span className="font-mono text-[10px] font-bold text-secondary">DELHI-HQ</span>
+              <span className="font-mono text-[10px] font-bold text-secondary">KANPUR-HQ</span>
             </div>
           )}
 
@@ -179,7 +189,7 @@ export default function AdminSidebar({
 
           {/* Nav Items */}
           <nav className="flex-1 overflow-y-auto px-2 sm:px-3 py-2 space-y-1">
-            {ADMIN_NAV_ITEMS.map((item) => {
+            {ADMIN_NAV_ITEMS.filter((item) => !item.superAdminOnly || isSuperAdmin).map((item) => {
               const Icon = item.icon;
 
               return (
@@ -251,8 +261,8 @@ export default function AdminSidebar({
                 <span className="font-mukta text-xs sm:text-sm font-bold text-on-surface truncate leading-tight">
                   {currentUser?.name || 'राजेश कुमार'}
                 </span>
-                <span className="font-inter text-[10px] text-secondary truncate">
-                  {currentUser?.role || 'वरिष्ठ संपादक'}
+                <span className="font-inter text-[10px] text-secondary truncate font-semibold">
+                  {isSuperAdmin ? 'प्रधान व्यवस्थापक (Super Admin)' : 'व्यवस्थापक (Admin)'}
                 </span>
               </div>
             </div>
@@ -260,7 +270,7 @@ export default function AdminSidebar({
             <div className="w-full flex justify-center">
               <div
                 className="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center font-bold text-xs shrink-0 cursor-default"
-                title={`${currentUser?.name || 'राजेश कुमार'} (${currentUser?.role || 'संपादक'})`}
+                title={`${currentUser?.name || 'राजेश कुमार'} (${isSuperAdmin ? 'Super Admin' : 'Admin'})`}
               >
                 {currentUser?.initials || 'RK'}
               </div>

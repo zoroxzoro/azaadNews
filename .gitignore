@@ -42,3 +42,7 @@ ehthumbs.db
 *.tsbuildinfo
 *.tmp
 *.bak
+
+# Migration archives and working directories
+azaad-migration/
+

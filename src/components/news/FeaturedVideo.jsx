@@ -152,7 +152,7 @@ export default function FeaturedVideo({
                   {article.author?.name || 'आज़ाद वीडियो डेस्क'}
                 </span>
                 <span className="text-[11px] text-slate-400">
-                  {article.author?.role || 'डिजिटल प्रसारण संवाददाता'} • {article.author?.location || 'नई दिल्ली'}
+                  {article.author?.role || 'डिजिटल प्रसारण संवाददाता'} • {article.author?.location || 'कानपुर'}
                 </span>
               </div>
             </div>

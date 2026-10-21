@@ -147,20 +147,23 @@ export default function ArticleActionsMenu({
             </button>
           )}
 
-          <div className="my-1 border-t border-border-rule/60" />
-
-          {/* 4. Delete */}
-          <button
-            type="button"
-            onClick={() => {
-              setIsOpen(false);
-              onDeleteRequest(article);
-            }}
-            className="w-full text-left flex items-center gap-2 px-3 py-1.5 text-breaking-crimson hover:bg-ticker-tint transition-colors cursor-pointer"
-          >
-            <Trash2 className="w-3.5 h-3.5" />
-            <span>हटाएं (Delete)</span>
-          </button>
+          {/* 4. Delete (Only available if permitted / Super Admin) */}
+          {Boolean(onDeleteRequest) && (
+            <>
+              <div className="my-1 border-t border-border-rule/60" />
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false);
+                  onDeleteRequest(article);
+                }}
+                className="w-full text-left flex items-center gap-2 px-3 py-1.5 text-breaking-crimson hover:bg-ticker-tint transition-colors cursor-pointer"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>हटाएं (Delete)</span>
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>

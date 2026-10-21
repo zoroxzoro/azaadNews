@@ -2,6 +2,7 @@ import React from 'react';
 import { X, Eye, Calendar, User, Clock, MapPin, Tag } from 'lucide-react';
 import StatusBadge from '../StatusBadge';
 import YouTubeEmbed from '../../news/YouTubeEmbed';
+import ArticlePhotoGallery from '../../news/ArticlePhotoGallery';
 import { extractPlainText, estimateReadTime } from '../../../utils/articleContent';
 import { categories } from '../../../data/categories';
 
@@ -199,7 +200,7 @@ export default function ArticlePreviewModal({ isOpen, onClose, articleData }) {
                   <span>{articleData.author?.role || 'विशेष संवाददाता'}</span>
                   <span>•</span>
                   <MapPin className="w-3 h-3 text-secondary" />
-                  <span>{articleData.location || articleData.author?.location || 'नई दिल्ली'}</span>
+                  <span>{articleData.location || articleData.author?.location || 'कानपुर'}</span>
                 </span>
               </div>
             </div>
@@ -226,7 +227,24 @@ export default function ArticlePreviewModal({ isOpen, onClose, articleData }) {
             </figure>
           )}
 
-          {/* Main Article Body Render */}
+          {/* Other Pictures / Multi-Image Gallery (Rendered BEFORE the matter) */}
+          {(() => {
+            const raw = articleData.galleryImages || articleData.gallery || articleData.content?.gallery || [];
+            const others = Array.isArray(raw)
+              ? raw.filter((p) => p && p.url && p.url !== articleData.featuredImage)
+              : [];
+            if (others.length === 0) return null;
+            return (
+              <div className="my-4">
+                <ArticlePhotoGallery
+                  gallery={others}
+                  title="समाचार से जुड़े अन्य छायाचित्र (Additional Pictures)"
+                />
+              </div>
+            );
+          })()}
+
+          {/* Main Article Body Render (The Matter) */}
           <div className="article-body-preview">{renderPreviewBody()}</div>
 
           {/* YouTube Video Section if provided */}

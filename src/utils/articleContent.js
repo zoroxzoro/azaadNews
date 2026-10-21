@@ -29,7 +29,15 @@ export function textToTipTapDoc(text) {
     return getEmptyTipTapDoc();
   }
 
-  const paragraphs = text
+  // Pre-clean legacy HTML wrappers so raw <div> or <span> never become plain text
+  const cleaned = text
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/div>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<\/?(?:div|span|p|section|header|footer|aside)\b[^>]*>/gi, '');
+
+  const paragraphs = cleaned
     .split(/\n\n+/)
     .map((p) => p.trim())
     .filter(Boolean);
@@ -172,7 +180,14 @@ export function isContentEmpty(content) {
  * Helper to render inline marks (bold, italic, underline, strike, link) using React.createElement
  */
 function renderInlineMarks(node, key) {
+  if (node.type === 'hardBreak') {
+    return React.createElement('br', { key });
+  }
+
   let element = node.text || '';
+  if (typeof element === 'string') {
+    element = element.replace(/<\/?(?:div|span|section|header|footer|aside|p)\b[^>]*>/gi, '');
+  }
 
   if (node.marks && Array.isArray(node.marks)) {
     node.marks.forEach((mark, markIdx) => {
@@ -219,8 +234,10 @@ export function renderTipTapContent(doc) {
       const TagName = `h${level}`;
       const headingClass =
         level === 2
-          ? 'font-mukta text-xl sm:text-2xl font-bold text-on-surface pt-3 border-b border-border-rule pb-2 my-4'
-          : 'font-mukta text-lg sm:text-xl font-bold text-on-surface pt-2 my-3';
+          ? 'font-mukta text-xl sm:text-2xl font-bold text-on-surface border-l-4 border-primary-container pl-3.5 py-1 my-5 leading-snug break-words'
+          : level === 3
+          ? 'font-mukta text-lg sm:text-xl font-bold text-on-surface my-4 leading-snug break-words'
+          : 'font-mukta text-base sm:text-lg font-bold text-on-surface my-3 leading-snug break-words';
 
       const children = node.content?.map((child, childIdx) => renderInlineMarks(child, childIdx));
       return React.createElement(TagName, { key: i, className: headingClass }, children);
@@ -230,7 +247,7 @@ export function renderTipTapContent(doc) {
     if (node.type === 'blockquote') {
       const paragraphs = node.content?.map((child, childIdx) => {
         const pChildren = child.content?.map((grandChild, gcIdx) => renderInlineMarks(grandChild, gcIdx));
-        return React.createElement('p', { key: childIdx }, pChildren);
+        return React.createElement('p', { key: childIdx, className: 'my-1' }, pChildren);
       });
 
       return React.createElement(
@@ -238,7 +255,7 @@ export function renderTipTapContent(doc) {
         {
           key: i,
           className:
-            'my-5 bg-paper-tint border-l-4 border-primary-container p-4 sm:p-5 font-mukta text-lg sm:text-xl font-bold text-on-surface italic shadow-2xs',
+            'my-6 bg-paper-tint border-l-4 border-primary-container p-4 sm:p-5 font-mukta text-lg sm:text-xl font-bold text-on-surface italic shadow-2xs break-words leading-relaxed',
         },
         paragraphs
       );
@@ -250,12 +267,12 @@ export function renderTipTapContent(doc) {
         const itemContent = li.content?.map((child, childIdx) =>
           child.content?.map((gc, gcIdx) => renderInlineMarks(gc, gcIdx))
         );
-        return React.createElement('li', { key: liIdx }, itemContent);
+        return React.createElement('li', { key: liIdx, className: 'leading-relaxed' }, itemContent);
       });
 
       return React.createElement(
         'ul',
-        { key: i, className: 'list-disc pl-6 my-4 space-y-2 font-inter text-on-surface text-sm sm:text-base' },
+        { key: i, className: 'list-disc pl-5 sm:pl-6 my-4 space-y-2 font-inter text-on-surface text-sm sm:text-base break-words leading-relaxed' },
         listItems
       );
     }
@@ -266,12 +283,12 @@ export function renderTipTapContent(doc) {
         const itemContent = li.content?.map((child, childIdx) =>
           child.content?.map((gc, gcIdx) => renderInlineMarks(gc, gcIdx))
         );
-        return React.createElement('li', { key: liIdx }, itemContent);
+        return React.createElement('li', { key: liIdx, className: 'leading-relaxed' }, itemContent);
       });
 
       return React.createElement(
         'ol',
-        { key: i, className: 'list-decimal pl-6 my-4 space-y-2 font-inter text-on-surface text-sm sm:text-base' },
+        { key: i, className: 'list-decimal pl-5 sm:pl-6 my-4 space-y-2 font-inter text-on-surface text-sm sm:text-base break-words leading-relaxed' },
         listItems
       );
     }
@@ -280,8 +297,9 @@ export function renderTipTapContent(doc) {
     if (node.type === 'image') {
       const img = React.createElement('img', {
         src: node.attrs?.src,
-        alt: node.attrs?.alt || 'Inline Media',
+        alt: node.attrs?.alt || 'समाचार संबंधित चित्र',
         loading: 'lazy',
+        decoding: 'async',
         className: 'w-full h-full object-cover',
       });
 
@@ -291,8 +309,12 @@ export function renderTipTapContent(doc) {
         img
       );
 
-      const figCaption = node.attrs?.title
-        ? React.createElement('figcaption', { className: 'font-inter text-xs text-secondary px-1' }, node.attrs.title)
+      const figCaption = node.attrs?.title || node.attrs?.alt
+        ? React.createElement(
+            'figcaption',
+            { className: 'font-inter text-xs text-secondary px-1 pt-1 leading-normal' },
+            node.attrs?.title || node.attrs?.alt
+          )
         : null;
 
       return React.createElement(
@@ -307,7 +329,7 @@ export function renderTipTapContent(doc) {
     if (node.type === 'youtube') {
       const iframe = React.createElement('iframe', {
         src: `https://www.youtube-nocookie.com/embed/${node.attrs?.src}?controls=1`,
-        title: 'Inline YouTube Video',
+        title: 'समाचार संबंधित वीडियो',
         className: 'w-full h-full border-0',
         allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
         allowFullScreen: true,
@@ -330,7 +352,10 @@ export function renderTipTapContent(doc) {
     const pChildren = node.content?.map((child, childIdx) => renderInlineMarks(child, childIdx));
     return React.createElement(
       'p',
-      { key: i, className: `font-inter text-on-surface leading-loose my-3 ${alignClass}` },
+      {
+        key: i,
+        className: `font-inter text-on-surface leading-[1.85] sm:leading-[1.9] my-4 text-base sm:text-[17px] break-words [word-break:break-word] whitespace-pre-line ${alignClass}`,
+      },
       pChildren
     );
   });

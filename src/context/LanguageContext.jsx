@@ -5,7 +5,7 @@ const LanguageContext = createContext();
 export const translations = {
   hi: {
     // Top Bar
-    city_edition: 'नई दिल्ली',
+    city_edition: 'कानपुर',
     samvat: 'संवत् 2081',
     market: 'बाजार',
     nifty: 'निफ्टी',
@@ -40,7 +40,7 @@ export const translations = {
     lifestyle: 'लाइफस्टाइल',
     spirituality: 'धर्म/अध्यात्म',
     more_categories: 'अन्य श्रेणियां +',
-    weather_lucknow: 'लखनऊ 31°C',
+    weather_lucknow: 'डिजिटल संस्करण',
     live_badge: 'लाइव',
 
     // Breaking ticker
@@ -53,7 +53,7 @@ export const translations = {
     slogan: 'सच्ची खबर पक्की खबर',
     rni_reg: 'RNI पंजीकरण संख्या: UPHIN/2012/48902',
     headquarters: 'मुख्यालय',
-    hq_address: 'प्रेस एन्क्लेव, आईटीओ, नई दिल्ली - 110002',
+    hq_address: 'कानपुर, उत्तर प्रदेश',
     regional_center: 'प्रादेशिक केंद्र',
     regional_address: 'हजरतगंज, लखनऊ, उत्तर प्रदेश - 226001',
     key_categories: 'प्रमुख श्रेणियां',
@@ -79,7 +79,7 @@ export const translations = {
   },
   en: {
     // Top Bar
-    city_edition: 'New Delhi',
+    city_edition: 'Kanpur',
     samvat: 'Samvat 2081',
     market: 'Markets',
     nifty: 'Nifty',
@@ -114,7 +114,7 @@ export const translations = {
     lifestyle: 'Lifestyle',
     spirituality: 'Spirituality',
     more_categories: 'More Categories +',
-    weather_lucknow: 'Lucknow 31°C',
+    weather_lucknow: 'Digital Edition',
     live_badge: 'LIVE',
 
     // Breaking ticker
@@ -127,7 +127,7 @@ export const translations = {
     slogan: 'Truthful News, Verified News',
     rni_reg: 'RNI Registration: UPHIN/2012/48902',
     headquarters: 'Headquarters',
-    hq_address: 'Press Enclave, ITO, New Delhi - 110002',
+    hq_address: 'Kanpur, Uttar Pradesh',
     regional_center: 'Regional Bureau',
     regional_address: 'Hazratganj, Lucknow, Uttar Pradesh - 226001',
     key_categories: 'Key Categories',

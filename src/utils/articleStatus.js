@@ -90,6 +90,11 @@ export function canTransitionStatus(fromStatus, toStatus, userRole = 'editor') {
 
   if (current === target) return false;
 
+  // Authors cannot publish or schedule articles directly (only editor, admin, super_admin can)
+  if (userRole === 'author' && (target === ARTICLE_STATUS.PUBLISHED || target === ARTICLE_STATUS.SCHEDULED)) {
+    return false;
+  }
+
   const validOptions = ALLOWED_TRANSITIONS[current] || [];
   return validOptions.some((opt) => opt.target === target);
 }
@@ -99,5 +104,11 @@ export function canTransitionStatus(fromStatus, toStatus, userRole = 'editor') {
  */
 export function getAvailableStatusTransitions(status, userRole = 'editor') {
   const current = normalizeStatus(status);
-  return ALLOWED_TRANSITIONS[current] || [];
+  const allTransitions = ALLOWED_TRANSITIONS[current] || [];
+  if (userRole === 'author') {
+    return allTransitions.filter(
+      (opt) => opt.target !== ARTICLE_STATUS.PUBLISHED && opt.target !== ARTICLE_STATUS.SCHEDULED
+    );
+  }
+  return allTransitions;
 }

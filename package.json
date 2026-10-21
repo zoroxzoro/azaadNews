@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "sitemap": "node scripts/generate_sitemap.mjs",
+    "build": "node scripts/generate_sitemap.mjs && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
     "@tanstack/react-query": "^5.66.0",
     "@tiptap/extension-image": "^3.32.0",
     "@tiptap/extension-link": "^3.32.0",

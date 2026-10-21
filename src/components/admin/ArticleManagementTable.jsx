@@ -120,7 +120,7 @@ export default function ArticleManagementTable({
                         {item.author?.name || 'आज़ाद ब्यूरो'}
                       </span>
                       <span className="text-[10px] text-secondary block truncate">
-                        {item.author?.location || 'नई दिल्ली'}
+                        {item.author?.location || 'कानपुर'}
                       </span>
                     </td>
 

@@ -6,348 +6,257 @@ import React, {
   useCallback,
   useMemo,
 } from 'react';
-import { INITIAL_MEDIA_ASSETS } from '../services/mediaService';
 import {
-  storeDemoBlob,
-  getDemoBlob,
-  deleteDemoBlob,
-  getOrCreateObjectUrl,
-  revokeObjectUrl,
-} from '../utils/mediaStorage';
-import { extractFilename } from '../utils/mediaValidation';
+  backendMediaService,
+  INITIAL_MEDIA_ASSETS,
+} from '../services/mediaService.js';
+import { useAuth } from './AuthContext.jsx';
+import toast from 'react-hot-toast';
 
 const MediaContext = createContext(null);
-const MEDIA_STORAGE_KEY = 'azaad_media_library_v1';
-const ARTICLES_STORAGE_KEY = 'azaad_newsroom_articles_v1';
-
-function loadInitialAssets() {
-  if (typeof window === 'undefined') return INITIAL_MEDIA_ASSETS;
-  try {
-    const saved = localStorage.getItem(MEDIA_STORAGE_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
-      }
-    }
-  } catch (err) {
-    console.warn('Could not read saved media from localStorage, falling back to initial catalog:', err);
-  }
-  return INITIAL_MEDIA_ASSETS;
-}
+const DEMO_MEDIA_STORAGE_KEY = 'azaad_demo_media_library_v1';
 
 export function MediaProvider({ children }) {
-  const [assets, setAssets] = useState(loadInitialAssets);
+  const { user, isDemoMode, isLoading: isAuthLoading } = useAuth();
+  const [assets, setAssets] = useState(INITIAL_MEDIA_ASSETS);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Re-hydrate local demo upload object URLs from IndexedDB on startup
-  useEffect(() => {
-    let isMounted = true;
-
-    async function hydrateLocalBlobs() {
-      const demoAssets = assets.filter((a) => a.source === 'demo_upload');
-      if (demoAssets.length === 0) return;
-
-      let updated = false;
-      const updatedAssets = await Promise.all(
-        assets.map(async (asset) => {
-          if (asset.source === 'demo_upload') {
-            const blob = await getDemoBlob(asset.id);
-            if (blob) {
-              const freshUrl = getOrCreateObjectUrl(asset.id, blob);
-              if (freshUrl && asset.url !== freshUrl) {
-                updated = true;
-                return { ...asset, url: freshUrl, thumbnailUrl: freshUrl };
-              }
+  // Fetch all media assets from Supabase or demo storage
+  const loadAssets = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      if (isDemoMode) {
+        const saved = localStorage.getItem(DEMO_MEDIA_STORAGE_KEY);
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              const clean = parsed.filter(
+                (a) =>
+                  !a.filename?.includes('bulk-test') &&
+                  !a.title?.includes('bulk-test') &&
+                  !a.filename?.includes('retry-test')
+              );
+              try {
+                localStorage.setItem(DEMO_MEDIA_STORAGE_KEY, JSON.stringify(clean));
+              } catch {}
+              setAssets(clean.length > 0 ? clean : INITIAL_MEDIA_ASSETS);
+              setIsLoading(false);
+              return;
             }
+          } catch {}
+        }
+        setAssets(INITIAL_MEDIA_ASSETS);
+        setIsLoading(false);
+        return;
+      }
+
+      // Production / Supabase mode: Fetch recent 24 assets for preview/selectors
+      const data = await backendMediaService.fetchMediaAssets({ limit: 24 });
+      setAssets(data);
+    } catch (err) {
+      console.warn('[MediaContext] Error loading assets:', err);
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [isDemoMode]);
+
+  useEffect(() => {
+    if (isAuthLoading) return;
+    loadAssets();
+  }, [loadAssets, isAuthLoading]);
+
+  /**
+   * Upload an image file directly to Supabase Storage with local cache fallback
+   */
+  const uploadAsset = useCallback(
+    async (file, metadata = {}) => {
+      const authorId = user?.id || null;
+      try {
+        const result = await backendMediaService.uploadMediaFile(file, metadata, authorId);
+        if (result.success && result.asset) {
+          setAssets((prev) => [result.asset, ...prev.filter((a) => a.id !== result.asset.id)]);
+          return result.asset;
+        }
+      } catch (err) {
+        console.warn('[MediaContext] Supabase upload failed, checking fallback:', err.message);
+        if (!isDemoMode) throw err;
+      }
+
+      // Local demo fallback only if Supabase call fails or strictly in demo mode
+      const previewUrl = URL.createObjectURL(file);
+      const newDemoAsset = {
+        id: `ASSET-${Date.now()}`,
+        url: previewUrl,
+        thumbnailUrl: previewUrl,
+        filename: file.name,
+        title: metadata.title || file.name.replace(/\.[^/.]+$/, ''),
+        mimeType: file.type || 'image/jpeg',
+        fileSize: file.size,
+        width: 1920,
+        height: 1080,
+        aspectRatio: '16:9',
+        altText: metadata.altText || metadata.title || file.name,
+        caption: metadata.caption || '',
+        credit: metadata.credit || 'आज़ाद समाचार डिजिटल डेस्क',
+        sourceAgency: 'inhouse',
+        category: metadata.category || 'national',
+        tags: [],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        source: 'upload',
+      };
+      setAssets((prev) => [newDemoAsset, ...prev]);
+      return newDemoAsset;
+    },
+    [isDemoMode, user]
+  );
+
+  /**
+   * Batch Upload multiple files with bounded concurrency and progress reporting
+   */
+  const uploadBatchAssets = useCallback(
+    async (items, options = {}) => {
+      const authorId = user?.id || null;
+      const res = await backendMediaService.uploadMediaBatch(items, { ...options, authorId });
+      const successfulAssets = res.results.filter((r) => r.success && r.asset).map((r) => r.asset);
+      if (successfulAssets.length > 0) {
+        setAssets((prev) => [...successfulAssets, ...prev]);
+      }
+      return res;
+    },
+    [user]
+  );
+
+  /**
+   * Register media from an external URL
+   */
+  const addAssetByUrl = useCallback(
+    async (payload) => {
+      if (isDemoMode) {
+        const newAsset = {
+          id: `URL-ASSET-${Date.now()}`,
+          url: payload.url,
+          thumbnailUrl: payload.url,
+          filename: payload.url.split('/').pop()?.split('?')[0] || 'web-asset.jpg',
+          title: payload.title || 'वेब मीडिया',
+          mimeType: 'image/jpeg',
+          fileSize: 1048576,
+          width: 1200,
+          height: 675,
+          aspectRatio: '16:9',
+          altText: payload.altText || '',
+          caption: payload.caption || '',
+          credit: payload.credit || 'वेब स्रोत',
+          sourceAgency: 'inhouse',
+          category: 'national',
+          tags: payload.tags || [],
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          source: 'url',
+        };
+        setAssets((prev) => [newAsset, ...prev]);
+        return newAsset;
+      }
+
+      const authorId = user?.id || null;
+      const result = await backendMediaService.registerUrlAsset(payload, authorId);
+      if (result.success && result.asset) {
+        setAssets((prev) => [result.asset, ...prev.filter((a) => a.id !== result.asset.id)]);
+        return result.asset;
+      }
+      throw new Error('वेब मीडिया जोड़ने में त्रुटि हुई');
+    },
+    [isDemoMode, user]
+  );
+
+  /**
+   * Update metadata (altText, caption, credit)
+   */
+  const updateAssetMetadata = useCallback(
+    async (id, updates) => {
+      setAssets((prev) =>
+        prev.map((asset) => {
+          if (String(asset.id) === String(id)) {
+            return {
+              ...asset,
+              ...updates,
+              updatedAt: new Date().toISOString(),
+            };
           }
           return asset;
         })
       );
 
-      if (isMounted && updated) {
-        setAssets(updatedAssets);
+      if (!isDemoMode) {
+        await backendMediaService.updateMediaAsset(id, updates);
       }
-    }
-
-    hydrateLocalBlobs();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  // Persist asset metadata to localStorage (clean JSON, no Blobs)
-  useEffect(() => {
-    try {
-      // Clean temporary object URLs from storage to avoid saving stale blob: URLs
-      const cleanToStore = assets.map((a) => {
-        if (a.source === 'demo_upload') {
-          return {
-            ...a,
-            // Keep record markers for rehydration
-            url: a.url?.startsWith('blob:') ? '' : a.url,
-            thumbnailUrl: a.thumbnailUrl?.startsWith('blob:') ? '' : a.thumbnailUrl,
-          };
-        }
-        return a;
-      });
-      localStorage.setItem(MEDIA_STORAGE_KEY, JSON.stringify(cleanToStore));
-    } catch (err) {
-      console.warn('Failed to persist media assets to localStorage:', err);
-    }
-  }, [assets]);
-
-  /**
-   * Get single asset by ID
-   */
-  const getAssetById = useCallback(
-    (id) => {
-      return assets.find((a) => String(a.id) === String(id));
     },
-    [assets]
+    [isDemoMode]
   );
 
   /**
-   * Add new asset via HTTPS URL
+   * Check whether an asset is in use before deleting
    */
-  const addAssetByUrl = useCallback(
-    ({ url, title, altText, caption, credit, tags = [], category = 'national', sourceAgency = 'inhouse' }) => {
-      const id = `ASSET-${Date.now()}`;
-      const filename = extractFilename(url);
-      const cleanTitle = (title && title.trim()) || filename;
-
-      const newAsset = {
-        id,
-        url: url.trim(),
-        thumbnailUrl: url.trim(),
-        filename,
-        title: cleanTitle,
-        mimeType: 'image/jpeg',
-        fileSize: null, // External URL: do not invent fake sizes
-        width: null,
-        height: null,
-        aspectRatio: '16:9',
-        altText: altText ? altText.trim() : cleanTitle,
-        caption: caption ? caption.trim() : '',
-        credit: credit ? credit.trim() : 'प्रेस छायाचित्र / विशेष',
-        sourceAgency: sourceAgency || 'inhouse',
-        category: category || 'national',
-        tags: Array.isArray(tags) ? tags : [],
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        source: 'url',
-        isLocalOnly: false,
-      };
-
-      setAssets((prev) => [newAsset, ...prev]);
-      return newAsset;
+  const checkAssetUsage = useCallback(
+    async (asset) => {
+      return backendMediaService.checkAssetUsage(asset);
     },
     []
   );
 
   /**
-   * Add new demonstration asset from user's device File upload
+   * Delete media asset safely
    */
-  const addDemoUploadedFile = useCallback(async (file, metadata = {}) => {
-    const id = `ASSET-${Date.now()}`;
-    const filename = file.name;
-    const cleanTitle = metadata.title?.trim() || filename.replace(/\.[^/.]+$/, '');
+  const deleteAsset = useCallback(
+    async (asset) => {
+      const assetId = typeof asset === 'object' ? asset.id : asset;
 
-    // 1. Persist Blob in IndexedDB
-    await storeDemoBlob(id, file);
-
-    // 2. Create active Object URL for rendering
-    const objectUrl = getOrCreateObjectUrl(id, file);
-
-    // 3. Measure dimensions via browser Image API
-    let width = null;
-    let height = null;
-    let aspectRatio = '16:9';
-
-    try {
-      const img = new Image();
-      const dimsPromise = new Promise((resolve) => {
-        img.onload = () => {
-          resolve({ w: img.naturalWidth, h: img.naturalHeight });
-        };
-        img.onerror = () => resolve(null);
-      });
-      img.src = objectUrl;
-      const dims = await dimsPromise;
-      if (dims) {
-        width = dims.w;
-        height = dims.h;
-        const ratioVal = dims.w / dims.h;
-        if (Math.abs(ratioVal - 16 / 9) < 0.15) aspectRatio = '16:9';
-        else if (Math.abs(ratioVal - 4 / 3) < 0.15) aspectRatio = '4:3';
-        else if (Math.abs(ratioVal - 1) < 0.1) aspectRatio = '1:1';
-        else if (Math.abs(ratioVal - 9 / 16) < 0.15) aspectRatio = '9:16';
-        else aspectRatio = `${dims.w}x${dims.h}`;
-      }
-    } catch {
-      // Non-blocking
-    }
-
-    const newAsset = {
-      id,
-      url: objectUrl,
-      thumbnailUrl: objectUrl,
-      filename,
-      title: cleanTitle,
-      mimeType: file.type || 'image/jpeg',
-      fileSize: file.size,
-      width,
-      height,
-      aspectRatio,
-      altText: metadata.altText?.trim() || cleanTitle,
-      caption: metadata.caption?.trim() || '',
-      credit: metadata.credit?.trim() || 'स्थानीय न्यूज़डेस्क (डेमो अपलोड)',
-      sourceAgency: 'inhouse',
-      category: metadata.category || 'national',
-      tags: Array.isArray(metadata.tags) ? metadata.tags : ['#डेमोअपलोड'],
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      source: 'demo_upload',
-      isLocalOnly: true,
-    };
-
-    setAssets((prev) => [newAsset, ...prev]);
-    return newAsset;
-  }, []);
-
-  /**
-   * Update metadata of an existing asset
-   */
-  const updateAssetMetadata = useCallback((id, updates) => {
-    setAssets((prev) =>
-      prev.map((item) => {
-        if (String(item.id) === String(id)) {
-          return {
-            ...item,
-            ...updates,
-            updatedAt: new Date().toISOString(),
-          };
-        }
-        return item;
-      })
-    );
-  }, []);
-
-  /**
-   * Delete an asset
-   */
-  const deleteAsset = useCallback(async (id) => {
-    const strId = String(id);
-    // Cleanup IndexedDB and object URL if demo upload
-    await deleteDemoBlob(strId);
-    revokeObjectUrl(strId);
-
-    setAssets((prev) => prev.filter((item) => String(item.id) !== strId));
-    return true;
-  }, []);
-
-  /**
-   * Checks whether an asset is actively referenced by any article in the article store.
-   * Scans both `featuredImage` and TipTap `content` JSON or string for the asset's URL or ID.
-   */
-  const checkAssetUsage = useCallback((asset) => {
-    if (!asset) return { isUsed: false, count: 0, articles: [] };
-
-    let articlesList = [];
-    try {
-      const saved = localStorage.getItem(ARTICLES_STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) articlesList = parsed;
-      }
-    } catch {
-      // Ignore
-    }
-
-    const targetUrl = asset.url;
-    const targetId = asset.id;
-    const matched = [];
-
-    for (const art of articlesList) {
-      let isFeaturedMatch = Boolean(
-        targetUrl && art.featuredImage && art.featuredImage.trim() === targetUrl.trim()
-      );
-      let isContentMatch = false;
-
-      if (art.content) {
-        const contentStr =
-          typeof art.content === 'string'
-            ? art.content
-            : JSON.stringify(art.content);
-
-        if (targetUrl && contentStr.includes(targetUrl)) {
-          isContentMatch = true;
-        } else if (targetId && contentStr.includes(String(targetId))) {
-          isContentMatch = true;
-        }
+      if (!isDemoMode) {
+        await backendMediaService.deleteMediaAsset(asset);
       }
 
-      if (isFeaturedMatch || isContentMatch) {
-        matched.push({
-          id: art.id,
-          title: art.title,
-          slug: art.slug,
-          isFeatured: isFeaturedMatch,
-          isInline: isContentMatch,
-        });
-      }
-    }
-
-    return {
-      isUsed: matched.length > 0,
-      count: matched.length,
-      articles: matched,
-    };
-  }, []);
+      setAssets((prev) => prev.filter((a) => String(a.id) !== String(assetId)));
+    },
+    [isDemoMode]
+  );
 
   /**
-   * Storage Quota Calculation
-   * Sum of all known file sizes in the library
+   * Storage Quota & Capacity Calculation
    */
   const storageStats = useMemo(() => {
-    let totalBytes = 0;
-    let totalCount = assets.length;
-    let localCount = 0;
-    let urlCount = 0;
-
-    for (const a of assets) {
-      if (a.fileSize && typeof a.fileSize === 'number') {
-        totalBytes += a.fileSize;
-      }
-      if (a.source === 'demo_upload') localCount += 1;
-      else urlCount += 1;
-    }
+    const totalBytes = assets.reduce((acc, curr) => acc + (Number(curr.fileSize) || 0), 0);
+    const maxCapacityBytes = 10737418240; // 10 GB newsroom tier
+    const usedPercentage = Math.min(100, Math.round((totalBytes / maxCapacityBytes) * 100));
 
     return {
-      totalBytes,
-      totalCount,
-      localCount,
-      urlCount,
-      quotaBytes: 500 * 1024 * 1024, // 500 MB demo quota
+      usedBytes: totalBytes,
+      maxBytes: maxCapacityBytes,
+      percentage: usedPercentage,
+      totalAssets: assets.length,
+      imageCount: assets.filter((a) => a.mimeType?.startsWith('image/')).length,
     };
   }, [assets]);
 
-  return (
-    <MediaContext.Provider
-      value={{
-        assets,
-        getAssetById,
-        addAssetByUrl,
-        addDemoUploadedFile,
-        updateAssetMetadata,
-        deleteAsset,
-        checkAssetUsage,
-        storageStats,
-      }}
-    >
-      {children}
-    </MediaContext.Provider>
-  );
+  const value = {
+    assets,
+    isLoading,
+    error,
+    refreshMedia: loadAssets,
+    uploadAsset,
+    uploadBatchAssets,
+    addDemoUploadedFile: uploadAsset, // Alias for backward compatibility
+    addAssetByUrl,
+    updateAssetMetadata,
+    checkAssetUsage,
+    deleteAsset,
+    storageStats,
+  };
+
+  return <MediaContext.Provider value={value}>{children}</MediaContext.Provider>;
 }
 
 export function useMedia() {
@@ -357,3 +266,5 @@ export function useMedia() {
   }
   return context;
 }
+
+export default MediaContext;

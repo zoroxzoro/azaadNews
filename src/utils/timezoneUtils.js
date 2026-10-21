@@ -289,3 +289,53 @@ export function getDefaultSchedulePreset() {
     utcIso: istToUtcIso(parts.year, parts.month, parts.day, 9, 0),
   };
 }
+
+/**
+ * Formats a timestamp into human-readable relative time (e.g., '२ घंटे पहले', '१ दिन पहले').
+ * Falls back to canonical IST date format for articles older than 7 days.
+ *
+ * @param {string|Date} isoOrDate
+ * @param {string} language 'hi' | 'en'
+ * @returns {string}
+ */
+export function formatRelativeTime(isoOrDate, language = 'hi') {
+  if (!isoOrDate) return '';
+  const dateObj = typeof isoOrDate === 'string' ? new Date(isoOrDate) : isoOrDate;
+  const time = dateObj.getTime();
+  if (Number.isNaN(time)) return '';
+
+  const now = Date.now();
+  const diffMs = now - time;
+  // If slightly in the future due to small clock skew, treat as just now
+  if (diffMs < 0 && diffMs > -60000) {
+    return language === 'en' ? 'Just now' : 'अभी-अभी';
+  }
+
+  const diffSec = Math.floor(diffMs / 1000);
+  const isHindi = language !== 'en';
+
+  if (diffSec < 60) {
+    return isHindi ? 'अभी-अभी' : 'Just now';
+  }
+
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) {
+    return isHindi ? `${diffMin} मिनट पहले` : `${diffMin}m ago`;
+  }
+
+  const diffHours = Math.floor(diffMin / 60);
+  if (diffHours < 24) {
+    return isHindi ? `${diffHours} घंटे पहले` : `${diffHours}h ago`;
+  }
+
+  const diffDays = Math.floor(diffHours / 24);
+  if (diffDays < 7) {
+    return isHindi ? `${diffDays} दिन पहले` : `${diffDays}d ago`;
+  }
+
+  return formatInIST(dateObj, { locale: language, includeTime: false, shortFormat: true });
+}
+
+// Alias for convenience
+export const formatIstDate = formatInIST;
+

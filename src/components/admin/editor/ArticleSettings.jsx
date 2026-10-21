@@ -1,12 +1,13 @@
-import React from 'react';
-import { categories } from '../../../data/categories';
+import React, { useState, useEffect, useMemo } from 'react';
+import { categories as defaultCategories } from '../../../data/categories';
+import { categoriesService } from '../../../services/categoriesService';
 import { Layers, User, MapPin, Sparkles, Flame, Zap, AlertCircle } from 'lucide-react';
 
 const NEWSROOM_AUTHORS = [
   {
     name: 'राजेश कुमार',
     role: 'वरिष्ठ राजनीतिक संपादक',
-    location: 'नई दिल्ली',
+    location: 'कानपुर',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
   },
   {
@@ -30,16 +31,17 @@ const NEWSROOM_AUTHORS = [
   {
     name: 'आज़ाद समाचार विशेष सेल',
     role: 'संपादकीय अन्वेषण ब्यूरो',
-    location: 'नई दिल्ली',
+    location: 'कानपुर',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80',
   },
 ];
 
 export default function ArticleSettings({
   category = 'national',
+  categories = [],
   language = 'hi',
   author = {},
-  location = 'नई दिल्ली',
+  location = 'कानपुर',
   isBreaking = false,
   isFeatured = false,
   isTrending = false,
@@ -47,6 +49,39 @@ export default function ArticleSettings({
   categoryError,
   languageError,
 }) {
+  const [categoriesList, setCategoriesList] = useState(defaultCategories);
+
+  useEffect(() => {
+    let mounted = true;
+    categoriesService.getCategories().then((cats) => {
+      if (mounted && Array.isArray(cats) && cats.length > 0) {
+        setCategoriesList(cats);
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // Normalize secondary categories array of slugs
+  const secondarySlugs = useMemo(() => {
+    if (!Array.isArray(categories)) return [];
+    return categories
+      .map((c) => (typeof c === 'string' ? c : c?.slug))
+      .filter((s) => Boolean(s) && s !== category);
+  }, [categories, category]);
+
+  const toggleSecondaryCategory = (slug) => {
+    let updated;
+    if (secondarySlugs.includes(slug)) {
+      updated = secondarySlugs.filter((s) => s !== slug);
+    } else {
+      updated = [...secondarySlugs, slug];
+    }
+    // Also include primary category in the full category list
+    onChange({ categories: [category, ...updated] });
+  };
+
   const handleAuthorChange = (e) => {
     const selected = NEWSROOM_AUTHORS.find((a) => a.name === e.target.value);
     if (selected) {
@@ -73,21 +108,25 @@ export default function ArticleSettings({
       </div>
 
       <div className="space-y-3">
-        {/* 1. Category Selection */}
+        {/* 1. Primary Category Selection */}
         <div>
           <label className="block text-xs font-bold text-secondary uppercase mb-1">
             मुख्य श्रेणी (Primary Category) *
           </label>
           <select
             value={category}
-            onChange={(e) => onChange({ category: e.target.value })}
+            onChange={(e) => {
+              const newPrimary = e.target.value;
+              const nextSecondary = secondarySlugs.filter((s) => s !== newPrimary);
+              onChange({ category: newPrimary, categories: [newPrimary, ...nextSecondary] });
+            }}
             className={`w-full px-2.5 py-1.5 bg-paper-tint border text-xs font-inter focus:outline-none focus:bg-paper-canvas ${
               categoryError ? 'border-breaking-crimson' : 'border-border-rule'
             }`}
           >
-            {categories.map((c) => (
-              <option key={c.id} value={c.slug}>
-                {c.nameHindi} ({c.nameEnglish})
+            {categoriesList.map((c) => (
+              <option key={c.id || c.slug} value={c.slug}>
+                {c.nameHindi || c.name} ({c.nameEnglish || c.slug})
               </option>
             ))}
           </select>
@@ -97,6 +136,38 @@ export default function ArticleSettings({
               <span>{categoryError}</span>
             </p>
           )}
+        </div>
+
+        {/* 1B. Multi-Category / Secondary Categories */}
+        <div>
+          <label className="block text-xs font-bold text-secondary uppercase mb-1">
+            अतिरिक्त श्रेणियां (Secondary Categories)
+          </label>
+          <div className="flex flex-wrap gap-1.5 p-2 bg-paper-tint border border-border-rule max-h-36 overflow-y-auto">
+            {categoriesList
+              .filter((c) => c.slug !== category)
+              .map((c) => {
+                const isSelected = secondarySlugs.includes(c.slug);
+                return (
+                  <button
+                    key={c.id || c.slug}
+                    type="button"
+                    onClick={() => toggleSecondaryCategory(c.slug)}
+                    className={`px-2 py-0.5 text-[11px] font-mukta font-bold transition-colors cursor-pointer border ${
+                      isSelected
+                        ? 'bg-primary-container text-white border-primary-container shadow-2xs'
+                        : 'bg-paper-canvas text-secondary hover:text-on-surface border-border-rule hover:bg-paper-subtle'
+                    }`}
+                  >
+                    {isSelected ? '✓ ' : '+ '}
+                    {c.nameHindi || c.name}
+                  </button>
+                );
+              })}
+          </div>
+          <p className="text-[10px] font-inter text-secondary mt-1">
+            आलेख को एक से अधिक अनुभागों में दिखाने के लिए अतिरिक्त श्रेणियों पर क्लिक करें।
+          </p>
         </div>
 
         {/* 2. Language Selection */}
@@ -174,7 +245,7 @@ export default function ArticleSettings({
                 },
               });
             }}
-            placeholder="उदा. नई दिल्ली, लखनऊ, प्रयागराज..."
+            placeholder="उदा. कानपुर, लखनऊ, प्रयागराज..."
             className="w-full px-2.5 py-1.5 bg-paper-tint border border-border-rule text-xs font-inter focus:outline-none focus:bg-paper-canvas"
           />
         </div>

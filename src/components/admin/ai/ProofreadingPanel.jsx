@@ -23,6 +23,7 @@ export default function ProofreadingPanel({
   suggestions = [],
   activeSuggestionId = null,
   isStale = false,
+  isAiProviderConfigured = false,
   language = 'hi',
   onLanguageChange,
   onRecheck,
@@ -65,12 +66,16 @@ export default function ProofreadingPanel({
           <div>
             <h2 className="text-base font-bold leading-tight flex items-center gap-1.5">
               <span>AI वर्तनी व भाषा सहायक</span>
-              <span className="text-[9px] px-1.5 py-0.2 bg-ticker-tint text-breaking-crimson font-mono font-bold">
-                DEMO
+              <span className={`text-[9px] px-1.5 py-0.2 font-mono font-bold ${
+                isAiProviderConfigured
+                  ? 'bg-emerald-600 text-white'
+                  : 'bg-ticker-tint text-secondary border border-border-rule'
+              }`}>
+                {isAiProviderConfigured ? 'REAL AI' : 'RULE ENGINE'}
               </span>
             </h2>
             <span className="font-inter text-[10px] text-neutral-300 block">
-              संपादकीय गुणवत्ता एवं वर्तनी सुधार
+              संपादकीय गुणवत्ता, शीर्षक व वर्तनी सुधार
             </span>
           </div>
         </div>
@@ -136,6 +141,7 @@ export default function ProofreadingPanel({
           status={status}
           suggestionCount={suggestions.length}
           isStale={isStale}
+          isAiProviderConfigured={isAiProviderConfigured}
           onRecheck={onRecheck}
         />
 

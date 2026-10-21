@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useArticles } from '../../context/ArticleContext';
-import { useDemoAuth } from '../../context/DemoAuthContext';
+import { useAuth } from '../../context/AuthContext';
+import { articlesService } from '../../services/articlesService';
 import { ARTICLE_STATUS } from '../../utils/articleStatus';
-import { hasPermission } from '../../utils/articlePermissions';
+import { hasPermission, canEditArticle } from '../../utils/articlePermissions';
+import AdminAccessDeniedPage from './AdminAccessDeniedPage';
 import { generateSlug, isSlugUnique } from '../../utils/slugUtils';
 import {
   getEmptyTipTapDoc,
@@ -11,6 +13,7 @@ import {
   countWords,
   countCharacters,
   estimateReadTime,
+  extractPlainText,
 } from '../../utils/articleContent';
 import { validateDraft, validateForPublishing } from '../../utils/articleValidation';
 
@@ -40,6 +43,7 @@ import { getSafeBatchSuggestions } from '../../utils/proofreadingSuggestions';
 
 import { AlertCircle, RotateCcw, AlertTriangle } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { notificationService } from '../../services/notificationService';
 
 export default function NewsEditorPage() {
   const { id } = useParams();
@@ -47,15 +51,38 @@ export default function NewsEditorPage() {
   const isEditing = Boolean(id);
 
   const { articles, getArticleById, createArticle, updateArticle } = useArticles();
-  const { user } = useDemoAuth();
+  const { currentUser: user } = useAuth();
 
   const userRole = user?.role || 'editor';
   const canPublish = hasPermission(userRole, 'canPublish');
 
+  const [fetchedArticle, setFetchedArticle] = useState(null);
+  const [isLoadingArticle, setIsLoadingArticle] = useState(isEditing && !getArticleById(id));
+
   // Load existing article if editing
   const existingArticle = useMemo(() => {
     if (!isEditing) return null;
-    return getArticleById(id);
+    return getArticleById(id) || fetchedArticle;
+  }, [id, isEditing, getArticleById, fetchedArticle]);
+
+  // Fetch directly from database on direct URL load or browser refresh
+  useEffect(() => {
+    let isMounted = true;
+    if (isEditing && !getArticleById(id)) {
+      setIsLoadingArticle(true);
+      articlesService.getArticleById(id).then((art) => {
+        if (isMounted) {
+          if (art) setFetchedArticle(art);
+          setIsLoadingArticle(false);
+        }
+      }).catch((err) => {
+        console.warn('Article fetch error:', err);
+        if (isMounted) setIsLoadingArticle(false);
+      });
+    }
+    return () => {
+      isMounted = false;
+    };
   }, [id, isEditing, getArticleById]);
 
   // Form state
@@ -63,23 +90,26 @@ export default function NewsEditorPage() {
     title: '',
     slug: '',
     category: 'national',
+    categories: [],
     language: 'hi',
     summary: '',
     content: getEmptyTipTapDoc(),
     featuredImage: '',
+    featuredMediaId: null,
     imageCaption: '',
     imageCredit: '',
     imageAlt: '',
+    galleryImages: [],
     youtubeUrl: '',
     videoCaption: '',
     tags: [],
     author: {
       name: 'राजेश कुमार',
       role: 'वरिष्ठ राजनीतिक संपादक',
-      location: 'नई दिल्ली',
+      location: 'कानपुर',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
     },
-    location: 'नई दिल्ली',
+    location: 'कानपुर',
     isBreaking: false,
     isFeatured: false,
     isTrending: false,
@@ -102,12 +132,19 @@ export default function NewsEditorPage() {
 
   // TipTap editor instance & AI Proofreading state
   const [editorInstance, setEditorInstance] = useState(null);
+  const handleEditorReady = useCallback((editor) => {
+    setEditorInstance(editor);
+    if (typeof window !== 'undefined') {
+      window.__AZAAD_EDITOR__ = editor;
+    }
+  }, []);
   const [proofreadingOpen, setProofreadingOpen] = useState(false);
   const [proofreadingStatus, setProofreadingStatus] = useState('idle');
   const [proofreadingSuggestions, setProofreadingSuggestions] = useState([]);
   const [activeSuggestionId, setActiveSuggestionId] = useState(null);
   const [isProofreadingStale, setIsProofreadingStale] = useState(false);
   const [proofreadingLanguage, setProofreadingLanguage] = useState('hi');
+  const [isAiProviderConfigured, setIsAiProviderConfigured] = useState(false);
 
   const recoveryStorageKey = `azaad_editor_recovery_${id || 'new'}`;
 
@@ -118,23 +155,26 @@ export default function NewsEditorPage() {
         title: existingArticle.title || '',
         slug: existingArticle.slug || '',
         category: existingArticle.category || 'national',
+        categories: Array.isArray(existingArticle.categories) ? existingArticle.categories : [],
         language: existingArticle.language || 'hi',
         summary: existingArticle.summary || '',
         content: normalizeArticleContent(existingArticle.content),
         featuredImage: existingArticle.featuredImage || '',
+        featuredMediaId: existingArticle.featuredMediaId || null,
         imageCaption: existingArticle.imageCaption || '',
         imageCredit: existingArticle.imageCredit || '',
         imageAlt: existingArticle.imageAlt || '',
+        galleryImages: existingArticle.galleryImages || existingArticle.content?.gallery || [],
         youtubeUrl: existingArticle.youtubeUrl || '',
         videoCaption: existingArticle.videoCaption || '',
         tags: Array.isArray(existingArticle.tags) ? existingArticle.tags : [],
         author: existingArticle.author || {
           name: 'राजेश कुमार',
           role: 'वरिष्ठ राजनीतिक संपादक',
-          location: 'नई दिल्ली',
+          location: 'कानपुर',
           avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
         },
-        location: existingArticle.location || existingArticle.author?.location || 'नई दिल्ली',
+        location: existingArticle.location || existingArticle.author?.location || 'कानपुर',
         isBreaking: Boolean(existingArticle.isBreaking),
         isFeatured: Boolean(existingArticle.isFeatured),
         isTrending: Boolean(existingArticle.isTrending),
@@ -285,13 +325,8 @@ export default function NewsEditorPage() {
     return () => window.removeEventListener('azaad:select-suggestion', handleSelectFromEditor);
   }, []);
 
-  // Run AI Proofreading Analysis
+  // Run AI Proofreading Analysis across headline, excerpt, and article body
   const handleRunProofreading = async (overrideLanguage) => {
-    if (!editorInstance) {
-      toast.error('एडिटर लोड हो रहा है, कृपया प्रतीक्षा करें');
-      return;
-    }
-
     const lang = overrideLanguage || proofreadingLanguage || formData.language || 'hi';
     setProofreadingOpen(true);
     setProofreadingStatus('analyzing');
@@ -299,23 +334,38 @@ export default function NewsEditorPage() {
 
     try {
       const result = await analyzeArticle({
-        doc: editorInstance.state.doc,
+        doc: editorInstance?.state?.doc,
+        title: formData.title,
+        excerpt: formData.summary,
         language: lang,
         revisionId: Date.now(),
       });
 
+      setIsAiProviderConfigured(Boolean(result.isAiProviderConfigured));
+
+      if (result.isEmpty) {
+        setProofreadingSuggestions([]);
+        setProofreadingStatus('empty');
+        if (editorInstance?.commands?.setProofreadingHighlights) {
+          editorInstance.commands.setProofreadingHighlights([], null);
+        }
+        toast('शीर्षक, सारांश व आलेख रिक्त हैं। कृपया विश्लेषण हेतु कुछ सामग्री दर्ज करें।', { icon: 'ℹ️' });
+        return;
+      }
+
       setProofreadingSuggestions(result.suggestions);
       setProofreadingStatus(result.suggestions.length > 0 ? 'suggestions_found' : 'no_issues');
 
-      // Update TipTap decorations
-      if (editorInstance.commands.setProofreadingHighlights) {
-        editorInstance.commands.setProofreadingHighlights(result.suggestions, null);
+      // Update TipTap decorations for body suggestions
+      if (editorInstance?.commands?.setProofreadingHighlights) {
+        const bodySuggestions = result.suggestions.filter((s) => !s.field || s.field === 'body');
+        editorInstance.commands.setProofreadingHighlights(bodySuggestions, null);
       }
 
       if (result.suggestions.length > 0) {
         toast.success(`${result.suggestions.length} संपादकीय सुधार पाए गए`);
       } else {
-        toast('कोई त्रुटि नहीं पाई गई (आलेख स्पष्ट है)', { icon: '✨' });
+        toast.success('आलेख का गहन विश्लेषण पूर्ण: कोई त्रुटि नहीं पाई गई');
       }
     } catch (err) {
       if (err.name !== 'AbortError') {
@@ -329,16 +379,59 @@ export default function NewsEditorPage() {
   // Select suggestion (scroll editor to position and set active highlight)
   const handleSelectSuggestion = (suggestion) => {
     setActiveSuggestionId(suggestion.id);
-    if (editorInstance && suggestion.location) {
+    if (editorInstance && suggestion.location && (!suggestion.field || suggestion.field === 'body')) {
       scrollToRange(editorInstance, suggestion.location.from, suggestion.location.to);
       if (editorInstance.commands.setProofreadingHighlights) {
-        editorInstance.commands.setProofreadingHighlights(proofreadingSuggestions, suggestion.id);
+        const bodySuggestions = proofreadingSuggestions.filter((s) => !s.field || s.field === 'body');
+        editorInstance.commands.setProofreadingHighlights(bodySuggestions, suggestion.id);
       }
     }
   };
 
-  // Accept a single suggestion
+  // Accept a single suggestion (headline, excerpt, or body)
   const handleAcceptSuggestion = (suggestion) => {
+    // 1. Fact-check verification: editor confirms the fact without altering text
+    if (suggestion.type === 'fact_check') {
+      const remaining = proofreadingSuggestions.filter((s) => s.id !== suggestion.id);
+      setProofreadingSuggestions(remaining);
+      if (editorInstance?.commands?.setProofreadingHighlights) {
+        const bodySuggestions = remaining.filter((s) => !s.field || s.field === 'body');
+        editorInstance.commands.setProofreadingHighlights(bodySuggestions, null);
+      }
+      toast.success('तथ्य की पुष्टि संपादक द्वारा प्रमाणित की गई');
+      if (remaining.length === 0) setProofreadingStatus('no_issues');
+      return;
+    }
+
+    // 2. Headline suggestion
+    if (suggestion.field === 'headline') {
+      setFormData((prev) => ({
+        ...prev,
+        title: prev.title.replace(suggestion.originalText, suggestion.suggestedText),
+      }));
+      const remaining = proofreadingSuggestions.filter((s) => s.id !== suggestion.id);
+      setProofreadingSuggestions(remaining);
+      setIsDirty(true);
+      toast.success(`शीर्षक में '${suggestion.suggestedText}' लागू किया गया`);
+      if (remaining.length === 0) setProofreadingStatus('no_issues');
+      return;
+    }
+
+    // 3. Excerpt suggestion
+    if (suggestion.field === 'excerpt') {
+      setFormData((prev) => ({
+        ...prev,
+        summary: prev.summary.replace(suggestion.originalText, suggestion.suggestedText),
+      }));
+      const remaining = proofreadingSuggestions.filter((s) => s.id !== suggestion.id);
+      setProofreadingSuggestions(remaining);
+      setIsDirty(true);
+      toast.success(`सारांश में '${suggestion.suggestedText}' लागू किया गया`);
+      if (remaining.length === 0) setProofreadingStatus('no_issues');
+      return;
+    }
+
+    // 4. Article body suggestion in TipTap
     if (!editorInstance) return;
 
     const { from, to } = suggestion.location;
@@ -356,7 +449,8 @@ export default function NewsEditorPage() {
       setIsDirty(true);
 
       if (editorInstance.commands.setProofreadingHighlights) {
-        editorInstance.commands.setProofreadingHighlights(remaining, null);
+        const bodySuggestions = remaining.filter((s) => !s.field || s.field === 'body');
+        editorInstance.commands.setProofreadingHighlights(bodySuggestions, null);
       }
 
       toast.success(`'${suggestion.suggestedText}' लागू किया गया`);
@@ -378,7 +472,8 @@ export default function NewsEditorPage() {
     setProofreadingSuggestions(remaining);
 
     if (editorInstance && editorInstance.commands.setProofreadingHighlights) {
-      editorInstance.commands.setProofreadingHighlights(remaining, null);
+      const bodySuggestions = remaining.filter((s) => !s.field || s.field === 'body');
+      editorInstance.commands.setProofreadingHighlights(bodySuggestions, null);
     }
 
     toast('सुझाव अनदेखा किया गया', { icon: 'ℹ️' });
@@ -388,10 +483,8 @@ export default function NewsEditorPage() {
     }
   };
 
-  // Accept all safe non-overlapping suggestions
+  // Accept all safe non-overlapping suggestions across headline, excerpt and body
   const handleAcceptAllSafe = () => {
-    if (!editorInstance) return;
-
     const safeBatch = getSafeBatchSuggestions(proofreadingSuggestions);
     if (safeBatch.length === 0) {
       toast.error('कोई सुरक्षित बैच सुधार उपलब्ध नहीं है');
@@ -400,21 +493,49 @@ export default function NewsEditorPage() {
 
     let appliedCount = 0;
     const appliedIds = new Set();
+    let nextTitle = formData.title;
+    let nextSummary = formData.summary;
+    let titleChanged = false;
+    let summaryChanged = false;
 
-    // safeBatch is sorted in descending position order (reverse replacement)
+    // Apply safe suggestions
     for (const item of safeBatch) {
-      const ok = replaceTextRange(
-        editorInstance,
-        item.location.from,
-        item.location.to,
-        item.suggestedText,
-        item.originalText
-      );
+      if (item.field === 'headline') {
+        if (nextTitle.includes(item.originalText)) {
+          nextTitle = nextTitle.replace(item.originalText, item.suggestedText);
+          appliedCount += 1;
+          appliedIds.add(item.id);
+          titleChanged = true;
+        }
+      } else if (item.field === 'excerpt') {
+        if (nextSummary.includes(item.originalText)) {
+          nextSummary = nextSummary.replace(item.originalText, item.suggestedText);
+          appliedCount += 1;
+          appliedIds.add(item.id);
+          summaryChanged = true;
+        }
+      } else if (editorInstance) {
+        const ok = replaceTextRange(
+          editorInstance,
+          item.location.from,
+          item.location.to,
+          item.suggestedText,
+          item.originalText
+        );
 
-      if (ok) {
-        appliedCount += 1;
-        appliedIds.add(item.id);
+        if (ok) {
+          appliedCount += 1;
+          appliedIds.add(item.id);
+        }
       }
+    }
+
+    if (titleChanged || summaryChanged) {
+      setFormData((prev) => ({
+        ...prev,
+        title: titleChanged ? nextTitle : prev.title,
+        summary: summaryChanged ? nextSummary : prev.summary,
+      }));
     }
 
     if (appliedCount > 0) {
@@ -422,8 +543,9 @@ export default function NewsEditorPage() {
       setProofreadingSuggestions(remaining);
       setIsDirty(true);
 
-      if (editorInstance.commands.setProofreadingHighlights) {
-        editorInstance.commands.setProofreadingHighlights(remaining, null);
+      if (editorInstance?.commands?.setProofreadingHighlights) {
+        const bodySuggestions = remaining.filter((s) => !s.field || s.field === 'body');
+        editorInstance.commands.setProofreadingHighlights(bodySuggestions, null);
       }
 
       toast.success(`${appliedCount} सुरक्षित सुधार सफलतापूर्वक लागू किए गए!`);
@@ -466,14 +588,18 @@ export default function NewsEditorPage() {
       };
 
       if (isEditing) {
-        updateArticle(id, payload);
+        await updateArticle(id, payload);
         toast.success('ड्राफ्ट सफलतापूर्वक अपडेट किया गया (Draft saved)');
       } else {
-        const created = createArticle(payload);
+        const created = await createArticle(payload);
         clearRecovery();
         setIsDirty(false);
         toast.success('नया ड्राफ्ट सफलतापूर्वक सहेजा गया');
-        navigate(`/admin/news/edit/${created.id}`, { replace: true });
+        if (created?.id) {
+          navigate(`/admin/news/edit/${created.id}`, { replace: true });
+        } else {
+          navigate('/admin/news');
+        }
         return;
       }
 
@@ -488,7 +614,7 @@ export default function NewsEditorPage() {
   };
 
   // 2. SUBMIT FOR REVIEW
-  const handleSubmitForReview = () => {
+  const handleSubmitForReview = async () => {
     const { isValid, errors } = validateForPublishing(formData, id, articles);
     if (!isValid) {
       setFieldErrors(errors);
@@ -504,14 +630,21 @@ export default function NewsEditorPage() {
       };
 
       if (isEditing) {
-        updateArticle(id, payload);
+        await updateArticle(id, payload);
       } else {
-        createArticle(payload);
+        await createArticle(payload);
       }
 
       clearRecovery();
       setIsDirty(false);
       toast.success('समाचार समीक्षा हेतु वरिष्ठ संपादक को प्रेषित किया गया');
+      notificationService.createNotification({
+        type: 'review',
+        title: 'समाचार समीक्षा हेतु प्रेषित',
+        message: `"${formData.title}" को वरिष्ठ संपादक समीक्षा हेतु भेजा गया।`,
+        articleId: id,
+        link: '/admin/news',
+      });
       navigate('/admin/news');
     } catch (err) {
       console.error(err);
@@ -522,7 +655,7 @@ export default function NewsEditorPage() {
   };
 
   // 3. PUBLISH NOW
-  const handlePublish = () => {
+  const handlePublish = async () => {
     const { isValid, errors } = validateForPublishing(formData, id, articles);
     if (!isValid) {
       setFieldErrors(errors);
@@ -539,15 +672,22 @@ export default function NewsEditorPage() {
       };
 
       if (isEditing) {
-        updateArticle(id, payload);
+        await updateArticle(id, payload);
         toast.success('समाचार सफलतापूर्वक अपडेट एवं प्रकाशित किया गया!');
       } else {
-        createArticle(payload);
+        await createArticle(payload);
         toast.success('समाचार सफलतापूर्वक सार्वजनिक पोर्टल पर प्रकाशित हुआ!');
       }
 
       clearRecovery();
       setIsDirty(false);
+      notificationService.createNotification({
+        type: 'published',
+        title: 'समाचार लाइव प्रकाशित हुआ',
+        message: `"${formData.title}" सार्वजनिक पोर्टल पर लाइव है।`,
+        articleId: id,
+        link: `/news/${formData.slug || ''}`,
+      });
       navigate('/admin/news');
     } catch (err) {
       console.error(err);
@@ -559,7 +699,17 @@ export default function NewsEditorPage() {
 
   // 4. SCHEDULE PUBLICATION
   const handleOpenScheduleDialog = () => {
-    const { isValid, errors } = validateForPublishing(formData, id, articles);
+    let currentFormData = { ...formData };
+    if (!currentFormData.summary || currentFormData.summary.trim().length < 10) {
+      const plain = extractPlainText(currentFormData.content).trim();
+      if (plain) {
+        const autoSummary = plain.slice(0, 160).trim();
+        currentFormData.summary = autoSummary;
+        setFormData((prev) => ({ ...prev, summary: autoSummary }));
+      }
+    }
+
+    const { isValid, errors } = validateForPublishing(currentFormData, id, articles);
     if (!isValid) {
       setFieldErrors(errors);
       toast.error('कृपया अनिवार्य फ़ील्ड्स (शीर्षक, सारांश, श्रेणी, आदि) की त्रुटियां सुधारें');
@@ -569,11 +719,18 @@ export default function NewsEditorPage() {
     setScheduleDialogOpen(true);
   };
 
-  const handleConfirmSchedule = (scheduledIsoString) => {
+  const handleConfirmSchedule = async (scheduledIsoString) => {
     setIsSaving(true);
     try {
+      let activeSummary = formData.summary;
+      if (!activeSummary || activeSummary.trim().length < 10) {
+        const plain = extractPlainText(formData.content).trim();
+        activeSummary = plain ? plain.slice(0, 160).trim() : formData.title;
+      }
+
       const payload = {
         ...formData,
+        summary: activeSummary,
         status: ARTICLE_STATUS.SCHEDULED,
         scheduledAt: scheduledIsoString,
         scheduledFor: scheduledIsoString,
@@ -582,26 +739,48 @@ export default function NewsEditorPage() {
       };
 
       if (isEditing) {
-        updateArticle(id, payload);
+        await updateArticle(id, payload);
       } else {
-        createArticle(payload);
+        await createArticle(payload);
       }
 
       clearRecovery();
       setIsDirty(false);
       const displayDate = formatInIST(scheduledIsoString, { locale: 'hi' });
       toast.success(`समाचार "${displayDate}" पर प्रकाशन हेतु सफलतापूर्वक शेड्यूल किया गया!`);
+      notificationService.createNotification({
+        type: 'scheduled',
+        title: 'समाचार शेड्यूल्ड (Scheduled)',
+        message: `"${formData.title}" को ${displayDate} पर स्वतः प्रकाशन हेतु शेड्यूल किया गया।`,
+        articleId: id,
+        link: '/admin/scheduled',
+      });
       navigate('/admin/scheduled');
     } catch (err) {
       console.error(err);
-      toast.error('शेड्यूल करने में त्रुटि हुई');
+      toast.error(err.message || 'शेड्यूल करने में त्रुटि हुई');
     } finally {
       setIsSaving(false);
     }
   };
 
+  // If editing and still loading the record from database
+  if (isEditing && isLoadingArticle) {
+    return (
+      <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 text-secondary font-mukta">
+        <div className="w-8 h-8 border-2 border-primary-container border-t-transparent rounded-full animate-spin mb-3" />
+        <span className="text-sm font-bold text-on-surface">
+          आलेख विवरण लोड हो रहा है...
+        </span>
+        <span className="font-inter text-xs text-secondary mt-1">
+          ID #{id}
+        </span>
+      </div>
+    );
+  }
+
   // If editing an ID that doesn't exist in the article store
-  if (isEditing && !existingArticle) {
+  if (isEditing && !existingArticle && !isLoadingArticle) {
     return (
       <div className="bg-paper-canvas border border-border-rule p-8 text-center space-y-4 max-w-xl mx-auto my-12 shadow-md font-mukta">
         <AlertCircle className="w-12 h-12 mx-auto text-amber-600" />
@@ -626,6 +805,16 @@ export default function NewsEditorPage() {
           </Link>
         </div>
       </div>
+    );
+  }
+
+  // If editing an article not owned by current ordinary admin (403 Access Denied)
+  if (isEditing && existingArticle && !isLoadingArticle && !canEditArticle(user, existingArticle)) {
+    return (
+      <AdminAccessDeniedPage
+        title="आलेख संपादन अनुमति अस्वीकृत (403)"
+        message="आप केवल अपने द्वारा रचित समाचारों को ही संपादित कर सकते हैं। अन्य व्यवस्थापकों या ऐतिहासिक संग्रह के समाचारों में संशोधन का अधिकार केवल मुख्य व्यवस्थापक (Super Admin) के पास है।"
+      />
     );
   }
 
@@ -788,7 +977,7 @@ export default function NewsEditorPage() {
             <RichTextEditor
               content={formData.content}
               language={formData.language}
-              onEditorReady={setEditorInstance}
+              onEditorReady={handleEditorReady}
               onOpenProofreading={() => handleRunProofreading()}
               onChange={(newContent) => updateField({ content: newContent })}
             />
@@ -802,6 +991,7 @@ export default function NewsEditorPage() {
           {/* 1. Taxonomy & Publication Settings */}
           <ArticleSettings
             category={formData.category}
+            categories={formData.categories}
             language={formData.language}
             author={formData.author}
             location={formData.location}
@@ -813,12 +1003,14 @@ export default function NewsEditorPage() {
             languageError={fieldErrors.language}
           />
 
-          {/* 2. Featured Image Input */}
+          {/* 2. Primary Hero & Multi-Image Gallery Package */}
           <FeaturedImageInput
             imageUrl={formData.featuredImage}
+            featuredMediaId={formData.featuredMediaId}
             imageCaption={formData.imageCaption}
             imageCredit={formData.imageCredit}
             imageAlt={formData.imageAlt}
+            galleryImages={formData.galleryImages}
             onChange={updateField}
             error={fieldErrors.featuredImage}
           />
@@ -886,6 +1078,7 @@ export default function NewsEditorPage() {
         suggestions={proofreadingSuggestions}
         activeSuggestionId={activeSuggestionId}
         isStale={isProofreadingStale}
+        isAiProviderConfigured={isAiProviderConfigured}
         language={proofreadingLanguage}
         onLanguageChange={(newLang) => {
           setProofreadingLanguage(newLang);

@@ -8,3 +8,4 @@ export { default as SEOSettings } from './SEOSettings';
 export { default as ArticleSettings } from './ArticleSettings';
 export { default as ArticlePreviewModal } from './ArticlePreviewModal';
 export { default as UnsavedChangesDialog } from './UnsavedChangesDialog';
+export { default as ArticleGalleryInput } from './ArticleGalleryInput';

@@ -1,0 +1,28 @@
+{
+  "totalArticlesChecked": 10654,
+  "references": {
+    "totalFeaturedImageReferences": 0,
+    "totalInlineImageReferences": 8715,
+    "totalImageReferences": 8715
+  },
+  "uniqueFiles": {
+    "totalUniqueFilesReferenced": 8533,
+    "physicallyPresentOnDisk": 8192,
+    "missingFromDisk": 341,
+    "presentPercentage": "96.00%"
+  },
+  "storageRequired": {
+    "totalBytes": 528120626,
+    "totalMegaBytes": "503.66 MB",
+    "totalGigaBytes": "0.492 GB"
+  },
+  "externalMedia": {
+    "totalExternalImageReferences": 34,
+    "domainBreakdown": {
+      "ssl.gstatic.com": 16,
+      "ci3.googleusercontent.com": 4,
+      "mail.google.com": 13,
+      "mobile-webview.gmail.com": 1
+    }
+  }
+}

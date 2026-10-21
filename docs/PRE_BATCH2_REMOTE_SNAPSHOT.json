@@ -1,0 +1,155 @@
+{
+  "capturedAt": "2026-10-19T20:56:50.527Z",
+  "totalArticles": 10,
+  "nativeArticles": 0,
+  "pilotArticles": 10,
+  "totalMedia": 6,
+  "batches": [
+    {
+      "id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "status": "completed",
+      "successful_records": 10,
+      "started_at": "2026-10-19T20:40:19.615+00:00"
+    }
+  ],
+  "articles": [
+    {
+      "id": "a0169ef5-6a16-49e5-8799-509657cfae73",
+      "title": "एनएसआई के वैज्ञानिकों ने विकसित किया 'शुद्ध जल सजग'।",
+      "slug": "%e0%a4%8f%e0%a4%a8%e0%a4%8f%e0%a4%b8%e0%a4%86%e0%a4%88-%e0%a4%95%e0%a5%87-%e0%a4%b5%e0%a5%88%e0%a4%9c%e0%a5%8d%e0%a4%9e%e0%a4%be%e0%a4%a8%e0%a4%bf%e0%a4%95%e0%a5%8b%e0%a4%82-%e0%a4%a8%e0%a5%87",
+      "status": "published",
+      "legacy_wordpress_id": 1333,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:20.579799+00:00",
+      "updated_at": "2026-10-19T20:40:20.579799+00:00"
+    },
+    {
+      "id": "b0de1d5f-3c42-4a0d-a82f-b52a5472b320",
+      "title": "अब कानपुर में वंदे भारत ट्रेन 2 की बजाय अब 4 मिनट तक रुकेगी।",
+      "slug": "%e0%a4%85%e0%a4%ac-%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%b5%e0%a4%82%e0%a4%a6%e0%a5%87-%e0%a4%ad%e0%a4%be%e0%a4%b0%e0%a4%a4-%e0%a4%9f%e0%a5%8d",
+      "status": "published",
+      "legacy_wordpress_id": 1336,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:22.050293+00:00",
+      "updated_at": "2026-10-19T20:40:22.050293+00:00"
+    },
+    {
+      "id": "f4def2e1-bb1b-4eb4-91e7-9eb094cab2db",
+      "title": "दीपावली के चलते रोडवेज की बढ़ाई गई 370 बस सबसे अधिक दिल्ली आगरा मेरठ के रूट पर।",
+      "slug": "%e0%a4%a6%e0%a5%80%e0%a4%aa%e0%a4%be%e0%a4%b5%e0%a4%b2%e0%a5%80-%e0%a4%95%e0%a5%87-%e0%a4%9a%e0%a4%b2%e0%a4%a4%e0%a5%87-%e0%a4%b0%e0%a5%8b%e0%a4%a1%e0%a4%b5%e0%a5%87%e0%a4%9c-%e0%a4%95%e0%a5%80",
+      "status": "published",
+      "legacy_wordpress_id": 4134,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:25.077149+00:00",
+      "updated_at": "2026-10-19T20:40:25.077149+00:00"
+    },
+    {
+      "id": "24042442-2615-4748-879f-3c457566dc82",
+      "title": "प्रभु की वन्दना के  साथ नए साल की शुरुआत",
+      "slug": "%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a4%ad%e0%a5%81-%e0%a4%95%e0%a5%80-%e0%a4%b5%e0%a4%a8%e0%a5%8d%e0%a4%a6%e0%a4%a8%e0%a4%be-%e0%a4%95%e0%a5%87-%e0%a4%b8%e0%a4%be%e0%a4%a5-%e0%a4%a8%e0%a4%8f",
+      "status": "published",
+      "legacy_wordpress_id": 5535,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:26.516577+00:00",
+      "updated_at": "2026-10-19T20:40:26.516577+00:00"
+    },
+    {
+      "id": "31e63359-2e51-422b-9ed9-ac317bd28c56",
+      "title": "कानपुर सागर हाइवे के किनारे संचालित  अवैध मोरंग धुलाई सेंटरों के सामने पीएनसी ने की कार्यवाही।",
+      "slug": "%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%b8%e0%a4%be%e0%a4%97%e0%a4%b0-%e0%a4%b9%e0%a4%be%e0%a4%87%e0%a4%b5%e0%a5%87-%e0%a4%95%e0%a5%87-%e0%a4%95%e0%a4%bf%e0%a4%a8%e0%a4%be",
+      "status": "published",
+      "legacy_wordpress_id": 5541,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:29.082792+00:00",
+      "updated_at": "2026-10-19T20:40:29.082792+00:00"
+    },
+    {
+      "id": "5b858cc7-b04f-485a-98c3-e58f7c3f1d15",
+      "title": "नए कानून के खिलाफ वाहन चालकों की  सोमवार को सुबह से ही हड़ताल।",
+      "slug": "%e0%a4%a8%e0%a4%8f-%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a5%82%e0%a4%a8-%e0%a4%95%e0%a5%87-%e0%a4%96%e0%a4%bf%e0%a4%b2%e0%a4%be%e0%a4%ab-%e0%a4%b5%e0%a4%be%e0%a4%b9%e0%a4%a8-%e0%a4%9a%e0%a4%be%e0%a4%b2",
+      "status": "published",
+      "legacy_wordpress_id": 5544,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:31.738872+00:00",
+      "updated_at": "2026-10-19T20:40:31.738872+00:00"
+    },
+    {
+      "id": "e60440c2-7469-41eb-9a8f-c75fbb17f624",
+      "title": "यशोदानगर की सड़क का बदलेगा स्वरूप।",
+      "slug": "the-appearance-of-yashoda-nagar-road-will-change",
+      "status": "published",
+      "legacy_wordpress_id": 20401,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:33.177846+00:00",
+      "updated_at": "2026-10-19T20:40:33.177846+00:00"
+    },
+    {
+      "id": "9fd1b98b-1cfb-4621-abdb-96c1dabf1e4a",
+      "title": "ज्वेलर्स की दुकान से चोरों ने आभूषण और नकदी समेत सवा करोड़ रुपए का माल किया पार।",
+      "slug": "thieves-made-away-with-jewelery-and-cash-worth-rs-1-25-crore-from-a-jewellers-shop",
+      "status": "published",
+      "legacy_wordpress_id": 20405,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:34.56487+00:00",
+      "updated_at": "2026-10-19T20:40:34.56487+00:00"
+    },
+    {
+      "id": "179a2ec9-5e6b-4c99-917f-4805b2a9a344",
+      "title": "जिलाधिकारी कर्यालय तक अर्थी के पहुंचने पर पुलिस नाकामी की होगी जाँच।",
+      "slug": "the-police-failure-will-be-investigated-once-the-hearse-reaches-the-district-magistrates-office",
+      "status": "published",
+      "legacy_wordpress_id": 33282,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:37.16228+00:00",
+      "updated_at": "2026-10-19T20:40:37.16228+00:00"
+    },
+    {
+      "id": "e2418e86-6bef-494a-8a3c-45e1a0297cad",
+      "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+      "slug": "%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%b5%e0%a4%bf%e0%a4%b6%e0%a5%8d%e0%a4%b5%e0%a4%b5%e0%a4%bf%e0%a4%a6%e0%a5%8d%e0%a4%af%e0%a4%be%e0%a4%b2%e0%a4%af-%e0%a4%94%e0%a4%b0",
+      "status": "published",
+      "legacy_wordpress_id": 38200,
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54",
+      "created_at": "2026-10-19T20:40:39.657833+00:00",
+      "updated_at": "2026-10-19T20:40:39.657833+00:00"
+    }
+  ],
+  "media": [
+    {
+      "id": "2bf425c6-62c7-4c67-9a5f-5884752ee818",
+      "storage_path": "articles/2026/10/1792404711934-screenshot-2026-09-15-113817.webp",
+      "public_url": "https://mqbegmviywgktnstaxpk.supabase.co/storage/v1/object/public/media-library/articles/2026/10/1792404711934-screenshot-2026-09-15-113817.webp",
+      "import_batch_id": null
+    },
+    {
+      "id": "52de91c4-6b0d-4ade-9ac6-c934a2ed93ae",
+      "storage_path": "articles/2023/11/8fde7904-9bb0-4b2c-8630-edc7944846de_1699244960320.webp",
+      "public_url": "https://mqbegmviywgktnstaxpk.supabase.co/storage/v1/object/public/media-library/articles/2023/11/8fde7904-9bb0-4b2c-8630-edc7944846de_1699244960320.webp",
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54"
+    },
+    {
+      "id": "4214c1c4-33f3-42a0-8e5c-e16de0c76351",
+      "storage_path": "articles/2024/01/f046a03f-9bf2-4f13-a7d6-78fc7b189c69_1704078036660.webp",
+      "public_url": "https://mqbegmviywgktnstaxpk.supabase.co/storage/v1/object/public/media-library/articles/2024/01/f046a03f-9bf2-4f13-a7d6-78fc7b189c69_1704078036660.webp",
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54"
+    },
+    {
+      "id": "db7fa170-4267-4a6a-87e4-1e7d27cca79a",
+      "storage_path": "articles/2024/01/97baa64d-54f3-44c8-9938-06188f3f8a75_1704097790809.webp",
+      "public_url": "https://mqbegmviywgktnstaxpk.supabase.co/storage/v1/object/public/media-library/articles/2024/01/97baa64d-54f3-44c8-9938-06188f3f8a75_1704097790809.webp",
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54"
+    },
+    {
+      "id": "50acc89d-53c9-49b0-b815-ac8fcebe16f7",
+      "storage_path": "articles/2026/01/img_7902.jpg",
+      "public_url": "https://mqbegmviywgktnstaxpk.supabase.co/storage/v1/object/public/media-library/articles/2026/01/img_7902.jpg",
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54"
+    },
+    {
+      "id": "bd38185e-2503-49e7-be32-d314c7adb046",
+      "storage_path": "articles/2026/10/IMG-20261017-WA0002.jpg",
+      "public_url": "https://mqbegmviywgktnstaxpk.supabase.co/storage/v1/object/public/media-library/articles/2026/10/IMG-20261017-WA0002.jpg",
+      "import_batch_id": "64ced286-f276-4ba9-834f-e04ac7dd4c54"
+    }
+  ]
+}

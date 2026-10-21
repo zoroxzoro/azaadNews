@@ -1,0 +1,32 @@
+{
+  "verifiedAt": "2026-10-19T21:02:15.839Z",
+  "batchRecord": {
+    "id": "10dc55ff-d857-45cf-8a74-bec574b7f128",
+    "source_system": "wordpress_mariadb",
+    "entity_type": "articles",
+    "batch_number": 1792443593,
+    "total_records": 50,
+    "successful_records": 50,
+    "failed_records": 0,
+    "status": "completed",
+    "error_log": [],
+    "started_at": "2026-10-19T20:59:53.523+00:00",
+    "completed_at": "2026-10-19T21:01:48.552+00:00",
+    "created_at": "2026-10-19T20:59:53.684401+00:00"
+  },
+  "totalArticlesInDb": 60,
+  "batch2ArticlesCount": 50,
+  "pilotArticlesCount": 10,
+  "batch2MediaCount": 37,
+  "publicMediaProbesPassed": 10,
+  "totalCategoryJoins": 58,
+  "totalTagJoins": 3,
+  "kanpurArticlesCount": 39,
+  "checks": {
+    "batchRecord": "PASS",
+    "batch2Count": "PASS",
+    "pilotIntact": "PASS",
+    "mediaUploads": "PASS",
+    "taxonomyJoins": "PASS"
+  }
+}

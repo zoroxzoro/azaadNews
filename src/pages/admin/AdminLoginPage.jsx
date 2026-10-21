@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams, Link, useLocation } from 'react-router-dom';
 import BrandLogo from '../../components/common/BrandLogo';
 import ThemeToggle from '../../components/common/ThemeToggle';
-import { useDemoAuth } from '../../context/DemoAuthContext';
+import { useAuth } from '../../context/AuthContext';
 import {
   ShieldCheck,
   Lock,
@@ -11,39 +11,64 @@ import {
   EyeOff,
   ArrowRight,
   AlertCircle,
-  Sparkles,
   Info,
+  KeyRound,
+  CheckCircle2,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function AdminLoginPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
-  const redirectPath = searchParams.get('redirect') || '/admin';
 
-  const { login, loginAsDemo, isAuthenticated } = useDemoAuth();
+  // Validate redirect parameter to prevent open redirect vulnerabilities
+  const rawRedirect = searchParams.get('redirect');
+  const redirectPath =
+    rawRedirect && rawRedirect.startsWith('/') && !rawRedirect.startsWith('//')
+      ? rawRedirect
+      : '/admin';
+
+  const { login, loginAsDemo, isAuthenticated, currentUser, resetPassword, updatePassword } = useAuth();
+
+  // View modes: 'login' | 'forgot_password' | 'update_password'
+  const [viewMode, setViewMode] = useState('login');
 
   const [email, setEmail] = useState('editor@azaadsamachar.com');
   const [password, setPassword] = useState('password123');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // If already authenticated, redirect straight to admin
-  React.useEffect(() => {
-    if (isAuthenticated) {
+  // Detect Supabase password recovery link in URL (hash or query params)
+  useEffect(() => {
+    const isRecoveryQuery = searchParams.get('type') === 'recovery';
+    const isRecoveryHash = location.hash.includes('type=recovery');
+    if (isRecoveryQuery || isRecoveryHash) {
+      setViewMode('update_password');
+      setSuccessMessage('पासवर्ड रीसेट लिंक सत्यापित हो गया है। कृपया अपना नया पासवर्ड दर्ज करें।');
+    }
+  }, [searchParams, location.hash]);
+
+  // If already authenticated and not in update_password flow, redirect straight to admin
+  useEffect(() => {
+    if (isAuthenticated && viewMode !== 'update_password') {
       navigate(redirectPath, { replace: true });
     }
-  }, [isAuthenticated, navigate, redirectPath]);
+  }, [isAuthenticated, navigate, redirectPath, viewMode]);
 
-  const handleSubmit = async (e) => {
+  // Form submit handler for normal sign-in
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
+    setSuccessMessage('');
 
-    // Validation
     if (!email.trim()) {
-      setErrorMessage('कृपया अपना ईमेल पता दर्ज करें।');
+      setErrorMessage('कृपया अपना संपादकीय ईमेल पता दर्ज करें।');
       return;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -62,9 +87,8 @@ export default function AdminLoginPage() {
 
     setIsLoading(true);
 
-    // Simulate authenticating delay
-    setTimeout(() => {
-      const result = login(email.trim(), password);
+    try {
+      const result = await login(email.trim(), password);
       setIsLoading(false);
 
       if (result.success) {
@@ -74,9 +98,64 @@ export default function AdminLoginPage() {
         setErrorMessage(result.error || 'लॉगिन विफल रहा। कृपया विवरण पुनः जांचें।');
         toast.error('लॉगिन विफल रहा');
       }
-    }, 500);
+    } catch (err) {
+      setIsLoading(false);
+      setErrorMessage('प्रमाणीकरण के दौरान अनपेक्षित त्रुटि हुई।');
+    }
   };
 
+  // Form submit handler for forgot password request
+  const handleForgotPasswordSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage('');
+    setSuccessMessage('');
+
+    if (!email.trim() || !email.includes('@')) {
+      setErrorMessage('कृपया एक मान्य ईमेल पता दर्ज करें।');
+      return;
+    }
+
+    setIsLoading(true);
+    const result = await resetPassword(email.trim());
+    setIsLoading(false);
+
+    if (result.success) {
+      setSuccessMessage(result.message);
+      toast.success('पासवर्ड रीसेट ईमेल प्रेषित!');
+    } else {
+      setErrorMessage(result.error || 'अनुरोध विफल रहा।');
+    }
+  };
+
+  // Form submit handler for updating new password after recovery
+  const handleUpdatePasswordSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage('');
+    setSuccessMessage('');
+
+    if (!newPassword || newPassword.length < 6) {
+      setErrorMessage('नया पासवर्ड कम से कम 6 अक्षरों का होना चाहिए।');
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      setErrorMessage('दोनों पासवर्ड मेल नहीं खाते।');
+      return;
+    }
+
+    setIsLoading(true);
+    const result = await updatePassword(newPassword);
+    setIsLoading(false);
+
+    if (result.success) {
+      toast.success('पासवर्ड सफलतापूर्वक अपडेट हुआ!');
+      setViewMode('login');
+      setSuccessMessage('पासवर्ड सफलतापूर्वक बदल गया है। अब नए पासवर्ड से लॉगिन करें।');
+    } else {
+      setErrorMessage(result.error || 'पासवर्ड अपडेट करने में समस्या आई।');
+    }
+  };
+
+  // Development demo access fallback
   const handleDemoAccess = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -84,7 +163,7 @@ export default function AdminLoginPage() {
       setIsLoading(false);
       toast.success('डेमो मोड सक्रिय: न्यूज़रूम डैशबोर्ड में स्वागत है');
       navigate(redirectPath, { replace: true });
-    }, 300);
+    }, 250);
   };
 
   return (
@@ -115,7 +194,13 @@ export default function AdminLoginPage() {
           </div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-paper-tint text-secondary text-xs font-inter font-bold uppercase tracking-wider border border-border-rule">
             <ShieldCheck className="w-3.5 h-3.5 text-primary-container" />
-            <span>Newsroom Login • संपादकीय नियंत्रण कक्ष</span>
+            <span>
+              {viewMode === 'update_password'
+                ? 'Password Recovery • नया पासवर्ड'
+                : viewMode === 'forgot_password'
+                ? 'Password Reset • रीसेट अनुरोध'
+                : 'Newsroom Login • संपादकीय नियंत्रण कक्ष'}
+            </span>
           </div>
           <p className="text-xs font-inter text-secondary mt-2">
             आंतरिक संपादकीय प्रणाली: केवल अधिकृत पत्रकारों एवं संपादकों के लिए
@@ -130,112 +215,220 @@ export default function AdminLoginPage() {
           </div>
         )}
 
-        {/* Login Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 font-inter text-xs" noValidate>
-          {/* Email Field */}
-          <div>
-            <label htmlFor="admin-email" className="block font-bold text-on-surface mb-1.5">
-              संपादकीय ईमेल (Editor Email)
-            </label>
-            <div className="relative">
-              <Mail className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
-              <input
-                id="admin-email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="editor@azaadsamachar.com"
-                className="w-full pl-9 pr-3 py-2.5 bg-paper-tint border border-border-rule text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary-container focus:bg-paper-canvas transition-colors"
-              />
-            </div>
+        {/* Success Alert Box */}
+        {successMessage && (
+          <div className="mb-4 p-3 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 text-xs font-inter flex items-start gap-2">
+            <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+            <span>{successMessage}</span>
           </div>
+        )}
 
-          {/* Password Field */}
-          <div>
-            <div className="flex items-center justify-between mb-1.5">
-              <label htmlFor="admin-password" className="font-bold text-on-surface">
-                पासवर्ड (Password)
+        {/* VIEW 1: STANDARD LOGIN FORM */}
+        {viewMode === 'login' && (
+          <form onSubmit={handleLoginSubmit} className="space-y-4 font-inter text-xs" noValidate>
+            {/* Email Field */}
+            <div>
+              <label htmlFor="admin-email" className="block font-bold text-on-surface mb-1.5">
+                संपादकीय ईमेल (Editor Email)
               </label>
-              <span className="text-[11px] text-secondary">न्यूनतम 6 अक्षर</span>
+              <div className="relative">
+                <Mail className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
+                <input
+                  id="admin-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="editor@azaadsamachar.com"
+                  className="w-full pl-9 pr-3 py-2.5 bg-paper-tint border border-border-rule text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary-container focus:bg-paper-canvas transition-colors"
+                />
+              </div>
             </div>
-            <div className="relative">
-              <Lock className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
-              <input
-                id="admin-password"
-                type={showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                placeholder="••••••••"
-                className="w-full pl-9 pr-10 py-2.5 bg-paper-tint border border-border-rule text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary-container focus:bg-paper-canvas transition-colors"
-              />
+
+            {/* Password Field */}
+            <div>
+              <div className="flex items-center justify-between mb-1.5">
+                <label htmlFor="admin-password" className="font-bold text-on-surface">
+                  पासवर्ड (Password)
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setViewMode('forgot_password');
+                    setErrorMessage('');
+                    setSuccessMessage('');
+                  }}
+                  className="text-[11px] text-primary-container hover:underline cursor-pointer"
+                >
+                  पासवर्ड भूल गए?
+                </button>
+              </div>
+              <div className="relative">
+                <Lock className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
+                <input
+                  id="admin-password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  className="w-full pl-9 pr-10 py-2.5 bg-paper-tint border border-border-rule text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary-container focus:bg-paper-canvas transition-colors"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary hover:text-on-surface p-0.5 cursor-pointer"
+                  aria-label={showPassword ? 'पासवर्ड छुपाएं' : 'पासवर्ड दिखाएं'}
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            {/* Remember Me */}
+            <div className="flex items-center justify-between text-xs pt-1">
+              <label className="flex items-center gap-2 cursor-pointer select-none text-secondary">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="accent-primary-container w-3.5 h-3.5 cursor-pointer"
+                />
+                <span>सत्र याद रखें (Remember Me)</span>
+              </label>
+            </div>
+
+            {/* Sign In Button */}
+            <div className="pt-2">
               <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary hover:text-on-surface p-0.5 cursor-pointer"
-                aria-label={showPassword ? 'पासवर्ड छुपाएं' : 'पासवर्ड दिखाएं'}
+                type="submit"
+                disabled={isLoading}
+                className="w-full py-2.5 sm:py-3 bg-primary-container hover:bg-primary text-white font-mukta text-base font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-60"
               >
-                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                {isLoading ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>प्रमाणीकरण हो रहा है...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>साइन इन करें (Enter Newsroom)</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </div>
-          </div>
+          </form>
+        )}
 
-          {/* Remember Me */}
-          <div className="flex items-center justify-between text-xs pt-1">
-            <label className="flex items-center gap-2 cursor-pointer select-none text-secondary">
-              <input
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-                className="accent-primary-container w-3.5 h-3.5 cursor-pointer"
-              />
-              <span>सत्र याद रखें (Remember Me)</span>
-            </label>
-          </div>
+        {/* VIEW 2: FORGOT PASSWORD FORM */}
+        {viewMode === 'forgot_password' && (
+          <form onSubmit={handleForgotPasswordSubmit} className="space-y-4 font-inter text-xs" noValidate>
+            <div>
+              <label htmlFor="reset-email" className="block font-bold text-on-surface mb-1.5">
+                पंजीकृत संपादकीय ईमेल (Registered Email)
+              </label>
+              <div className="relative">
+                <Mail className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
+                <input
+                  id="reset-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="editor@azaadsamachar.com"
+                  className="w-full pl-9 pr-3 py-2.5 bg-paper-tint border border-border-rule text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary-container focus:bg-paper-canvas transition-colors"
+                />
+              </div>
+              <p className="text-[11px] text-secondary mt-1.5">
+                हम आपके ईमेल पर सुरक्षित पासवर्ड रीसेट लिंक भेजेंगे।
+              </p>
+            </div>
 
-          {/* Sign In Button */}
-          <div className="pt-2">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full py-2.5 sm:py-3 bg-primary-container hover:bg-primary text-white font-mukta text-base font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-60"
-            >
-              {isLoading ? (
-                <>
+            <div className="pt-2 space-y-2">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full py-2.5 sm:py-3 bg-primary-container hover:bg-primary text-white font-mukta text-base font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-60"
+              >
+                {isLoading ? (
                   <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>प्रमाणीकरण हो रहा है...</span>
-                </>
-              ) : (
-                <>
-                  <span>साइन इन करें (Enter Newsroom)</span>
-                  <ArrowRight className="w-4 h-4" />
-                </>
-              )}
-            </button>
-          </div>
-        </form>
+                ) : (
+                  <>
+                    <span>रीसेट लिंक भेजें (Send Reset Link)</span>
+                    <KeyRound className="w-4 h-4" />
+                  </>
+                )}
+              </button>
 
-        {/* Development Demo Mode Action */}
-        <div className="mt-5 pt-4 border-t border-border-rule space-y-2">
-          <div className="flex items-center gap-1.5 text-[11px] font-inter text-secondary">
-            <Info className="w-3.5 h-3.5 text-primary-container shrink-0" />
-            <span className="font-semibold">डेवलपमेंट डेमो पूर्वावलोकन (Development Preview):</span>
-          </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setViewMode('login');
+                  setErrorMessage('');
+                }}
+                className="w-full py-2 bg-paper-tint hover:bg-paper-subtle border border-border-rule text-on-surface font-inter font-semibold text-xs transition-colors cursor-pointer"
+              >
+                ← वापस लॉगिन पर जाएं
+              </button>
+            </div>
+          </form>
+        )}
 
-          <button
-            type="button"
-            onClick={handleDemoAccess}
-            disabled={isLoading}
-            className="w-full py-2 bg-paper-tint hover:bg-paper-subtle border border-border-rule text-on-surface font-mukta font-bold text-xs sm:text-sm transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-primary-container" />
-            <span>Enter Demo Dashboard (बिना पासवर्ड सीधा प्रवेश)</span>
-          </button>
-          <p className="text-[10px] font-inter text-secondary text-center leading-normal">
-            नोट: यह फ्रंटएंड डेमो सत्र है। वास्तविक उत्पादन प्रमाणीकरण बैकएंड एकीकरण के समय जोड़ा जाएगा।
-          </p>
-        </div>
+        {/* VIEW 3: SET NEW PASSWORD (AFTER RECOVERY LINK) */}
+        {viewMode === 'update_password' && (
+          <form onSubmit={handleUpdatePasswordSubmit} className="space-y-4 font-inter text-xs" noValidate>
+            <div>
+              <label htmlFor="new-password" className="block font-bold text-on-surface mb-1.5">
+                नया पासवर्ड (New Password)
+              </label>
+              <div className="relative">
+                <Lock className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
+                <input
+                  id="new-password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                  placeholder="कम से कम 6 अक्षर"
+                  className="w-full pl-9 pr-3 py-2.5 bg-paper-tint border border-border-rule text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary-container focus:bg-paper-canvas transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="confirm-password" className="block font-bold text-on-surface mb-1.5">
+                नए पासवर्ड की पुष्टि करें (Confirm Password)
+              </label>
+              <div className="relative">
+                <Lock className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-secondary pointer-events-none" />
+                <input
+                  id="confirm-password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  placeholder="पुनः वही पासवर्ड दर्ज करें"
+                  className="w-full pl-9 pr-3 py-2.5 bg-paper-tint border border-border-rule text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary-container focus:bg-paper-canvas transition-colors"
+                />
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full py-2.5 sm:py-3 bg-primary-container hover:bg-primary text-white font-mukta text-base font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md disabled:opacity-60"
+              >
+                {isLoading ? (
+                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <span>पासवर्ड सहेजें एवं लॉगिन करें</span>
+                )}
+              </button>
+            </div>
+          </form>
+        )}
       </div>
 
       {/* Footer */}

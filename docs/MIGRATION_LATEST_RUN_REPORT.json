@@ -1,0 +1,425 @@
+{
+  "mode": "DRY_RUN",
+  "completedAt": "2026-10-19T21:22:11.642Z",
+  "durationSeconds": 4.4,
+  "stats": {
+    "totalInSqlDump": 10654,
+    "selectedForProcessing": 10654,
+    "successfullyProcessed": 10594,
+    "skippedAlreadyImported": 60,
+    "skippedCmsEdited": 0,
+    "missingImages": 325,
+    "errorCount": 0
+  },
+  "sampleArticles": [
+    {
+      "index": 4,
+      "wpId": 1342,
+      "title": "भीषण अग्निकांड में जले हुए टावरों को जल्द गिरवाने को लेकर व्यापारियों ने डीएम को सौंपा ज्ञापन।",
+      "date": "2023-07-01 18:34:38",
+      "slug": "%e0%a4%ad%e0%a5%80%e0%a4%b7%e0%a4%a3-%e0%a4%85%e0%a4%97%e0%a5%8d%e0%a4%a8%e0%a4%bf%e0%a4%95%e0%a4%be%e0%a4%82%e0%a4%a1-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%9c%e0%a4%b2%e0%a5%87-%e0%a4%b9%e0%a5%81",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/whatsapp-image-2023-06-30-at-82617-pm_1688140420.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 5,
+      "wpId": 1345,
+      "title": "आज से शुरू हुई कानपुर-दिल्ली के लिए उड़ान।",
+      "date": "2023-07-01 18:35:13",
+      "slug": "%e0%a4%86%e0%a4%9c-%e0%a4%b8%e0%a5%87-%e0%a4%b6%e0%a5%81%e0%a4%b0%e0%a5%82-%e0%a4%b9%e0%a5%81%e0%a4%88-%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%a6%e0%a4%bf%e0%a4%b2%e0%a5%8d",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/04/cropped-cropped-cropped-cropped-cropped-cropped-Azad-Samachar-1024x634.jpg",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 6,
+      "wpId": 1347,
+      "title": "भीम आर्मी चीफ के ऊपर हुए हमले के विरोध में जिलाधिकारी कार्यालय में प्रदर्शन।",
+      "date": "2023-07-01 18:35:53",
+      "slug": "%e0%a4%ad%e0%a5%80%e0%a4%ae-%e0%a4%86%e0%a4%b0%e0%a5%8d%e0%a4%ae%e0%a5%80-%e0%a4%9a%e0%a5%80%e0%a4%ab-%e0%a4%95%e0%a5%87-%e0%a4%8a%e0%a4%aa%e0%a4%b0-%e0%a4%b9%e0%a5%81%e0%a4%8f-%e0%a4%b9%e0%a4%ae",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/94ef6432-2be6-4422-952e-9486e496a863_1688207672600.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 7,
+      "wpId": 1350,
+      "title": "आईआईटी कानपुर का 56वां दीक्षांत समारोह तीन जुलाई को।",
+      "date": "2023-07-01 18:36:43",
+      "slug": "%e0%a4%86%e0%a4%88%e0%a4%86%e0%a4%88%e0%a4%9f%e0%a5%80-%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%95%e0%a4%be-56%e0%a4%b5%e0%a4%be%e0%a4%82-%e0%a4%a6%e0%a5%80%e0%a4%95%e0%a5%8d",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/new-project-86_1688140574.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 8,
+      "wpId": 1353,
+      "title": "नगर आयुक्त की शिकायत पर कानपुर नगर निगम में तबादलों की लाइन।",
+      "date": "2023-07-01 18:37:20",
+      "slug": "%e0%a4%a8%e0%a4%97%e0%a4%b0-%e0%a4%86%e0%a4%af%e0%a5%81%e0%a4%95%e0%a5%8d%e0%a4%a4-%e0%a4%95%e0%a5%80-%e0%a4%b6%e0%a4%bf%e0%a4%95%e0%a4%be%e0%a4%af%e0%a4%a4-%e0%a4%aa%e0%a4%b0-%e0%a4%95%e0%a4%be",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/new-project-2023-06-26t182039965_1688148510.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 9,
+      "wpId": 1356,
+      "title": "चैन लुटेरो को जनता ने पकड़कर आधा घंटे तक जमकर धोया।",
+      "date": "2023-07-01 18:38:11",
+      "slug": "%e0%a4%9a%e0%a5%88%e0%a4%a8-%e0%a4%b2%e0%a5%81%e0%a4%9f%e0%a5%87%e0%a4%b0%e0%a5%8b-%e0%a4%95%e0%a5%8b-%e0%a4%9c%e0%a4%a8%e0%a4%a4%e0%a4%be-%e0%a4%a8%e0%a5%87-%e0%a4%aa%e0%a4%95%e0%a4%a1%e0%a4%bc",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/1688179248725llklk_1688183100.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 10,
+      "wpId": 1359,
+      "title": "बच्चो के दाँतो को सड़ा रहा मैदा और फ़ास्ट फूड।",
+      "date": "2023-07-01 18:38:59",
+      "slug": "%e0%a4%ac%e0%a4%9a%e0%a5%8d%e0%a4%9a%e0%a5%8b-%e0%a4%95%e0%a5%87-%e0%a4%a6%e0%a4%be%e0%a4%81%e0%a4%a4%e0%a5%8b-%e0%a4%95%e0%a5%8b-%e0%a4%b8%e0%a4%a1%e0%a4%bc%e0%a4%be-%e0%a4%b0%e0%a4%b9%e0%a4%be",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/04/cropped-cropped-cropped-cropped-cropped-cropped-Azad-Samachar-1024x634.jpg",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 11,
+      "wpId": 1362,
+      "title": "फॉरेंसिक जांच में पूर्णतया सही पाए गए यूपीसीए सचिव के हस्ताक्षर",
+      "date": "2023-07-02 13:31:04",
+      "slug": "%e0%a4%ab%e0%a5%89%e0%a4%b0%e0%a5%87%e0%a4%82%e0%a4%b8%e0%a4%bf%e0%a4%95-%e0%a4%9c%e0%a4%be%e0%a4%82%e0%a4%9a-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%aa%e0%a5%82%e0%a4%b0%e0%a5%8d%e0%a4%a3%e0%a4%a4",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "sports",
+          "name": "खेल",
+          "englishName": "Sports",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/IMG-20230702-WA0020-461x1024.jpg",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 7,
+      "warnings": []
+    },
+    {
+      "index": 12,
+      "wpId": 1368,
+      "title": "जमीनी विवाद में भाई ने ली चापड़ से भाई की जान।",
+      "date": "2023-07-02 23:36:37",
+      "slug": "%e0%a4%9c%e0%a4%ae%e0%a5%80%e0%a4%a8%e0%a5%80-%e0%a4%b5%e0%a4%bf%e0%a4%b5%e0%a4%be%e0%a4%a6-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%ad%e0%a4%be%e0%a4%88-%e0%a4%a8%e0%a5%87-%e0%a4%b2%e0%a5%80-%e0%a4%9a",
+      "category": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/f04de132-a4e3-402c-963d-c70cbd0ae419_1688296248223.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    },
+    {
+      "index": 13,
+      "wpId": 1371,
+      "title": "क्रिकेटर व पूर्व सांसद चेतन चौहान की भतीजी से मारपीट के मामले में आरोपियों को सजा।",
+      "date": "2023-07-02 23:37:33",
+      "slug": "%e0%a4%95%e0%a5%8d%e0%a4%b0%e0%a4%bf%e0%a4%95%e0%a5%87%e0%a4%9f%e0%a4%b0-%e0%a4%b5-%e0%a4%aa%e0%a5%82%e0%a4%b0%e0%a5%8d%e0%a4%b5-%e0%a4%b8%e0%a4%be%e0%a4%82%e0%a4%b8%e0%a4%a6-%e0%a4%9a%e0%a5%87",
+      "category": "sports",
+      "categories": [
+        {
+          "slug": "sports",
+          "name": "खेल",
+          "englishName": "Sports",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "featuredImage": {
+        "path": "2023/07/new-project-2023-07-01t235844960_1688236130.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0
+      },
+      "tipTapNodesCount": 2,
+      "warnings": []
+    }
+  ],
+  "errors": []
+}

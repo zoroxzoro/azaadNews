@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Container from '../common/Container';
 import { categories } from '../../data/categories';
 import { useLanguage } from '../../context/LanguageContext';
-import { ChevronDown, Sun, Radio } from 'lucide-react';
+import { ChevronDown, Newspaper, Radio } from 'lucide-react';
 
 export default function CategoryNavbar() {
   const location = useLocation();
@@ -38,6 +38,7 @@ export default function CategoryNavbar() {
     { label: t('national'), path: '/category/national', slug: 'national' },
     { label: t('politics'), path: '/category/politics', slug: 'politics' },
     { label: t('uttar_pradesh'), path: '/category/uttar-pradesh', slug: 'uttar-pradesh' },
+    { label: 'कानपुर', path: '/category/kanpur', slug: 'kanpur' },
     { label: t('world'), path: '/category/world', slug: 'world' },
     { label: t('business'), path: '/category/business', slug: 'business' },
     { label: t('sports'), path: '/category/sports', slug: 'sports' },
@@ -51,9 +52,8 @@ export default function CategoryNavbar() {
   // Additional categories in dropdown
   const secondaryNavItems = [
     { label: t('spirituality'), path: '/category/spirituality', slug: 'spirituality' },
-    { label: 'पर्यावरण एवं विज्ञान (Science)', path: '/category/science', slug: 'science' },
-    { label: 'ऑटोमोबाइल (Auto)', path: '/category/auto', slug: 'auto' },
-    { label: 'फोटो गैलरी (Photo Gallery)', path: '/photos', slug: 'photos' },
+    { label: 'शिक्षा व नौकरी (Education & Jobs)', path: '/category/education-jobs', slug: 'education-jobs' },
+    { label: 'विविध व अन्य (Others)', path: '/category/others', slug: 'others' },
     { label: 'वीडियो बुलेटिन (Video Bulletin)', path: '/videos', slug: 'videos' },
   ];
 
@@ -67,9 +67,9 @@ export default function CategoryNavbar() {
   return (
     <nav
       aria-label="Category Navigation"
-      className="sticky top-0 z-40 w-full bg-[#1A1A1A] dark:bg-[#090e19] text-white shadow-md border-b-2 border-primary-container transition-colors"
+      className="sticky top-0 z-40 w-full bg-[#1A1A1A] dark:bg-[#090e19] text-white shadow-md border-b-2 border-primary-container transition-colors overflow-x-clip"
     >
-      <Container className="flex items-center justify-between">
+      <Container className="flex items-center justify-between min-w-0 max-w-full">
         {/* Horizontal Navigation List */}
         <div className="flex items-center overflow-x-auto no-scrollbar whitespace-nowrap min-w-0 flex-1">
           {primaryNavItems.map((item) => {
@@ -130,11 +130,11 @@ export default function CategoryNavbar() {
           </div>
         </div>
 
-        {/* Right: Weather Dateline & Live Stream CTA */}
+        {/* Right: Digital Edition & Live Stream CTA */}
         <div className="hidden lg:flex items-center gap-3 shrink-0 pl-3 border-l border-white/20">
           <div className="flex items-center gap-1.5 text-xs font-inter text-slate-300">
-            <Sun className="w-3.5 h-3.5 text-amber-400" />
-            <span>{t('weather_lucknow')}</span>
+            <Newspaper className="w-3.5 h-3.5 text-amber-400" />
+            <span>{language === 'hi' ? 'डिजिटल संस्करण' : 'Digital Edition'}</span>
           </div>
 
           <Link

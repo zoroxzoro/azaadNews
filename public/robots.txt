@@ -1,0 +1,19 @@
+# Robots.txt for Azaad Samachar (आज़ाद समाचार)
+# Production Domain: https://azaadsamacharindia.com
+
+User-agent: *
+Allow: /
+Allow: /category/
+Allow: /news/
+Allow: /search
+Allow: /live
+Allow: /archive
+Allow: /assets/
+
+# Disallow private editorial and administration routes
+Disallow: /admin/
+Disallow: /admin
+Disallow: /auth/
+
+# Production XML Sitemap
+Sitemap: https://azaadsamacharindia.com/sitemap.xml

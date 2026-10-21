@@ -1,6 +1,7 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useArticles } from '../../context/ArticleContext';
+import { articlesService } from '../../services/articlesService';
 import StatusBadge from '../../components/admin/StatusBadge';
 import YouTubeEmbed from '../../components/news/YouTubeEmbed';
 import {
@@ -22,8 +23,48 @@ export default function ArticlePreviewPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { getArticleById, changeArticleStatus } = useArticles();
+  const [dbArticle, setDbArticle] = useState(null);
+  const [isLoading, setIsLoading] = useState(!getArticleById(id));
 
-  const article = getArticleById(id);
+  useEffect(() => {
+    let isMounted = true;
+    if (id && !getArticleById(id)) {
+      setIsLoading(true);
+      articlesService
+        .getArticleById(id)
+        .then((res) => {
+          const found = res?.data || res;
+          if (isMounted && found && found.id) {
+            setDbArticle(found);
+          }
+        })
+        .catch(() => {})
+        .finally(() => {
+          if (isMounted) setIsLoading(false);
+        });
+    } else {
+      setIsLoading(false);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [id, getArticleById]);
+
+  const article = getArticleById(id) || dbArticle;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 text-secondary font-mukta">
+        <div className="w-8 h-8 border-2 border-primary-container border-t-transparent rounded-full animate-spin mb-3" />
+        <span className="text-sm font-bold text-on-surface">
+          पूर्वावलोकन लोड हो रहा है...
+        </span>
+        <span className="font-inter text-xs text-secondary mt-1">
+          Azaad Newsroom Editorial Preview
+        </span>
+      </div>
+    );
+  }
 
   if (!article) {
     return (
@@ -47,9 +88,15 @@ export default function ArticlePreviewPage() {
 
   const isPublished = article.status === ARTICLE_STATUS.PUBLISHED;
 
-  const handlePublish = () => {
-    changeArticleStatus(article.id, ARTICLE_STATUS.PUBLISHED);
-    toast.success('आलेख सफलतापूर्वक प्रकाशित किया गया!');
+  const handlePublish = async () => {
+    try {
+      await changeArticleStatus(article.id, ARTICLE_STATUS.PUBLISHED, {
+        publishedAt: new Date().toISOString(),
+      });
+      toast.success('आलेख सफलतापूर्वक प्रकाशित किया गया!');
+    } catch (err) {
+      toast.error('प्रकाशन में त्रुटि हुई');
+    }
   };
 
   return (
@@ -165,7 +212,7 @@ export default function ArticlePreviewPage() {
               {article.author?.name || 'आज़ाद समाचार डेस्क'}
             </span>
             <span className="text-[11px] text-secondary">
-              {article.author?.role || 'विशेष संवाददाता'} • {article.author?.location || 'नई दिल्ली'}
+              {article.author?.role || 'विशेष संवाददाता'} • {article.author?.location || 'कानपुर'}
             </span>
           </div>
         </div>

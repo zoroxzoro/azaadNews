@@ -27,10 +27,10 @@ export default function Header({ onOpenMobileMenu }) {
   };
 
   const trendingTags = [
-    { label: '#LokSabha', query: 'LokSabha' },
-    { label: '#UPBudget2025', query: 'बजट' },
-    { label: '#T20WorldCup', query: 'विश्व कप' },
-    { label: '#Ayodhya', query: 'अयोध्या' },
+    { label: '#कानपुर', query: 'कानपुर' },
+    { label: '#अयोध्या', query: 'अयोध्या' },
+    { label: '#क्रिकेट', query: 'क्रिकेट' },
+    { label: '#रेलवे', query: 'रेलवे' },
   ];
 
   return (

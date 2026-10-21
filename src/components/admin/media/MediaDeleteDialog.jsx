@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle, Trash2, X, ExternalLink } from 'lucide-react';
+import { AlertTriangle, Trash2, X, ExternalLink, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function MediaDeleteDialog({
@@ -8,6 +8,7 @@ export default function MediaDeleteDialog({
   onConfirmDelete,
   asset,
   usageInfo,
+  isDeleting = false,
 }) {
   if (!isOpen || !asset) return null;
 
@@ -83,17 +84,23 @@ export default function MediaDeleteDialog({
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-1.5 border border-border-rule text-xs font-bold text-on-surface hover:bg-paper-subtle cursor-pointer"
+            disabled={isDeleting}
+            className="px-4 py-1.5 border border-border-rule text-xs font-bold text-on-surface hover:bg-paper-subtle cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
             रद्द करें (Cancel)
           </button>
           <button
             type="button"
-            onClick={() => onConfirmDelete(asset.id)}
-            className="px-4 py-1.5 bg-breaking-crimson hover:bg-primary text-white text-xs font-bold shadow-xs flex items-center gap-1.5 cursor-pointer"
+            onClick={() => onConfirmDelete(asset)}
+            disabled={isDeleting}
+            className="px-4 py-1.5 bg-breaking-crimson hover:bg-primary text-white text-xs font-bold shadow-xs flex items-center gap-1.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Trash2 className="w-3.5 h-3.5" />
-            <span>हटाएं (Confirm Delete)</span>
+            {isDeleting ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+            ) : (
+              <Trash2 className="w-3.5 h-3.5" />
+            )}
+            <span>{isDeleting ? 'हटाया जा रहा है...' : 'हटाएं (Confirm Delete)'}</span>
           </button>
         </div>
       </div>

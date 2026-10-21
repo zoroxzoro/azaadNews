@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-10-19T20:38:26.394Z",
+  "totalArticles": 2,
+  "articles": [
+    {
+      "id": "8019108a-a7d7-43ce-ba65-0701f0d9aade",
+      "title": "india won",
+      "slug": "india-won-7972",
+      "status": "published",
+      "legacy_wordpress_id": null,
+      "created_at": "2026-10-19T09:28:48.179269+00:00",
+      "updated_at": "2026-10-19T09:29:52.431971+00:00"
+    },
+    {
+      "id": "7ebdb4a4-6b59-4392-813a-38189c72b665",
+      "title": "india won",
+      "slug": "india-won",
+      "status": "published",
+      "legacy_wordpress_id": null,
+      "created_at": "2026-10-19T09:28:46.270767+00:00",
+      "updated_at": "2026-10-19T10:12:01.392946+00:00"
+    }
+  ],
+  "totalMedia": 0,
+  "media": [],
+  "totalCategories": 16,
+  "batches": []
+}

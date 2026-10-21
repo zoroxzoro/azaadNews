@@ -317,18 +317,16 @@ export default function EditorToolbar({
         )}
       </div>
 
-      {/* 8. AI Proofreading Assistant Action */}
-      {onOpenProofreading && (
-        <button
-          type="button"
-          onClick={onOpenProofreading}
-          className="h-7 px-2.5 bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-primary-container/40 text-primary-container hover:bg-primary-container hover:text-white flex items-center gap-1.5 font-mukta text-xs font-bold transition-all shadow-2xs cursor-pointer ml-1"
-          title="AI से वर्तनी व भाषा जाँच करें (Check with AI)"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-primary-container group-hover:text-white shrink-0" />
-          <span>AI से जाँच करें</span>
-        </button>
-      )}
+      {/* 8. AI Proofreading Assistant Action — Disabled / Coming Soon */}
+      <button
+        type="button"
+        disabled
+        className="h-7 px-2.5 bg-paper-tint border border-border-rule text-secondary/70 flex items-center gap-1.5 font-mukta text-xs font-semibold opacity-75 cursor-not-allowed ml-1 select-none"
+        title="AI जाँच सुविधा आगामी संस्करण में उपलब्ध होगी (AI Check — Coming Soon)"
+      >
+        <Sparkles className="w-3.5 h-3.5 text-secondary/60 shrink-0" />
+        <span>AI जाँच — जल्द उपलब्ध</span>
+      </button>
 
       {/* 9. Clear Formatting */}
       <button

@@ -1,0 +1,49 @@
+[
+  {
+    "test": "Scheduled Newsroom Calendar",
+    "passed": false,
+    "metrics": {
+      "hasTz": false,
+      "hasSchedulerBadge": false,
+      "hasCalendar": false,
+      "title": "आज़ाद समाचार | निष्पक्ष • निर्भीक • सटीक | Azaad Samachar",
+      "url": "http://127.0.0.1:5173/admin/scheduled"
+    }
+  },
+  {
+    "test": "AI Checker Mandatory Errors",
+    "passed": true,
+    "metrics": {
+      "hasPanel": true,
+      "cardsFound": 5,
+      "detectedTeh": true,
+      "detectedGoverment": true,
+      "detectedAnnouced": true,
+      "detectedDevelopement": true,
+      "detectedPrograme": true
+    }
+  },
+  {
+    "test": "AI Suggestion Accept & TipTap Update",
+    "passed": true,
+    "detail": "The goverment annouced a new developement programe in Kanpur."
+  },
+  {
+    "test": "Hindi Orthography & Fact-Check",
+    "passed": true,
+    "metrics": {
+      "hasSemiconductor": true,
+      "hasYojana": true,
+      "hasSensationalism": true,
+      "hasFactCheck": true
+    }
+  },
+  {
+    "test": "Clean Article Analysis",
+    "passed": true,
+    "metrics": {
+      "isCleanReported": true,
+      "noCardsFound": true
+    }
+  }
+]

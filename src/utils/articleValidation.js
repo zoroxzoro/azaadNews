@@ -2,9 +2,9 @@
  * Article Validation Utilities for Azaad Samachar Newsroom Workstation
  */
 
-import { isContentEmpty } from './articleContent';
-import { getYouTubeVideoId } from './youtube';
-import { isSlugUnique, isValidSlug } from './slugUtils';
+import { isContentEmpty } from './articleContent.js';
+import { getYouTubeVideoId } from './youtube.js';
+import { isSlugUnique, isValidSlug } from './slugUtils.js';
 
 /**
  * Validates whether an article has sufficient minimum content to be saved as a draft.

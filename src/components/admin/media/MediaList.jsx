@@ -194,7 +194,10 @@ export default function MediaList({
                     {/* Delete */}
                     <button
                       type="button"
-                      onClick={() => onDelete && onDelete(asset)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDelete && onDelete(asset);
+                      }}
                       className="p-1 text-secondary hover:text-breaking-crimson"
                       title="हटाएं"
                     >

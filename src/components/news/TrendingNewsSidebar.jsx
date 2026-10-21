@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Flame } from 'lucide-react';
+import { getCategoryBySlug } from '../../data/categories';
+import { formatRelativeTime } from '../../utils/timezoneUtils';
 
 /**
  * TrendingNewsSidebar component
@@ -33,31 +35,36 @@ export default function TrendingNewsSidebar({
 
         {/* Numbered List */}
         <ol className="divide-y divide-border-rule">
-          {stories.map((story, index) => (
-            <li key={story.id || index} className="py-2.5 first:pt-0 last:pb-0 flex items-start gap-2.5 group">
-              <span className="font-mukta text-xl sm:text-2xl font-black text-primary-container/45 leading-none shrink-0 w-6 pt-0.5">
-                {hindiNumbers[index] || `0${index + 1}`}
-              </span>
-              <div className="flex-1 min-w-0">
-                {story.category && (
-                  <span className="font-inter text-[9px] uppercase tracking-wider font-bold text-secondary block mb-0.5">
-                    {story.category}
-                  </span>
-                )}
-                <Link
-                  to={`/news/${story.slug}`}
-                  className="font-mukta text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary-container transition-colors line-clamp-2 leading-snug"
-                >
-                  {story.title}
-                </Link>
-                <div className="flex items-center gap-2 font-inter text-[10px] text-secondary mt-1">
-                  {story.views && <span>{story.views.toLocaleString('hi-IN')} पाठक</span>}
-                  {story.views && <span>•</span>}
-                  <span>{story.readTime || '3 मिनट'}</span>
+          {stories.map((story, index) => {
+            const catObj = getCategoryBySlug(story.category);
+            const catLabel = catObj?.nameHindi || story.category || '';
+
+            return (
+              <li key={story.id || index} className="py-2.5 first:pt-0 last:pb-0 flex items-start gap-2.5 group">
+                <span className="font-mukta text-xl sm:text-2xl font-black text-primary-container/45 leading-none shrink-0 w-6 pt-0.5">
+                  {hindiNumbers[index] || `0${index + 1}`}
+                </span>
+                <div className="flex-1 min-w-0">
+                  {catLabel && (
+                    <span className="font-mukta text-[10px] font-bold text-secondary block mb-0.5">
+                      {catLabel}
+                    </span>
+                  )}
+                  <Link
+                    to={`/news/${story.slug}`}
+                    className="font-mukta text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary-container transition-colors line-clamp-2 leading-snug break-words"
+                  >
+                    {story.title}
+                  </Link>
+                  <div className="flex items-center gap-2 font-inter text-[10px] text-secondary mt-1">
+                    {story.views && <span>{story.views.toLocaleString('hi-IN')} पाठक</span>}
+                    {story.views && <span>•</span>}
+                    <span>{formatRelativeTime(story.publishedAt || story.createdAt) || story.readTime || 'ताज़ा'}</span>
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ol>
       </div>
 
@@ -66,7 +73,7 @@ export default function TrendingNewsSidebar({
         <div className="mt-4 pt-4 border-t border-border-rule">
           <div className="bg-paper-canvas border border-dashed border-border-heavy p-3 text-center flex flex-col items-center justify-center min-h-[140px] text-secondary">
             <span className="font-inter text-[9px] uppercase tracking-widest font-semibold text-secondary mb-1">
-              प्रायोजित संदेश • विज्ञापन
+              प्रायोजित संदेश • विज्ञापन / ADVERTISEMENT
             </span>
             <div className="w-full py-4 px-2 bg-paper-tint/50 border border-border-rule/50 my-1">
               <span className="font-mukta text-sm font-bold text-on-surface block">
@@ -77,7 +84,7 @@ export default function TrendingNewsSidebar({
               </span>
             </div>
             <Link
-              to="/epaper"
+              to="/advertise"
               className="mt-1 font-inter text-[10px] text-secondary hover:text-primary-container underline"
             >
               आज़ाद डिजिटल नेटवर्क पर विज्ञापन दें →

@@ -1,0 +1,80 @@
+[
+  {
+    "file": "ai_content_checker_test.mjs",
+    "status": "PASSED",
+    "duration": "0.08s",
+    "output": "राथमिक स्रोत या आधिकारिक सर्वेक्षण का संदर्भ दें।)\n  PASS: Flagged large financial amount \"50,000 करोड़\" for verification\n  PASS: Flagged statistical percentage \"45%\" for verification\n  PASS: Fact checks never marked as safe to auto-apply\n\nTEST 6: Clean Article Verification (No False Positives)\nClean article suggestions count: 0\n  PASS: Clean, well-written journalistic text receives zero false positive errors\n\n=== TEST SUMMARY ===\nTotal Passed: 21\nTotal Failed: 0\n\nAll tests PASSED successfully!\n"
+  },
+  {
+    "file": "auth_security_test.mjs",
+    "status": "PASSED",
+    "duration": "0.13s",
+    "output": "s in Frontend Code...\n  [PASS] Zero service_role keys or secrets found in src/ codebase\n\n5. Verifying Migration Files Integrity...\n  [PASS] Migration 1 defines profiles table\n  [PASS] Migration 2 enables RLS on profiles\n  [PASS] Migration 2 defines non-recursive role helper\n  [PASS] Migration 3 defines super admin bootstrap procedure\n  [PASS] Migration 3 defines is_super_admin helper\n\n========================================\nRESULTS: 28 passed, 0 failed\n========================================\n\n"
+  },
+  {
+    "file": "phase3_cms_integration_test.mjs",
+    "status": "PASSED",
+    "duration": "2.05s",
+    "output": " articles without errors\n  [PASS] Anonymous visitor received 0 drafts (RLS draft protection verified)\n  [PASS] Anonymous INSERT blocked by RLS: [new row violates row-level security policy for table \"articles\"]\n  [PASS] Anonymous DELETE is guarded by RLS policies\n  [PASS] Anonymous visitor can safely read active categories\n\n================================================================\n  VERIFICATION RESULTS: 47 PASSED, 0 FAILED\n================================================================\n\n"
+  },
+  {
+    "file": "phase4_media_seo_test.mjs",
+    "status": "PASSED",
+    "duration": "0.90s",
+    "output": "ale HTML caching\n\n8. Testing Remote Supabase Security & RLS Enforcements...\n  [PASS] Anonymous cannot insert into public.media table: [new row violates row-level security policy for table \"media\"]\n  [PASS] Anonymous delete on media table is guarded\n  [PASS] Anonymous visitor can query approved media list (5 found)\n\n================================================================\n  PHASE 4 VERIFICATION RESULTS: 53 PASSED, 0 FAILED\n================================================================\n\n"
+  },
+  {
+    "file": "phase5_migration_pipeline_test.mjs",
+    "status": "PASSED",
+    "duration": "0.07s",
+    "output": "PREVIEW.json artifact exists\n  [PASS] Preview data is a JSON array\n  [PASS] Preview array contains exactly 10 sample articles\n  [PASS] All 10 dry-run articles converted to valid TipTap JSON\n  [PASS] All 10 dry-run articles have a resolved primary category\n  [PASS] All dry-run items report conversion warnings array\n\n================================================================\n  PHASE 5 VERIFICATION RESULTS: 35 PASSED, 0 FAILED\n================================================================\n\n"
+  },
+  {
+    "file": "phase6_reconciliation_test.mjs",
+    "status": "PASSED",
+    "duration": "0.08s",
+    "output": "ews/%2525e0%2525a4...)\n  [PASS] Article URLs are cleanly encoded with no raw spaces\n\n5. Testing Categories Sitemap...\n  [PASS] sitemap-categories.xml exists\n  [PASS] Includes canonical homepage\n  [PASS] Includes Kanpur category route\n  [PASS] Includes National category route\n  [PASS] Includes Uttar Pradesh category route\n\n================================================================\nRESULTS: 36 passed, 0 failed out of 36 tests\n================================================================\n\n"
+  },
+  {
+    "file": "phase7_frontend_architecture_test.mjs",
+    "status": "PASSED",
+    "duration": "1.69s",
+    "output": "ASS] Migration 7 exists for GIN trigram indexes\n  [PASS] Migration 7 enables pg_trgm extension\n  [PASS] Migration 7 defines title trigram index\n  [PASS] Migration 7 defines excerpt trigram index\n\n10. Testing Security: Zero Service Role Keys in src/...\n  [PASS] Zero service role keys or admin secrets exist in browser code\n\n================================================================\nRESULTS: 42 passed, 0 failed out of 42 tests\n================================================================\n\n"
+  },
+  {
+    "file": "phase7_step3_article_detail_test.mjs",
+    "status": "PASSED",
+    "duration": "2.38s",
+    "output": "सी...\"\n  [PASS] Article content length verified (3510 chars)\n  [PASS] Found multi-category article: \"एनएसआई के वैज्ञानिकों ने विकसि...\" (Categories count: 4)\n  [PASS] Found deep historical article (Rank 151): \"सूरज के तल्ख़ तेवरों के चलते कर...\"\n  [PASS] Nonexistent slug query returns null (triggers clean 404 with noIndex)\n\n================================================================\nRESULTS: 38 passed, 0 failed out of 38 tests\n================================================================\n"
+  },
+  {
+    "file": "phase7_step4_homepage_test.mjs",
+    "status": "PASSED",
+    "duration": "1.59s",
+    "output": "\n  [PASS] VideoNewsSection provides dignified newsroom hub fallback when no video records exist\n\n8. Auditing Header, Navigation & Footer Links...\n  [PASS] CategoryNavbar and Footer exist\n  [PASS] CategoryNavbar includes /category/kanpur\n  [PASS] Footer includes /category/kanpur\n  [PASS] Footer contains zero dead \"#\" links\n\n================================================================\nRESULTS: 42 passed, 0 failed out of 42 tests\n================================================================\n"
+  },
+  {
+    "file": "phase7_step5_category_test.mjs",
+    "status": "PASSED",
+    "duration": "3.88s",
+    "output": "articles, totalPages: 2)\n\n5. Testing Topic Fallback Transparency...\n  [PASS] Business topic fallback matches 204 historical articles\n  [PASS] Politics topic fallback matches 415 historical articles\n\n6. Testing Invalid Category Slug...\n  [PASS] Invalid category slug returns 0 records (triggers clean EmptyState and noIndex)\n\n================================================================\nRESULTS: 26 passed, 0 failed out of 26 tests\n================================================================\n"
+  },
+  {
+    "file": "phase7_step6_search_navigation_test.mjs",
+    "status": "PASSED",
+    "duration": "2.93s",
+    "output": "dex={true}\n  [PASS] NotFoundPage renders broadsheet crimson 404 badge\n  [PASS] NotFoundPage provides helpful recovery navigation links\n\n9. Auditing Dead Links Across Navigation...\n  [PASS] CategoryNavbar has zero dead href=\"#\" links\n  [PASS] Header has zero dead href=\"#\" links\n  [PASS] Footer has zero dead href=\"#\" links\n\n================================================================\nRESULTS: 43 passed, 0 failed out of 43 tests\n================================================================\n\n"
+  },
+  {
+    "file": "phase7_step7_admin_cms_test.mjs",
+    "status": "PASSED",
+    "duration": "5.04s",
+    "output": "ge\n  [PASS] DeleteConfirmationDialog contains permanent removal warning\n  [PASS] NewsEditorPage contains loading gate preventing premature \"Article Not Found\"\n  [PASS] NewsEditorPage contains browser beforeunload listener for unsaved changes\n  [PASS] ArticlePreviewPage contains loading gate preventing premature 404\n\n================================================================\n  PHASE 7 STEP 7 TEST RESULTS: 51 PASSED, 0 FAILED\n================================================================\n\n"
+  },
+  {
+    "file": "rollback_safety_test.mjs",
+    "status": "PASSED",
+    "duration": "0.06s",
+    "output": "...\n  [PASS] scripts/rollback_migration.mjs exists\n  [PASS] azaad-migration/batches directory exists\n  [PASS] docs/PILOT_SELECTION_MANIFEST.json exists\n  [PASS] Manifest locks exactly 10 articles\n  [PASS] Manifest covers 2023\n  [PASS] Manifest covers 2024\n  [PASS] Manifest covers 2025\n  [PASS] Manifest covers 2026\n\n================================================================\n  ROLLBACK SAFETY TEST RESULTS: 23 PASSED, 0 FAILED\n================================================================\n\n"
+  }
+]

@@ -32,6 +32,16 @@ export default function SuggestionCard({
       label: 'शैली व प्रवाह (Style)',
       badgeClass: 'bg-purple-100 text-purple-900 border-purple-300 dark:bg-purple-950/60 dark:text-purple-300',
     };
+  } else if (type === 'sensationalism') {
+    categoryMeta = {
+      label: 'सनसनीखेज भाषा (Sensationalism)',
+      badgeClass: 'bg-orange-100 text-orange-900 border-orange-300 dark:bg-orange-950/60 dark:text-orange-300',
+    };
+  } else if (type === 'fact_check') {
+    categoryMeta = {
+      label: 'तथ्य सत्यापन (Needs Verification)',
+      badgeClass: 'bg-amber-100 text-amber-900 border-amber-400 dark:bg-amber-950/60 dark:text-amber-300',
+    };
   }
 
   return (
@@ -45,11 +55,18 @@ export default function SuggestionCard({
     >
       {/* Category & Confidence Badge */}
       <div className="flex items-center justify-between gap-2">
-        <span
-          className={`px-2 py-0.5 border text-[10px] font-bold uppercase tracking-wider ${categoryMeta.badgeClass}`}
-        >
-          {categoryMeta.label}
-        </span>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span
+            className={`px-2 py-0.5 border text-[10px] font-bold uppercase tracking-wider ${categoryMeta.badgeClass}`}
+          >
+            {categoryMeta.label}
+          </span>
+          {suggestion.field && (
+            <span className="px-1.5 py-0.2 bg-paper-tint text-on-surface border border-border-rule text-[9px] font-bold font-mukta">
+              {suggestion.fieldLabel || (suggestion.field === 'headline' ? 'शीर्षक' : suggestion.field === 'excerpt' ? 'सारांश' : 'मुख्य भाग')}
+            </span>
+          )}
+        </div>
 
         <div className="flex items-center gap-1.5 text-secondary">
           {confidence === 'high' ? (
@@ -78,11 +95,11 @@ export default function SuggestionCard({
         </div>
 
         <div className="flex items-center gap-2 text-xs">
-          <span className="text-[10px] text-emerald-800 dark:text-emerald-400 font-bold uppercase font-inter shrink-0">
-            सुझाव:
+          <span className={`text-[10px] font-bold uppercase font-inter shrink-0 ${type === 'fact_check' ? 'text-amber-800 dark:text-amber-400' : 'text-emerald-800 dark:text-emerald-400'}`}>
+            {type === 'fact_check' ? 'स्थिति:' : 'सुझाव:'}
           </span>
-          <strong className="text-emerald-800 dark:text-emerald-300 font-bold bg-emerald-50 dark:bg-emerald-950/40 px-1 py-0.2">
-            {suggestedText}
+          <strong className={`font-bold px-1 py-0.2 ${type === 'fact_check' ? 'text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-300' : 'text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40'}`}>
+            {type === 'fact_check' ? 'तथ्य सत्यापन आवश्यक (Needs verification)' : suggestedText}
           </strong>
         </div>
       </div>
@@ -124,7 +141,7 @@ export default function SuggestionCard({
           title="सुझाव स्वीकार करें और आलेख में लागू करें"
         >
           <Check className="w-3 h-3" />
-          <span>स्वीकारें (Accept)</span>
+          <span>{type === 'fact_check' ? 'सत्यापित (Verified)' : 'स्वीकारें (Accept)'}</span>
         </button>
       </div>
     </div>

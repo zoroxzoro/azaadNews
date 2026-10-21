@@ -1,0 +1,117 @@
+{
+  "timestamp": "2026-10-20T03:39:20.949Z",
+  "supabaseUrl": "https://mqbegmviywgktnstaxpk.supabase.co",
+  "checks": {},
+  "metrics": {
+    "checkpointTotalImported": 10654,
+    "checkpointUniqueIds": 10654,
+    "localBatchManifestCount": 40,
+    "manifestArticlesSum": 10944,
+    "totalArticlesInDb": 10654,
+    "importedArticlesCount": 10654,
+    "articlesFetched": 10654,
+    "uniqueLegacyWpIds": 10654,
+    "duplicateCount": 0,
+    "nullLegacyIds": 0,
+    "dbYearDistribution": {
+      "2023": 1321,
+      "2024": 3651,
+      "2025": 4134,
+      "2026": 1548,
+      "other": 0
+    },
+    "articlesWithFeaturedMedia": 8690,
+    "wpYearDistribution": {
+      "2023": 1321,
+      "2024": 3651,
+      "2025": 4134,
+      "2026": 1548,
+      "other": 0
+    },
+    "totalWpPublishedFound": 10654,
+    "categoriesCount": 16,
+    "totalCategoryJoins": 74,
+    "kanpurArticleCount": 48,
+    "totalTagJoins": 3,
+    "sampleVerification": [
+      {
+        "wpId": 1333,
+        "titlePreview": "एनएसआई के वैज्ञानिकों ने विकसित किया 'शु...",
+        "hindiTitle": true,
+        "tipTapValid": true,
+        "nodeCount": 2,
+        "publishedAt": "2023-07-01T13:02:09+00:00",
+        "author": "आज़ाद समाचार डेस्क"
+      },
+      {
+        "wpId": 5547,
+        "titlePreview": "नगर में विकसित भारत संकल्प यात्रा का आयो...",
+        "hindiTitle": true,
+        "tipTapValid": true,
+        "nodeCount": 2,
+        "publishedAt": "2024-01-03T11:29:47+00:00",
+        "author": "आज़ाद समाचार डेस्क"
+      },
+      {
+        "wpId": 15056,
+        "titlePreview": "वाहन चेकिंग के दौरान पुलिस से झडप करने व...",
+        "hindiTitle": true,
+        "tipTapValid": true,
+        "nodeCount": 2,
+        "publishedAt": "2024-07-01T08:35:12+00:00",
+        "author": "आज़ाद समाचार डेस्क"
+      },
+      {
+        "wpId": 22055,
+        "titlePreview": "केडीए की बड़ी कार्यवाही एक अरब 47 करोङ की...",
+        "hindiTitle": true,
+        "tipTapValid": true,
+        "nodeCount": 2,
+        "publishedAt": "2025-02-12T08:09:45+00:00",
+        "author": "आज़ाद समाचार डेस्क"
+      },
+      {
+        "wpId": 33282,
+        "titlePreview": "जिलाधिकारी कर्यालय तक अर्थी के पहुंचने प...",
+        "hindiTitle": true,
+        "tipTapValid": true,
+        "nodeCount": 5,
+        "publishedAt": "2025-12-31T20:38:00+00:00",
+        "author": "आज़ाद समाचार डेस्क"
+      },
+      {
+        "wpId": 37655,
+        "titlePreview": "बीच सड़क पर मिली टेनरीकर्मी की लाश, दारू ...",
+        "hindiTitle": true,
+        "tipTapValid": true,
+        "nodeCount": 1,
+        "publishedAt": "2026-06-22T18:28:00+00:00",
+        "author": "आज़ाद समाचार डेस्क"
+      },
+      {
+        "wpId": 38195,
+        "titlePreview": "बिहार पर सीधी जीत से बढ़ा यूपी का हौसला,...",
+        "hindiTitle": true,
+        "tipTapValid": true,
+        "nodeCount": 5,
+        "publishedAt": "2026-10-16T10:51:54+00:00",
+        "author": "आज़ाद समाचार डेस्क"
+      }
+    ],
+    "totalMediaRows": 8670,
+    "mediaProbedCount": 20,
+    "mediaProbeSuccess": 20,
+    "mediaProbeFail": 0,
+    "totalRedirects": 0,
+    "totalBatchesInDb": 33,
+    "completedBatchesInDb": 33,
+    "latencies": {
+      "homepage12": 592,
+      "kanpurCategory12": 234,
+      "singleArticleLookup": 200,
+      "searchIlike": 211
+    },
+    "sitemapSizeKB": "22.58",
+    "sitemapUrlCount": 79
+  }
+}

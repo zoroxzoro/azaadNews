@@ -10,20 +10,32 @@ import {
 } from 'lucide-react';
 
 /**
- * ArticleShareBar component
- * Action bar providing social sharing, font size controls, bookmarking, and link copying.
+ * ArticleShareBar Component
+ * Action bar providing social sharing, font size controls, bookmarking, and link copying:
+ * - Real canonical article URL
+ * - WhatsApp, X/Twitter, Facebook, Telegram links
+ * - Web Share API on mobile
+ * - Accessible aria-labels and touch targets
+ * - Zero fake engagement counters
  */
 export default function ArticleShareBar({
-  title,
-  slug,
-  fontSizeLevel,
+  article = null,
+  title = '',
+  slug = '',
+  fontSizeLevel = 0,
   setFontSizeLevel,
   className = '',
 }) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
-  const articleUrl = typeof window !== 'undefined' ? window.location.href : `https://azaadsamachar.in/news/${slug}`;
+  // Concise short URL for social sharing and link copying
+  const shortId = article?.legacyWordPressId || article?.id || slug;
+  const canonicalBase = 'https://azaadsamacharindia.com';
+  const articleUrl = typeof window !== 'undefined' && window.location?.origin
+    ? `${window.location.origin}/news/${shortId}`
+    : `${canonicalBase}/news/${shortId}`;
+
   const shareText = encodeURIComponent(`${title} - आज़ाद समाचार`);
   const encodedUrl = encodeURIComponent(articleUrl);
 
@@ -39,10 +51,9 @@ export default function ArticleShareBar({
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(articleUrl);
         setIsCopied(true);
-        toast.success('लिंक कॉपी किया गया! (Link copied)', { id: 'copy-link' });
+        toast.success('लेख लिंक कॉपी किया गया! (Link copied)', { id: 'copy-link' });
         setTimeout(() => setIsCopied(false), 3000);
       } else {
-        // Fallback
         const textarea = document.createElement('textarea');
         textarea.value = articleUrl;
         document.body.appendChild(textarea);
@@ -50,7 +61,7 @@ export default function ArticleShareBar({
         document.execCommand('copy');
         document.body.removeChild(textarea);
         setIsCopied(true);
-        toast.success('लिंक कॉपी किया गया!');
+        toast.success('लेख लिंक कॉपी किया गया!');
         setTimeout(() => setIsCopied(false), 3000);
       }
     } catch {
@@ -59,7 +70,7 @@ export default function ArticleShareBar({
   };
 
   const handleNativeShare = async () => {
-    if (navigator.share) {
+    if (typeof navigator !== 'undefined' && navigator.share) {
       try {
         await navigator.share({
           title,
@@ -100,11 +111,12 @@ export default function ArticleShareBar({
           href={shareLinks.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#25D366] text-white font-inter text-xs font-bold rounded hover:opacity-90 transition-opacity shadow-xs"
+          aria-label="व्हाट्सएप पर साझा करें"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[36px] bg-[#25D366] text-white font-inter text-xs font-bold rounded-none hover:opacity-90 transition-opacity shadow-xs"
           title="व्हाट्सएप पर शेयर करें"
         >
           <span className="text-sm leading-none">💬</span>
-          <span>1.2k</span>
+          <span>व्हाट्सएप</span>
         </a>
 
         {/* X / Twitter */}
@@ -112,7 +124,7 @@ export default function ArticleShareBar({
           href={shareLinks.twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-8 h-8 rounded border border-border-rule bg-paper-canvas text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors font-bold text-xs"
+          className="w-9 h-9 border border-border-rule bg-paper-canvas text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors font-bold text-xs"
           title="X (ट्विटर) पर शेयर करें"
           aria-label="X पर शेयर करें"
         >
@@ -124,7 +136,7 @@ export default function ArticleShareBar({
           href={shareLinks.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-8 h-8 rounded border border-border-rule bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity font-bold text-xs"
+          className="w-9 h-9 border border-border-rule bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity font-bold text-xs"
           title="फेसबुक पर शेयर करें"
           aria-label="फेसबुक पर शेयर करें"
         >
@@ -136,7 +148,7 @@ export default function ArticleShareBar({
           href={shareLinks.telegram}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-8 h-8 rounded border border-border-rule bg-[#229ED9] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
+          className="w-9 h-9 border border-border-rule bg-[#229ED9] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
           title="टेलीग्राम पर भेजें"
           aria-label="टेलीग्राम पर भेजें"
         >
@@ -148,7 +160,7 @@ export default function ArticleShareBar({
           <button
             type="button"
             onClick={handleNativeShare}
-            className="w-8 h-8 rounded border border-border-rule bg-paper-tint text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer"
+            className="w-9 h-9 border border-border-rule bg-paper-tint text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer"
             title="अन्य ऐप्स पर शेयर करें"
             aria-label="शेयर करें"
           >
@@ -163,10 +175,11 @@ export default function ArticleShareBar({
         <button
           type="button"
           onClick={() => setFontSizeLevel && setFontSizeLevel((prev) => Math.max(-1, prev - 1))}
-          className={`w-8 h-8 border border-border-rule bg-paper-canvas text-on-surface font-mukta text-xs font-bold flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer ${
+          className={`w-9 h-9 border border-border-rule bg-paper-canvas text-on-surface font-mukta text-xs font-bold flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer ${
             fontSizeLevel === -1 ? 'opacity-40 cursor-not-allowed' : ''
           }`}
           title="फॉन्ट छोटा करें (अ-)"
+          aria-label="फॉन्ट छोटा करें"
         >
           अ-
         </button>
@@ -175,10 +188,11 @@ export default function ArticleShareBar({
         <button
           type="button"
           onClick={() => setFontSizeLevel && setFontSizeLevel((prev) => Math.min(2, prev + 1))}
-          className={`w-8 h-8 border border-border-rule bg-paper-canvas text-on-surface font-mukta text-sm font-bold flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer ${
+          className={`w-9 h-9 border border-border-rule bg-paper-canvas text-on-surface font-mukta text-sm font-bold flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer ${
             fontSizeLevel === 2 ? 'opacity-40 cursor-not-allowed' : ''
           }`}
           title="फॉन्ट बड़ा करें (अ+)"
+          aria-label="फॉन्ट बड़ा करें"
         >
           अ+
         </button>
@@ -187,11 +201,11 @@ export default function ArticleShareBar({
         <button
           type="button"
           onClick={toggleBookmark}
-          className={`w-8 h-8 border border-border-rule bg-paper-canvas flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer ${
+          className={`w-9 h-9 border border-border-rule bg-paper-canvas flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer ${
             isBookmarked ? 'text-primary-container' : 'text-on-surface'
           }`}
           title="लेख सुरक्षित करें"
-          aria-label="बुकमार्क"
+          aria-label="बुकमार्क करें"
         >
           <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
         </button>
@@ -200,9 +214,9 @@ export default function ArticleShareBar({
         <button
           type="button"
           onClick={() => window.print()}
-          className="w-8 h-8 border border-border-rule bg-paper-canvas text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer hidden sm:flex"
+          className="w-9 h-9 border border-border-rule bg-paper-canvas text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer hidden sm:flex"
           title="प्रिंट करें"
-          aria-label="प्रिंट"
+          aria-label="लेख प्रिंट करें"
         >
           <Printer className="w-4 h-4" />
         </button>
@@ -211,13 +225,14 @@ export default function ArticleShareBar({
         <button
           type="button"
           onClick={handleCopyLink}
-          className="px-2.5 h-8 border border-border-rule bg-paper-tint hover:bg-surface-container text-on-surface font-inter text-xs flex items-center gap-1 transition-colors cursor-pointer"
+          className="px-3 h-9 border border-border-rule bg-paper-tint hover:bg-surface-container text-on-surface font-inter text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
           title="लिंक कॉपी करें"
+          aria-label="लिंक कॉपी करें"
         >
           {isCopied ? (
             <>
               <Check className="w-3.5 h-3.5 text-emerald-600" />
-              <span className="text-emerald-600 font-bold">कॉपी!</span>
+              <span className="text-emerald-600 font-bold">कॉपी हुआ!</span>
             </>
           ) : (
             <>

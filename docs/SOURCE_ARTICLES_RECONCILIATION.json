@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-10-19T19:47:30.367Z",
+  "scanDurationSeconds": 3.38,
+  "summary": {
+    "totalPublishedArticles": 10654,
+    "draftCount": 1,
+    "postTypesAndStatuses": {
+      "nav_menu_item:publish": 26,
+      "post:publish": 10654,
+      "wp_navigation:publish": 1,
+      "elementor_library:publish": 1,
+      "wpcode:draft": 2,
+      "page:publish": 7,
+      "attachment:inherit": 10201,
+      "wpcf7_contact_form:publish": 1,
+      "amp_validated_url:publish": 8,
+      "rm_content_editor:draft": 1,
+      "revision:inherit": 9543,
+      "wprss_feed_template:publish": 1,
+      "wprss_feed:publish": 1,
+      "wprss_feed_item:publish": 38,
+      "wp_automatic:publish": 7,
+      "oembed_cache:publish": 4,
+      "wp_global_styles:publish": 3,
+      "post:draft": 1
+    }
+  },
+  "yearlyBreakdown": {
+    "years": {
+      "2023": 1321,
+      "2024": 3651,
+      "2025": 4134,
+      "2026": 1548
+    },
+    "sumOfYears": 10654,
+    "matchesTotalPublished": true
+  },
+  "dateRange": {
+    "earliestPublishedArticle": {
+      "id": 1333,
+      "date": "2023-07-01 18:32:09",
+      "title": "एनएसआई के वैज्ञानिकों ने विकसित किया 'शुद्ध जल सजग'।"
+    },
+    "latestPublishedArticle": {
+      "id": 38200,
+      "date": "2026-10-17 14:38:18",
+      "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।"
+    },
+    "missingOrInvalidDates": 0
+  },
+  "integrityChecks": {
+    "duplicateWordpressIdsCount": 0,
+    "duplicateWordpressIds": [],
+    "totalUniqueSlugs": 10654,
+    "collidingSlugsCount": 0,
+    "collidingSlugsSample": [],
+    "emptyContentAndTitleCount": 0,
+    "articlesWithoutCategories": 2,
+    "articlesWithSingleCategory": 10199,
+    "articlesWithMultipleCategories": 453
+  }
+}

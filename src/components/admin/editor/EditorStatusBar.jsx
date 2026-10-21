@@ -105,18 +105,16 @@ export default function EditorStatusBar({
               <span>पूर्वावलोकन</span>
             </button>
 
-            {/* AI Proofreading Check */}
-            {onOpenProofreading && (
-              <button
-                type="button"
-                onClick={onOpenProofreading}
-                className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 hover:from-amber-500/20 hover:to-purple-500/20 border border-primary-container/40 text-primary-container font-mukta text-xs sm:text-sm font-bold transition-all shadow-2xs cursor-pointer shrink-0"
-                title="AI वर्तनी व भाषा जाँच (Check with AI)"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-primary-container shrink-0" />
-                <span>AI जाँच</span>
-              </button>
-            )}
+            {/* AI Proofreading Check — Disabled / Coming Soon */}
+            <button
+              type="button"
+              disabled
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-paper-tint border border-border-rule text-secondary font-mukta text-xs sm:text-sm font-semibold opacity-75 cursor-not-allowed shrink-0 select-none"
+              title="AI जाँच सुविधा आगामी संस्करण में उपलब्ध होगी (AI Check — Coming Soon)"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-secondary/70 shrink-0" />
+              <span>AI जाँच — जल्द उपलब्ध</span>
+            </button>
 
             {/* Schedule */}
             {canPublish && (

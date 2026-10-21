@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, User, Share2, Bookmark, CheckCircle, Video, Image as ImageIcon } from 'lucide-react';
+import { Calendar, Clock, User, Share2, Bookmark, CheckCircle, Video, Image as ImageIcon, Newspaper } from 'lucide-react';
 import { getHighlightedParts } from '../../utils/searchNews';
+import { categories } from '../../data/categories';
 
 /**
  * Renders highlighted text where query matches are enclosed in a mark tag
@@ -28,7 +29,22 @@ function HighlightedText({ text, query, className = '' }) {
 }
 
 export default function SearchResultCard({ article, query = '', isTopMatch = false }) {
+  const [imageError, setImageError] = useState(false);
+
   if (!article) return null;
+
+  const categoryObj = categories.find((c) => c.slug === article.category);
+  const categoryLabel = article.categoryNameHindi || categoryObj?.nameHindi || article.category;
+
+  const formattedDate = article.publishedAt
+    ? new Date(article.publishedAt).toLocaleDateString('hi-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      })
+    : 'हाल ही में';
+
+  const hasImage = Boolean(article.featuredImage) && !imageError;
 
   return (
     <article
@@ -47,16 +63,12 @@ export default function SearchResultCard({ article, query = '', isTopMatch = fal
             </span>
           )}
           <span className="font-bold text-on-surface uppercase text-[11px] tracking-wider">
-            {article.categoryNameHindi || article.category}
+            {categoryLabel}
           </span>
           <span className="text-secondary">•</span>
           <time className="text-secondary text-[11px] flex items-center gap-1">
             <Calendar className="w-3 h-3 text-secondary shrink-0" />
-            {article.publishedAt ? new Date(article.publishedAt).toLocaleDateString('hi-IN', {
-              day: 'numeric',
-              month: 'short',
-              year: 'numeric'
-            }) : 'हाल ही में'}
+            {formattedDate}
           </time>
           {article.isVerified && (
             <span className="inline-flex items-center gap-0.5 text-accent-verified text-[11px] font-medium">
@@ -79,7 +91,7 @@ export default function SearchResultCard({ article, query = '', isTopMatch = fal
         <div className="md:col-span-8 flex flex-col gap-1.5 order-2 md:order-1">
           <Link to={`/news/${article.slug}`}>
             <h2
-              className={`font-mukta font-bold text-on-surface group-hover:text-primary-container transition-colors leading-snug ${
+              className={`font-mukta font-bold text-on-surface group-hover:text-primary-container transition-colors leading-snug break-words [word-break:break-word] ${
                 isTopMatch ? 'text-lg sm:text-xl md:text-2xl' : 'text-base sm:text-lg md:text-xl'
               }`}
             >
@@ -87,7 +99,7 @@ export default function SearchResultCard({ article, query = '', isTopMatch = fal
             </h2>
           </Link>
 
-          <p className="font-inter text-xs sm:text-sm text-secondary leading-relaxed line-clamp-2 sm:line-clamp-3">
+          <p className="font-inter text-xs sm:text-sm text-secondary leading-relaxed line-clamp-2 sm:line-clamp-3 break-words [word-break:break-word]">
             <HighlightedText text={article.summary} query={query} />
           </p>
 
@@ -112,7 +124,7 @@ export default function SearchResultCard({ article, query = '', isTopMatch = fal
               <span>{article.author?.name || 'आज़ाद ब्यूरो'}</span>
             </div>
             <span>•</span>
-            <span>{article.location || 'नई दिल्ली'}</span>
+            <span>{article.location || 'कानपुर'}</span>
             {article.views && (
               <>
                 <span>•</span>
@@ -125,14 +137,27 @@ export default function SearchResultCard({ article, query = '', isTopMatch = fal
         {/* Thumbnail Block */}
         <div className="md:col-span-4 order-1 md:order-2">
           <Link to={`/news/${article.slug}`} className="block overflow-hidden relative group/thumb">
-            <div className="aspect-video sm:aspect-16/10 bg-surface-container overflow-hidden">
-              <img
-                src={article.featuredImage}
-                alt={article.title}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
-              />
-            </div>
+            {hasImage ? (
+              <div className="aspect-video sm:aspect-16/10 bg-surface-container overflow-hidden">
+                <img
+                  src={article.featuredImage}
+                  alt={article.title}
+                  loading="lazy"
+                  onError={() => setImageError(true)}
+                  className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
+                />
+              </div>
+            ) : (
+              <div className="aspect-video sm:aspect-16/10 bg-paper-tint border border-border-rule overflow-hidden flex flex-col items-center justify-center p-3 text-secondary text-center group-hover/thumb:bg-paper-subtle transition-colors">
+                <Newspaper className="w-8 h-8 text-secondary/60 mb-1" />
+                <span className="font-mukta text-xs font-bold text-on-surface line-clamp-1">
+                  आज़ाद समाचार
+                </span>
+                <span className="font-inter text-[10px] text-secondary">
+                  {categoryLabel} डेस्क
+                </span>
+              </div>
+            )}
             {article.contentType === 'video' && (
               <span className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/80 text-white text-[10px] font-inter flex items-center gap-1 rounded">
                 <Video className="w-3 h-3 text-red-500" />

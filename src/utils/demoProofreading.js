@@ -406,46 +406,16 @@ export const ENGLISH_RULES = [
   },
 ];
 
+import { runAiContentAnalysis } from './aiContentChecker.js';
+
 /**
- * Runs the deterministic demonstration rule-based analysis on the TipTap ProseMirror document.
+ * Runs linguistic and editorial analysis on the TipTap ProseMirror document.
+ * Backward-compatible entrypoint forwarding to the real aiContentChecker engine.
  *
  * @param {import('@tiptap/pm/model').Node} doc - The ProseMirror doc
  * @param {string} language - Article language ('hi' or 'en')
- * @returns {Array<Suggestion>}
+ * @returns {Array}
  */
 export function runDemoProofreading(doc, language = 'hi') {
-  if (!doc) return [];
-
-  const rules = language === 'en' ? ENGLISH_RULES : HINDI_RULES;
-  const suggestions = [];
-  let suggestionIndex = 1;
-
-  rules.forEach((rule) => {
-    const matches = findMatchesInDoc(doc, rule.pattern);
-
-    matches.forEach((match) => {
-      // Suggestion object adhering to Section 6 schema
-      suggestions.push({
-        id: `sug-${rule.id}-${suggestionIndex++}`,
-        ruleId: rule.id,
-        type: rule.category, // 'spelling' | 'grammar' | 'punctuation' | 'clarity' | 'style'
-        severity: rule.severity, // 'error' | 'warning' | 'info'
-        confidence: rule.confidence, // 'high' | 'medium'
-        originalText: match.matchedText,
-        suggestedText: rule.suggestedText,
-        explanation: language === 'en' ? rule.explanationEnglish : rule.explanationHindi,
-        location: {
-          from: match.from,
-          to: match.to,
-          length: match.to - match.from,
-        },
-        isSafeToAutoApply: rule.isSafeToAutoApply,
-      });
-    });
-  });
-
-  // Sort suggestions by document position ascending
-  suggestions.sort((a, b) => a.location.from - b.location.from);
-
-  return suggestions;
+  return runAiContentAnalysis(doc, language);
 }

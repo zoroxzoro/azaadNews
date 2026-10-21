@@ -27,15 +27,17 @@ export default function BulkActionsBar({
           <span>ड्राफ्ट में बदलें (Move to Draft)</span>
         </button>
 
-        <button
-          type="button"
-          onClick={onBulkDelete}
-          className="px-3 py-1.5 bg-ticker-tint hover:bg-red-100 dark:hover:bg-red-950 text-breaking-crimson border border-breaking-crimson/30 font-mukta font-bold text-xs sm:text-sm flex items-center gap-1.5 cursor-pointer transition-colors"
-          title="चयनित आलेखों को हटाएं"
-        >
-          <Trash2 className="w-3.5 h-3.5" />
-          <span>हटाएं (Delete)</span>
-        </button>
+        {Boolean(onBulkDelete) && (
+          <button
+            type="button"
+            onClick={onBulkDelete}
+            className="px-3 py-1.5 bg-ticker-tint hover:bg-red-100 dark:hover:bg-red-950 text-breaking-crimson border border-breaking-crimson/30 font-mukta font-bold text-xs sm:text-sm flex items-center gap-1.5 cursor-pointer transition-colors"
+            title="चयनित आलेखों को हटाएं"
+          >
+            <Trash2 className="w-3.5 h-3.5" />
+            <span>हटाएं (Delete)</span>
+          </button>
+        )}
 
         <button
           type="button"

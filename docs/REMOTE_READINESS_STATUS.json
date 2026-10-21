@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-19T21:13:39.722Z",
+  "supabaseUrl": "https://mqbegmviywgktnstaxpk.supabase.co",
+  "clientAccessType": "service_role",
+  "migration5_StorageBucket": {
+    "status": "PASS",
+    "bucketName": "media-library",
+    "bucketExistence": "PASS",
+    "publicAccess": "PASS",
+    "fileSizeLimit": "PASS",
+    "allowedMimeTypes": "PASS",
+    "storagePolicies": "UNKNOWN",
+    "verificationMethod": "Admin API",
+    "note": "Verified with administrative credentials.",
+    "diagnostics": [
+      {
+        "method": "storage.listBuckets",
+        "bucketsFoundCount": 1,
+        "note": "Full bucket enumeration"
+      }
+    ]
+  },
+  "migration6_WordpressSupport": {
+    "status": "PASS",
+    "applied": true,
+    "details": "All required migration columns exist on public.articles"
+  },
+  "kanpurCategory": {
+    "status": "PASS",
+    "details": "Kanpur category is active (\"कानपुर\")"
+  },
+  "existingCmsData": {
+    "status": "PASS",
+    "publishedArticlesFound": 5,
+    "cmsIntact": true
+  },
+  "tableChecks": {
+    "categories": {
+      "status": "PASS",
+      "totalCategories": 16,
+      "hasKanpur": true,
+      "sampleSlugs": [
+        "latest",
+        "national",
+        "politics",
+        "uttar-pradesh",
+        "world",
+        "business",
+        "sports",
+        "entertainment"
+      ]
+    },
+    "articles": {
+      "status": "PASS",
+      "sampleCount": 5,
+      "nativeArticlesIntact": true
+    },
+    "media": {
+      "status": "PASS",
+      "legacyAttachmentIdColumnExists": true,
+      "importBatchIdColumnExists": true
+    },
+    "migrationBatches": {
+      "status": "PASS",
+      "ready": true
+    },
+    "legacyUrlRedirects": {
+      "status": "PASS",
+      "ready": true
+    }
+  }
+}

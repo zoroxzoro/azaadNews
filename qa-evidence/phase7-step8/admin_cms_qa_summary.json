@@ -1,0 +1,47 @@
+[
+  {
+    "screen": "Dashboard",
+    "passed": true,
+    "detail": {
+      "hasHeader": true,
+      "heading": "संपादकीय नियंत्रण कक्ष (Newsroom Command Center)",
+      "statCardsFound": true
+    }
+  },
+  {
+    "screen": "All News",
+    "passed": true,
+    "detail": {
+      "rowsCount": 21,
+      "hasSearchInput": true,
+      "filterSelectCount": 3
+    }
+  },
+  {
+    "screen": "Create Article (TipTap)",
+    "passed": true,
+    "detail": {
+      "hasTitleInput": true,
+      "hasTipTap": true,
+      "hasToolbar": true,
+      "hasPublishBtn": true,
+      "hasDraftBtn": true,
+      "hasCategorySelect": true
+    }
+  },
+  {
+    "screen": "Media Library",
+    "passed": true,
+    "detail": {
+      "mediaItemsCount": 26,
+      "hasUploadBtn": true
+    }
+  },
+  {
+    "screen": "Logout",
+    "passed": true,
+    "detail": {
+      "afterLogoutUrl": "http://127.0.0.1:5173/admin/login?redirect=%2Fadmin%2Fmedia"
+    }
+  }
+]

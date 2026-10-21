@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-10-19T19:56:26.116Z",
+  "auditDurationSeconds": 3.97,
+  "referenceOccurrences": {
+    "totalImageOccurrencesScanned": 9447,
+    "featuredImageOccurrences": 732,
+    "inlineImageOccurrences": 8715,
+    "externalUrlOccurrences": 34
+  },
+  "uniqueFiles": {
+    "totalUniqueInternalMediaReferenced": 9257,
+    "existingPhysicallyOnDisk": 8916,
+    "missingFromDisk": 341,
+    "physicalPresencePercentage": "96.32%",
+    "sharedFilesAcrossMultipleArticles": 20,
+    "topSharedSample": [
+      {
+        "file": "2023/04/cropped-cropped-cropped-cropped-cropped-cropped-Azad-Samachar-1024x634.jpg",
+        "sharedAcrossArticlesCount": 20
+      },
+      {
+        "file": "2023/12/IMG_20230907_115513917-1024x1024.jpg",
+        "sharedAcrossArticlesCount": 3
+      },
+      {
+        "file": "2026/09/1000458072774228949573618660.jpg",
+        "sharedAcrossArticlesCount": 3
+      },
+      {
+        "file": "2023/12/Picsart_23-09-08_23-28-01-099-1024x1024.jpg",
+        "sharedAcrossArticlesCount": 2
+      },
+      {
+        "file": "2024/03/b05a2185-d622-4769-a1a5-791caa1e5f8a_1710729461246.webp",
+        "sharedAcrossArticlesCount": 2
+      }
+    ]
+  },
+  "storageCapacityRequired": {
+    "totalBytes": 682515968,
+    "totalMegaBytes": "650.90 MB",
+    "totalGigaBytes": "0.636 GB",
+    "rawUploadsDirectorySize": "6.97 GB",
+    "storageSavingsVsRawUploads": "6.33 GB saved (90.6%)"
+  },
+  "fileSizeDistribution": {
+    "minSizeBytes": 886,
+    "minSizeFile": "2024/02/new-project-2024-01-31t093413894_1706673906.webp",
+    "maxSizeBytes": 21413736,
+    "maxSizeFile": "2024/05/image-19.png",
+    "maxSizeMegaBytes": "20.42 MB",
+    "averageSizeBytes": 76550,
+    "averageSizeKiloBytes": "74.8 KB",
+    "histogram": {
+      "under100KB": 7265,
+      "between100KBand500KB": 1458,
+      "between500KBand1MB": 156,
+      "between1MBand5MB": 36,
+      "over5MB": 1,
+      "over10MB": 1
+    },
+    "exceeds10MbSupabaseLimit": true
+  },
+  "mimeTypesBreakdown": {
+    "image/webp": 1007,
+    "image/jpeg": 7456,
+    "image/png": 451,
+    "image/gif": 2,
+    "other": 0
+  },
+  "externalDomains": {
+    "ssl.gstatic.com": 16,
+    "ci3.googleusercontent.com": 4,
+    "mail.google.com": 13,
+    "mobile-webview.gmail.com": 1
+  },
+  "supabasePlanAnalysis": {
+    "freePlanStorageQuota": "1.00 GB (1,024 MB)",
+    "proPlanStorageQuota": "100.00 GB",
+    "requiredUploadPercentageOfFreeTier": "63.6%",
+    "fitsInFreeTier": true,
+    "remainingHeadroomOnFreeTierMB": "373.1 MB",
+    "quotaVerificationInstructions": "Dashboard -> Organization Settings -> Billing / Project Usage -> Storage Bucket Usage"
+  }
+}

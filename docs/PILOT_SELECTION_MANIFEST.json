@@ -1,0 +1,591 @@
+{
+  "manifestVersion": "1.0.0",
+  "generatedAt": "2026-10-19T19:51:30.724Z",
+  "lockedArticleCount": 10,
+  "yearDistribution": {
+    "2023": 3,
+    "2024": 3,
+    "2025": 2,
+    "2026": 2
+  },
+  "articles": [
+    {
+      "manifestIndex": 1,
+      "year": 2023,
+      "wordpressId": 1333,
+      "title": "एनएसआई के वैज्ञानिकों ने विकसित किया 'शुद्ध जल सजग'।",
+      "slug": "एनएसआई-के-वैज्ञानिकों-ने",
+      "publishedAt": "2023-07-01T13:02:09.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=1333",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/07/new-project-11_1688137097.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0,
+        "targetStoragePath": "articles/2023/07/new-project-11_1688137097.webp"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 1333,
+        "title": "एनएसआई के वैज्ञानिकों ने विकसित किया 'शुद्ध जल सजग'।",
+        "slug": "एनएसआई-के-वैज्ञानिकों-ने",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 2,
+      "year": 2023,
+      "wordpressId": 1336,
+      "title": "अब कानपुर में वंदे भारत ट्रेन 2 की बजाय अब 4 मिनट तक रुकेगी।",
+      "slug": "अब-कानपुर-में-वंदे-भारत-ट्",
+      "publishedAt": "2023-07-01T13:02:53.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=1336",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/07/new-project-2023-06-30t193720601_1688134195.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0,
+        "targetStoragePath": "articles/2023/07/new-project-2023-06-30t193720601_1688134195.webp"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 1336,
+        "title": "अब कानपुर में वंदे भारत ट्रेन 2 की बजाय अब 4 मिनट तक रुकेगी।",
+        "slug": "अब-कानपुर-में-वंदे-भारत-ट्",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 3,
+      "year": 2023,
+      "wordpressId": 4134,
+      "title": "दीपावली के चलते रोडवेज की बढ़ाई गई 370 बस सबसे अधिक दिल्ली आगरा मेरठ के रूट पर।",
+      "slug": "दीपावली-के-चलते-रोडवेज-की",
+      "publishedAt": "2023-11-06T18:37:28.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=4134",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "wp_post_thumbnail",
+        "relativePath": "2023/11/8fde7904-9bb0-4b2c-8630-edc7944846de_1699244960320.webp",
+        "existsOnDisk": true,
+        "sizeBytes": 10424,
+        "targetStoragePath": "articles/2023/11/8fde7904-9bb0-4b2c-8630-edc7944846de_1699244960320.webp"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 4134,
+        "title": "दीपावली के चलते रोडवेज की बढ़ाई गई 370 बस सबसे अधिक दिल्ली आगरा मेरठ के रूट पर।",
+        "slug": "दीपावली-के-चलते-रोडवेज-की",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 4,
+      "year": 2024,
+      "wordpressId": 5535,
+      "title": "प्रभु की वन्दना के  साथ नए साल की शुरुआत",
+      "slug": "प्रभु-की-वन्दना-के-साथ-नए",
+      "publishedAt": "2024-01-02T07:51:13.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=5535",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 5535,
+        "title": "प्रभु की वन्दना के  साथ नए साल की शुरुआत",
+        "slug": "प्रभु-की-वन्दना-के-साथ-नए",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 5,
+      "year": 2024,
+      "wordpressId": 5541,
+      "title": "कानपुर सागर हाइवे के किनारे संचालित  अवैध मोरंग धुलाई सेंटरों के सामने पीएनसी ने की कार्यवाही।",
+      "slug": "कानपुर-सागर-हाइवे-के-किना",
+      "publishedAt": "2024-01-01T11:27:16.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=5541",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/01/f046a03f-9bf2-4f13-a7d6-78fc7b189c69_1704078036660.webp",
+        "existsOnDisk": true,
+        "sizeBytes": 9522,
+        "targetStoragePath": "articles/2024/01/f046a03f-9bf2-4f13-a7d6-78fc7b189c69_1704078036660.webp"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 5541,
+        "title": "कानपुर सागर हाइवे के किनारे संचालित  अवैध मोरंग धुलाई सेंटरों के सामने पीएनसी ने की कार्यवाही।",
+        "slug": "कानपुर-सागर-हाइवे-के-किना",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 6,
+      "year": 2024,
+      "wordpressId": 5544,
+      "title": "नए कानून के खिलाफ वाहन चालकों की  सोमवार को सुबह से ही हड़ताल।",
+      "slug": "नए-कानून-के-खिलाफ-वाहन-चाल",
+      "publishedAt": "2024-01-01T11:28:29.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=5544",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/01/97baa64d-54f3-44c8-9938-06188f3f8a75_1704097790809.webp",
+        "existsOnDisk": true,
+        "sizeBytes": 10214,
+        "targetStoragePath": "articles/2024/01/97baa64d-54f3-44c8-9938-06188f3f8a75_1704097790809.webp"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 5544,
+        "title": "नए कानून के खिलाफ वाहन चालकों की  सोमवार को सुबह से ही हड़ताल।",
+        "slug": "नए-कानून-के-खिलाफ-वाहन-चाल",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 7,
+      "year": 2025,
+      "wordpressId": 20401,
+      "title": "यशोदानगर की सड़क का बदलेगा स्वरूप।",
+      "slug": "the-appearance-of-yashoda-nagar-road-will-change",
+      "publishedAt": "2025-01-01T00:42:26.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=20401",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 4,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 20401,
+        "title": "यशोदानगर की सड़क का बदलेगा स्वरूप।",
+        "slug": "the-appearance-of-yashoda-nagar-road-will-change",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 8,
+      "year": 2025,
+      "wordpressId": 20405,
+      "title": "ज्वेलर्स की दुकान से चोरों ने आभूषण और नकदी समेत सवा करोड़ रुपए का माल किया पार।",
+      "slug": "thieves-made-away-with-jewelery-and-cash-worth-rs-1-25-crore-from-a-jewellers-shop",
+      "publishedAt": "2025-01-01T00:43:43.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=20405",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 4,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 20405,
+        "title": "ज्वेलर्स की दुकान से चोरों ने आभूषण और नकदी समेत सवा करोड़ रुपए का माल किया पार।",
+        "slug": "thieves-made-away-with-jewelery-and-cash-worth-rs-1-25-crore-from-a-jewellers-shop",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 9,
+      "year": 2026,
+      "wordpressId": 33282,
+      "title": "जिलाधिकारी कर्यालय तक अर्थी के पहुंचने पर पुलिस नाकामी की होगी जाँच।",
+      "slug": "the-police-failure-will-be-investigated-once-the-hearse-reaches-the-district-magistrates-office",
+      "publishedAt": "2025-12-31T20:38:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=33282",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/01/img_7902.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 38979,
+        "targetStoragePath": "articles/2026/01/img_7902.jpg"
+      },
+      "tipTapDocNodesCount": 5,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 33282,
+        "title": "जिलाधिकारी कर्यालय तक अर्थी के पहुंचने पर पुलिस नाकामी की होगी जाँच।",
+        "slug": "the-police-failure-will-be-investigated-once-the-hearse-reaches-the-district-magistrates-office",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    },
+    {
+      "manifestIndex": 10,
+      "year": 2026,
+      "wordpressId": 38200,
+      "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+      "slug": "कानपुर-विश्वविद्यालय-और",
+      "publishedAt": "2026-10-17T09:08:18.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=38200",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/10/IMG-20261017-WA0002.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 206260,
+        "targetStoragePath": "articles/2026/10/IMG-20261017-WA0002.jpg"
+      },
+      "tipTapDocNodesCount": 7,
+      "conversionWarnings": [],
+      "expectedTargetRecord": {
+        "legacy_wordpress_id": 38200,
+        "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+        "slug": "कानपुर-विश्वविद्यालय-और",
+        "excerpt": "",
+        "status": "published",
+        "language": "hi",
+        "legacy_author_name": "आज़ाद समाचार डेस्क",
+        "is_imported": true,
+        "location": "कानपुर"
+      }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import SocialIcon from '../common/SocialIcon';
 import { socialLinks } from '../../data/socialLinks';
 import { useLanguage } from '../../context/LanguageContext';
 import { Calendar, Newspaper, ExternalLink, Shield } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function TopBar() {
   const { language, setLanguage, t } = useLanguage();
@@ -29,7 +30,7 @@ export default function TopBar() {
 
       return `${city} | ${dateString} | ${samvatText}`;
     } catch (e) {
-      return 'नई दिल्ली | मंगलवार, 25 मार्च 2025 | संवत् 2081';
+      return 'कानपुर | मंगलवार, 25 मार्च 2025 | संवत् 2081';
     }
   }, [language, t]);
 
@@ -48,26 +49,6 @@ export default function TopBar() {
             <Calendar className="w-3.5 h-3.5 text-secondary shrink-0 hidden xs:inline" />
             <span className="truncate">{formattedDate}</span>
           </span>
-
-          <span className="hidden lg:inline-block h-3.5 w-px bg-border-rule shrink-0"></span>
-
-          {/* Market Ticker */}
-          <div className="hidden sm:flex items-center gap-1.5 bg-paper-subtle px-2 py-0.5 border border-border-rule font-inter text-[11px] shrink-0">
-            <span className="font-bold text-secondary uppercase text-[10px]">
-              {t('market')}:
-            </span>
-            <span className="font-semibold text-primary-container font-mukta">
-              {t('nifty')}
-            </span>
-            <span className="font-bold">22,810</span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold">▲ 0.45%</span>
-            <span className="text-border-rule mx-0.5">|</span>
-            <span className="font-semibold text-primary-container font-mukta">
-              {t('sensex')}
-            </span>
-            <span className="font-bold">75,190</span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold">▲ 0.38%</span>
-          </div>
         </div>
 
         {/* Right: Language Switcher, E-Paper, About, Contact, Social Icons, Theme Toggle */}
@@ -108,9 +89,11 @@ export default function TopBar() {
             href="#epaper"
             onClick={(e) => {
               e.preventDefault();
-              alert('ई-पेपर पीडीएफ संस्करण जल्द उपलब्ध होगा। (E-Paper PDF coming soon)');
+              toast('ई-पेपर पीडीएफ संस्करण जल्द उपलब्ध होगा। (E-Paper PDF coming soon)', {
+                icon: '📰',
+              });
             }}
-            className="flex items-center gap-1 text-primary-container font-bold hover:underline text-[11px] sm:text-xs"
+            className="flex items-center gap-1 text-primary-container font-bold hover:underline text-[11px] sm:text-xs cursor-pointer"
           >
             <Newspaper className="w-3.5 h-3.5" />
             <span>{t('epaper')}</span>

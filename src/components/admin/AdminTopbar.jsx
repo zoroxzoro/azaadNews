@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import ThemeToggle from '../common/ThemeToggle';
-import { useDemoAuth } from '../../context/DemoAuthContext';
+import { useAuth } from '../../context/AuthContext';
 import {
   Menu,
   Search,
@@ -12,16 +12,48 @@ import {
   User,
   LogOut,
   ChevronDown,
-  CheckCircle,
+  CheckCircle2,
   Clock,
   AlertTriangle,
+  FileText,
+  Image as ImageIcon,
+  Sparkles,
+  CheckCheck,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { notificationService } from '../../services/notificationService';
+
+function formatRelativeTime(isoString) {
+  if (!isoString) return 'हाल ही में';
+  const diffSec = Math.floor((Date.now() - new Date(isoString).getTime()) / 1000);
+  if (diffSec < 60) return 'अभी-अभी';
+  if (diffSec < 3600) return `${Math.floor(diffSec / 60)} मिनट पहले`;
+  if (diffSec < 86400) return `${Math.floor(diffSec / 3600)} घंटे पहले`;
+  return `${Math.floor(diffSec / 86400)} दिन पहले`;
+}
+
+function getNotificationIcon(type) {
+  switch (type) {
+    case 'published':
+      return { Icon: CheckCircle2, bg: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600' };
+    case 'scheduled':
+      return { Icon: Clock, bg: 'bg-amber-50 dark:bg-amber-950/40 text-amber-600' };
+    case 'review':
+      return { Icon: FileText, bg: 'bg-blue-50 dark:bg-blue-950/40 text-blue-600' };
+    case 'media':
+      return { Icon: ImageIcon, bg: 'bg-purple-50 dark:bg-purple-950/40 text-purple-600' };
+    case 'system':
+    case 'alert':
+      return { Icon: AlertTriangle, bg: 'bg-red-50 dark:bg-red-950/40 text-red-600' };
+    default:
+      return { Icon: Sparkles, bg: 'bg-paper-tint text-primary-container' };
+  }
+}
 
 export default function AdminTopbar({ onOpenMobile }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { currentUser, logout } = useDemoAuth();
+  const { currentUser, logout, role, isSuperAdmin, isOrdinaryAdmin } = useAuth();
 
   const [profileOpen, setProfileOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -57,30 +89,49 @@ export default function AdminTopbar({ onOpenMobile }) {
     navigate('/admin/login');
   };
 
-  // Mock Notifications
-  const mockNotifications = [
-    {
-      id: 1,
-      title: 'धोलेरा सेमीकंडक्टर रिपोर्ट प्रकाशित',
-      time: '10 मिनट पहले',
-      type: 'success',
-      icon: CheckCircle,
-    },
-    {
-      id: 2,
-      title: 'बजट 2025 आलेख समीक्षाधीन है',
-      time: '35 मिनट पहले',
-      type: 'warning',
-      icon: Clock,
-    },
-    {
-      id: 3,
-      title: 'प्राइम टाइम 14:00 स्लॉट रिक्त है',
-      time: '1 घंटा पहले',
-      type: 'alert',
-      icon: AlertTriangle,
-    },
-  ];
+  const [notifications, setNotifications] = useState([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  // Load real notifications from notificationService
+  const loadNotifications = async () => {
+    try {
+      const [list, unread] = await Promise.all([
+        notificationService.getNotifications(15),
+        notificationService.getUnreadCount(),
+      ]);
+      setNotifications(list);
+      setUnreadCount(unread);
+    } catch (err) {
+      console.warn('[AdminTopbar] Error loading notifications:', err);
+    }
+  };
+
+  useEffect(() => {
+    loadNotifications();
+    const unsubscribe = notificationService.subscribe(loadNotifications);
+    return () => unsubscribe();
+  }, []);
+
+  const handleMarkAllRead = async () => {
+    await notificationService.markAllAsRead();
+    toast.success('सभी सूचनाएं पढ़ी हुई चिह्नित की गईं');
+    await loadNotifications();
+  };
+
+  const handleNotificationClick = async (notif) => {
+    if (!notif.is_read) {
+      await notificationService.markAsRead(notif.id);
+    }
+    setNotificationsOpen(false);
+    if (notif.link) {
+      navigate(notif.link);
+    }
+  };
+
+  const roleLabel = isSuperAdmin ? 'सुपर एडमिन (Super Admin)' : 'एडमिन (Admin)';
+  const roleBadgeStyle = isSuperAdmin 
+    ? 'bg-amber-100 dark:bg-amber-950/40 text-amber-900 dark:text-amber-300 border-amber-300 dark:border-amber-700'
+    : 'bg-blue-100 dark:bg-blue-950/40 text-blue-900 dark:text-blue-300 border-blue-300 dark:border-blue-700';
 
   return (
     <header className="sticky top-0 z-30 h-14 sm:h-16 bg-paper-canvas/90 backdrop-blur-md border-b border-border-rule px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-3 shadow-2xs">
@@ -97,7 +148,10 @@ export default function AdminTopbar({ onOpenMobile }) {
         <div className="hidden sm:flex items-center gap-2 bg-paper-subtle px-2.5 py-1 text-xs font-inter border border-border-rule shrink-0">
           <span className="font-bold text-secondary uppercase text-[10px]">डेस्क:</span>
           <span className="font-semibold text-on-surface truncate">
-            संपादकीय पोर्टल - Editorial Desk
+            {isSuperAdmin ? 'मुख्य संपादकीय व्यवस्थापक' : 'संपादकीय लेखक डेस्क'}
+          </span>
+          <span className={`text-[10px] font-mono px-1.5 py-0.5 border font-bold uppercase rounded ${roleBadgeStyle}`}>
+            {isSuperAdmin ? 'SUPER ADMIN' : 'ADMIN'}
           </span>
         </div>
       </div>
@@ -138,44 +192,90 @@ export default function AdminTopbar({ onOpenMobile }) {
             aria-label="सूचनाएं"
           >
             <Bell className="w-4 h-4" />
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-live-pulse text-white font-inter text-[9px] font-bold flex items-center justify-center rounded-full">
-              3
-            </span>
+            {unreadCount > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-live-pulse text-white font-inter text-[9px] font-bold flex items-center justify-center rounded-full animate-pulse">
+                {unreadCount > 9 ? '9+' : unreadCount}
+              </span>
+            )}
           </button>
 
           {/* Notifications Modal / Menu */}
           {notificationsOpen && (
-            <div className="absolute right-0 mt-2 w-72 sm:w-80 bg-paper-canvas border border-border-rule shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-              <div className="px-3 py-2 border-b border-border-rule flex items-center justify-between">
-                <span className="font-mukta font-bold text-sm text-on-surface">
-                  संपादकीय सूचनाएं
-                </span>
-                <span className="text-[10px] font-inter text-secondary">3 नई</span>
+            <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-paper-canvas border border-border-rule shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="px-3.5 py-2.5 border-b border-border-rule flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-mukta font-bold text-sm text-on-surface">
+                    संपादकीय सूचनाएं (Notifications)
+                  </span>
+                  {unreadCount > 0 && (
+                    <span className="text-[10px] font-inter font-bold px-1.5 py-0.2 bg-live-pulse/15 text-breaking-crimson border border-live-pulse/30 rounded-full">
+                      {unreadCount} नई
+                    </span>
+                  )}
+                </div>
+
+                {unreadCount > 0 && (
+                  <button
+                    type="button"
+                    onClick={handleMarkAllRead}
+                    className="text-[11px] font-inter text-primary-container hover:underline cursor-pointer flex items-center gap-1"
+                  >
+                    <CheckCheck className="w-3 h-3" />
+                    <span>सभी पढ़ें</span>
+                  </button>
+                )}
               </div>
-              <div className="divide-y divide-border-rule/60 max-h-64 overflow-y-auto">
-                {mockNotifications.map((notif) => {
-                  const Icon = notif.icon;
-                  return (
-                    <div key={notif.id} className="p-3 hover:bg-paper-tint transition-colors flex items-start gap-2.5">
-                      <div className="p-1 rounded bg-paper-tint shrink-0 mt-0.5">
-                        <Icon className="w-3.5 h-3.5 text-primary-container" />
+
+              <div className="divide-y divide-border-rule/60 max-h-80 overflow-y-auto">
+                {notifications.length === 0 ? (
+                  <div className="p-6 text-center text-secondary text-xs font-inter space-y-1">
+                    <Bell className="w-6 h-6 mx-auto mb-1 text-secondary/40" />
+                    <p className="font-semibold text-on-surface">कोई नई सूचना नहीं है</p>
+                    <p className="text-[11px] text-secondary">
+                      आलेख शेड्यूलिंग, प्रकाशन एवं संपादकीय समीक्षा सूचनाएं यहां स्वतः प्रदर्शित होंगी।
+                    </p>
+                  </div>
+                ) : (
+                  notifications.map((notif) => {
+                    const { Icon, bg } = getNotificationIcon(notif.type);
+                    return (
+                      <div
+                        key={notif.id}
+                        onClick={() => handleNotificationClick(notif)}
+                        className={`p-3 hover:bg-paper-tint transition-colors flex items-start gap-2.5 cursor-pointer ${
+                          !notif.is_read ? 'bg-paper-tint/60 font-medium' : 'opacity-85'
+                        }`}
+                      >
+                        <div className={`p-1.5 rounded shrink-0 mt-0.5 ${bg}`}>
+                          <Icon className="w-3.5 h-3.5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-2">
+                            <p className="text-xs font-mukta font-bold text-on-surface leading-snug truncate">
+                              {notif.title}
+                            </p>
+                            {!notif.is_read && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-live-pulse shrink-0" />
+                            )}
+                          </div>
+                          {notif.message && (
+                            <p className="text-[11px] font-inter text-secondary leading-normal line-clamp-2 mt-0.5">
+                              {notif.message}
+                            </p>
+                          )}
+                          <span className="text-[10px] font-inter text-secondary mt-1 block">
+                            {formatRelativeTime(notif.created_at)}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs font-mukta font-bold text-on-surface leading-snug">
-                          {notif.title}
-                        </p>
-                        <span className="text-[10px] font-inter text-secondary mt-0.5 block">
-                          {notif.time}
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })
+                )}
               </div>
-              <div className="px-3 py-1.5 bg-paper-tint text-center border-t border-border-rule">
-                <span className="text-[11px] font-inter text-secondary">
-                  प्रदर्शन हेतु मॉक सूचनाएं
-                </span>
+
+              <div className="px-3.5 py-1.5 bg-paper-tint text-center border-t border-border-rule flex items-center justify-between text-[11px] font-inter text-secondary">
+                <span>वास्तविक संपादकीय ईवेंट्स</span>
+                <span className="text-[10px] font-mono text-emerald-600 font-semibold">● लाइव सिंक</span>
               </div>
             </div>
           )}
@@ -189,7 +289,7 @@ export default function AdminTopbar({ onOpenMobile }) {
             aria-label="यूजर प्रोफाइल"
           >
             <div className="w-7 h-7 rounded bg-primary-container text-white flex items-center justify-center font-bold text-xs">
-              {currentUser?.initials || 'RK'}
+              {currentUser?.initials || 'AS'}
             </div>
             <ChevronDown className="w-3.5 h-3.5 text-secondary hidden sm:block" />
           </button>
@@ -198,24 +298,35 @@ export default function AdminTopbar({ onOpenMobile }) {
             <div className="absolute right-0 mt-2 w-56 bg-paper-canvas border border-border-rule shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
               <div className="px-3 py-2 border-b border-border-rule">
                 <span className="font-mukta font-bold text-sm text-on-surface block leading-tight">
-                  {currentUser?.name || 'राजेश कुमार'}
+                  {currentUser?.name || 'संपादक'}
                 </span>
                 <span className="text-[10px] font-inter text-secondary block truncate">
-                  {currentUser?.email || 'editor@azaadsamachar.com'}
+                  {currentUser?.email || 'admin@azaadsamachar.com'}
                 </span>
-                <span className="inline-block mt-1 px-1.5 py-0.2 bg-ticker-tint text-breaking-crimson text-[9px] font-bold uppercase">
-                  {currentUser?.role || 'वरिष्ठ संपादक'}
+                <span className={`inline-block mt-1 px-1.5 py-0.5 text-[9px] font-bold uppercase border rounded ${roleBadgeStyle}`}>
+                  {roleLabel}
                 </span>
               </div>
 
               <div className="py-1 text-xs font-inter">
+                {isSuperAdmin && (
+                  <Link
+                    to="/admin/team"
+                    onClick={() => setProfileOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 text-on-surface hover:bg-paper-tint hover:text-primary-container transition-colors font-medium"
+                  >
+                    <User className="w-3.5 h-3.5 text-amber-600" />
+                    <span>टीम व एक्सेस प्रबंधन</span>
+                  </Link>
+                )}
+
                 <Link
                   to="/admin/settings"
                   onClick={() => setProfileOpen(false)}
                   className="flex items-center gap-2 px-3 py-2 text-on-surface hover:bg-paper-tint hover:text-primary-container transition-colors"
                 >
                   <Settings className="w-3.5 h-3.5" />
-                  <span>सिस्टम सेटिंग्स</span>
+                  <span>{isSuperAdmin ? 'सिस्टम व साइट सेटिंग्स' : 'मेरी प्रोफाइल सेटिंग्स'}</span>
                 </Link>
 
                 <Link

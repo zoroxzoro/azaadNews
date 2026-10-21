@@ -175,13 +175,22 @@ export default function RecentArticlesTable({
                 <tr key={item.id} className="hover:bg-paper-tint/70 transition-colors">
                   {/* Thumbnail */}
                   <td className="py-2.5 px-3 align-middle">
-                    <div className="w-12 h-9 bg-surface-container overflow-hidden shrink-0 border border-border-rule">
-                      <img
-                        src={item.featuredImage}
-                        alt=""
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="w-12 h-9 bg-surface-container overflow-hidden shrink-0 border border-border-rule flex items-center justify-center">
+                      {item.featuredImage ? (
+                        <img
+                          src={item.featuredImage}
+                          alt=""
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
+                          }}
+                        />
+                      ) : null}
+                      <span className={`text-[9px] font-mukta font-bold text-secondary ${item.featuredImage ? 'hidden' : 'flex'} items-center justify-center w-full h-full bg-paper-tint`}>
+                        आज़ाद
+                      </span>
                     </div>
                   </td>
 
@@ -209,7 +218,7 @@ export default function RecentArticlesTable({
                       {item.author?.name || 'आज़ाद ब्यूरो'}
                     </span>
                     <span className="text-[10px] text-secondary block truncate">
-                      {item.author?.location || 'नई दिल्ली'}
+                      {item.author?.location || 'कानपुर'}
                     </span>
                   </td>
 

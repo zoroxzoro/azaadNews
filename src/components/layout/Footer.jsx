@@ -41,6 +41,7 @@ export default function Footer() {
     { label: t('latest'), to: '/category/latest' },
     { label: t('national'), to: '/category/national' },
     { label: t('uttar_pradesh'), to: '/category/uttar-pradesh' },
+    { label: 'कानपुर', to: '/category/kanpur' },
     { label: t('politics'), to: '/category/politics' },
     { label: t('sports'), to: '/category/sports' },
     { label: t('business'), to: '/category/business' },
@@ -51,6 +52,7 @@ export default function Footer() {
     { label: t('contact_us'), to: '/contact' },
     { label: t('advertise_with_us'), to: '/advertise' },
     { label: t('editorial_policy'), to: '/editorial-policy' },
+    { label: 'त्रुटि सुधार नीति (Corrections)', to: '/corrections-policy' },
     { label: t('privacy_policy'), to: '/privacy-policy' },
     { label: t('terms_conditions'), to: '/terms-and-conditions' },
     { label: t('fact_check_policy'), to: '/fact-check-policy' },
@@ -58,8 +60,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#10264B] dark:bg-[#070c14] text-white border-t-4 border-primary-container pt-10 sm:pt-14 pb-8 transition-colors select-none">
-      <Container className="space-y-10 px-4 sm:px-6">
+    <footer className="w-full bg-[#10264B] dark:bg-[#070c14] text-white border-t-4 border-primary-container pt-10 sm:pt-14 pb-8 transition-colors select-none overflow-x-clip">
+      <Container className="space-y-10 px-4 sm:px-6 min-w-0 max-w-full">
         {/* Top Section: 4-Column Editorial Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/15">
           {/* Col 1: Brand Logo, Credo & Addresses */}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, TrendingUp } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
+import { formatRelativeTime } from '../../utils/timezoneUtils';
 
 /**
  * MostReadSection component
@@ -71,9 +72,9 @@ export default function MostReadSection({
             <div className="mt-3 pt-2 border-t border-border-rule flex items-center justify-between font-inter text-[10px] text-secondary">
               <span className="flex items-center gap-1 text-primary-container font-semibold">
                 <Eye className="w-3 h-3" />
-                {(story.views || 10000).toLocaleString('hi-IN')}
+                {story.views > 0 ? `${story.views.toLocaleString('hi-IN')} पाठक` : 'लोकप्रिय रिपोर्ट'}
               </span>
-              <span>{story.readTime || '3 मिनट'}</span>
+              <span>{formatRelativeTime(story.publishedAt || story.createdAt) || story.readTime || 'ताज़ा'}</span>
             </div>
           </article>
         ))}

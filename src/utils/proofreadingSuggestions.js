@@ -18,6 +18,8 @@ export function calculateSummaryCounts(suggestions = []) {
     punctuation: 0,
     clarity: 0,
     style: 0,
+    sensationalism: 0,
+    fact_check: 0,
     safeCount: 0,
   };
 
@@ -27,6 +29,8 @@ export function calculateSummaryCounts(suggestions = []) {
     else if (item.type === 'punctuation') counts.punctuation += 1;
     else if (item.type === 'clarity') counts.clarity += 1;
     else if (item.type === 'style') counts.style += 1;
+    else if (item.type === 'sensationalism') counts.sensationalism += 1;
+    else if (item.type === 'fact_check') counts.fact_check += 1;
 
     if (item.isSafeToAutoApply && item.confidence === 'high') {
       counts.safeCount += 1;

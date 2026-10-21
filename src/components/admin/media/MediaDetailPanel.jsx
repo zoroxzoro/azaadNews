@@ -88,7 +88,27 @@ export default function MediaDetailPanel({
     setIsSaving(false);
   };
 
-  const usageInfo = checkAssetUsage ? checkAssetUsage(asset) : null;
+  const [usageInfo, setUsageInfo] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    if (asset && checkAssetUsage) {
+      const res = checkAssetUsage(asset);
+      if (res && typeof res.then === 'function') {
+        res.then((info) => {
+          if (isMounted) setUsageInfo(info);
+        });
+      } else {
+        setUsageInfo(res);
+      }
+    } else {
+      setUsageInfo(null);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [asset, checkAssetUsage]);
+
   const isUsed = usageInfo?.isUsed;
 
   return (

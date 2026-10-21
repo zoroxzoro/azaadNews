@@ -1,65 +1,105 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { mockNews as initialMockNews } from '../data/mockNews';
+import { articlesService, generateSlugCandidates } from '../services/articlesService';
+import { useAuth } from './AuthContext';
 import { normalizeStatus, ARTICLE_STATUS } from '../utils/articleStatus';
+import { mockNews as fallbackMockNews } from '../data/mockNews';
 
 /**
  * ArticleContext
  *
- * NOTE: This is a frontend demonstration state management store.
- * It simulates an editorial content repository by persisting demo mutations
- * (status changes, updates, deletions) to the browser's localStorage.
+ * Centralized news and editorial content provider for Azaad Samachar.
+ * Integrates directly with Supabase PostgreSQL via articlesService.
  *
- * Real production persistence and multi-user synchronization will be handled
- * by the backend REST API in a future phase.
+ * Features:
+ * - Real Supabase data fetching for authenticated CMS and public portal.
+ * - Atomic state synchronization after mutations.
+ * - Multi-category and tag resolution.
+ * - Safe fallback when Supabase is unreachable.
+ * - Strict demo mode isolation preventing fake accounts from mutating Supabase records.
  */
+
 const ArticleContext = createContext(null);
 
-const STORAGE_KEY = 'azaad_newsroom_articles_v1';
-
-function loadInitialArticles() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
-      }
-    }
-  } catch (err) {
-    console.warn('Could not read saved articles from localStorage, falling back to mockNews:', err);
-  }
-  return initialMockNews;
-}
-
 export function ArticleProvider({ children }) {
-  const [articles, setArticles] = useState(loadInitialArticles);
+  const { user, currentUser, isAuthenticated, isDemoMode, isLoading: isAuthLoading } = useAuth();
 
-  // Persist to localStorage whenever articles state changes
-  useEffect(() => {
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch articles from Supabase (or demo storage)
+  const fetchArticles = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(articles));
+      if (isDemoMode) {
+        // Isolated demo mode: read from localStorage or fallback mock
+        const saved = localStorage.getItem('azaad_newsroom_articles_v1');
+        if (saved) {
+          try {
+            setArticles(JSON.parse(saved));
+            setIsLoading(false);
+            return;
+          } catch (e) {
+            // Ignore
+          }
+        }
+        setArticles(fallbackMockNews);
+        setIsLoading(false);
+        return;
+      }
+
+      // Production mode: fetch lightweight summaries from Supabase
+      if (isAuthenticated && user) {
+        // Authenticated staff: fetch first page of admin summaries
+        const response = await articlesService.getAdminArticles({ page: 1, pageSize: 50 });
+        if (response && Array.isArray(response.data)) {
+          setArticles(response.data);
+        } else {
+          setArticles([]);
+        }
+      } else {
+        // Public visitor: fetch 30 lightweight summaries for homepage, ticker & trending
+        const response = await articlesService.getArticles({ limit: 30 });
+        if (response && Array.isArray(response.data)) {
+          setArticles(response.data);
+        } else {
+          setArticles([]);
+        }
+      }
     } catch (err) {
-      console.warn('Failed to persist articles to localStorage:', err);
+      console.warn('[ArticleContext] Error loading articles:', err);
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
-  }, [articles]);
+  }, [isAuthenticated, user, isDemoMode]);
+
+  useEffect(() => {
+    if (isAuthLoading) return;
+    fetchArticles();
+  }, [fetchArticles, isAuthLoading]);
 
   /**
-   * Get an article by numeric ID or string ID
+   * Get an article by numeric or UUID ID
    */
   const getArticleById = useCallback(
     (id) => {
-      const targetId = Number(id);
-      return articles.find((a) => Number(a.id) === targetId || String(a.id) === String(id));
+      if (!id) return null;
+      return articles.find((a) => String(a.id) === String(id) || Number(a.id) === Number(id)) || null;
     },
     [articles]
   );
 
   /**
-   * Get an article by its unique URL slug
+   * Get an article by its unique URL slug (supports decoded and encoded slug forms)
    */
   const getArticleBySlug = useCallback(
     (slug) => {
-      return articles.find((a) => a.slug === slug);
+      if (!slug) return null;
+      const candidates = generateSlugCandidates(slug);
+      return articles.find((a) => candidates.includes(a.slug)) || null;
     },
     [articles]
   );
@@ -74,237 +114,296 @@ export function ArticleProvider({ children }) {
   /**
    * Create a new article
    */
-  const createArticle = useCallback((newArticleData) => {
-    const newId = Date.now();
-    const created = {
-      ...newArticleData,
-      id: newId,
-      status: normalizeStatus(newArticleData.status || ARTICLE_STATUS.DRAFT),
-      publishedAt:
-        newArticleData.status === ARTICLE_STATUS.PUBLISHED
-          ? new Date().toISOString()
-          : newArticleData.publishedAt || null,
-      updatedAt: new Date().toISOString(),
-      views: 0,
-    };
+  const createArticle = useCallback(
+    async (newArticleData) => {
+      const authorId = user?.id || currentUser?.id;
 
-    setArticles((prev) => [created, ...prev]);
-    return created;
-  }, []);
+      try {
+        const result = await articlesService.createArticle(newArticleData, authorId);
+        if (result.success && result.data) {
+          setArticles((prev) => [result.data, ...prev.filter((a) => a.id !== result.data.id)]);
+          return result.data;
+        }
+        if (result && !result.success) {
+          throw new Error(result.error || 'समाचार सहेजने में विफल');
+        }
+      } catch (err) {
+        if (!isDemoMode) {
+          console.error('[ArticleContext] Supabase article creation error:', err);
+          throw err;
+        }
+        console.warn('[ArticleContext] Supabase article creation fallback:', err.message);
+      }
+
+      // Local isolated fallback if offline
+      const newMock = {
+        ...newArticleData,
+        id: Date.now(),
+        status: normalizeStatus(newArticleData.status || ARTICLE_STATUS.DRAFT),
+        publishedAt:
+          newArticleData.status === ARTICLE_STATUS.PUBLISHED
+            ? new Date().toISOString()
+            : newArticleData.publishedAt || null,
+        updatedAt: new Date().toISOString(),
+        views: 0,
+      };
+      setArticles((prev) => [newMock, ...prev]);
+      try {
+        const current = JSON.parse(localStorage.getItem('azaad_newsroom_articles_v1') || '[]');
+        localStorage.setItem('azaad_newsroom_articles_v1', JSON.stringify([newMock, ...current]));
+      } catch {}
+      return newMock;
+    },
+    [user, currentUser, isDemoMode]
+  );
 
   /**
    * Update an existing article by ID
    */
-  const updateArticle = useCallback((id, updates) => {
-    setArticles((prev) =>
-      prev.map((item) => {
-        if (Number(item.id) === Number(id) || String(item.id) === String(id)) {
-          return {
-            ...item,
-            ...updates,
-            updatedAt: new Date().toISOString(),
-          };
+  const updateArticle = useCallback(
+    async (id, updates) => {
+      const authorId = user?.id || currentUser?.id;
+
+      try {
+        const result = await articlesService.updateArticle(id, updates, authorId);
+        if (result.success && result.data) {
+          setArticles((prev) =>
+            prev.map((item) => (String(item.id) === String(id) ? result.data : item))
+          );
+          return result.data;
         }
-        return item;
-      })
-    );
-  }, []);
+        if (result && !result.success) {
+          throw new Error(result.error || 'समाचार अद्यतन में विफल');
+        }
+      } catch (err) {
+        if (!isDemoMode) {
+          console.error('[ArticleContext] Supabase article update error:', err);
+          throw err;
+        }
+        console.warn('[ArticleContext] Supabase article update fallback:', err.message);
+      }
+
+      setArticles((prev) =>
+        prev.map((item) => {
+          if (String(item.id) === String(id) || Number(item.id) === Number(id)) {
+            return { ...item, ...updates, updatedAt: new Date().toISOString() };
+          }
+          return item;
+        })
+      );
+      return { success: true };
+    },
+    [user, currentUser, isDemoMode]
+  );
 
   /**
-   * Change single article status with validation
+   * Change single article status
    */
-  const changeArticleStatus = useCallback((id, newStatus, extraFields = {}) => {
-    const normalized = normalizeStatus(newStatus);
-    setArticles((prev) =>
-      prev.map((item) => {
-        if (Number(item.id) === Number(id) || String(item.id) === String(id)) {
-          const isNowPublished = normalized === ARTICLE_STATUS.PUBLISHED;
-          const isNowDraft = normalized === ARTICLE_STATUS.DRAFT;
-          const isNowScheduled = normalized === ARTICLE_STATUS.SCHEDULED;
+  const changeArticleStatus = useCallback(
+    async (id, newStatus, extraFields = {}) => {
+      const normalized = normalizeStatus(newStatus);
 
-          return {
-            ...item,
-            ...extraFields,
-            status: normalized,
-            // If publishing, ensure publishedAt is set and clear scheduledAt
-            publishedAt: isNowPublished
-              ? item.publishedAt || new Date().toISOString()
-              : item.publishedAt,
-            scheduledAt: isNowScheduled
-              ? extraFields.scheduledAt || item.scheduledAt || null
-              : isNowDraft || isNowPublished
-              ? null
-              : item.scheduledAt,
-            scheduledFor: isNowScheduled
-              ? extraFields.scheduledAt || extraFields.scheduledFor || item.scheduledFor || null
-              : isNowDraft || isNowPublished
-              ? null
-              : item.scheduledFor,
-            updatedAt: new Date().toISOString(),
-          };
-        }
-        return item;
-      })
-    );
-  }, []);
+      if (isDemoMode) {
+        setArticles((prev) =>
+          prev.map((item) => {
+            if (String(item.id) === String(id) || Number(item.id) === Number(id)) {
+              const isNowPublished = normalized === ARTICLE_STATUS.PUBLISHED;
+              const isNowDraft = normalized === ARTICLE_STATUS.DRAFT;
+              const isNowScheduled = normalized === ARTICLE_STATUS.SCHEDULED;
+
+              return {
+                ...item,
+                ...extraFields,
+                status: normalized,
+                publishedAt: isNowPublished ? item.publishedAt || new Date().toISOString() : item.publishedAt,
+                scheduledAt: isNowScheduled ? extraFields.scheduledAt || item.scheduledAt : isNowDraft ? null : item.scheduledAt,
+                updatedAt: new Date().toISOString(),
+              };
+            }
+            return item;
+          })
+        );
+        return;
+      }
+
+      const authorId = user?.id || currentUser?.id;
+      const result = await articlesService.changeArticleStatus(id, normalized, extraFields, authorId);
+      if (result.success && result.data) {
+        setArticles((prev) =>
+          prev.map((item) => (String(item.id) === String(id) ? result.data : item))
+        );
+      } else {
+        throw new Error(result.error || 'Failed to change status');
+      }
+    },
+    [isDemoMode, user, currentUser]
+  );
 
   /**
    * Schedule an article with canonical UTC ISO timestamp
    */
-  const scheduleArticle = useCallback((id, scheduledAtIso, scheduledBy = 'राजेश कुमार') => {
-    setArticles((prev) =>
-      prev.map((item) => {
-        if (Number(item.id) === Number(id) || String(item.id) === String(id)) {
-          return {
-            ...item,
-            status: ARTICLE_STATUS.SCHEDULED,
-            scheduledAt: scheduledAtIso,
-            scheduledFor: scheduledAtIso,
-            scheduledBy: scheduledBy || item.scheduledBy || 'राजेश कुमार',
-            updatedAt: new Date().toISOString(),
-          };
-        }
-        return item;
-      })
-    );
-  }, []);
+  const scheduleArticle = useCallback(
+    async (id, scheduledAtIso, scheduledBy) => {
+      return changeArticleStatus(id, ARTICLE_STATUS.SCHEDULED, {
+        scheduledAt: scheduledAtIso,
+        scheduledFor: scheduledAtIso,
+        scheduledBy: scheduledBy || currentUser?.name || 'संपादक',
+      });
+    },
+    [changeArticleStatus, currentUser]
+  );
 
   /**
    * Reschedule an existing scheduled article to a new future time
    */
-  const rescheduleArticle = useCallback((id, newScheduledAtIso) => {
-    setArticles((prev) =>
-      prev.map((item) => {
-        if (Number(item.id) === Number(id) || String(item.id) === String(id)) {
-          return {
-            ...item,
-            status: ARTICLE_STATUS.SCHEDULED,
-            scheduledAt: newScheduledAtIso,
-            scheduledFor: newScheduledAtIso,
-            updatedAt: new Date().toISOString(),
-          };
-        }
-        return item;
-      })
-    );
-  }, []);
+  const rescheduleArticle = useCallback(
+    async (id, newScheduledAtIso) => {
+      return changeArticleStatus(id, ARTICLE_STATUS.SCHEDULED, {
+        scheduledAt: newScheduledAtIso,
+        scheduledFor: newScheduledAtIso,
+      });
+    },
+    [changeArticleStatus]
+  );
 
   /**
    * Return a scheduled (or in-review/published) article back to Draft
    */
-  const returnToDraft = useCallback((id) => {
-    setArticles((prev) =>
-      prev.map((item) => {
-        if (Number(item.id) === Number(id) || String(item.id) === String(id)) {
-          return {
-            ...item,
-            status: ARTICLE_STATUS.DRAFT,
-            scheduledAt: null,
-            scheduledFor: null,
-            updatedAt: new Date().toISOString(),
-          };
-        }
-        return item;
-      })
-    );
-  }, []);
+  const returnToDraft = useCallback(
+    async (id) => {
+      return changeArticleStatus(id, ARTICLE_STATUS.DRAFT, {
+        scheduledAt: null,
+        scheduledFor: null,
+      });
+    },
+    [changeArticleStatus]
+  );
 
   /**
    * Manually publish a scheduled article immediately (Publish Now)
    */
-  const publishScheduledNow = useCallback((id) => {
-    setArticles((prev) =>
-      prev.map((item) => {
-        if (Number(item.id) === Number(id) || String(item.id) === String(id)) {
-          return {
-            ...item,
-            status: ARTICLE_STATUS.PUBLISHED,
-            publishedAt: new Date().toISOString(),
-            scheduledAt: null,
-            scheduledFor: null,
-            updatedAt: new Date().toISOString(),
-          };
-        }
-        return item;
-      })
-    );
-  }, []);
+  const publishScheduledNow = useCallback(
+    async (id) => {
+      return changeArticleStatus(id, ARTICLE_STATUS.PUBLISHED, {
+        publishedAt: new Date().toISOString(),
+        scheduledAt: null,
+        scheduledFor: null,
+      });
+    },
+    [changeArticleStatus]
+  );
+
+  /**
+   * Reconcile and auto-publish overdue scheduled articles
+   */
+  const publishOverdueScheduled = useCallback(async () => {
+    try {
+      const res = await articlesService.publishOverdueScheduledArticles();
+      if (res?.publishedCount > 0) {
+        await fetchArticles();
+      }
+      return res;
+    } catch (err) {
+      console.warn('[ArticleContext] Failed to publish overdue scheduled:', err);
+      return { success: false, publishedCount: 0, error: err.message };
+    }
+  }, [fetchArticles]);
 
   /**
    * Delete an article by ID
    */
-  const deleteArticle = useCallback((id) => {
-    setArticles((prev) =>
-      prev.filter((item) => Number(item.id) !== Number(id) && String(item.id) !== String(id))
-    );
-  }, []);
+  const deleteArticle = useCallback(
+    async (id) => {
+      if (isDemoMode) {
+        setArticles((prev) =>
+          prev.filter((item) => String(item.id) !== String(id) && Number(item.id) !== Number(id))
+        );
+        return;
+      }
+
+      const result = await articlesService.deleteArticle(id);
+      if (result.success) {
+        setArticles((prev) =>
+          prev.filter((item) => String(item.id) !== String(id))
+        );
+      } else {
+        throw new Error(result.error || 'Failed to delete article');
+      }
+    },
+    [isDemoMode]
+  );
 
   /**
    * Bulk change status for multiple articles
    */
-  const bulkChangeStatus = useCallback((ids = [], newStatus) => {
-    const idSet = new Set(ids.map((id) => String(id)));
-    const normalized = normalizeStatus(newStatus);
+  const bulkChangeStatus = useCallback(
+    async (ids = [], newStatus) => {
+      const normalized = normalizeStatus(newStatus);
+      if (isDemoMode) {
+        const idSet = new Set(ids.map((id) => String(id)));
+        setArticles((prev) =>
+          prev.map((item) => (idSet.has(String(item.id)) ? { ...item, status: normalized } : item))
+        );
+        return;
+      }
 
-    setArticles((prev) =>
-      prev.map((item) => {
-        if (idSet.has(String(item.id))) {
-          const isNowPublished = normalized === ARTICLE_STATUS.PUBLISHED;
-          return {
-            ...item,
-            status: normalized,
-            publishedAt: isNowPublished && !item.publishedAt ? new Date().toISOString() : item.publishedAt,
-            updatedAt: new Date().toISOString(),
-          };
-        }
-        return item;
-      })
-    );
-  }, []);
+      const authorId = user?.id || currentUser?.id;
+      await articlesService.bulkChangeStatus(ids, normalized, authorId);
+      await fetchArticles();
+    },
+    [isDemoMode, user, currentUser, fetchArticles]
+  );
 
   /**
-   * Bulk delete multiple articles
+   * Bulk delete articles
    */
-  const bulkDeleteArticles = useCallback((ids = []) => {
-    const idSet = new Set(ids.map((id) => String(id)));
-    setArticles((prev) => prev.filter((item) => !idSet.has(String(item.id))));
-  }, []);
+  const bulkDeleteArticles = useCallback(
+    async (ids = []) => {
+      if (isDemoMode) {
+        const idSet = new Set(ids.map((id) => String(id)));
+        setArticles((prev) => prev.filter((item) => !idSet.has(String(item.id))));
+        return;
+      }
+
+      await articlesService.bulkDeleteArticles(ids);
+      await fetchArticles();
+    },
+    [isDemoMode, fetchArticles]
+  );
 
   /**
-   * Reset store back to the pristine initial mockNews dataset
+   * Reset store back to the pristine initial mockNews dataset (Demo mode only)
    */
   const restoreDefaultArticles = useCallback(() => {
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      // Ignore
+    if (isDemoMode) {
+      localStorage.removeItem('azaad_newsroom_articles_v1');
+      setArticles(fallbackMockNews);
     }
-    setArticles(initialMockNews);
-  }, []);
+  }, [isDemoMode]);
 
-  return (
-    <ArticleContext.Provider
-      value={{
-        articles,
-        getArticleById,
-        getArticleBySlug,
-        getPublishedArticles,
-        createArticle,
-        updateArticle,
-        changeArticleStatus,
-        scheduleArticle,
-        rescheduleArticle,
-        returnToDraft,
-        publishScheduledNow,
-        deleteArticle,
-        bulkChangeStatus,
-        bulkDeleteArticles,
-        restoreDefaultArticles,
-      }}
-    >
-      {children}
-    </ArticleContext.Provider>
-  );
+  const value = {
+    articles,
+    isLoading,
+    error,
+    refreshArticles: fetchArticles,
+    getArticleById,
+    getArticleBySlug,
+    getPublishedArticles,
+    createArticle,
+    updateArticle,
+    changeArticleStatus,
+    scheduleArticle,
+    rescheduleArticle,
+    returnToDraft,
+    publishScheduledNow,
+    publishOverdueScheduled,
+    deleteArticle,
+    bulkChangeStatus,
+    bulkDeleteArticles,
+    restoreDefaultArticles,
+  };
+
+  return <ArticleContext.Provider value={value}>{children}</ArticleContext.Provider>;
 }
 
 export function useArticles() {
@@ -314,3 +413,5 @@ export function useArticles() {
   }
   return context;
 }
+
+export default ArticleContext;

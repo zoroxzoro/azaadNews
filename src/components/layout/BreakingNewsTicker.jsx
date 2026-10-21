@@ -1,23 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
-import { mockNews } from '../../data/mockNews';
+import { useArticles } from '../../context/ArticleContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { ChevronLeft, ChevronRight, Megaphone } from 'lucide-react';
 
 export default function BreakingNewsTicker() {
   const { t } = useLanguage();
+  const { getPublishedArticles } = useArticles();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
-  // Filter breaking news articles from mockNews
-  const breakingArticles = mockNews.filter((item) => item.isBreaking);
-
-  // If no breaking articles exist, hide gracefully
-  if (!breakingArticles || breakingArticles.length === 0) {
-    return null;
-  }
+  // Filter breaking news articles from real published articles
+  const livePublished = getPublishedArticles() || [];
+  const liveBreaking = livePublished.filter((item) => item.isBreaking);
+  const isGenuineBreaking = liveBreaking.length > 0;
+  // If no article is explicitly marked breaking, use latest published articles with truthful labeling
+  const breakingArticles = isGenuineBreaking ? liveBreaking : livePublished.slice(0, 6);
 
   // Auto rotation every 5 seconds (respects pause and reduced-motion)
   useEffect(() => {
@@ -53,7 +53,13 @@ export default function BreakingNewsTicker() {
     }, 200);
   };
 
-  const currentStory = breakingArticles[currentIndex];
+  // If no articles exist at all, hide gracefully (placed strictly AFTER all hooks)
+  if (!breakingArticles || breakingArticles.length === 0) {
+    return null;
+  }
+
+  const currentStory = breakingArticles[currentIndex] || breakingArticles[0];
+  if (!currentStory) return null;
 
   return (
     <section
@@ -65,16 +71,16 @@ export default function BreakingNewsTicker() {
       className="w-full bg-[#FCE9E9] dark:bg-[#261116] border-b border-[#DA251D] transition-colors select-none"
     >
       <Container className="py-1.5 flex items-center justify-between gap-2 sm:gap-4">
-        {/* Left: Prominent Red Breaking Label Badge */}
+        {/* Left: Prominent Red Breaking / Latest Label Badge */}
         <div className="flex items-center gap-2 shrink-0">
           <div className="bg-[#DA251D] text-white font-mukta text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-1 tracking-wider uppercase flex items-center gap-1.5 shadow-sm shrink-0">
             <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
             <Megaphone className="w-3.5 h-3.5 hidden xs:inline" />
-            <span>{t('breaking_news')}</span>
+            <span>{isGenuineBreaking ? t('breaking_news') : (t('quick_alert') || 'ताज़ा अपडेट')}</span>
           </div>
 
           <span className="font-inter text-[11px] font-bold text-primary-container hidden md:inline tracking-wider uppercase">
-            | {t('quick_alert')}:
+            | {isGenuineBreaking ? t('live_desk') : 'संपादकीय बुलेटिन'}:
           </span>
         </div>
 

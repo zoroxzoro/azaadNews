@@ -1,19 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, TrendingDown, ChevronRight } from 'lucide-react';
+import { ChevronRight, Briefcase } from 'lucide-react';
 import NewsCard from './NewsCard';
+import { formatRelativeTime } from '../../utils/timezoneUtils';
 
-const MARKET_INDICES = [
-  { name: 'सेंसेक्स (BSE)', value: '75,190.45', change: '+480.20', percent: '+0.64%', isUp: true },
-  { name: 'निफ्टी 50 (NSE)', value: '22,810.15', change: '+145.30', percent: '+0.64%', isUp: true },
-  { name: 'सोना (10 ग्राम)', value: '₹71,850', change: '-210.00', percent: '-0.29%', isUp: false },
-  { name: 'USD / INR', value: '₹83.42', change: '+0.04', percent: '+0.05%', isUp: true },
-];
-
-/**
- * BusinessMarketsSection component
- * Features live financial tickers + business news package
- */
 export default function BusinessMarketsSection({ articles = [], className = '' }) {
   const featuredArticle = articles[0];
   const listArticles = articles.slice(1, 4);
@@ -37,60 +27,57 @@ export default function BusinessMarketsSection({ articles = [], className = '' }
         </Link>
       </div>
 
-      {/* Live Financial Market Strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-paper-tint p-2.5 border border-border-rule font-inter text-xs">
-        {MARKET_INDICES.map((item, idx) => (
-          <div key={idx} className="flex flex-col p-1.5 bg-paper-canvas border border-border-rule/60">
-            <span className="text-[10px] text-secondary font-medium">{item.name}</span>
-            <span className="font-bold text-on-surface text-xs sm:text-sm mt-0.5">{item.value}</span>
-            <div className={`flex items-center gap-1 text-[10px] font-bold ${item.isUp ? 'text-emerald-600' : 'text-red-600'}`}>
-              {item.isUp ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-              <span>{item.change} ({item.percent})</span>
-            </div>
-          </div>
-        ))}
-      </div>
+      {articles.length === 0 ? (
+        <div className="bg-paper-tint border border-dashed border-border-heavy p-6 text-center text-secondary font-mukta text-xs flex flex-col items-center justify-center">
+          <Briefcase className="w-6 h-6 text-secondary/60 mb-1" />
+          <span>बिज़नेस व वाणिज्य समाचार लोड किए जा रहे हैं...</span>
+        </div>
+      ) : (
+        <>
+          {/* Featured Business Story (Horizontal Card) */}
+          {featuredArticle && (
+            <NewsCard
+              article={featuredArticle}
+              variant="horizontal"
+              showSummary={true}
+            />
+          )}
 
-      {/* Featured Business Story (Horizontal Card) */}
-      {featuredArticle && (
-        <NewsCard
-          article={featuredArticle}
-          variant="horizontal"
-          showSummary={true}
-        />
+          {/* 3 Horizontal Sub-Stories */}
+          {listArticles.length > 0 && (
+            <div className="flex flex-col divide-y divide-border-rule">
+              {listArticles.map((story) => (
+                <article key={story.id} className="py-2.5 flex items-center justify-between gap-3 group">
+                  <div className="flex flex-col min-w-0">
+                    <span className="font-inter text-[10px] text-primary-container font-bold uppercase">
+                      {story.category || 'बिज़नेस'}
+                    </span>
+                    <Link
+                      to={`/news/${story.slug}`}
+                      className="font-mukta text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary-container transition-colors leading-snug line-clamp-2"
+                    >
+                      {story.title}
+                    </Link>
+                    <span className="font-inter text-[10px] text-secondary mt-1">
+                      {story.author?.name || 'वाणिज्य संवाददाता'} • {formatRelativeTime(story.publishedAt || story.createdAt) || story.readTime || 'ताज़ा'}
+                    </span>
+                  </div>
+                  {story.featuredImage && (
+                    <div className="w-16 sm:w-20 h-14 bg-surface-container shrink-0 overflow-hidden">
+                      <img
+                        src={story.featuredImage}
+                        alt={story.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                      />
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+          )}
+        </>
       )}
-
-      {/* 3 Horizontal Sub-Stories */}
-      <div className="flex flex-col divide-y divide-border-rule">
-        {listArticles.map((story) => (
-          <article key={story.id} className="py-2.5 flex items-center justify-between gap-3 group">
-            <div className="flex flex-col">
-              <span className="font-inter text-[10px] text-primary-container font-bold uppercase">
-                {story.category}
-              </span>
-              <Link
-                to={`/news/${story.slug}`}
-                className="font-mukta text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary-container transition-colors leading-snug"
-              >
-                {story.title}
-              </Link>
-              <span className="font-inter text-[10px] text-secondary mt-1">
-                {story.author?.name} • {story.readTime || '3 मिनट'}
-              </span>
-            </div>
-            {story.featuredImage && (
-              <div className="w-16 sm:w-20 h-14 bg-surface-container shrink-0 overflow-hidden">
-                <img
-                  src={story.featuredImage}
-                  alt={story.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                />
-              </div>
-            )}
-          </article>
-        ))}
-      </div>
     </section>
   );
 }

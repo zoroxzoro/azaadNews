@@ -1,0 +1,2269 @@
+{
+  "manifestVersion": "1.0.0",
+  "batchType": "batch_2_controlled_sample",
+  "generatedAt": "2026-10-19T20:48:40.730Z",
+  "lockedArticleCount": 50,
+  "yearDistribution": {
+    "2023": 10,
+    "2024": 15,
+    "2025": 15,
+    "2026": 10
+  },
+  "mediaSummary": {
+    "imagesFoundOnDisk": 37,
+    "imagesMissingOnDisk": 4,
+    "totalDiskBytes": 1930376,
+    "totalDiskMb": "1.841"
+  },
+  "articles": [
+    {
+      "manifestIndex": 1,
+      "year": 2023,
+      "wordpressId": 1339,
+      "title": "उप निदेशक खेल मुद्रिका पाठक का तबादला लखनऊ।",
+      "slug": "%e0%a4%89%e0%a4%aa-%e0%a4%a8%e0%a4%bf%e0%a4%a6%e0%a5%87%e0%a4%b6%e0%a4%95-%e0%a4%96%e0%a5%87%e0%a4%b2-%e0%a4%ae%e0%a5%81%e0%a4%a6%e0%a5%8d%e0%a4%b0%e0%a4%bf%e0%a4%95%e0%a4%be-%e0%a4%aa%e0%a4%be",
+      "publishedAt": "2023-07-01T13:03:54.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=1339",
+      "primaryCategory": "sports",
+      "categories": [
+        {
+          "slug": "sports",
+          "name": "खेल",
+          "englishName": "Sports",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/07/new-project-14_1688139592.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0,
+        "targetStoragePath": "articles/2023/07/new-project-14_1688139592.webp"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 2,
+      "year": 2023,
+      "wordpressId": 1747,
+      "title": "स्कूली छात्रा का रहस्यमय ढंग से गायब होना एक पहेली, जुड़ी परिस्थितियाँ अनिश्चित बनी",
+      "slug": "%e0%a4%b8%e0%a5%8d%e0%a4%95%e0%a5%82%e0%a4%b2%e0%a5%80-%e0%a4%9b%e0%a4%be%e0%a4%a4%e0%a5%8d%e0%a4%b0%e0%a4%be-%e0%a4%95%e0%a4%be-%e0%a4%b0%e0%a4%b9%e0%a4%b8%e0%a5%8d%e0%a4%af%e0%a4%ae%e0%a4%af",
+      "publishedAt": "2023-07-19T16:58:23.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=1747",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/07/96cb042f-7c44-4393-b6d8-d0f206b09f1f_1689751587346.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0,
+        "targetStoragePath": "articles/2023/07/96cb042f-7c44-4393-b6d8-d0f206b09f1f_1689751587346.webp"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 3,
+      "year": 2023,
+      "wordpressId": 2152,
+      "title": "प्रदेश के उपमुख्यमंत्री की छवि नागरिको के बीच राक्षस प्रवत्ति के डॉक्टर  कर रहे खराब",
+      "slug": "%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a4%a6%e0%a5%87%e0%a4%b6-%e0%a4%95%e0%a5%87-%e0%a4%89%e0%a4%aa%e0%a4%ae%e0%a5%81%e0%a4%96%e0%a5%8d%e0%a4%af%e0%a4%ae%e0%a4%82%e0%a4%a4%e0%a5%8d%e0%a4%b0%e0%a5%80",
+      "publishedAt": "2023-08-13T13:00:02.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=2152",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "world",
+          "name": "दुनिया",
+          "englishName": "World",
+          "isPrimary": false
+        },
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": false
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 4,
+      "year": 2023,
+      "wordpressId": 2655,
+      "title": "पचासों वर्ष पुराने अवैध मकानों पर गरजा केडीए का बुलडोजर।",
+      "slug": "%e0%a4%aa%e0%a4%9a%e0%a4%be%e0%a4%b8%e0%a5%8b%e0%a4%82-%e0%a4%b5%e0%a4%b0%e0%a5%8d%e0%a4%b7-%e0%a4%aa%e0%a5%81%e0%a4%b0%e0%a4%be%e0%a4%a8%e0%a5%87-%e0%a4%85%e0%a4%b5%e0%a5%88%e0%a4%a7-%e0%a4%ae",
+      "publishedAt": "2023-09-06T14:08:40.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=2655",
+      "primaryCategory": "uttar-pradesh",
+      "categories": [
+        {
+          "slug": "uttar-pradesh",
+          "name": "उत्तर प्रदेश",
+          "englishName": "Uttar Pradesh",
+          "isPrimary": true
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/09/2ff38616-97d2-4cda-af00-3c5fc0eb9c62_1693917801890-1.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0,
+        "targetStoragePath": "articles/2023/09/2ff38616-97d2-4cda-af00-3c5fc0eb9c62_1693917801890-1.webp"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 5,
+      "year": 2023,
+      "wordpressId": 3054,
+      "title": "नगर में बंद हुई मीट की दुकाने, जिला प्रशासन ने मीट की दुकानों को बंद करने के दिए आदेश।",
+      "slug": "%e0%a4%a8%e0%a4%97%e0%a4%b0-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%ac%e0%a4%82%e0%a4%a6-%e0%a4%b9%e0%a5%81%e0%a4%88-%e0%a4%ae%e0%a5%80%e0%a4%9f-%e0%a4%95%e0%a5%80-%e0%a4%a6%e0%a5%81%e0%a4%95%e0%a4%be",
+      "publishedAt": "2023-09-19T15:51:40.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=3054",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 6,
+      "year": 2023,
+      "wordpressId": 3457,
+      "title": "आने वाले समय में दो देशों के बीच होगी साइबर अटैक की लड़ाई सबसे ज्यादा साइबर सिक्योरिटी सेल की जरूरत।",
+      "slug": "%e0%a4%86%e0%a4%a8%e0%a5%87-%e0%a4%b5%e0%a4%be%e0%a4%b2%e0%a5%87-%e0%a4%b8%e0%a4%ae%e0%a4%af-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%a6%e0%a5%8b-%e0%a4%a6%e0%a5%87%e0%a4%b6%e0%a5%8b%e0%a4%82-%e0%a4%95",
+      "publishedAt": "2023-10-06T18:11:26.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=3457",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 7,
+      "year": 2023,
+      "wordpressId": 3854,
+      "title": "नगर में आयोजित हुई राष्ट्रीय शैक्षिक महासंघ की बैठक।",
+      "slug": "%e0%a4%a8%e0%a4%97%e0%a4%b0-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%86%e0%a4%af%e0%a5%8b%e0%a4%9c%e0%a4%bf%e0%a4%a4-%e0%a4%b9%e0%a5%81%e0%a4%88-%e0%a4%b0%e0%a4%be%e0%a4%b7%e0%a5%8d%e0%a4%9f%e0%a5%8d",
+      "publishedAt": "2023-10-23T13:15:29.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=3854",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/10/new-project-2023-10-22t190848151_1697983172.webp",
+        "existsOnDisk": false,
+        "sizeBytes": 0,
+        "targetStoragePath": "articles/2023/10/new-project-2023-10-22t190848151_1697983172.webp"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 8,
+      "year": 2023,
+      "wordpressId": 4298,
+      "title": "अग्निवीर की तैयारी कर रहे दो युवकों की कोचिंग से लौटते वक्त ट्रेन की चपेट में आने से मौत।",
+      "slug": "%e0%a4%85%e0%a4%97%e0%a5%8d%e0%a4%a8%e0%a4%bf%e0%a4%b5%e0%a5%80%e0%a4%b0-%e0%a4%95%e0%a5%80-%e0%a4%a4%e0%a5%88%e0%a4%af%e0%a4%be%e0%a4%b0%e0%a5%80-%e0%a4%95%e0%a4%b0-%e0%a4%b0%e0%a4%b9%e0%a5%87",
+      "publishedAt": "2023-11-11T18:39:27.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=4298",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/11/1699683251710kjkjkjk_1699683685.webp",
+        "existsOnDisk": true,
+        "sizeBytes": 8384,
+        "targetStoragePath": "articles/2023/11/1699683251710kjkjkjk_1699683685.webp"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 9,
+      "year": 2023,
+      "wordpressId": 4712,
+      "title": "67वीं राज्य स्तरीय ताइक्वांडो प्रतियोगिता में कानपुर के खिलाड़ियों ने11 स्वर्ण पदक जीतें",
+      "slug": "67%e0%a4%b5%e0%a5%80%e0%a4%82-%e0%a4%b0%e0%a4%be%e0%a4%9c%e0%a5%8d%e0%a4%af-%e0%a4%b8%e0%a5%8d%e0%a4%a4%e0%a4%b0%e0%a5%80%e0%a4%af-%e0%a4%a4%e0%a4%be%e0%a4%87%e0%a4%95%e0%a5%8d%e0%a4%b5%e0%a4%be",
+      "publishedAt": "2023-12-08T17:56:49.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=4712",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        },
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": false
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 10,
+      "year": 2023,
+      "wordpressId": 5082,
+      "title": "सीएसजेएमयू में रामानुजन सप्ताह समारोह का आयोजन।",
+      "slug": "%e0%a4%b8%e0%a5%80%e0%a4%8f%e0%a4%b8%e0%a4%9c%e0%a5%87%e0%a4%8f%e0%a4%ae%e0%a4%af%e0%a5%82-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%b0%e0%a4%be%e0%a4%ae%e0%a4%be%e0%a4%a8%e0%a5%81%e0%a4%9c%e0%a4%a8",
+      "publishedAt": "2023-12-18T17:25:49.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=5082",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2023/12/IMG-20231218-WA0001-1024x698.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 84959,
+        "targetStoragePath": "articles/2023/12/IMG-20231218-WA0001-1024x698.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 11,
+      "year": 2024,
+      "wordpressId": 5547,
+      "title": "नगर में विकसित भारत संकल्प यात्रा का आयोजन।",
+      "slug": "%e0%a4%a8%e0%a4%97%e0%a4%b0-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%b5%e0%a4%bf%e0%a4%95%e0%a4%b8%e0%a4%bf%e0%a4%a4-%e0%a4%ad%e0%a4%be%e0%a4%b0%e0%a4%a4-%e0%a4%b8%e0%a4%82%e0%a4%95%e0%a4%b2%e0%a5%8d",
+      "publishedAt": "2024-01-03T11:29:47.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=5547",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/01/eafc91a4-9734-439b-979e-ba92e211c3a6_1704111098782.webp",
+        "existsOnDisk": true,
+        "sizeBytes": 18954,
+        "targetStoragePath": "articles/2024/01/eafc91a4-9734-439b-979e-ba92e211c3a6_1704111098782.webp"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 12,
+      "year": 2024,
+      "wordpressId": 6314,
+      "title": "जब जन्मभूमि में रखी गई थी राम लला की प्रतिमाल…..",
+      "slug": "%e0%a4%9c%e0%a4%ac-%e0%a4%9c%e0%a4%a8%e0%a5%8d%e0%a4%ae%e0%a4%ad%e0%a5%82%e0%a4%ae%e0%a4%bf-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%b0%e0%a4%96%e0%a5%80-%e0%a4%97%e0%a4%88-%e0%a4%a5%e0%a5%80-%e0%a4%b0",
+      "publishedAt": "2024-01-19T17:32:34.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=6314",
+      "primaryCategory": "spirituality",
+      "categories": [
+        {
+          "slug": "spirituality",
+          "name": "धर्म/अध्यात्म",
+          "englishName": "Spirituality",
+          "isPrimary": true
+        }
+      ],
+      "tags": [
+        "श्री राम अयोध्या"
+      ],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/01/image-5.png",
+        "existsOnDisk": true,
+        "sizeBytes": 135068,
+        "targetStoragePath": "articles/2024/01/image-5.png"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 13,
+      "year": 2024,
+      "wordpressId": 7187,
+      "title": "एक ही रात छह दुकानों का ताला तोड़कर हजारों का माल पार करने वाला नाबालिग चोर गिरफ्तार।",
+      "slug": "%e0%a4%8f%e0%a4%95-%e0%a4%b9%e0%a5%80-%e0%a4%b0%e0%a4%be%e0%a4%a4-%e0%a4%9b%e0%a4%b9-%e0%a4%a6%e0%a5%81%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a5%8b%e0%a4%82-%e0%a4%95%e0%a4%be-%e0%a4%a4%e0%a4%be%e0%a4%b2",
+      "publishedAt": "2024-02-15T03:01:43.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=7187",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 14,
+      "year": 2024,
+      "wordpressId": 10422,
+      "title": "सात साल का अध्ययन आया काम मरीजों की आंखों की रोशनी आ रही वापस।",
+      "slug": "%e0%a4%b8%e0%a4%be%e0%a4%a4-%e0%a4%b8%e0%a4%be%e0%a4%b2-%e0%a4%95%e0%a4%be-%e0%a4%85%e0%a4%a7%e0%a5%8d%e0%a4%af%e0%a4%af%e0%a4%a8-%e0%a4%86%e0%a4%af%e0%a4%be-%e0%a4%95%e0%a4%be%e0%a4%ae-%e0%a4%ae",
+      "publishedAt": "2024-03-13T02:21:20.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=10422",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "wp_post_thumbnail",
+        "relativePath": "2024/03/f4b873bc-4fa2-4bbe-a479-4a87b6e5ca4d_1710150806.webp",
+        "existsOnDisk": true,
+        "sizeBytes": 12156,
+        "targetStoragePath": "articles/2024/03/f4b873bc-4fa2-4bbe-a479-4a87b6e5ca4d_1710150806.webp"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 15,
+      "year": 2024,
+      "wordpressId": 11166,
+      "title": "व्यापारीयो को अनुचित परेशान नहीं किया जाएगा कुछ हद तक दी जाएगी राहत……पुलिस कमिश्नर।",
+      "slug": "traders-will-not-be-harassed-unnecessarily-relief-will-be-given-to-some-extent-police-commissioner",
+      "publishedAt": "2024-04-03T21:42:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=11166",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "wp_post_thumbnail",
+        "relativePath": "2024/04/IMG_0730.jpeg",
+        "existsOnDisk": true,
+        "sizeBytes": 127838,
+        "targetStoragePath": "articles/2024/04/IMG_0730.jpeg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 16,
+      "year": 2024,
+      "wordpressId": 11874,
+      "title": "बार बालाओं पर पैसे उड़ाने वाले ग्राम प्रधान गिरफ्तार।",
+      "slug": "village-head-who-spent-money-on-bar-girls-arrested",
+      "publishedAt": "2024-04-21T18:29:09.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=11874",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "wp_post_thumbnail",
+        "relativePath": "2024/04/IMG_1007.png",
+        "existsOnDisk": true,
+        "sizeBytes": 214262,
+        "targetStoragePath": "articles/2024/04/IMG_1007.png"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 17,
+      "year": 2024,
+      "wordpressId": 13793,
+      "title": "मतदान को लेकर अब प्रशासन पूरी तरह तैयार।",
+      "slug": "now-the-administration-is-fully-prepared-for-voting",
+      "publishedAt": "2024-05-13T05:18:41.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=13793",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 18,
+      "year": 2024,
+      "wordpressId": 14380,
+      "title": "कानपुर में सुबह से ही बारिश ।",
+      "slug": "rain-in-kanpur-since-morning",
+      "publishedAt": "2024-06-05T04:32:52.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=14380",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 19,
+      "year": 2024,
+      "wordpressId": 15056,
+      "title": "वाहन चेकिंग के दौरान पुलिस से झडप करने वाले भाजपा नेता और उसके भतीजे पर एफआईआर",
+      "slug": "fir-against-bjp-leader-and-his-nephew-who-clashed-with-police-during-vehicle-checking",
+      "publishedAt": "2024-07-01T08:35:12.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=15056",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/07/1000192402.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 136472,
+        "targetStoragePath": "articles/2024/07/1000192402.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 20,
+      "year": 2024,
+      "wordpressId": 15854,
+      "title": "ज्वैलर्स की दुकान से चोरी करने के मामले में दो महिलाएं गिरफ्तार ।",
+      "slug": "two-women-arrested-for-theft-from-jewelers-shop",
+      "publishedAt": "2024-07-27T06:28:50.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=15854",
+      "primaryCategory": "national",
+      "categories": [
+        {
+          "slug": "national",
+          "name": "राष्ट्रीय",
+          "englishName": "National",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/07/1000226844.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 63686,
+        "targetStoragePath": "articles/2024/07/1000226844.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 21,
+      "year": 2024,
+      "wordpressId": 16684,
+      "title": "ई-रिक्शा चालक की रहस्यमयी मौत",
+      "slug": "mysterious-death-of-e-rickshaw-driver",
+      "publishedAt": "2024-08-25T18:45:27.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=16684",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/08/img_2280-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 185279,
+        "targetStoragePath": "articles/2024/08/img_2280-1.jpg"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 22,
+      "year": 2024,
+      "wordpressId": 17459,
+      "title": "प्रदेश सरकार अब इरफान सोलंकी की 7 साल की सजा को उम्र कैद में तब्दील कराने पहुंची हाईकोर्ट&nbsp;",
+      "slug": "the-state-government-has-now-reached-the-high-court-to-convert-irfan-solankis-7-year-sentence-into-life-imprisonment",
+      "publishedAt": "2024-09-19T19:16:56.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=17459",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/09/img_2541-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 37402,
+        "targetStoragePath": "articles/2024/09/img_2541-1.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 23,
+      "year": 2024,
+      "wordpressId": 18204,
+      "title": "मंगल भवन अमंगल हारी, द्रवहु सु दशरथ अजीर बिहारी।",
+      "slug": "mangal-bhavan-amangal-hari-dravahu-su-dashrath-ajir-bihari",
+      "publishedAt": "2024-10-12T09:26:42.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=18204",
+      "primaryCategory": "spirituality",
+      "categories": [
+        {
+          "slug": "spirituality",
+          "name": "धर्म/अध्यात्म",
+          "englishName": "Spirituality",
+          "isPrimary": true
+        }
+      ],
+      "tags": [
+        "सत्य सनातन",
+        "दशहरा"
+      ],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/10/picsart_24-10-12_13-05-47-299631525680137241709-1024x1024.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 111163,
+        "targetStoragePath": "articles/2024/10/picsart_24-10-12_13-05-47-299631525680137241709-1024x1024.jpg"
+      },
+      "tipTapDocNodesCount": 12,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 24,
+      "year": 2024,
+      "wordpressId": 18933,
+      "title": "गौ तस्करी के मामले में पच्चीस हजार का इनामी गिरफ्तार।",
+      "slug": "twenty-five-thousand-rupees-reward-arrested-in-cow-smuggling-case",
+      "publishedAt": "2024-11-13T00:33:05.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=18933",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 25,
+      "year": 2024,
+      "wordpressId": 19671,
+      "title": "दिल का छेद सिलकर चिकित्सको ने बुजुर्ग महिला को दिया जीवनदान।",
+      "slug": "doctors-gave-life-to-an-elderly-woman-by-stitching-the-hole-in-her-heart",
+      "publishedAt": "2024-12-10T19:08:57.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=19671",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2024/12/img_3191-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 21117,
+        "targetStoragePath": "articles/2024/12/img_3191-1.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 26,
+      "year": 2025,
+      "wordpressId": 20403,
+      "title": "महापौर का बड़ा ऐलान - मेयर आपके द्वार के जरिये सुनेंगी जनसमस्याएं।",
+      "slug": "mayors-big-announcement-mayor-will-listen-to-public-problems-through-your-door",
+      "publishedAt": "2025-01-01T00:43:10.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=20403",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": null,
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 27,
+      "year": 2025,
+      "wordpressId": 21242,
+      "title": "गंगा पुरोहित की पत्नी से भाजपा नेता ने की छेड़छाड़।",
+      "slug": "bjp-leader-molested-ganga-purohits-wife",
+      "publishedAt": "2025-01-21T18:54:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=21242",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/01/img_3611-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 7217,
+        "targetStoragePath": "articles/2025/01/img_3611-1.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 28,
+      "year": 2025,
+      "wordpressId": 22055,
+      "title": "केडीए की बड़ी कार्यवाही एक अरब 47 करोङ की भूमि कब्जामुक्त कराई।",
+      "slug": "the-large-action-of-kda-was-consumed-with-land-of-one-billion-47-crores",
+      "publishedAt": "2025-02-12T08:09:45.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=22055",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/02/img-20250212-wa00055961614919679687243-577x1024.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 122187,
+        "targetStoragePath": "articles/2025/02/img-20250212-wa00055961614919679687243-577x1024.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 29,
+      "year": 2025,
+      "wordpressId": 22898,
+      "title": "शातिर ने एटीएम कार्ड बदलकर अधेड़ के खाते से उड़ाए&nbsp;80 हजार।",
+      "slug": "the-vicious-changed-the-atm-card-and-blew-80-thousand-from-the-account-of-the-middle-aged",
+      "publishedAt": "2025-03-04T19:08:40.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=22898",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/03/img_4141-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 12618,
+        "targetStoragePath": "articles/2025/03/img_4141-1.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 30,
+      "year": 2025,
+      "wordpressId": 23790,
+      "title": "100 वर्ष बाद बेहद दुर्लभ पंचग्रही योग में होगी नवरात्र की शुरुआत।",
+      "slug": "after-100-years-navratri-will-start-in-very-rare-panchgrahi-yoga",
+      "publishedAt": "2025-03-27T21:35:35.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=23790",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/03/img_4445-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 23737,
+        "targetStoragePath": "articles/2025/03/img_4445-1.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 31,
+      "year": 2025,
+      "wordpressId": 24616,
+      "title": "हज करने वाले जायरीनो के टीकाकरण की प्रक्रिया चालू हुई।",
+      "slug": "the-process-of-vaccination-of-zairo-who-performed-hajj",
+      "publishedAt": "2025-04-18T18:41:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=24616",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/04/img_4750-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 22854,
+        "targetStoragePath": "articles/2025/04/img_4750-1.jpg"
+      },
+      "tipTapDocNodesCount": 4,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 32,
+      "year": 2025,
+      "wordpressId": 25458,
+      "title": "कानपुर-सागर हाइवे पर खराब डंपर की वजह से 2 घंटे तक लगा जाम।",
+      "slug": "kanpur-sagar-highway-jammed-for-2-hours-due-to-poor-dumper",
+      "publishedAt": "2025-05-09T19:15:21.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=25458",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/05/img_5015-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 26851,
+        "targetStoragePath": "articles/2025/05/img_5015-1.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 33,
+      "year": 2025,
+      "wordpressId": 26320,
+      "title": "बेवजह ट्रेन में अलार्म चेन खींचने को लेकर विशेष जागरूकता अभियान शुरू।",
+      "slug": "special-awareness-campaign-started-to-draw-an-alarm-chain-in-unnecessary-train",
+      "publishedAt": "2025-06-01T20:50:05.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=26320",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/06/img_5237-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 26328,
+        "targetStoragePath": "articles/2025/06/img_5237-1.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 34,
+      "year": 2025,
+      "wordpressId": 27211,
+      "title": "यूटिलिटी शिफ्टिंग के चलते दो, अन्य बिजली उपकेंद्रों पर मरम्मत के लिए शटडाउन।",
+      "slug": "shutdown-for-repair-on-two-other-power-sub-stations-due-to-utility-shifting",
+      "publishedAt": "2025-06-23T22:57:06.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=27211",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/06/img_5487-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 26326,
+        "targetStoragePath": "articles/2025/06/img_5487-1.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 35,
+      "year": 2025,
+      "wordpressId": 28044,
+      "title": "टेम्पो की टक्कर से घायल बाइक चालक युवक की स्थिति गंभीर।",
+      "slug": "the-condition-of-the-bike-driver-injured-in-the-collision-of-tempo-is-serious",
+      "publishedAt": "2025-07-16T19:26:55.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=28044",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/07/img_5816-1.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 26160,
+        "targetStoragePath": "articles/2025/07/img_5816-1.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 36,
+      "year": 2025,
+      "wordpressId": 28892,
+      "title": "रक्षाबंधन पर जबरदस्त भीड़ बढ़ने से बस अड्डे पर यात्रियों में धक्का मुक्की।",
+      "slug": "passengers-at-the-bus-station-pushed-out-due-to-increasing-crowd-on-rakshabandhan",
+      "publishedAt": "2025-08-09T18:48:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=28892",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/08/img_6094.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 25978,
+        "targetStoragePath": "articles/2025/08/img_6094.jpg"
+      },
+      "tipTapDocNodesCount": 5,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 37,
+      "year": 2025,
+      "wordpressId": 29756,
+      "title": "बुद्धा पार्क में 12 ज्योतिर्लिंगो की स्थापना की योजना पर गरमाई सियासत।",
+      "slug": "politics-on-the-plan-to-establish-12-jyotirlingo-in-buddha-park",
+      "publishedAt": "2025-09-01T18:39:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=29756",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/09/img_6375.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 31883,
+        "targetStoragePath": "articles/2025/09/img_6375.jpg"
+      },
+      "tipTapDocNodesCount": 5,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 38,
+      "year": 2025,
+      "wordpressId": 30660,
+      "title": "सौ फीट गहरे कुएं में गिरे युवक को पुलिस ने चारपाई और रस्सी की मदद से बचाया।",
+      "slug": "the-police-rescued-the-young-man-who-fell-in-a-hundred-feet-deep-well-with-the-help-of-a-cot-and-rope",
+      "publishedAt": "2025-09-24T18:51:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=30660",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/09/img_6687.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 24375,
+        "targetStoragePath": "articles/2025/09/img_6687.jpg"
+      },
+      "tipTapDocNodesCount": 4,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 39,
+      "year": 2025,
+      "wordpressId": 31552,
+      "title": "निःशुल्क नेत्र जांच शिविर में हुई 120 छात्रों की आंखों की जांच।",
+      "slug": "eyes-of-120-students-were-examined-in-the-free-eye-check-up-camp",
+      "publishedAt": "2025-10-15T19:51:11.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=31552",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/10/img_7019.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 20222,
+        "targetStoragePath": "articles/2025/10/img_7019.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 40,
+      "year": 2025,
+      "wordpressId": 32415,
+      "title": "दुर्घटनाग्रस्त वाहनों को न हटाने से 4 घंटे तक प्रभावित रहा राजमार्ग का यातायात।",
+      "slug": "highway-traffic-was-affected-for-4-hours-due-to-non-removal-of-accident-vehicles",
+      "publishedAt": "2025-11-22T18:52:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=32415",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2025/11/img_7595.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 20997,
+        "targetStoragePath": "articles/2025/11/img_7595.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 41,
+      "year": 2026,
+      "wordpressId": 33286,
+      "title": "उत्तर पश्चिमी हवाओं के चलते कंपकपाती ठंड में होगा नए साल का स्वागत।",
+      "slug": "new-year-will-be-welcomed-in-shivering-cold-due-to-northwest-winds",
+      "publishedAt": "2025-12-31T20:41:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=33286",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/01/img_7903.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 19956,
+        "targetStoragePath": "articles/2026/01/img_7903.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 42,
+      "year": 2026,
+      "wordpressId": 33773,
+      "title": "नगर आयुक्त ने जोनल पंपिंग स्टेशन की मरम्मत मार्च तक पूरा करने का दिया अल्टीमेटम।",
+      "slug": "the-municipal-commissioner-gave-an-ultimatum-to-complete-the-repairs-of-the-zonal-pumping-station-by-march",
+      "publishedAt": "2026-01-18T19:00:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=33773",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/01/img_8074.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 31080,
+        "targetStoragePath": "articles/2026/01/img_8074.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 43,
+      "year": 2026,
+      "wordpressId": 34294,
+      "title": "नवविवाहिता ने संदिग्ध परिस्थितियों में फंदा लगाकर कर ली आत्महत्या।",
+      "slug": "newly-married-woman-committed-suicide-by-hanging-herself-under-suspicious-circumstances",
+      "publishedAt": "2026-01-27T18:41:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=34294",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/01/img_8245.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 27530,
+        "targetStoragePath": "articles/2026/01/img_8245.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 44,
+      "year": 2026,
+      "wordpressId": 34773,
+      "title": "मजदूर ने छप्पर की धन्नी से फंदा लगाकर कर ली आत्महत्या।",
+      "slug": "the-laborer-committed-suicide-by-hanging-himself-with-a-thatched-roof",
+      "publishedAt": "2026-02-13T19:13:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=34773",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/02/img_8475.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 23036,
+        "targetStoragePath": "articles/2026/02/img_8475.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 45,
+      "year": 2026,
+      "wordpressId": 35242,
+      "title": "चेस्ट हॉस्पिटल में फार्मेसिस्ट और एआरओ में गाली-गलौज के बाद फार्मेसिस्ट हटाए गए।",
+      "slug": "pharmacist-in-chest-hospital-and-aro-were-removed-after-abusing-them",
+      "publishedAt": "2026-02-24T02:17:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=35242",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/02/img_8632.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 20759,
+        "targetStoragePath": "articles/2026/02/img_8632.jpg"
+      },
+      "tipTapDocNodesCount": 6,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 46,
+      "year": 2026,
+      "wordpressId": 35742,
+      "title": "गैंगस्टर को बेची गई&nbsp; 24.77 करोड़ की नजूल भूमि वापस सरकारी खाते में दर्ज।",
+      "slug": "nazul-land-worth-rs-2477-crore-sold-to-gangsters-has-been-returned-to-the-government-account",
+      "publishedAt": "2026-03-07T19:19:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=35742",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/03/img_8827.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 12641,
+        "targetStoragePath": "articles/2026/03/img_8827.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 47,
+      "year": 2026,
+      "wordpressId": 36209,
+      "title": "वैश्विक संकट के बीच कानपुर में विश्व शांति के लिए राजयोग महायज्ञ संपन्न",
+      "slug": "rajyoga-mahayagya-for-world-peace-concluded-in-kanpur-amid-global-crisis",
+      "publishedAt": "2026-04-01T16:46:54.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=36209",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/04/img-20260401-wa00191256803464114880409-1024x768.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 152741,
+        "targetStoragePath": "articles/2026/04/img-20260401-wa00191256803464114880409-1024x768.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 48,
+      "year": 2026,
+      "wordpressId": 36695,
+      "title": "टेनरी में लगी भीषण आग, संकरी गली में फायर ब्रिगेड नहीं पहुंचने से 5 घंटे में पाया गया काबू।",
+      "slug": "the-massive-fire-that-broke-out-in-the-tannery-was-brought-under-control-in-5-hours-as-the-fire-brigade-could-not-reach-the-narrow-street",
+      "publishedAt": "2026-04-22T18:51:41.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=36695",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/04/img-20260422-wa00016094075071398917608.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 16160,
+        "targetStoragePath": "articles/2026/04/img-20260422-wa00016094075071398917608.jpg"
+      },
+      "tipTapDocNodesCount": 2,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 49,
+      "year": 2026,
+      "wordpressId": 37162,
+      "title": "तेज रफ्तार ट्रक ने मां-बेटी को रौंदा, बाइक चालक पति भी घायल।",
+      "slug": "speeding-truck-crushed-mother-and-daughter-bike-driver-husband-also-injured",
+      "publishedAt": "2026-05-13T19:05:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=37162",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/05/img_9248.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 32357,
+        "targetStoragePath": "articles/2026/05/img_9248.jpg"
+      },
+      "tipTapDocNodesCount": 3,
+      "conversionWarnings": []
+    },
+    {
+      "manifestIndex": 50,
+      "year": 2026,
+      "wordpressId": 37655,
+      "title": "बीच सड़क पर मिली टेनरीकर्मी की लाश, दारू पार्टी बनी मौत का शबब।",
+      "slug": "tannery-workers-body-found-on-the-middle-of-the-road-alcohol-party-became-the-reason-for-death",
+      "publishedAt": "2026-06-22T18:28:00.000Z",
+      "originalPermalink": "https://azadsamacharindia.com/?p=37655",
+      "primaryCategory": "kanpur",
+      "categories": [
+        {
+          "slug": "kanpur",
+          "name": "कानपुर",
+          "englishName": "Kanpur",
+          "isPrimary": true
+        }
+      ],
+      "tags": [],
+      "isFeatured": false,
+      "isTrending": false,
+      "author": {
+        "legacyWpId": 1,
+        "displayName": "आज़ाद समाचार डेस्क",
+        "attribution": {
+          "legacyWpId": 1,
+          "username": "azadsamachar78",
+          "displayNameHindi": "आज़ाद समाचार डेस्क",
+          "displayNameEnglish": "Azad Samachar Desk",
+          "role": "editorial_desk",
+          "desk": "मुख्य ब्यूरो (Headquarters)",
+          "location": "कानपुर / नई दिल्ली",
+          "bio": "आज़ाद समाचार का केंद्रीय समाचार संकलन एवं संपादकीय डेस्क।",
+          "email": "azadsamachar78@gmail.com"
+        }
+      },
+      "featuredMedia": {
+        "source": "inline_content_fallback",
+        "relativePath": "2026/06/img_9412.jpg",
+        "existsOnDisk": true,
+        "sizeBytes": 19643,
+        "targetStoragePath": "articles/2026/06/img_9412.jpg"
+      },
+      "tipTapDocNodesCount": 1,
+      "conversionWarnings": []
+    }
+  ]
+}

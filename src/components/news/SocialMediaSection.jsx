@@ -33,7 +33,7 @@ export default function SocialMediaSection({ className = '' }) {
             </h3>
           </div>
           <p className="font-inter text-xs text-secondary leading-relaxed">
-            सोशल मीडिया और मैसेजिंग ऐप पर देश के 50 लाख से अधिक सजग पाठकों का भरोसेमंद नेटवर्क।
+            सोशल मीडिया और डिजिटल मैसेजिंग ऐप पर आज़ाद समाचार के आधिकारिक चैनलों से सीधे जुड़ें।
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
@@ -52,8 +52,8 @@ export default function SocialMediaSection({ className = '' }) {
                   <span className="font-inter text-xs font-bold text-on-surface truncate group-hover:text-primary-container transition-colors">
                     {item.name}
                   </span>
-                  <span className="font-inter text-[10px] text-secondary">
-                    {item.followers} फॉलोअर्स
+                  <span className="font-inter text-[10px] text-secondary truncate">
+                    {item.handle || 'फॉलो करें'}
                   </span>
                 </div>
               </a>

@@ -19,6 +19,13 @@ export default function SuggestionFilters({
     { id: 'clarity_style', label: 'शैली', count: counts.clarity + counts.style },
   ];
 
+  if (counts.sensationalism > 0) {
+    tabs.push({ id: 'sensationalism', label: 'सनसनीखेज', count: counts.sensationalism });
+  }
+  if (counts.fact_check > 0) {
+    tabs.push({ id: 'fact_check', label: 'तथ्य सत्यापन', count: counts.fact_check });
+  }
+
   return (
     <div className="space-y-2 font-mukta">
       {/* Category Pills */}

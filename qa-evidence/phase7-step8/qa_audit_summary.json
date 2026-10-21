@@ -1,0 +1,779 @@
+{
+  "timestamp": "2026-10-20T06:52:05.197Z",
+  "browser": "Microsoft Edge Headless (CDP)",
+  "viewportsTested": [
+    "360x800",
+    "390x844",
+    "768x1024",
+    "1024x768",
+    "1440x900"
+  ],
+  "visualAudits": [
+    {
+      "pageId": "01_homepage",
+      "path": "/",
+      "viewport": "360x800",
+      "screenshot": "01_homepage_360x800.png",
+      "sizeBytes": 43145,
+      "metrics": {
+        "title": "ताज़ा, निष्पक्ष और प्रामाणिक हिंदी समाचार - आज़ाद समाचार | Azaad Samachar",
+        "h1": null,
+        "hasH1": false,
+        "imagesCount": 8,
+        "brokenImages": 6,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 360,
+        "innerWidth": 360,
+        "textLength": 4293
+      }
+    },
+    {
+      "pageId": "01_homepage",
+      "path": "/",
+      "viewport": "390x844",
+      "screenshot": "01_homepage_390x844.png",
+      "sizeBytes": 43635,
+      "metrics": {
+        "title": "ताज़ा, निष्पक्ष और प्रामाणिक हिंदी समाचार - आज़ाद समाचार | Azaad Samachar",
+        "h1": null,
+        "hasH1": false,
+        "imagesCount": 8,
+        "brokenImages": 6,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 4293
+      }
+    },
+    {
+      "pageId": "01_homepage",
+      "path": "/",
+      "viewport": "768x1024",
+      "screenshot": "01_homepage_768x1024.png",
+      "sizeBytes": 64027,
+      "metrics": {
+        "title": "ताज़ा, निष्पक्ष और प्रामाणिक हिंदी समाचार - आज़ाद समाचार | Azaad Samachar",
+        "h1": null,
+        "hasH1": false,
+        "imagesCount": 8,
+        "brokenImages": 6,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 768,
+        "innerWidth": 768,
+        "textLength": 4411
+      }
+    },
+    {
+      "pageId": "01_homepage",
+      "path": "/",
+      "viewport": "1024x768",
+      "screenshot": "01_homepage_1024x768.png",
+      "sizeBytes": 84632,
+      "metrics": {
+        "title": "ताज़ा, निष्पक्ष और प्रामाणिक हिंदी समाचार - आज़ाद समाचार | Azaad Samachar",
+        "h1": null,
+        "hasH1": false,
+        "imagesCount": 8,
+        "brokenImages": 5,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1009,
+        "innerWidth": 1024,
+        "textLength": 4522
+      }
+    },
+    {
+      "pageId": "01_homepage",
+      "path": "/",
+      "viewport": "1440x900",
+      "screenshot": "01_homepage_1440x900.png",
+      "sizeBytes": 106630,
+      "metrics": {
+        "title": "ताज़ा, निष्पक्ष और प्रामाणिक हिंदी समाचार - आज़ाद समाचार | Azaad Samachar",
+        "h1": null,
+        "hasH1": false,
+        "imagesCount": 8,
+        "brokenImages": 4,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 4544
+      }
+    },
+    {
+      "pageId": "02_category_kanpur",
+      "path": "/category/kanpur",
+      "viewport": "360x800",
+      "screenshot": "02_category_kanpur_360x800.png",
+      "sizeBytes": 38437,
+      "metrics": {
+        "title": "कानपुर समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 360,
+        "innerWidth": 360,
+        "textLength": 2442
+      }
+    },
+    {
+      "pageId": "02_category_kanpur",
+      "path": "/category/kanpur",
+      "viewport": "390x844",
+      "screenshot": "02_category_kanpur_390x844.png",
+      "sizeBytes": 39042,
+      "metrics": {
+        "title": "कानपुर समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 2442
+      }
+    },
+    {
+      "pageId": "02_category_kanpur",
+      "path": "/category/kanpur",
+      "viewport": "768x1024",
+      "screenshot": "02_category_kanpur_768x1024.png",
+      "sizeBytes": 52801,
+      "metrics": {
+        "title": "कानपुर समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 768,
+        "innerWidth": 768,
+        "textLength": 2507
+      }
+    },
+    {
+      "pageId": "02_category_kanpur",
+      "path": "/category/kanpur",
+      "viewport": "1024x768",
+      "screenshot": "02_category_kanpur_1024x768.png",
+      "sizeBytes": 73824,
+      "metrics": {
+        "title": "कानपुर समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1009,
+        "innerWidth": 1024,
+        "textLength": 2618
+      }
+    },
+    {
+      "pageId": "02_category_kanpur",
+      "path": "/category/kanpur",
+      "viewport": "1440x900",
+      "screenshot": "02_category_kanpur_1440x900.png",
+      "sizeBytes": 96433,
+      "metrics": {
+        "title": "कानपुर समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 2640
+      }
+    },
+    {
+      "pageId": "03_category_national",
+      "path": "/category/national",
+      "viewport": "1440x900",
+      "screenshot": "03_category_national_1440x900.png",
+      "sizeBytes": 95685,
+      "metrics": {
+        "title": "राष्ट्रीय समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "राष्ट्रीय",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 2629
+      }
+    },
+    {
+      "pageId": "03_category_national",
+      "path": "/category/national",
+      "viewport": "390x844",
+      "screenshot": "03_category_national_390x844.png",
+      "sizeBytes": 38537,
+      "metrics": {
+        "title": "राष्ट्रीय समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "राष्ट्रीय",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 2431
+      }
+    },
+    {
+      "pageId": "04_category_uttar_pradesh",
+      "path": "/category/uttar-pradesh",
+      "viewport": "1440x900",
+      "screenshot": "04_category_uttar_pradesh_1440x900.png",
+      "sizeBytes": 99636,
+      "metrics": {
+        "title": "उत्तर प्रदेश समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "उत्तर प्रदेश",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 2653
+      }
+    },
+    {
+      "pageId": "04_category_uttar_pradesh",
+      "path": "/category/uttar-pradesh",
+      "viewport": "390x844",
+      "screenshot": "04_category_uttar_pradesh_390x844.png",
+      "sizeBytes": 48138,
+      "metrics": {
+        "title": "उत्तर प्रदेश समाचार - ताज़ा एवं प्रामाणिक खबरें - आज़ाद समाचार | Azaad Samachar",
+        "h1": "उत्तर प्रदेश",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 3027
+      }
+    },
+    {
+      "pageId": "05_category_kanpur_deep_archive",
+      "path": "/category/kanpur?page=10",
+      "viewport": "1440x900",
+      "screenshot": "05_category_kanpur_deep_archive_1440x900.png",
+      "sizeBytes": 96519,
+      "metrics": {
+        "title": "कानपुर समाचार - पृष्ठ 10 - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 2640
+      }
+    },
+    {
+      "pageId": "05_category_kanpur_deep_archive",
+      "path": "/category/kanpur?page=10",
+      "viewport": "390x844",
+      "screenshot": "05_category_kanpur_deep_archive_390x844.png",
+      "sizeBytes": 50361,
+      "metrics": {
+        "title": "कानपुर समाचार - पृष्ठ 10 - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर",
+        "hasH1": true,
+        "imagesCount": 14,
+        "brokenImages": 12,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 4468
+      }
+    },
+    {
+      "pageId": "06_article_with_image",
+      "path": "/article/%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%b5%e0%a4%bf%e0%a4%b6%e0%a5%8d%e0%a4%b5%e0%a4%b5%e0%a4%bf%e0%a4%a6%e0%a5%8d%e0%a4%af%e0%a4%be%e0%a4%b2%e0%a4%af-%e0%a4%94%e0%a4%b0",
+      "viewport": "360x800",
+      "screenshot": "06_article_with_image_360x800.png",
+      "sizeBytes": 86470,
+      "metrics": {
+        "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं। - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+        "hasH1": true,
+        "imagesCount": 10,
+        "brokenImages": 6,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 360,
+        "innerWidth": 360,
+        "textLength": 6827
+      }
+    },
+    {
+      "pageId": "06_article_with_image",
+      "path": "/article/%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%b5%e0%a4%bf%e0%a4%b6%e0%a5%8d%e0%a4%b5%e0%a4%b5%e0%a4%bf%e0%a4%a6%e0%a5%8d%e0%a4%af%e0%a4%be%e0%a4%b2%e0%a4%af-%e0%a4%94%e0%a4%b0",
+      "viewport": "390x844",
+      "screenshot": "06_article_with_image_390x844.png",
+      "sizeBytes": 119519,
+      "metrics": {
+        "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं। - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+        "hasH1": true,
+        "imagesCount": 10,
+        "brokenImages": 5,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 6827
+      }
+    },
+    {
+      "pageId": "06_article_with_image",
+      "path": "/article/%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%b5%e0%a4%bf%e0%a4%b6%e0%a5%8d%e0%a4%b5%e0%a4%b5%e0%a4%bf%e0%a4%a6%e0%a5%8d%e0%a4%af%e0%a4%be%e0%a4%b2%e0%a4%af-%e0%a4%94%e0%a4%b0",
+      "viewport": "768x1024",
+      "screenshot": "06_article_with_image_768x1024.png",
+      "sizeBytes": 381335,
+      "metrics": {
+        "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं। - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+        "hasH1": true,
+        "imagesCount": 10,
+        "brokenImages": 5,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 768,
+        "innerWidth": 768,
+        "textLength": 6953
+      }
+    },
+    {
+      "pageId": "06_article_with_image",
+      "path": "/article/%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%b5%e0%a4%bf%e0%a4%b6%e0%a5%8d%e0%a4%b5%e0%a4%b5%e0%a4%bf%e0%a4%a6%e0%a5%8d%e0%a4%af%e0%a4%be%e0%a4%b2%e0%a4%af-%e0%a4%94%e0%a4%b0",
+      "viewport": "1024x768",
+      "screenshot": "06_article_with_image_1024x768.png",
+      "sizeBytes": 200791,
+      "metrics": {
+        "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं। - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+        "hasH1": true,
+        "imagesCount": 10,
+        "brokenImages": 5,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1009,
+        "innerWidth": 1024,
+        "textLength": 7064
+      }
+    },
+    {
+      "pageId": "06_article_with_image",
+      "path": "/article/%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a4%aa%e0%a5%81%e0%a4%b0-%e0%a4%b5%e0%a4%bf%e0%a4%b6%e0%a5%8d%e0%a4%b5%e0%a4%b5%e0%a4%bf%e0%a4%a6%e0%a5%8d%e0%a4%af%e0%a4%be%e0%a4%b2%e0%a4%af-%e0%a4%94%e0%a4%b0",
+      "viewport": "1440x900",
+      "screenshot": "06_article_with_image_1440x900.png",
+      "sizeBytes": 480652,
+      "metrics": {
+        "title": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं। - आज़ाद समाचार | Azaad Samachar",
+        "h1": "कानपुर विश्वविद्यालय और यूपीसीए मिलकर तराशेंगे देश की भावी क्रिकेट प्रतिभाएं।",
+        "hasH1": true,
+        "imagesCount": 10,
+        "brokenImages": 5,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 7086
+      }
+    },
+    {
+      "pageId": "07_article_without_image",
+      "path": "/article/%25e0%25a4%259c%25e0%25a4%25b2%25e0%25a4%2595%25e0%25a4%25b2-%25e0%25a4%25b5%25e0%25a4%25bf%25e0%25a4%25ad%25e0%25a4%25be%25e0%25a4%2597-%25e0%25a4%2595%25e0%25a5%2587-%25e0%25a4%2586%25e0%25a4%2589%25e0%25a4%259f%25e0%25a4%25b8%25e0%25a5%258b%25e0%25a4%25b0%25e0%25a5%258d%25e0%25a4%25b8%25e0%25a4%25bf%25e0%25a4%2582",
+      "viewport": "1440x900",
+      "screenshot": "07_article_without_image_1440x900.png",
+      "sizeBytes": 153355,
+      "metrics": {
+        "title": "जलकल विभाग के आउटसोर्सिंग कर्मचारी को मेहरबानी से मिला सरकारी आवास? - आज़ाद समाचार | Azaad Samachar",
+        "h1": "जलकल विभाग के आउटसोर्सिंग कर्मचारी को मेहरबानी से मिला सरकारी आवास?",
+        "hasH1": true,
+        "imagesCount": 6,
+        "brokenImages": 3,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 6340
+      }
+    },
+    {
+      "pageId": "07_article_without_image",
+      "path": "/article/%25e0%25a4%259c%25e0%25a4%25b2%25e0%25a4%2595%25e0%25a4%25b2-%25e0%25a4%25b5%25e0%25a4%25bf%25e0%25a4%25ad%25e0%25a4%25be%25e0%25a4%2597-%25e0%25a4%2595%25e0%25a5%2587-%25e0%25a4%2586%25e0%25a4%2589%25e0%25a4%259f%25e0%25a4%25b8%25e0%25a5%258b%25e0%25a4%25b0%25e0%25a5%258d%25e0%25a4%25b8%25e0%25a4%25bf%25e0%25a4%2582",
+      "viewport": "390x844",
+      "screenshot": "07_article_without_image_390x844.png",
+      "sizeBytes": 73245,
+      "metrics": {
+        "title": "जलकल विभाग के आउटसोर्सिंग कर्मचारी को मेहरबानी से मिला सरकारी आवास? - आज़ाद समाचार | Azaad Samachar",
+        "h1": "जलकल विभाग के आउटसोर्सिंग कर्मचारी को मेहरबानी से मिला सरकारी आवास?",
+        "hasH1": true,
+        "imagesCount": 6,
+        "brokenImages": 3,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 6081
+      }
+    },
+    {
+      "pageId": "08_article_historical_500",
+      "path": "/article/the-teenager-caught-stealing-from-a-grocery-store-was-sent-to-a-juvenile-home",
+      "viewport": "1440x900",
+      "screenshot": "08_article_historical_500_1440x900.png",
+      "sizeBytes": 208102,
+      "metrics": {
+        "title": "किराना दुकान से चोरी करते पकड़े गए किशोर को बाल सुधार गृह भेजा गया। - आज़ाद समाचार | Azaad Samachar",
+        "h1": "किराना दुकान से चोरी करते पकड़े गए किशोर को बाल सुधार गृह भेजा गया।",
+        "hasH1": true,
+        "imagesCount": 8,
+        "brokenImages": 3,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 5168
+      }
+    },
+    {
+      "pageId": "08_article_historical_500",
+      "path": "/article/the-teenager-caught-stealing-from-a-grocery-store-was-sent-to-a-juvenile-home",
+      "viewport": "390x844",
+      "screenshot": "08_article_historical_500_390x844.png",
+      "sizeBytes": 85132,
+      "metrics": {
+        "title": "किराना दुकान से चोरी करते पकड़े गए किशोर को बाल सुधार गृह भेजा गया। - आज़ाद समाचार | Azaad Samachar",
+        "h1": "किराना दुकान से चोरी करते पकड़े गए किशोर को बाल सुधार गृह भेजा गया।",
+        "hasH1": true,
+        "imagesCount": 8,
+        "brokenImages": 3,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 4909
+      }
+    },
+    {
+      "pageId": "09_search_results",
+      "path": "/search?q=%E0%A4%95%E0%A4%BE%E0%A4%A8%E0%A4%AA%E0%A4%81%E0%A4%B0",
+      "viewport": "360x800",
+      "screenshot": "09_search_results_360x800.png",
+      "sizeBytes": 52840,
+      "metrics": {
+        "title": "खोज: \"कानपँर\" - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 360,
+        "innerWidth": 360,
+        "textLength": 3959
+      }
+    },
+    {
+      "pageId": "09_search_results",
+      "path": "/search?q=%E0%A4%95%E0%A4%BE%E0%A4%A8%E0%A4%AA%E0%A4%81%E0%A4%B0",
+      "viewport": "390x844",
+      "screenshot": "09_search_results_390x844.png",
+      "sizeBytes": 57025,
+      "metrics": {
+        "title": "खोज: \"कानपँर\" - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 3959
+      }
+    },
+    {
+      "pageId": "09_search_results",
+      "path": "/search?q=%E0%A4%95%E0%A4%BE%E0%A4%A8%E0%A4%AA%E0%A4%81%E0%A4%B0",
+      "viewport": "768x1024",
+      "screenshot": "09_search_results_768x1024.png",
+      "sizeBytes": 89867,
+      "metrics": {
+        "title": "खोज: \"कानपँर\" - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 768,
+        "innerWidth": 768,
+        "textLength": 4046
+      }
+    },
+    {
+      "pageId": "09_search_results",
+      "path": "/search?q=%E0%A4%95%E0%A4%BE%E0%A4%A8%E0%A4%AA%E0%A4%81%E0%A4%B0",
+      "viewport": "1024x768",
+      "screenshot": "09_search_results_1024x768.png",
+      "sizeBytes": 96200,
+      "metrics": {
+        "title": "खोज: \"कानपँर\" - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1009,
+        "innerWidth": 1024,
+        "textLength": 4157
+      }
+    },
+    {
+      "pageId": "09_search_results",
+      "path": "/search?q=%E0%A4%95%E0%A4%BE%E0%A4%A8%E0%A4%AA%E0%A4%81%E0%A4%B0",
+      "viewport": "1440x900",
+      "screenshot": "09_search_results_1440x900.png",
+      "sizeBytes": 130777,
+      "metrics": {
+        "title": "खोज: \"कानपँर\" - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 4179
+      }
+    },
+    {
+      "pageId": "10_search_empty",
+      "path": "/search?q=xyznonexistentterm9999",
+      "viewport": "1440x900",
+      "screenshot": "10_search_empty_1440x900.png",
+      "sizeBytes": 136619,
+      "metrics": {
+        "title": "खोज: \"xyznonexistentterm9999\" - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 4211
+      }
+    },
+    {
+      "pageId": "10_search_empty",
+      "path": "/search?q=xyznonexistentterm9999",
+      "viewport": "390x844",
+      "screenshot": "10_search_empty_390x844.png",
+      "sizeBytes": 61600,
+      "metrics": {
+        "title": "खोज: \"xyznonexistentterm9999\" - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 3991
+      }
+    },
+    {
+      "pageId": "11_videos",
+      "path": "/videos",
+      "viewport": "1440x900",
+      "screenshot": "11_videos_1440x900.png",
+      "sizeBytes": 126437,
+      "metrics": {
+        "title": "वीडियो न्यूज़ एवं डिजिटल प्रसारण (Video Bulletins) - आज़ाद समाचार | Azaad Samachar",
+        "h1": "वीडियो न्यूज़ एवं डिजिटल प्रसारण",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 2289
+      }
+    },
+    {
+      "pageId": "11_videos",
+      "path": "/videos",
+      "viewport": "390x844",
+      "screenshot": "11_videos_390x844.png",
+      "sizeBytes": 59895,
+      "metrics": {
+        "title": "वीडियो न्यूज़ एवं डिजिटल प्रसारण (Video Bulletins) - आज़ाद समाचार | Azaad Samachar",
+        "h1": "वीडियो न्यूज़ एवं डिजिटल प्रसारण",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 2069
+      }
+    },
+    {
+      "pageId": "12_photos",
+      "path": "/search?content=photo",
+      "viewport": "1440x900",
+      "screenshot": "12_photos_1440x900.png",
+      "sizeBytes": 111238,
+      "metrics": {
+        "title": "समाचार एवं अभिलेखागार खोज - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 3073
+      }
+    },
+    {
+      "pageId": "12_photos",
+      "path": "/search?content=photo",
+      "viewport": "390x844",
+      "screenshot": "12_photos_390x844.png",
+      "sizeBytes": 53103,
+      "metrics": {
+        "title": "समाचार एवं अभिलेखागार खोज - आज़ाद समाचार | Azaad Samachar",
+        "h1": "समाचार एवं अभिलेखागार खोज (10,650+ ऐतिहासिक समाचार)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 2875
+      }
+    },
+    {
+      "pageId": "13_info_about",
+      "path": "/about",
+      "viewport": "1440x900",
+      "screenshot": "13_info_about_1440x900.png",
+      "sizeBytes": 131171,
+      "metrics": {
+        "title": "हमारे बारे में (About Us) - आज़ाद समाचार | Azaad Samachar",
+        "h1": "हमारे बारे में (About Us)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 2259
+      }
+    },
+    {
+      "pageId": "13_info_about",
+      "path": "/about",
+      "viewport": "390x844",
+      "screenshot": "13_info_about_390x844.png",
+      "sizeBytes": 58826,
+      "metrics": {
+        "title": "हमारे बारे में (About Us) - आज़ाद समाचार | Azaad Samachar",
+        "h1": "हमारे बारे में (About Us)",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 2061
+      }
+    },
+    {
+      "pageId": "14_unknown_404",
+      "path": "/unknown-qa-test-route-404",
+      "viewport": "1440x900",
+      "screenshot": "14_unknown_404_1440x900.png",
+      "sizeBytes": 82696,
+      "metrics": {
+        "title": "पृष्ठ नहीं मिला (404 Page Not Found) - आज़ाद समाचार | Azaad Samachar",
+        "h1": "अनुरोधित पृष्ठ नहीं मिला",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 1425,
+        "innerWidth": 1440,
+        "textLength": 1715
+      }
+    },
+    {
+      "pageId": "14_unknown_404",
+      "path": "/unknown-qa-test-route-404",
+      "viewport": "390x844",
+      "screenshot": "14_unknown_404_390x844.png",
+      "sizeBytes": 44694,
+      "metrics": {
+        "title": "पृष्ठ नहीं मिला (404 Page Not Found) - आज़ाद समाचार | Azaad Samachar",
+        "h1": "अनुरोधित पृष्ठ नहीं मिला",
+        "hasH1": true,
+        "imagesCount": 2,
+        "brokenImages": 0,
+        "hasHorizontalScroll": false,
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "textLength": 1517
+      }
+    }
+  ],
+  "functionalAudits": [
+    {
+      "test": "Header Kanpur Category Navigation",
+      "passed": true,
+      "detail": "Navigated to http://127.0.0.1:5173/category/kanpur"
+    },
+    {
+      "test": "Category Archive Pagination",
+      "passed": false,
+      "detail": "Page 2 URL: http://127.0.0.1:5173/category/kanpur"
+    },
+    {
+      "test": "Search Submission",
+      "passed": true,
+      "detail": "Search URL: http://127.0.0.1:5173/, Items: 2"
+    },
+    {
+      "test": "Article Interactive Controls (Copy, Audio, Share)",
+      "passed": false,
+      "detail": "Copy: false, Audio: false, Shares: 2"
+    },
+    {
+      "test": "Mobile Navigation Drawer",
+      "passed": true,
+      "detail": "Drawer toggle: true, Drawer visible: true"
+    },
+    {
+      "test": "404 Error Recovery Navigation",
+      "passed": true,
+      "detail": "Landed on http://127.0.0.1:5173/"
+    }
+  ],
+  "adminAudits": [
+    {
+      "test": "Anonymous Route Protection",
+      "passed": true,
+      "detail": "URL: http://127.0.0.1:5173/admin/dashboard"
+    },
+    {
+      "test": "Admin Login Form Structure",
+      "passed": false,
+      "detail": "Email: true, Password: false, Submit: true"
+    }
+  ],
+  "consoleErrors": [],
+  "networkFailures": []
+}

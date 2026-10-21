@@ -31,19 +31,30 @@ export default function RichTextEditor({
   const [youtubeModalOpen, setYoutubeModalOpen] = useState(false);
   const [ytUrl, setYtUrl] = useState('');
 
-  const handleSelectFromLibrary = (asset) => {
+  const handleSelectFromLibrary = (selected) => {
     if (!editor) return;
-    editor
-      .chain()
-      .focus()
-      .setImage({
-        src: asset.url,
-        alt: asset.altText || asset.caption || 'समाचार छायाचित्र',
-        title: asset.caption ? `${asset.caption}${asset.credit ? ` (फोटो: ${asset.credit})` : ''}` : (asset.credit || undefined),
-      })
-      .run();
+    const assets = Array.isArray(selected) ? selected : [selected];
+    if (assets.length === 0) return;
+
+    let chain = editor.chain().focus();
+    for (const asset of assets) {
+      const captionText = asset.caption
+        ? `${asset.caption}${asset.credit ? ` (फोटो: ${asset.credit})` : ''}`
+        : asset.credit
+        ? `फोटो: ${asset.credit}`
+        : undefined;
+
+      chain = chain
+        .setImage({
+          src: asset.url || asset.publicUrl || asset.public_url,
+          alt: asset.altText || asset.caption || asset.title || 'समाचार छायाचित्र',
+          title: captionText,
+        })
+        .createParagraphNear();
+    }
+    chain.run();
     setMediaPickerOpen(false);
-    toast.success('मीडिया लाइब्रेरी से छवि आलेख में जोड़ी गई');
+    toast.success(`${assets.length} ${assets.length > 1 ? 'छवियां' : 'छवि'} आलेख में जोड़ी गईं`);
   };
 
   const editor = useEditor({
@@ -429,6 +440,7 @@ export default function RichTextEditor({
         onClose={() => setMediaPickerOpen(false)}
         onSelectMedia={handleSelectFromLibrary}
         title="आलेख में इनलाइन छवि डालें (Insert Inline Media)"
+        multiple={true}
       />
     </div>
   );

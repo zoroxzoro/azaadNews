@@ -179,3 +179,48 @@ export function revokeObjectUrl(id) {
     activeObjectUrls.delete(key);
   }
 }
+
+/**
+ * Checks whether a media asset is used as a featured image or inline inside articles
+ */
+export function checkMediaAssetUsage(asset, articles = []) {
+  if (!asset || !Array.isArray(articles)) {
+    return { isUsed: false, usedAsFeatured: false, usedInContent: false, articles: [] };
+  }
+
+  const targetUrl = asset.url;
+  const targetId = asset.id;
+  const matched = [];
+
+  for (const art of articles) {
+    const isFeaturedMatch =
+      String(art.featuredMediaId || art.featured_media_id) === String(targetId) ||
+      (targetUrl && (art.featuredImage === targetUrl || art.legacy_url === targetUrl));
+
+    let isContentMatch = false;
+    if (art.content || art.content_json) {
+      const contentStr = typeof art.content === 'string' ? art.content : JSON.stringify(art.content || art.content_json);
+      if (targetUrl && contentStr.includes(targetUrl)) {
+        isContentMatch = true;
+      } else if (targetId && contentStr.includes(String(targetId))) {
+        isContentMatch = true;
+      }
+    }
+
+    if (isFeaturedMatch || isContentMatch) {
+      matched.push({
+        id: art.id,
+        title: art.title,
+        isFeatured: isFeaturedMatch,
+        isContent: isContentMatch,
+      });
+    }
+  }
+
+  return {
+    isUsed: matched.length > 0,
+    usedAsFeatured: matched.some((m) => m.isFeatured),
+    usedInContent: matched.some((m) => m.isContent),
+    articles: matched,
+  };
+}

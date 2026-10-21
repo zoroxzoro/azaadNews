@@ -36,6 +36,15 @@ export const categories = [
     isPrimary: true,
   },
   {
+    id: 'kanpur',
+    slug: 'kanpur',
+    nameHindi: 'कानपुर',
+    nameEnglish: 'Kanpur',
+    description: 'कानपुर नगर व देहात की ताज़ा खबरें, प्रशासनिक गतिविधियां और स्थानीय समाचार',
+    color: '#c8102e',
+    isPrimary: true,
+  },
+  {
     id: 'world',
     slug: 'world',
     nameHindi: 'दुनिया',
@@ -123,6 +132,15 @@ export const categories = [
     nameEnglish: 'Education & Jobs',
     description: 'सरकारी भर्ती, प्रतियोगी परीक्षाएं, परिणाम और करियर मार्गदर्शन',
     color: '#434d5f',
+    isPrimary: false,
+  },
+  {
+    id: 'others',
+    slug: 'others',
+    nameHindi: 'अन्य',
+    nameEnglish: 'Others',
+    description: 'विविध एवं अन्य महत्वपूर्ण समाचार',
+    color: '#6b7280',
     isPrimary: false,
   },
 ];

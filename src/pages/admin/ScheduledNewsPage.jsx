@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Calendar as CalendarIcon,
@@ -15,6 +15,8 @@ import {
   Eye,
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { notificationService } from '../../services/notificationService';
+import { articlesService } from '../../services/articlesService';
 import { useArticles } from '../../context/ArticleContext';
 import {
   calculateSchedulingStats,
@@ -34,18 +36,70 @@ import {
   SchedulingStats,
   RescheduleDialog,
 } from '../../components/admin/scheduling';
+import { useAuth } from '../../context/AuthContext';
+import { normalizeStatus, ARTICLE_STATUS } from '../../utils/articleStatus';
 
 export default function ScheduledNewsPage() {
   const navigate = useNavigate();
+  const { currentUser, isSuperAdmin } = useAuth();
   const {
     articles,
     rescheduleArticle,
     returnToDraft,
     publishScheduledNow,
+    publishOverdueScheduled,
   } = useArticles();
+
+  // Ordinary admin filters by their user ID; Super admin sees global scheduled items
+  const effectiveAuthorId = isSuperAdmin ? null : currentUser?.id;
+
+  // Direct remote scheduled articles
+  const [dbScheduled, setDbScheduled] = useState([]);
+  const [isLoadingScheduled, setIsLoadingScheduled] = useState(true);
+
+  const loadScheduled = useCallback(async () => {
+    try {
+      const data = await articlesService.getScheduledArticles(effectiveAuthorId);
+      setDbScheduled(data);
+    } catch (err) {
+      console.warn('[ScheduledNewsPage] Error loading scheduled articles:', err);
+    } finally {
+      setIsLoadingScheduled(false);
+    }
+  }, [effectiveAuthorId]);
+
+  useEffect(() => {
+    loadScheduled();
+  }, [loadScheduled]);
+
+  // Combine remote scheduled articles with any in-memory scheduled items
+  const displayArticles = useMemo(() => {
+    const map = new Map();
+    // Start with database scheduled articles
+    dbScheduled.forEach((a) => {
+      if (normalizeStatus(a.status) === ARTICLE_STATUS.SCHEDULED) {
+        if (!effectiveAuthorId || a.authorId === effectiveAuthorId || a.author?.id === effectiveAuthorId) {
+          map.set(String(a.id), a);
+        }
+      }
+    });
+    // Overlay context articles (and immediately evict any non-scheduled items)
+    articles.forEach((a) => {
+      const norm = normalizeStatus(a.status);
+      if (norm === ARTICLE_STATUS.SCHEDULED) {
+        if (!effectiveAuthorId || a.authorId === effectiveAuthorId || a.author?.id === effectiveAuthorId) {
+          map.set(String(a.id), a);
+        }
+      } else if (map.has(String(a.id))) {
+        map.delete(String(a.id));
+      }
+    });
+    return Array.from(map.values());
+  }, [articles, dbScheduled, effectiveAuthorId]);
 
   // Active view: 'calendar' | 'list' | 'queue'
   const [activeView, setActiveView] = useState('calendar');
+  const [isReconciling, setIsReconciling] = useState(false);
 
   // Modal states
   const [rescheduleTarget, setRescheduleTarget] = useState(null);
@@ -55,10 +109,32 @@ export default function ScheduledNewsPage() {
 
   // Scheduling statistics
   const stats = useMemo(() => {
-    return calculateSchedulingStats(articles);
-  }, [articles]);
+    return calculateSchedulingStats(displayArticles);
+  }, [displayArticles]);
 
   // Action handlers
+  const handleAutoPublishOverdue = async () => {
+    setIsReconciling(true);
+    try {
+      const res = await publishOverdueScheduled();
+      if (res?.publishedCount > 0) {
+        toast.success(`${res.publishedCount} ओवरड्यू समाचार सफलतापूर्वक प्रकाशित किए गए!`);
+        notificationService.createNotification({
+          type: 'published',
+          title: 'ओवरड्यू शेड्यूल्ड समाचार प्रकाशित',
+          message: `${res.publishedCount} ओवरड्यू समाचार निर्धारित समय अनुसार लाइव प्रकाशित हुए।`,
+          link: '/admin/news',
+        });
+      } else {
+        toast.info('कोई ओवरड्यू समाचार लंबित नहीं है।');
+      }
+    } catch (err) {
+      toast.error(err.message || 'स्वचालित प्रकाशन में त्रुटि');
+    } finally {
+      setIsReconciling(false);
+    }
+  };
+
   const handleEdit = (article) => {
     navigate(`/admin/news/edit/${article.id}`);
   };
@@ -71,37 +147,54 @@ export default function ScheduledNewsPage() {
     setRescheduleTarget(article);
   };
 
-  const handleConfirmReschedule = (articleId, newScheduledAtIso) => {
+  const handleConfirmReschedule = async (articleId, newScheduledAtIso) => {
     try {
-      rescheduleArticle(articleId, newScheduledAtIso);
+      await rescheduleArticle(articleId, newScheduledAtIso);
       toast.success('प्रकाशन समय सफलतापूर्वक अपडेट किया गया!');
+      await loadScheduled();
     } catch (err) {
       console.error(err);
-      toast.error('समय बदलने में त्रुटि हुई');
+      toast.error(err.message || 'समय बदलने में त्रुटि हुई');
     }
   };
 
-  const handleConfirmReturnToDraft = () => {
+  const handleConfirmReturnToDraft = async () => {
     if (!draftConfirmTarget) return;
     try {
-      returnToDraft(draftConfirmTarget.id);
+      await returnToDraft(draftConfirmTarget.id);
       toast.success('समाचार शेड्यूलिंग रद्द कर ड्राफ्ट में भेज दिया गया');
+      notificationService.createNotification({
+        type: 'draft',
+        title: 'शेड्यूलिंग रद्द (ड्राफ्ट)',
+        message: `"${draftConfirmTarget.title}" को शेड्यूल्ड कतार से हटाकर ड्राफ्ट में स्थानांतरित किया गया।`,
+        articleId: draftConfirmTarget.id,
+        link: '/admin/news',
+      });
       setDraftConfirmTarget(null);
+      await loadScheduled();
     } catch (err) {
       console.error(err);
-      toast.error('ड्राफ्ट में भेजने में त्रुटि हुई');
+      toast.error(err.message || 'ड्राफ्ट में भेजने में त्रुटि हुई');
     }
   };
 
-  const handleConfirmPublishNow = () => {
+  const handleConfirmPublishNow = async () => {
     if (!publishConfirmTarget) return;
     try {
-      publishScheduledNow(publishConfirmTarget.id);
+      await publishScheduledNow(publishConfirmTarget.id);
       toast.success('समाचार सार्वजनिक पोर्टल पर सफलतापूर्वक लाइव प्रकाशित हुआ!');
+      notificationService.createNotification({
+        type: 'published',
+        title: 'शेड्यूल्ड समाचार लाइव हुआ',
+        message: `"${publishConfirmTarget.title}" को तत्काल लाइव प्रकाशित किया गया।`,
+        articleId: publishConfirmTarget.id,
+        link: `/news/${publishConfirmTarget.slug || ''}`,
+      });
       setPublishConfirmTarget(null);
+      await loadScheduled();
     } catch (err) {
       console.error(err);
-      toast.error('प्रकाशन में त्रुटि हुई');
+      toast.error(err.message || 'प्रकाशन में त्रुटि हुई');
     }
   };
 
@@ -121,15 +214,30 @@ export default function ScheduledNewsPage() {
               </span>
             </div>
             <h1 className="font-mukta text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">
-              निर्धारित समाचार कैलेंडर (Scheduled News)
+              {isSuperAdmin
+                ? 'निर्धारित समाचार कैलेंडर (Scheduled News)'
+                : `मेरे निर्धारित समाचार (My Scheduled News) - ${currentUser?.name || 'एडमिन'}`}
             </h1>
             <p className="font-inter text-xs sm:text-sm text-secondary mt-1 max-w-2xl">
-              आगामी प्रकाशनों की दैनिक समय-सारणी, प्राइम-टाइम कैडेंस मॉनिटर और शेड्यूल्ड कतार।
+              {isSuperAdmin
+                ? 'आगामी प्रकाशनों की दैनिक समय-सारणी, प्राइम-टाइम कैडेंस मॉनिटर और वैश्विक शेड्यूल्ड कतार।'
+                : 'आपके द्वारा निर्धारित आलेखों की समय-सारणी, पुनः निर्धारण (Reschedule) एवं ड्राफ्ट में वापसी।'}
             </p>
           </div>
 
           {/* Action Button & View Switcher */}
           <div className="flex items-center gap-3 flex-wrap">
+            {stats.overdueScheduled > 0 && (
+              <button
+                type="button"
+                onClick={handleAutoPublishOverdue}
+                disabled={isReconciling}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-amber-600 hover:bg-amber-700 text-white font-mukta text-sm font-bold shadow-xs transition-colors cursor-pointer disabled:opacity-50"
+              >
+                <Rocket className="w-4 h-4" />
+                <span>{isReconciling ? 'प्रकाशन जारी...' : `${stats.overdueScheduled} ओवरड्यू प्रकाशित करें`}</span>
+              </button>
+            )}
             <button
               type="button"
               onClick={() => navigate('/admin/news/create')}
@@ -141,11 +249,16 @@ export default function ScheduledNewsPage() {
           </div>
         </div>
 
-        {/* Discreet Prototype Demonstration Notice */}
-        <div className="mt-4 pt-3 border-t border-border-rule flex items-start sm:items-center gap-2 text-xs font-inter text-secondary bg-paper-tint p-2.5 border">
-          <Info className="w-4 h-4 text-primary-container shrink-0 mt-0.5 sm:mt-0" />
-          <span>
-            <strong>डेवलपमेंट सूचना:</strong> शेड्यूलिंग केवल प्रोटोटाइप प्रदर्शन हेतु स्थानीय स्तर (Shared Store) पर सुरक्षित है। वास्तविक स्वचालित समय-बद्ध प्रकाशन के लिए बैकएंड जॉब शेड्यूलर (Persistent Queue) आवश्यक है।
+        {/* Server-Side Scheduler Status Strip */}
+        <div className="mt-4 pt-3 border-t border-border-rule flex items-start sm:items-center justify-between flex-wrap gap-2 text-xs font-inter text-secondary bg-paper-tint p-2.5 border">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>
+              <strong>सर्वर शेड्यूलर सक्रिय:</strong> समाचार UTC टाइमस्टैम्प के साथ सुरक्षित हैं। निर्धारित समय आने पर सर्वर वर्कर / बैकग्राउंड रिकॉन्सिलिएशन द्वारा स्वतः प्रकाशित हो जाते हैं।
+            </span>
+          </div>
+          <span className="text-[11px] font-mono text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 border border-emerald-200">
+            Auto-Sync Ready
           </span>
         </div>
       </div>
@@ -210,7 +323,7 @@ export default function ScheduledNewsPage() {
       {/* 4. MAIN VIEW WORKSPACE */}
       {activeView === 'calendar' && (
         <PublishingCalendar
-          articles={articles}
+          articles={displayArticles}
           onPreview={handlePreview}
           onEdit={handleEdit}
           onReschedule={handleOpenReschedule}
@@ -222,7 +335,7 @@ export default function ScheduledNewsPage() {
 
       {activeView === 'list' && (
         <ScheduledArticlesList
-          articles={articles}
+          articles={displayArticles}
           onPreview={handlePreview}
           onEdit={handleEdit}
           onReschedule={handleOpenReschedule}
@@ -234,7 +347,7 @@ export default function ScheduledNewsPage() {
 
       {activeView === 'queue' && (
         <PublishingQueue
-          articles={articles}
+          articles={displayArticles}
           onPreview={handlePreview}
           onEdit={handleEdit}
           onReschedule={handleOpenReschedule}

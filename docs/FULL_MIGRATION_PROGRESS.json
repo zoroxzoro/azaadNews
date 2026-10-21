@@ -1,0 +1,13 @@
+{
+  "status": "in_progress",
+  "currentBatchNumber": 31,
+  "totalBatches": 31,
+  "currentBatchId": "39d134e1-582a-4e54-aef6-abe604ddc245",
+  "totalArticles": 10654,
+  "totalImported": 10654,
+  "remainingArticles": 0,
+  "percentComplete": "100.00",
+  "totalMediaUploaded": 8627,
+  "totalStorageBytes": 653046061,
+  "lastHeartbeat": "2026-10-20T02:10:22.134Z"
+}

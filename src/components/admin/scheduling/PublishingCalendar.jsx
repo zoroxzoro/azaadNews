@@ -170,7 +170,7 @@ export default function PublishingCalendar({
           <div>
             <div className="flex items-center gap-2">
               <h2 className="font-mukta text-xl sm:text-2xl font-bold text-on-surface">
-                {HINDI_MONTHNAMES?.[viewMonth - 1] || HINDI_MONTH_NAMES[viewMonth - 1]} {viewYear}
+                {HINDI_MONTH_NAMES[viewMonth - 1]} {viewYear}
               </h2>
               <span className="font-inter text-[11px] font-bold text-secondary bg-paper-subtle px-2 py-0.5 uppercase tracking-wide">
                 IST (Asia/Kolkata)

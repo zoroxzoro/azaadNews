@@ -865,18 +865,38 @@ export const getActiveArticles = () => {
 };
 
 export const getArticleBySlug = (slug) => {
+  const matchSlugOrId = (item) =>
+    item.slug === slug ||
+    String(item.id) === String(slug) ||
+    (item.legacyWordPressId && String(item.legacyWordPressId) === String(slug));
+
   try {
     const saved = typeof window !== 'undefined' ? localStorage.getItem('azaad_newsroom_articles_v1') : null;
     if (saved) {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed)) {
-        return parsed.find((item) => item.slug === slug);
+        return parsed.find(matchSlugOrId);
       }
     }
   } catch {
     // Fallback
   }
-  return mockNews.find((item) => item.slug === slug);
+  return mockNews.find(matchSlugOrId);
+};
+
+export const getArticleById = (id) => {
+  try {
+    const saved = typeof window !== 'undefined' ? localStorage.getItem('azaad_newsroom_articles_v1') : null;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return parsed.find((item) => String(item.id) === String(id));
+      }
+    }
+  } catch {
+    // Fallback
+  }
+  return mockNews.find((item) => String(item.id) === String(id));
 };
 
 export const getArticlesByCategory = (categorySlug) => {

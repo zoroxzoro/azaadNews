@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Sparkles,
 } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function MobileNavigation({ isOpen, onClose }) {
   const location = useLocation();
@@ -149,9 +150,32 @@ export default function MobileNavigation({ isOpen, onClose }) {
         <div className="flex-1 overflow-y-auto p-4 space-y-5 no-scrollbar">
           {/* Main Categories */}
           <div>
-            <h4 className="font-inter text-[10px] uppercase font-bold text-secondary tracking-wider mb-2">
-              समाचार श्रेणियां (News Categories)
-            </h4>
+            <div className="flex items-center justify-between mb-2">
+              <h4 className="font-inter text-[10px] uppercase font-bold text-secondary tracking-wider">
+                समाचार श्रेणियां (News Categories)
+              </h4>
+            </div>
+
+            {/* Dedicated Kanpur Local Beat Highlight */}
+            <div className="mb-3">
+              <Link
+                to="/category/kanpur"
+                className={`flex items-center justify-between p-2.5 border-2 transition-colors ${
+                  location.pathname === '/category/kanpur'
+                    ? 'bg-primary-container text-white border-primary-container font-bold'
+                    : 'bg-paper-tint border-primary-container/40 text-on-surface hover:bg-paper-subtle'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                  <span className="font-mukta font-bold text-base">कानपुर स्पेशल (Kanpur Beat)</span>
+                </div>
+                <span className="font-inter text-[10px] uppercase font-bold text-primary-container dark:text-red-300">
+                  8,500+ समाचार ›
+                </span>
+              </Link>
+            </div>
+
             <ul className="space-y-1">
               <li>
                 <Link
@@ -213,9 +237,9 @@ export default function MobileNavigation({ isOpen, onClose }) {
                 href="#epaper"
                 onClick={(e) => {
                   e.preventDefault();
-                  alert('ई-पेपर पीडीएफ संस्करण जल्द उपलब्ध होगा।');
+                  toast('ई-पेपर पीडीएफ संस्करण जल्द उपलब्ध होगा।', { icon: '📰' });
                 }}
-                className="flex items-center justify-between p-2 text-on-surface hover:bg-paper-tint transition-colors"
+                className="flex items-center justify-between p-2 text-on-surface hover:bg-paper-tint transition-colors cursor-pointer"
               >
                 <span className="flex items-center gap-2">
                   <Newspaper className="w-4 h-4 text-primary-container" />
